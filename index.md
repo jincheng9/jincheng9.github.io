@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Jincheng Zhang's Homepage!
+tagline: 
 ---
 {% include JB/setup %}
 
 
-## Posts
+## Technical Posts 
 
 
 <ul class="posts">
