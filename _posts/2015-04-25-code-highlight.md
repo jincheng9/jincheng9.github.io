@@ -2,7 +2,7 @@
 layout: post
 title: "code highlight"
 description: ""
-category: 
+category: [code highlight]
 tags: [python]
 ---
 {% include JB/setup %}
