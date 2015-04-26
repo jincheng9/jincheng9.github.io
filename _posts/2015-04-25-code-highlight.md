@@ -20,4 +20,7 @@ if a>8:
 	
 def add(a, b):
 	return a+b
+
+def testCodeHighLight():
+	print "good"
 {% endhighlight %}
