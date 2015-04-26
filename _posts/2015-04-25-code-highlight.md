@@ -40,9 +40,7 @@ def testCodeHighLight():
   
 4. include the css file to _includes\themes\bootstrap-3\default.html
 
-   add this line: 
-   {% highlight html %}
-		<link href="{{ ASSET_PATH }}bootstrap/css/syntax.css" rel="stylesheet">
-   {% endhighlight %}
+   Refer to the way of including "bootstrap.min.css" 
+ 
 
    
