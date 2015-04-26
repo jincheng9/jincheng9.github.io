@@ -9,4 +9,4 @@ http://jincheng9.github.io/rss.xml
 http://jincheng9.github.io/sitemap.txt
 http://jincheng9.github.io/tags.html
 
-http://jincheng9.github.io/2015/04/25/code-highlight
+http://jincheng9.github.io/blog/2015/04/25/code-highlight
