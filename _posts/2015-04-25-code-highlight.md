@@ -46,13 +46,21 @@ def testCodeHighLight():
 
 1. Create a Repo called jincheng9.github.io on GitHub
 
-2. Push the contents of Boostrap to the Repo jincheng9.github.io
+2. Push the contents of Jekyll-Boostrap to the Repo jincheng9.github.io
 
 3. Modify the contents of index page
 
 	Modify the index.md in the root directory
 	
 4. the files in root directory generate the files in _site directory
+
+## How to add love.html to the website
+
+Just add love.html, css folder and js folder to the root directory of jincheng9.github.io
+
+Then the love.html, css folder and js folder will be automatically added to _site directory
+
+Then you can vist love.html via: http://jincheng9.github.io/love.html
 
 ## References: 
 
