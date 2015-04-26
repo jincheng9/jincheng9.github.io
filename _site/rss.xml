@@ -5,15 +5,15 @@
         <description>Jekyll Bootstrap - Jincheng Zhang</description>
         <link>http://jincheng9.github.io</link>
         <link>http://jincheng9.github.io</link>
-        <lastBuildDate>2015-04-26T13:55:56+08:00</lastBuildDate>
-        <pubDate>2015-04-26T13:55:56+08:00</pubDate>
+        <lastBuildDate>2015-04-26T15:08:00+08:00</lastBuildDate>
+        <pubDate>2015-04-26T15:08:00+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>code highlight</title>
                 <description>
-&lt;h2 id=&quot;python-code&quot;&gt;Python code&lt;/h2&gt;
+&lt;h2 id=&quot;python-code-highlighting-example&quot;&gt;Python code highlighting example&lt;/h2&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -24,7 +24,10 @@
 7
 8
 9
-10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
+10
+11
+12
+13&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
@@ -33,9 +36,62 @@
 	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&amp;lt;8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testCodeHighLight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;good&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
+
+
+## How to Enable Code Highlighting in Jekyll-Boostrap
+1. Use the default highligher &quot;pygments&quot; in file _config.yml 
+
+   GitHub does not support Rouge since August 1, 2014
+   
+2. Download a syntax highlighting css file (say syntax.css)
+
+   You can borrow the file from this url: https://github.com/mojombo/tpw/blob/master/css/syntax.css
+   
+3. Add syntax.css to the directory: \assets\themes\bootstrap-3\bootstrap\css 
+
+   Or other directories, make sure to refer syntax.css in step 4 correctly
+  
+4. include the css file to _includes\themes\bootstrap-3\default.html
+
+   Refer to the way of including &quot;bootstrap.min.css&quot; 
+   
+## Setup Jekyll-Boostrap on GitHub
+
+1. Create a Repo called jincheng9.github.io on GitHub
+
+2. Push the contents of Jekyll-Boostrap to the Repo jincheng9.github.io
+
+3. Modify the contents of index page
+
+	Modify the index.md in the root directory
+	
+4. the files in root directory generate the files in _site directory
+
+## How to add love.html to the website
+
+Just add love.html, css folder and js folder to the root directory of jincheng9.github.io
+
+Then the love.html, css folder and js folder will be automatically added to _site directory
+
+Then you can vist love.html via: http://jincheng9.github.io/love.html
+
+## References: 
+
+Setup Jekyll-Boostrap: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
+
+Code Highlighting: 
+
+1. http://jekyllrb.com/docs/templates/#code-snippet-highlighting
+
+2. https://truongtx.me/2012/12/28/jekyll-bootstrap-syntax-highlighting/
+
+   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
                 <link>http://jincheng9.github.io/2015/04/25/code-highlight</link>
