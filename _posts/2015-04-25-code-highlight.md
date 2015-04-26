@@ -42,7 +42,7 @@ def testCodeHighLight():
 
    add this line: 
    {% highlight html %}
-   <link href="{{ ASSET_PATH }}/bootstrap/css/syntax.css" rel="stylesheet">
+		<link href="{{ ASSET_PATH }}bootstrap/css/syntax.css" rel="stylesheet">
    {% endhighlight %}
 
    
