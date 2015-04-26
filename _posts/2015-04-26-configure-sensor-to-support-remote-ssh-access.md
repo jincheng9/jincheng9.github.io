@@ -10,17 +10,17 @@ tags: [ubuntu]
 ## How to configure ubuntu to remote ssh access it?
 
 {% highlight sh linenos %}
-	sudo apt-get install openssh-serve
-	sudo ufw allow 22
+sudo apt-get install openssh-server
+sudo ufw allow 22
 {% endhighlight %}
 
 ## Find specific processes running on ubuntu
-1. Example: find processes suffixed with .py
+1 Example: find processes suffixed with .py
 {% highlight sh linenos %}
 	ps -ef | grep .py
 {% endhighlight %}
 
-2. kill process with pid 7000
+2 kill process with pid 7000
 {% highlight sh linenos %}
 	kill -9 7000
 {% endhighlight %}
@@ -30,12 +30,12 @@ tags: [ubuntu]
 use putty psftp, then unzip and install
 
 ## list file based on modified date
-1. lastest file is at the bottom
+1 lastest file is at the bottom
 {% highlight sh linenos %}
 	ls -tr
 {% endhighlight %}
 
-2. oldest file is at the bottom
+2 oldest file is at the bottom
 {% highlight sh linenos %}
 	ls -t
 {% endhighlight %}
