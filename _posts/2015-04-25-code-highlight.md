@@ -41,6 +41,27 @@ def testCodeHighLight():
 4. include the css file to _includes\themes\bootstrap-3\default.html
 
    Refer to the way of including "bootstrap.min.css" 
- 
+   
+## Setup Jekyll-Boostrap on GitHub
+
+1. Create a Repo called jincheng9.github.io on GitHub
+
+2. Push the contents of Boostrap to the Repo jincheng9.github.io
+
+3. Modify the contents of index page
+
+	Modify the index.md in the root directory
+	
+4. the files in root directory generate the files in _site directory
+
+## References: 
+
+Setup Jekyll-Boostrap: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
+
+Code Highlighting: 
+
+1. http://jekyllrb.com/docs/templates/#code-snippet-highlighting
+
+2. https://truongtx.me/2012/12/28/jekyll-bootstrap-syntax-highlighting/
 
    
