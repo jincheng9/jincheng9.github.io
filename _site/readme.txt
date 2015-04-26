@@ -2,8 +2,17 @@
 
 2. 决定网站要显示的page
 在jincheng9.github.io这个目录下方的html文件名就是在首页会显示的page
-html里的内容无所谓，因为网站显示的内容是_site目录下的html文件，参考根目录下其它
-如archive.html怎么写的
+html里的内容参考根目录下其它如archive.html怎么写的:
+
+---
+layout: page
+title: About
+header: About Myself
+group: navigation
+---
+{% include JB/setup %}
+
+
 
 3. page的内容
 修改page对应的md文件或者根目录下的html文件
