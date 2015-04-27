@@ -31,7 +31,7 @@ tags: []
 * Bool (immutable)
 	{% highlight python linenos%}
 	a = True
-	b = False
+b = False
 	{% endhighlight %}
 	
 * String (single quotation, double quotation, and triple quotation) (immutable)
