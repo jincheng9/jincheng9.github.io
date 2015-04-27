@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Jincheng Zhang's Homepage!
+title: Step by Step
 tagline: 
 ---
 {% include JB/setup %}
