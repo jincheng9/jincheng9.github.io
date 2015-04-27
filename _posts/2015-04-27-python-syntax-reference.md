@@ -14,9 +14,9 @@ tags: []
 	* complex (complex numbers)
 		{% highlight python linenos%}
 			var = 10
-			var = 10L
-			var = 10.0
-			var = 10+10j
+		var = 10L
+		var = 10.0
+		var = 10+10j
 		{% endhighlight %}
 		
 * Bool (immutable)
