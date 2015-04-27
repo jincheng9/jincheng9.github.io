@@ -14,25 +14,29 @@ tags: []
 		{% endhighlight %}
 		
 	* long (long integers)
+	
 		{% highlight python%}
 			var = 10L
 		{% endhighlight %}
 		
 	* float (floating point real values)
+	
 		{% highlight python%}
 			var = 10.0
 		{% endhighlight %}
 		
 	* complex (complex numbers)
+	
 		{% highlight python%}
 			var = 10+10j
 		{% endhighlight %}
 		
 * Bool (immutable)
-	{% highlight python linenos%}
-	a = True
+
+{% highlight python linenos%}
+a = True
 b = False
-	{% endhighlight %}
+{% endhighlight %}
 	
 * String (single quotation, double quotation, and triple quotation) (immutable)
 
