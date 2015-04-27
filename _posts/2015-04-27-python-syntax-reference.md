@@ -12,12 +12,12 @@ tags: []
 	* long (long integers)
 	* float (floating point real values)
 	* complex (complex numbers)
-		{% highlight python linenos%}
-			var = 10
-		var = 10L
-		var = 10.0
-		var = 10+10j
-		{% endhighlight %}
+{% highlight python linenos%}
+var = 10
+var = 10L
+var = 10.0
+var = 10+10j
+{% endhighlight %}
 		
 * Bool (immutable)
 
