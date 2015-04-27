@@ -9,36 +9,40 @@ tags: []
 ### 1. Five Standard Data Types and Operations
 * Numbers (immutable)
 	* int (signed integers)
-		{% highlight python linenos%}
+		{% highlight python%}
 			var = 10
 		{% endhighlight %}
+		
 	* long (long integers)
-		{% highlight python linenos%}
+		{% highlight python%}
 			var = 10L
 		{% endhighlight %}
+		
 	* float (floating point real values)
-		{% highlight python linenos%}
+		{% highlight python%}
 			var = 10.0
 		{% endhighlight %}
+		
 	* complex (complex numbers)
-		{% highlight python linenos%}
+		{% highlight python%}
 			var = 10+10j
 		{% endhighlight %}
+		
 * Bool (immutable)
 	{% highlight python linenos%}
-		a = True
-		b = False
+	a = True
+	b = False
 	{% endhighlight %}
 	
 * String (single quotation, double quotation, and triple quotation) (immutable)
 
 	Triple quotation (''' or """) can be used to span the string into multiple lines. 
 	{% highlight python linenos%}
-		word = 'word'
-		sentence = "This is a sentence."
-		paragraph = """This is a paragraph. It is
+	word = 'word'
+	sentence = "This is a sentence."
+	paragraph = """This is a paragraph. It is
 	
-		made up of multiple lines and sentences."""
+	made up of multiple lines and sentences."""
 	{% endhighlight %}
 	
 	{% highlight python linenos%}
