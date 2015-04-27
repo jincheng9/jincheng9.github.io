@@ -74,7 +74,7 @@ print tuple*2
 print tuple+tinytuple
 {% endhighlight %}
 	
-	Following is invalid with tuple.
+Following is invalid with tuple.
 	
 {% highlight python linenos%}
 tuple = ('abcd', 786 , 2.23, 'john', 70.2)
@@ -133,7 +133,7 @@ def add(a, b):
 	
 ### 4. Class and Object
 
-	Objects of the same class share mutable class property, but have their own immutable class property and self property.
+Objects of the same class share mutable class property, but have their own immutable class property and self property.
 	
 {% highlight python linenos%}
 class Human(object):
