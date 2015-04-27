@@ -9,25 +9,13 @@ tags: []
 ### 1. Five Standard Data Types and Operations
 * Numbers (immutable)
 	* int (signed integers)
-		{% highlight python%}
-			var = 10
-		{% endhighlight %}
-		
 	* long (long integers)
-	
-		{% highlight python%}
-			var = 10L
-		{% endhighlight %}
-		
 	* float (floating point real values)
-	
-		{% highlight python%}
-			var = 10.0
-		{% endhighlight %}
-		
 	* complex (complex numbers)
-	
-		{% highlight python%}
+		{% highlight python linenos%}
+			var = 10
+			var = 10L
+			var = 10.0
 			var = 10+10j
 		{% endhighlight %}
 		
