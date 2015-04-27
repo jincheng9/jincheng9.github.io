@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "configure sensor to support remote ssh access"
+title: "configure sensor to accept remote ssh access"
 description: ""
 category: [ssh]
 tags: [ubuntu]
 ---
 {% include JB/setup %}
 
-## How to configure ubuntu to remote ssh access it?
+## How to configure ubuntu to accept remote ssh access?
 
 {% highlight sh linenos %}
 sudo apt-get install openssh-server
