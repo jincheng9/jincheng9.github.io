@@ -75,6 +75,7 @@ print tuple+tinytuple
 {% endhighlight %}
 	
 	Following is invalid with tuple
+	
 {% highlight python linenos%}
 tuple = ('abcd', 786 , 2.23, 'john', 70.2)
 list = ['abcd', 786 , 2.23, 'john', 70.2]
@@ -85,6 +86,7 @@ list[2] = 1000     # Valid syntax with list
 * Dictionary (mutable)
 
 	Python's dictionaries are kind of hash table type that associates a key with a value. Key should be immutalbe data type.
+	
 {% highlight python linenos%}
 dict = {}
 dict['one'] = 'This is one'
@@ -131,6 +133,7 @@ def add(a, b):
 	
 ### 4. Class and Object
 	Objects of the same class share mutable class property, but have their own immutable class property and self property.
+	
 {% highlight python linenos%}
 class Human(object):
 	can_walk = True
