@@ -20,4 +20,6 @@ The figure below is the architecture of our sytem. The sensors sense the TV spec
 
 <img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 480px;"/>
 
+These sensors are installed with ubuntu system. We synchronize these sensors using NTP (Network Time Protocol) and configure them to accept remote access for the convenience of future maintenance. The sensed data are sent to the MySQL database in the server. 
+
 ## Web Query Interface
