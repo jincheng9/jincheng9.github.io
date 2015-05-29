@@ -17,7 +17,7 @@ In this project, we design an innovative system called WISER to identify the ind
 
 ## System Building
 
-<img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 480px;"/>
+<img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 360px;"/>
 
 ## Web Query Interface
 
