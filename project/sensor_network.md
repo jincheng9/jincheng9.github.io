@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Sensor Network System"
+title: "Sensor Network System for White Space Identifcation"
 description: ""
 ---
 {% include JB/setup %}
