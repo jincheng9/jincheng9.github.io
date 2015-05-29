@@ -40,6 +40,8 @@ We develop three android apps for our indoor positioning system.
   server database. 
 * The third app is our indoor positioning app. The user can know its own location by clicking a button "START TO MEASURE".
 
+The figure blow is a snapshot of our indoor positioning app. The red points are the measured locations at the offline stage. The black point is estimated user location. Our system is very accuate, the average positioning error is less than 0.5 meters. 
+
 <img src="../imgs/ips_android.png" alt="indoor positioning" style="width: 480px;"/>
 
 
