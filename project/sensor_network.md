@@ -1,9 +1,7 @@
 ---
 layout: page
 title: "Sensor Network System for White Space Identifcation"
-description: ""
-category: [project]
-tags: [project]
+description: "wiser system"
 ---
 {% include JB/setup %}
 
