@@ -23,3 +23,7 @@ The figure below is the architecture of our sytem. The sensors sense the TV spec
 These sensors are installed with ubuntu system. We synchronize these sensors using NTP (Network Time Protocol) and configure them to accept remote access for the convenience of future maintenance. The sensed data are sent to the MySQL database in the server. 
 
 ## Web Query Interface
+
+For visualization, we design a simple web application. Users can query the real-time or historical data from this web application.
+The figure below is a snapshot of this web application.
+
