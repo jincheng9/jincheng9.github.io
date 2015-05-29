@@ -12,9 +12,8 @@ business promotion. In general, there are four methods to do indoor positioning,
 anlysis and proximity.
 
 
-<img src="../imgs/ips.jpg" alt="indoor positioning" style="width: 800px;"/>
-
 ## Methods
+<img src="../imgs/ips.jpg" alt="indoor positioning" style="width: 800px;"/>
 
 ## Results
 
