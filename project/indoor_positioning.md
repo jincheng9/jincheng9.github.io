@@ -7,7 +7,8 @@ description: ""
 
 ## Introduction
 
-Indoor positioning becomes more and more important 
+Indoor positioning becomes more and more popular in recent years due to the widely applications, such as indoor navigation and
+business promotion. 
 
 ## Methods
 
