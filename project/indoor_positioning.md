@@ -40,6 +40,6 @@ We develop three android apps for our indoor positioning system.
   server database. 
 * The third app is our indoor positioning app. The user can know its own location by clicking a button "START TO MEASURE".
 
-<img src="../imgs/ips_android.png" alt="indoor positioning" style="width: 666px;"/>
+<img src="../imgs/ips_android.png" alt="indoor positioning" style="width: 200px;"/>
 
 
