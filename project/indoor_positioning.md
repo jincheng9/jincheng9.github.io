@@ -30,6 +30,16 @@ The figure below shows a high-level idea of our indoor positioning system.
 
 <img src="../imgs/ips.jpg" alt="indoor positioning" style="width: 666px;"/>
 
-## Results
+## Implementation
+
+We develop three android apps for our indoor positioning system. 
+
+* The first app is used to scan the Wi-Fi APs in this building and show the corresponding information of APs with stronger signals strength. We use 
+  this app to determine the referenced APs.
+* The second app is used for fingerprints collection. We use this app to measure the fingerprints at different locations and send the data to 
+  server database. 
+* The third app is our indoor positioning app. The user can know its own location by clicking a button "START TO MEASURE".
+
+
 
 
