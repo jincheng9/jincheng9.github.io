@@ -11,8 +11,8 @@ Indoor positioning becomes more and more popular in recent years due to widely a
 business promotion. In general, there are four methods to do indoor positioning, including trilateration, triangulation, scene 
 anlysis and proximity.
 
-![indoor positioning](../imgs/ips.jpg =500x200)
 
+<img src="../imgs/ips.jpg" alt="indoor positioning" style="width: 500px;"/>
 
 ## Methods
 
