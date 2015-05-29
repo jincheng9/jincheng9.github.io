@@ -2,6 +2,7 @@
 layout: page
 title: "Sensor Network System for White Space Identifcation"
 description: ""
+tags: [project]
 ---
 {% include JB/setup %}
 
