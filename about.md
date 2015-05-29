@@ -16,7 +16,9 @@ Professtional Activities: Reviewer for the IEEE Infocom 2014 and 2015, Networkin
 
 ## Awards
 * Best Paper Award, the 7th International Doctoral Forum, 2014
+
 * Outstanding Contribution Award, the 7th International Doctoral Forum, 2014
+
 * Postgraduate Fellowship, 2012-2014
 
 * Sun Hung Kai Scholarship, 2009-2011
