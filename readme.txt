@@ -2,7 +2,7 @@
 
 2. 决定网站要显示的page
 在jincheng9.github.io这个目录下方的html文件名就是在首页会显示的page
-html里的内容参考根目录下其它如archive.html怎么写的: 只需要复制一下内容即可
+html里的内容参考根目录下其它如archive.html怎么写的: 只需要复制以下内容即可
 
 ---
 layout: page
@@ -18,6 +18,8 @@ about.html在_site目录下，about标签还不会显示在网站上，这个时
 about.html，往里面拷贝上面的内容，再上传到GitHub，过一会，网站上就会显示About标签
 
 删除标签页面：在根目录下删除对应的html文件即可
+
+love.html在根目录下，但是没有显示在首页的标签页是因为love.html开头没有类似about.html开头的那些语句块。
 
 
 3. page的内容
