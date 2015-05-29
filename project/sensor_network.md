@@ -16,9 +16,8 @@ white spaces. Previous approaches for TV white space identifcation are spectrum 
 In this project, we design an innovative system called WISER to identify the indoor white spaces. We deploy over 30 sensors in one floor of a typical office building and store the data in the server database. Users can use our web query interface to query the white space information.
 
 ## System Building
-The figure below is the architecture of our sytem. The sensors sense the TV spectrum and report the TV channel power to the server database. Users can query the white space information at their locations with the help of indoor positioning. The detailed implementation of indoor positioning can be found via this url: http://jincheng9.github.io/project/indoor_positioning.html 
+The figure below is the architecture of our sytem. The sensors sense the TV spectrum and report the TV channel power to the server database. Users can query the white space information at their locations with the help of indoor positioning. The detailed implementation of indoor positioning can be found via this url: <a href=http://jincheng9.github.io/project/indoor_positioning.html> http://jincheng9.github.io/project/indoor_positioning.html</a>.
 
-<img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 360px;"/>
+<img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 480px;"/>
 
 ## Web Query Interface
-
