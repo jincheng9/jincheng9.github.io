@@ -41,6 +41,11 @@ def testCodeHighLight():
 4. include the css file to _includes\themes\bootstrap-3\default.html
 
    Refer to the way of including "bootstrap.min.css" 
+5. after finishing the 4 above steps, you can use the following way to highlight codes
+
+   {% highlight progamming-language-name linenos %}
+    code you want to show
+   {% endhighlight %}
    
 ## Setup Jekyll-Boostrap on GitHub
 
