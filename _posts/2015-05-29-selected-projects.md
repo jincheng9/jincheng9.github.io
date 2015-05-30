@@ -2,7 +2,7 @@
 layout: post
 title: "selected projects"
 description: ""
-category: 
+category: [project]
 tags: [project]
 ---
 {% include JB/setup %}

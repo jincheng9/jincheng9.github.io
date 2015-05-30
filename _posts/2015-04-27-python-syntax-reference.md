@@ -3,7 +3,7 @@ layout: post
 title: "python syntax reference"
 description: ""
 category: [Python]
-tags: []
+tags: [python]
 ---
 {% include JB/setup %}
 ### 1. Five Standard Data Types and Operations
