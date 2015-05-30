@@ -27,6 +27,8 @@ Professtional Activities: Reviewer for the IEEE Infocom 2014 and 2015, Networkin
 
 						 
 ## Publications and Patents
+[My Google Scholar](https://scholar.google.com.hk/citations?user=jCR5TUEAAAAJ&hl=en)
+
 The author marked with * is the student supervised by me.
 
 1. "Exploring Indoor White Spaces in Metropolises"
