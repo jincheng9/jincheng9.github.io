@@ -27,4 +27,4 @@ These sensors are installed with ubuntu system. We synchronize these sensors usi
 For visualization, we design a simple web application using html and php. Users can query the real-time or historical data from this web application.
 The figure below is a snapshot of this web application.
 
-<img src="../imgs/web_query.png" alt="web query interface" style="width: 480px;"/>
+<img src="/imgs/web_query.png" alt="web query interface" style="width: 480px;"/>
