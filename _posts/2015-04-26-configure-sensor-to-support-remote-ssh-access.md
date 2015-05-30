@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "configure sensor to accept remote ssh access"
-description: ""
+description: "configure ubuntu to accept remote ssh access"
 category: [ssh]
 tags: [ubuntu]
 ---

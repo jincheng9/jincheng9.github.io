@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "selected projects"
-description: ""
+description: "projects by Jincheng Zhang"
 category: [project]
 tags: [project]
 ---

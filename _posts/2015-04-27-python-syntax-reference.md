@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "python syntax reference"
-description: ""
+description: "python syntax reference"
 category: [Python]
 tags: [python]
 ---

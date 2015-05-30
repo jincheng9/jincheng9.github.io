@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "code highlight"
-description: ""
-category: [blog]
+description: "code highlighting on jekyll-bootstrap"
+category: [tips]
 tags: [python]
 ---
 {% include JB/setup %}
