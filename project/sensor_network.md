@@ -18,7 +18,7 @@ In this project, we design an innovative system called WISER to identify the ind
 ## System Building
 The figure below is the architecture of our sytem. The sensors sense the TV spectrum and report the TV channel power to the server database. Users can query the white space information at their locations with the help of indoor positioning. The detailed implementation of indoor positioning can be found via this url: [ http://jincheng9.github.io/project/indoor_positioning.html](http://jincheng9.github.io/project/indoor_positioning.html).
 
-<img src="../imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 480px;"/>
+<img src="/imgs/wiser_arch.jpg" alt="wiser architecture" style="width: 480px;"/>
 
 These sensors are installed with ubuntu system. We synchronize these sensors using NTP (Network Time Protocol) and configure them to accept remote access for the convenience of future maintenance. The sensed data are sent to the MySQL database in the server. 
 
