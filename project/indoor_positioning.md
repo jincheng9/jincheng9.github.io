@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RSS-based Scene Analysis for Indoor Positioning"
-description: "indoor positioning"
+description: "indoor positioning using Wi-Fi RSS-based scene analysis"
 ---
 {% include JB/setup %}
 
