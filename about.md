@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-description: "Jincheng Zhang Tsinghua CUHK TV white space"
+description: "Jincheng Zhang Tsinghua CUHK TV white spaces"
 ---
 {% include JB/setup %}
 I'm Zhang Jincheng, an MPhil student at the Chinese University of Hong Kong. 
