@@ -46,5 +46,11 @@ http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 7. 添加post
    rake post title = "hello world"
    会在_post/ 目录下生成一个hello-world.md，往这个文件添加内容即可
-   
   
+8. 添加image
+   可以用markdown语法或者插入html代码
+   <img src="img path" alt="img description" style="width:666px;">
+   img path如果直接用/a表示从jincheng9.github.io这个目录开始下的子目录a
+   img path如果直接用./a表示这个文件所在目录下的子目录a
+   / 表示根目录  ./表示当前目录
+   
