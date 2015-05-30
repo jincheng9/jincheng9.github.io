@@ -43,7 +43,7 @@ def testCodeHighLight():
    Refer to the way of including "bootstrap.min.css" 
 5. after finishing the 4 above steps, you can use the following way to highlight codes
 
-   <img src="../imgs/code_highlight.png" alt="code highlight">
+   <img src="../imgs/code_highlight.png" alt="code highlight" />
    
 ## Setup Jekyll-Boostrap on GitHub
 
