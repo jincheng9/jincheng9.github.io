@@ -53,7 +53,7 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
    
 * How to draw dynamic charts using javascript?
 
-Indeed there are some good libraries for drawing dynamic charts using javascript. The one I use is [CanvasJS](http://canvasjs.com/docs/charts/how-to/creating-dynamic-charts/)
+Indeed there are some good libraries for drawing dynamic charts using javascript. The one I use is [CanvasJS](http://canvasjs.com/docs/charts/how-to/creating-dynamic-charts/).
 
 You can refer to it to draw beautiful dynamic charts using javascript.
 
