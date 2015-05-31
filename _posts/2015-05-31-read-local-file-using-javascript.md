@@ -33,7 +33,7 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 	{% highlight javascript linoes%}
 
 	var txtFile = new XMLHttpRequest();
-	txtFile.open("GET", "data.txt", false);
+	txtFile.open("GET", "data.txt", false); // "data.txt" can also be "http://127.0.0.1/data.txt"
 	txtFile.onreadystatechange = function() {
 		if(txtFile.readyState === 4) {
 			var allText = txtFile.responseText;
