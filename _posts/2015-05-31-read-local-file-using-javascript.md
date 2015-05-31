@@ -27,8 +27,9 @@ After doing some search, I found my requirement can be done using javascript XML
 although we cannot read local data, we can read data from webserver. So we can set up a local webserver, and then read data via
 this local webserver using XMLHttpRequest(). The implementation steps are as follows:
 
-1. install webserver on the computer (xampp is a good choice) and launch the webserver
-2. write js code to read local data using XMLHttpRequest(). Below is the code (inside a html file, say wiser_sync.html)
+1 install webserver on the computer (xampp is a good choice) and launch the webserver
+
+2 write js code to read local data using XMLHttpRequest(). Below is the code (inside a html file, say wiser_sync.html)
 	{% highlight javascript linoes%}
 
 	var txtFile = new XMLHttpRequest();
@@ -45,7 +46,9 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 	txtFile.send();
 
 	{% endhighlight %}
-3. Lanuch the html from chrome browser with the following url (Firefox seems does not work)
+	
+3 Lanuch the html from chrome browser with the following url (Firefox seems does not work)
+
    http://127.0.0.1/wiser_sync.html
    
 
