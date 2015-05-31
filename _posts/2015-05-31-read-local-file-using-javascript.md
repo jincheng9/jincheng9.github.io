@@ -31,7 +31,6 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 
 2 write js code to read local data using XMLHttpRequest(). Below is the code (inside a html file, say wiser_sync.html)
 	{% highlight javascript linoes%}
-
 	var txtFile = new XMLHttpRequest();
 	txtFile.open("GET", "data.txt", false); // "data.txt" can also be "http://127.0.0.1/data.txt"
 	txtFile.onreadystatechange = function() {
@@ -44,7 +43,6 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 		}
 	}
 	txtFile.send();
-
 	{% endhighlight %}
 	
 3 Lanuch the html from chrome browser with the following url (Firefox seems does not work)
