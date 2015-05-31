@@ -30,20 +30,20 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 1 install webserver on the computer (xampp is a good choice) and launch the webserver
 
 2 write js code to read local data using XMLHttpRequest(). Below is the code (inside a html file, say wiser_sync.html)
-	{% highlight javascript linoes%}
-	var txtFile = new XMLHttpRequest();
-	txtFile.open("GET", "data.txt", false); // "data.txt" can also be "http://127.0.0.1/data.txt"
-	txtFile.onreadystatechange = function() {
-		if(txtFile.readyState === 4) {
-			var allText = txtFile.responseText;
-			var data = allText.split(' '); // separate the data with space
-			var ch1 = data[0];
-			var ch2 = data[1];
-			var ch3 = data[2];
-		}
+{% highlight javascript linoes%}
+var txtFile = new XMLHttpRequest();
+txtFile.open("GET", "data.txt", false); // "data.txt" can also be "http://127.0.0.1/data.txt"
+txtFile.onreadystatechange = function() {
+	if(txtFile.readyState === 4) {
+		var allText = txtFile.responseText;
+		var data = allText.split(' '); // separate the data with space
+		var ch1 = data[0];
+		var ch2 = data[1];
+		var ch3 = data[2];
 	}
-	txtFile.send();
-	{% endhighlight %}
+}
+txtFile.send();
+{% endhighlight %}
 	
 3 Lanuch the html from chrome browser with the following url (Firefox seems does not work)
 
