@@ -19,7 +19,7 @@ html+js to build this web application.
 
 ## Implementation
 
-* How to read the local real-time result
+* How to read the local real-time result?
 
 The real-time result is stored in a file "data.txt". So I need to use javascript to read the data in "data.txt". But when I searched on how to use javascript to read data from file, I was a little surprised. Because javascript does not have file reading methods like C++, Python, PHP. The reason is that javascript does not have access to the user's file system due to security reasons. And the javascript method FileReader is only for files manually selected by the user. However, I want to use javascript to automatically read "data.txt" every 20 minutes without manually selection. 
 
@@ -51,6 +51,14 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 
    http://127.0.0.1/wiser_sync.html
    
+* How to draw dynamic charts using javascript?
+
+Indeed there are some good libraries for drawing dynamic charts using javascript. The one I use is [CanvasJS](http://canvasjs.com/docs/charts/how-to/creating-dynamic-charts/)
+
+You can refer to it to draw beautiful dynamic charts using javascript.
+
+
+
 
    
   
