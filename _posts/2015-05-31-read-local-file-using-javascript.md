@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "read local file using javascript"
-description: "read local files in javascript 用Javascript读取读取本地文件"
+description: "read local files in javascript 用Javascript读取读取本地文件 javascript画动态图 draw dynamic charts using javascript"
 category: [javascript]
 tags: []
 ---
