@@ -44,7 +44,7 @@ http://jekyllbootstrap.com/usage/jekyll-quick-start.html
    然后可以在jincheng9.github.io/project/project_name.html查看
    
 7. 添加post
-   rake post title = "hello world"
+   rake post title="hello world", =左右不加空格
    会在_post/ 目录下生成一个hello-world.md，往这个文件添加内容即可
   
 8. 添加image
