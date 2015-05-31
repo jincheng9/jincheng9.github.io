@@ -184,7 +184,9 @@ import thisdir.module #__init__.py should be in the directory of thisdir
 ### 7. Exception Handling
 
 try -> exception happens -> corresponding exception handling block -> finally
+
 try -> no exception -> else -> finally
+
 When a return, break or continue statement is exceuted in the try suite of a try...finally statement, 
 the finally clause is also executed "on the way out".
 
