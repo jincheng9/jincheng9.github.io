@@ -32,6 +32,7 @@ this local webserver using XMLHttpRequest(). The implementation steps are as fol
 2 write js code to read local data using XMLHttpRequest(). Below is the code (inside a html file, say wiser_sync.html)
 {% highlight javascript linoes%}
 var txtFile = new XMLHttpRequest();
+// false is for synchronizaton, true is asynchronization
 txtFile.open("GET", "data.txt", false); // "data.txt" can also be "http://127.0.0.1/data.txt"
 txtFile.onreadystatechange = function() {
 	if(txtFile.readyState === 4) {
@@ -47,7 +48,7 @@ txtFile.send();
 	
 3 Lanuch the html from chrome browser with the following url (Firefox seems does not work)
 
-   http://127.0.0.1/wiser_sync.html
+   http://127.0.0.1/wiser_sync.html (do not use http://localhost/wiser_sync.html)
    
 * How to draw dynamic charts using javascript?
 
