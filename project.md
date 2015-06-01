@@ -11,5 +11,5 @@ description: "Jincheng's projects"
 * [Sensor Network System for White Space Identification](http://jincheng9.github.io/project/sensor_network.html)
 * [A Simple R API for Stock Data Retrieval](https://github.com/jincheng9/stock_crawler)
 * [Handwritten Digit Recognition](https://github.com/jincheng9/MNIST_digit_recognition)
-
+* [Notes for the book "R in Action"](https://github.com/jincheng9/R-in-Action)
 
