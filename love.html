@@ -76,18 +76,18 @@
 		<br>
 		<br>
 		<center>
-		<img src="/imgs/xbb.jpg" name="slide" width="50%">
+		<img src="/imgs/xbb.jpg" name="slide" width="300" height="223">
 		</center>
 		<script type="text/javascript">
 			var num = 1;
 			function slide() {
-				document.images.slide.src=eval("image"+num+".src");
-				if(num<2) {
+				document.images.slide.src = eval("image"+num+".src");
+				if(num < 2) {
 					num++;
 				} else {
 					num = 1;
 				}
-				setTimeout("slide()", 2500);
+				setTimeout("slide()", 3000);
 			}
 			slide();
 		</script>
