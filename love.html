@@ -81,9 +81,9 @@
 			function slide() {
 				document.images.slide.src=eval("image"+step+".src");
 				if(step<2) {
-					step++;
+					num++;
 				} else {
-					step = 1;
+					num = 1;
 				}
 				setTimeout("slide()", 2500);
 			}
