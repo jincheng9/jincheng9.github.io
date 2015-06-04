@@ -13,6 +13,12 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/garden.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript">
+		var image1 = new Image();
+		image1.src = "/imgs/xbb.jpg";
+		var image2 = new Image();
+		image2.src = "/imgs/dump.jpg";
+	</script>
 </head>
 
 <body>
@@ -69,6 +75,20 @@
 		<br>
 		<br>
 		<br>
+		<img src="/imgs/xbb.jpg" name="slide" width="600" height="446">
+		<script type="text/javascript">
+			var num = 1;
+			function slide() {
+				document.images.slide.src=eval("image"+step+".src");
+				if(step<2) {
+					step++;
+				} else {
+					step = 1;
+				}
+				setTimeout("slide()", 2500);
+			}
+			slide();
+		</script>
 		<!--<div id="copyright">
 			Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />
 			Copyright © 2011 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2009-2011
