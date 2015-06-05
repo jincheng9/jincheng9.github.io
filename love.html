@@ -81,22 +81,7 @@
 		<br>
 		<br>
 		<br>
-		<center>
-		<img src="/imgs/us.jpg" name="slide">
-		</center>
-		<script type="text/javascript">
-			var num = 1;
-			function slide() {
-				document.images.slide.src = eval("image"+num+".src");
-				if(num < 5) {
-					num++;
-				} else {
-					num = 1;
-				}
-				setTimeout("slide()", 3000);
-			}
-			slide();
-		</script>
+		
 		<!--<div id="copyright">
 			Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />
 			Copyright © 2011 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2009-2011
@@ -135,5 +120,23 @@
 			$("#code").typewriter();
 		}
 	</script>
+	
+	<center>
+		<img src="/imgs/us.jpg" name="slide">
+	</center>
+	<script type="text/javascript">
+		var num = 1;
+		function slide() {
+			document.images.slide.src = eval("image"+num+".src");
+			if(num < 5) {
+				num++;
+			} else {
+				num = 1;
+			}
+			setTimeout("slide()", 3000);
+		}
+		slide();
+	</script>
+		
 </body>
 </html>
