@@ -53,4 +53,6 @@ http://jekyllbootstrap.com/usage/jekyll-quick-start.html
    img path如果直接用/a表示从jincheng9.github.io这个目录开始下的子目录a
    img path如果直接用./a表示这个文件所在目录下的子目录a
    / 表示根目录  ./表示当前目录
+9. 关闭右上角search功能
+   其实右上角search功能一点用没有，不能进行搜索，可以在\_includes\themes\bootstrap-3\default.html里注释掉search
    
