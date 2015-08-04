@@ -32,19 +32,19 @@ tags: [git]
 	{% highlight sh %}
     ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
 	{% highlight sh %}
-(4) ensure ssh-agent is enabled
+(4) 确保ssh-agent已被启用
 
 	eval $(ssh-agent -s)
 	
-(5) add your ssh key to the ssh agent
+(5) 添加SSH Key到SSH agent
 
 	ssh-add ~/.ssh/id_rsa
 	
-(6) add your ssh key to your account
+(6) 添加SSH Key到网站账号设置里
 
     clip < ~/.ssh/id_rsa.pub，然后将key粘贴到网站的ssh keys设置下
 	
-(7) test the connection
+(7) 测试SSH连接
 
 	ssh -T git@website.com
 	
