@@ -78,8 +78,8 @@ git config user.email "zhangjincheng@company.com"
 
 进入Git Bash，在~目录，有一个.ssh文件夹，在这个文件夹里创建一个config文件
 {% highlight sh %}
-	cd ~/.ssh
-	touch config
+cd ~/.ssh
+touch config
 {% endhighlight %}	
 config里要添加的内容如下：
 {% highlight sh %}
