@@ -19,16 +19,27 @@ tags: [git]
 3. 配置第一个网站
 ===
 (1) git config --global user.name "YOUR NAME"
+
 (2) git config --global user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+
 (3) generate a new ssh key
+
     ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+	
 (4) ensure ssh-agent is enabled
+
 	eval $(ssh-agent -s)
+	
 (5) add your ssh key to the ssh agent
+
 	ssh-add ~/.ssh/id_rsa
+	
 (6) add your ssh key to your account
+
     clip < ~/.ssh/id_rsa.pub，然后将key粘贴到网站的ssh keys设置下
+	
 (7) test the connection
+
 	ssh -T git@website.com
 	
 4. 配置第二个网站
