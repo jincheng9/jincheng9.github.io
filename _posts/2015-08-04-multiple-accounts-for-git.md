@@ -76,6 +76,7 @@ tags: [git]
 {% endhighlight %}	
 
 (6) 创建config文件
+
 进入Git Bash，在~目录，有一个.ssh文件夹，在这个文件夹里创建一个config文件
 {% highlight sh %}
 	cd ~/.ssh
