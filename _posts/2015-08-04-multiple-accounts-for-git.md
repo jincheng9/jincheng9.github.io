@@ -9,8 +9,7 @@ tags: [git]
 一. 前言
 ===
 我们在工作的时候经常需要在一台电脑上将git与多个网站相关联，比如GitHub和GitLab，在这种情况下，
-我们要为不同的网站配置不同的ssh key。那怎么在一台电脑上为git配置多个ssh key呢？我们只需要在
-.ssh目录下创建一个config文件配置各个网站的ssh key就可以了
+我们要为不同的网站配置不同的用户信息和ssh key。那怎么在一台电脑上为git配置多个网站的用户信息和ssh key呢？
 
 二. 软件下载
 ===
@@ -26,8 +25,8 @@ tags: [git]
 然后执行如下操作	
 (1) 配置用户名和邮箱，邮箱是注册GitHub的邮箱
 	{% highlight sh %}
-	git config user.name "jincheng9"
-	git config user.email "perfume0607@gmail.com"
+git config user.name "jincheng9"
+git config user.email "perfume0607@gmail.com"
 	{% endhighlight %}
 (2) 生成新的SSH Key，执行下面这条命令的时候可以输入文件名来保存私钥，假设为id_rsa_github
 	{% highlight sh %}
@@ -55,8 +54,8 @@ tags: [git]
 我们先在计算机本地创建一个文件夹，假设叫gitlab，我们将GitLab相关的工程都放在gitlab文件夹，从git bash进入gitlab文件夹，然后执行如下命令：
 (1) 配置新的网站的用户名和邮箱，邮箱是在GitLab上注册的邮箱
 	{% highlight sh %}
-	git config user.name "zhangjincheng"
-	git config user.email "zhangjincheng@company.com"
+git config user.name "zhangjincheng"
+git config user.email "zhangjincheng@company.com"
 	{% endhighlight %}
 (2) 生成新的SSH Key，执行下面这条命令的时候可以输入文件名来保存私钥，假设为id_rsa_gitlab
 	{% highlight sh %}
