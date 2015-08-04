@@ -16,16 +16,22 @@ tags: [git]
 ===
 测试环境Win7，用msysgit，软件链接：http://msysgit.github.io
 
-三. 配置第一个网站
+三. 配置GitHub网站
 ===
-(1) 配置用户名和邮箱
+
+我们先在计算机本地创建一个文件夹，假设叫github，我们将GitHub相关的工程都放在github文件夹，从git bash进入github文件夹，然后执行如下命令：
+{% highlight sh %}
+	git init
+{% endhighlight %}
+然后执行如下操作	
+(1) 配置用户名和邮箱，邮箱是注册GitHub的邮箱
 	{% highlight sh %}
-	git config user.name "YOUR NAME"
-	git config user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+	git config user.name "jincheng9"
+	git config user.email "perfume0607@gmail.com"
 	{% endhighlight %}
-(2) 生成新的SSH Key
+(2) 生成新的SSH Key，执行下面这条命令的时候可以输入文件名来保存私钥，假设为id_rsa_github
 	{% highlight sh %}
-    ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+    ssh-keygen -t rsa -C "perfume0607@gmail.com"
 	{% endhighlight %}
 (3) 确保ssh-agent已被启用
 {% highlight sh %}
@@ -33,27 +39,28 @@ tags: [git]
 {% endhighlight %}
 (4) 添加SSH Key到SSH agent
 {% highlight sh %}
-	ssh-add ~/.ssh/id_rsa
+	ssh-add id_rsa_github
 {% endhighlight %}	
 (5) 添加SSH Key到网站账号设置里
 {% highlight sh %}
-    clip < ~/.ssh/id_rsa.pub
+    clip < id_rsa_github.pub
 {% endhighlight %}	
 (6) 测试SSH连接
 {% highlight sh %}
-	ssh -T git@website.com
+	ssh -T git@github.com
 {% endhighlight %}	
 
-四. 配置第二个网站
+四. 配置GitLab网站
 ===
-(1) 配置新的网站的用户名和邮箱
+我们先在计算机本地创建一个文件夹，假设叫gitlab，我们将GitLab相关的工程都放在gitlab文件夹，从git bash进入gitlab文件夹，然后执行如下命令：
+(1) 配置新的网站的用户名和邮箱，邮箱是在GitLab上注册的邮箱
 	{% highlight sh %}
-	git config user.name "YOUR NAME"
-	git config user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+	git config user.name "zhangjincheng"
+	git config user.email "zhangjincheng@company.com"
 	{% endhighlight %}
-(2) 生成新的SSH Key，输入下面的命令的时候，会提示输入文件名来保存key，这个时候输入一个和第一个网站不同的文件名来保存新的key
+(2) 生成新的SSH Key，执行下面这条命令的时候可以输入文件名来保存私钥，假设为id_rsa_gitlab
 	{% highlight sh %}
-    ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+    ssh-keygen -t rsa -C "zhangjincheng@company.com"
 	{% endhighlight %}
 (3) 确保ssh-agent已被启用
 {% highlight sh %}
@@ -61,15 +68,37 @@ tags: [git]
 {% endhighlight %}
 (4) 添加新的SSH Key到SSH agent
 {% highlight sh %}
-	ssh-add ~/.ssh/id_rsa_new
+	ssh-add id_rsa_gitlab
 {% endhighlight %}	
-(5) 添加SSH Key到网站账号设置里
+(5) 添加SSH Key到GitLab网站账号设置里
 {% highlight sh %}
-    clip < ~/.ssh/id_rsa.pub
+    clip < id_rsa_gitlab.pub
 {% endhighlight %}	
+
+(6) 创建config文件
+进入Git Bash，在~目录，有一个.ssh文件夹，在这个文件夹里创建一个config文件
+{% highlight sh %}
+	cd ~/.ssh
+	touch config
+{% highlight sh %}
+config里要添加的内容如下：
+{% highlight sh %}
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile F:/github/id_rsa_github
+
+Host gitlab.com
+HostName 192.168.10.93
+PreferredAuthentications publickey
+IdentityFile F:/gitlab/id_rsa_gitlab
+{% highlight sh %}
+
+~
 (6) 测试SSH连接
 {% highlight sh %}
-	ssh -T git@website.com
+	ssh -T git@gitlab.com
 {% endhighlight %}	
 
 
