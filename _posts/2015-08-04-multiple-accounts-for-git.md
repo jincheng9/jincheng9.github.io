@@ -18,16 +18,20 @@ tags: [git]
 
 3. 配置第一个网站
 ===
-(1) {% highlight sh linenos%}
+(1) 配置用户名 
+	{% highlight sh %}
 	git config --global user.name "YOUR NAME"
 	{% endhighlight %}
 
-(2) git config --global user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+(2) 配置邮箱
+	{% highlight sh %}
+	git config --global user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
+	{% highlight sh %}
 
-(3) generate a new ssh key
-
+(3) 生成新的SSH Key
+	{% highlight sh %}
     ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
-	
+	{% highlight sh %}
 (4) ensure ssh-agent is enabled
 
 	eval $(ssh-agent -s)
