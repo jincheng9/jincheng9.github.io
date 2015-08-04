@@ -120,5 +120,19 @@ IdentityFile F:/gitlab/id_rsa_gitlab
 [user]
         email = perfume0607@gmail.com
 {% endhighlight %}
+
+(3) 需要注意的是，一旦配置了config文件，那么在git clone的时候一样要用Host代替HostName，比如你可以
+{% highlight sh %}
+git clone git@gitlab.com:jincheng9/Test.git
+{% endhighlight %}
+不能用
+{% highlight sh %}
+git clone git@192.168.10.93:jincheng9/Test.git
+{% endhighlight %}
+
+这个可以通过ssh -T git@gitlab.com 和 ssh -T git@192.168.10.93测试就知道了，只有前者可以成功连接上，后者不行
+
+
+
 		
 
