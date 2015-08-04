@@ -111,9 +111,10 @@ IdentityFile F:/gitlab/id_rsa_gitlab
 {% highlight sh %}
 	git config user.email "email of the corresponding website"
 {% endhighlight %}	
-或者在.git/config的最后，添加如下内容：
+或者在这个repo所在目录下的文件.git/config的最后，添加如下内容：
+{% highlight sh %}
 [user]
         email = perfume0607@gmail.com
-
+{% endhighlight %}
 		
 
