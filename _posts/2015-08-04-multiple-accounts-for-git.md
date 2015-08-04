@@ -93,7 +93,7 @@ Host gitlab.com
 HostName 192.168.10.93
 PreferredAuthentications publickey
 IdentityFile F:/gitlab/id_rsa_gitlab
-{% highlight sh %}
+{% endhighlight %}	
 
 ~
 (6) 测试SSH连接
