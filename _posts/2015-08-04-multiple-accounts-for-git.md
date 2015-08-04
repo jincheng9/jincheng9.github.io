@@ -26,12 +26,12 @@ tags: [git]
 (2) 配置邮箱
 	{% highlight sh %}
 	git config --global user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
-	{% highlight sh %}
+	{% endhighlight %}
 
 (3) 生成新的SSH Key
 	{% highlight sh %}
     ssh-keygen -t rsa -C "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
-	{% highlight sh %}
+	{% endhighlight %}
 (4) 确保ssh-agent已被启用
 
 	eval $(ssh-agent -s)
