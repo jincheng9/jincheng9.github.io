@@ -89,6 +89,7 @@ HostName github.com
 PreferredAuthentications publickey
 IdentityFile F:/github/id_rsa_github
 
+# gitlab
 Host gitlab.com
 HostName 192.168.10.93
 PreferredAuthentications publickey
@@ -101,5 +102,15 @@ IdentityFile F:/gitlab/id_rsa_gitlab
 	ssh -T git@gitlab.com
 {% endhighlight %}	
 
+五. 工作流程
+1. 对GitHub的repo就在github目录下操作，对GitLab的repot就在gitlab目录下操作
+2. 在comit的时候，如果提示：*** Please tell me who you are，就执行一条config语句：
+{% highlight sh %}
+	git config user.email "email of the corresponding website"
+{% endhighlight %}	
+或者在.git/config的最后，添加如下内容：
+[user]
+        email = perfume0607@gmail.com
 
+		
 
