@@ -109,9 +109,9 @@ IdentityFile F:/gitlab/id_rsa_gitlab
 
 五. 工作流程
 ===
-1. 对GitHub的repo就在github目录下操作，对GitLab的repot就在gitlab目录下操作
+(1) 对GitHub的repo就在github目录下操作，对GitLab的repot就在gitlab目录下操作
 
-2. 在comit的时候，如果提示：*** Please tell me who you are，就执行一条config语句：
+(2) 在comit的时候，如果提示：*** Please tell me who you are，就执行一条config语句：
 {% highlight sh %}
 	git config user.email "email of the corresponding website"
 {% endhighlight %}	
