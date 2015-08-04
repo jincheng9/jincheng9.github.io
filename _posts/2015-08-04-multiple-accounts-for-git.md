@@ -96,7 +96,6 @@ PreferredAuthentications publickey
 IdentityFile F:/gitlab/id_rsa_gitlab
 {% endhighlight %}	
 
-~
 (6) 测试SSH连接
 {% highlight sh %}
 	ssh -T git@gitlab.com
