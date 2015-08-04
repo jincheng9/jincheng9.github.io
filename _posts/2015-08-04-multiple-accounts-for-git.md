@@ -80,7 +80,7 @@ tags: [git]
 {% highlight sh %}
 	cd ~/.ssh
 	touch config
-{% highlight sh %}
+{% endhighlight %}	
 config里要添加的内容如下：
 {% highlight sh %}
 # github
