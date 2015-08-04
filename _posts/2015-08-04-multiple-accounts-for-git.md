@@ -23,6 +23,7 @@ tags: [git]
 	git init
 {% endhighlight %}
 然后执行如下操作	
+
 (1) 配置用户名和邮箱，邮箱是注册GitHub的邮箱
 	{% highlight sh %}
 git config user.name "jincheng9"
