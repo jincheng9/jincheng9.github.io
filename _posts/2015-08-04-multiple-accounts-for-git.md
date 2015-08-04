@@ -53,6 +53,10 @@ git config user.email "perfume0607@gmail.com"
 四. 配置GitLab网站
 ===
 我们先在计算机本地创建一个文件夹，假设叫gitlab，我们将GitLab相关的工程都放在gitlab文件夹，从git bash进入gitlab文件夹，然后执行如下命令：
+{% highlight sh %}
+	git init
+{% endhighlight %}
+然后执行如下操作	
 
 (1) 配置新的网站的用户名和邮箱，邮箱是在GitLab上注册的邮箱
 	{% highlight sh %}
