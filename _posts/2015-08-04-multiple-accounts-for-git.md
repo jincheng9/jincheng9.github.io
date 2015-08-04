@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git同时配置多个网站账号"
-description: "Git同时配置多个网站账号"
+description: "Git同时配置多个网站账号, github, gitlab, ssh key"
 category: [工具]
 tags: [git]
 ---
