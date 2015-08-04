@@ -18,7 +18,9 @@ tags: [git]
 
 3. 配置第一个网站
 ===
-(1) git config --global user.name "YOUR NAME"
+(1) {% highlight sh linenos%}
+	git config --global user.name "YOUR NAME"
+	{% endhighlight %}
 
 (2) git config --global user.email "YOUR EMAIL ADDRESS SPECIFIED in YOUR WEBSITE"
 
