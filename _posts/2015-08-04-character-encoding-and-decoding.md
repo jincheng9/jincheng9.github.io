@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "计算机字符编码原理介绍"
-description: ""
+description: "字符编码, ascii, ansi, gb2312, gbk, gb18030, unicode ,utf-8, utf-16, utf-32, ucs-2, ucs-4, bom, 字节序, 大端小端"
 category: [基础理论]
 tags: []
 ---
