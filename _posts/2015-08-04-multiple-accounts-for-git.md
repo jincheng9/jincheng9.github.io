@@ -6,17 +6,16 @@ category: [工具]
 tags: [git]
 ---
 {% include JB/setup %}
-一. 前言
-===
+###一. 前言
+
 我们在工作的时候经常需要在一台电脑上将git与多个网站相关联，比如GitHub和GitLab，在这种情况下，
 我们要为不同的网站配置不同的用户信息和ssh key。那怎么在一台电脑上为git配置多个网站的用户信息和ssh key呢？
 
-二. 软件下载
-===
+###二. 软件下载
+
 测试环境Win7，用msysgit，软件链接：http://msysgit.github.io
 
-三. 配置GitHub网站
-===
+###三. 配置GitHub网站
 
 我们先在计算机本地创建一个文件夹，假设叫github，我们将GitHub相关的工程都放在github文件夹，从git bash进入github文件夹，然后执行如下命令：
 {% highlight sh %}
@@ -50,8 +49,7 @@ git config user.email "perfume0607@gmail.com"
 	ssh -T git@github.com
 {% endhighlight %}	
 
-四. 配置GitLab网站
-===
+###四. 配置GitLab网站
 我们先在计算机本地创建一个文件夹，假设叫gitlab，我们将GitLab相关的工程都放在gitlab文件夹，从git bash进入gitlab文件夹，然后执行如下命令：
 {% highlight sh %}
 	git init
@@ -107,8 +105,7 @@ IdentityFile F:/gitlab/id_rsa_gitlab
 	ssh -T git@gitlab.com
 {% endhighlight %}	
 
-五. 工作流程
-===
+###五. 工作流程
 (1) 对GitHub的repo就在github目录下操作，对GitLab的repot就在gitlab目录下操作
 
 (2) 在comit的时候，如果提示：*** Please tell me who you are，就执行一条config语句：
