@@ -44,7 +44,7 @@ git config user.email "perfume0607@gmail.com"
 {% highlight sh %}
     clip < id_rsa_github.pub
 {% endhighlight %}	
-(6) 测试SSH连接
+(6) 测试SSH连接 (执行下面这条测试语句后，在~目录会生成一个.ssh文件夹，待会配置给Git配置第二个网站的时候会用到)
 {% highlight sh %}
 	ssh -T git@github.com
 {% endhighlight %}	
