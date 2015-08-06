@@ -136,3 +136,13 @@ BOM是对Unicode的几种编码而言的，ANSI编码没有BOM。
 在保存文本的时候，默认对文本用ANSI编码，在打开文本的时候，记事本先去看有没有BOM，由于没有BOM，那就只能靠猜是哪种编码，由于"联通"ANSI编码刚好和
 UTF-8编码很像，因此被当做UTF-8编码去解析了，所以变成了乱码。
 
+###八. 参考资料
+[1] http://www.guokr.com/blog/763017/
+
+[2] http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html
+
+[3] http://blog.csdn.net/thl789/article/details/7506133
+
+[4] http://www.cfca.com.cn/cx/2012-02/10.htm
+
+[5] http://www.ruanyifeng.com/blog/2014/12/unicode.html
