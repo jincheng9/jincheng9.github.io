@@ -137,12 +137,12 @@ BOM是对Unicode的几种编码而言的，ANSI编码没有BOM。
 UTF-8编码很像，因此被当做UTF-8编码去解析了，所以变成了乱码。
 
 ###八. 参考资料
-[1] http://www.guokr.com/blog/763017/
+[1] [http://www.guokr.com/blog/763017/](http://www.guokr.com/blog/763017/)
 
-[2] http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html
+[2] [http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html](http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html)
 
-[3] http://blog.csdn.net/thl789/article/details/7506133
+[3] [http://blog.csdn.net/thl789/article/details/7506133](http://blog.csdn.net/thl789/article/details/7506133)
 
-[4] http://www.cfca.com.cn/cx/2012-02/10.htm
+[4] [http://www.cfca.com.cn/cx/2012-02/10.htm](http://www.cfca.com.cn/cx/2012-02/10.htm)
 
-[5] http://www.ruanyifeng.com/blog/2014/12/unicode.html
+[5] [http://www.ruanyifeng.com/blog/2014/12/unicode.html](http://www.ruanyifeng.com/blog/2014/12/unicode.html)
