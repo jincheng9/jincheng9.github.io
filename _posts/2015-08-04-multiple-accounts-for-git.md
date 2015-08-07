@@ -13,7 +13,7 @@ tags: [git]
 
 ###二. 软件下载
 
-测试环境Win7，用msysgit，软件链接：http://msysgit.github.io
+测试环境Win7，用msysgit，软件链接：[http://msysgit.github.io](http://msysgit.github.io)
 
 ###三. 配置GitHub网站
 
