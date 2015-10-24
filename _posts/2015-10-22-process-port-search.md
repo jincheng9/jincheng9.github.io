@@ -7,8 +7,8 @@ tags: [tips]
 ---
 {% include JB/setup %}
 
-Window下
-==
+Window下操作如下：
+
 1 通过进程名查找端口号
 ===
 * 先找到进程名对应的process id
@@ -33,8 +33,8 @@ Window下
   tasklist | findstr process_id
   {% endhighlight %}
 
-Linux下
-==
+Linux下的操作如下：
+
 1 通过进程名查找端口号
 ===
 * 先找到进程名对应的process id
