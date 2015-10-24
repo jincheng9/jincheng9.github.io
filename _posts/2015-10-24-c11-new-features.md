@@ -11,4 +11,10 @@ tags: []
 
 内存管理，自动类型推导，lambda函数以及一些较为重要的新语法特性等。链接如下：
 
-1 
+* [C++11稳定性和兼容性](/pdf/stability_compatibility.pdf)
+* [C++11对类型安全的提升以及内存管理](/pdf/type_security_memory_management.pdf)
+* [C++11自动类型推导](/pdf/type_inference.pdf)
+* [C++11函数式编程](/pdf/lambda_function.pdf)
+* [C++11类继承控制与代码移植](/pdf/class_inherit_control_cpp_code_transplant.pdf)
+
+
