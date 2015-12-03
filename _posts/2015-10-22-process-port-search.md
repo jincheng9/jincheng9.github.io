@@ -59,3 +59,8 @@ Linux下的操作如下：
   ps aux | grep process_id
   {% endhighlight %}
   
+3 统一上述两种方法
+===
+  {% highlight sh %}
+  netstat -anop | grep process_name
+  {% endhighlight %}
