@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客 - Even - A super concise theme for Hugo</title>
+  <title>GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Jincheng9" /><meta name="description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="jincheng9" /><meta name="description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -43,14 +43,14 @@
 <meta property="og:description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/blog-github-pages-hugo-utterances/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-12-21T15:04:43+08:00" />
-<meta property="article:modified_time" content="2021-12-21T15:04:43+08:00" />
+<meta property="article:published_time" content="2021-12-21T17:02:58+08:00" />
+<meta property="article:modified_time" content="2021-12-21T17:02:58+08:00" />
 
 <meta itemprop="name" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客">
-<meta itemprop="description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node."><meta itemprop="datePublished" content="2021-12-21T15:04:43+08:00" />
-<meta itemprop="dateModified" content="2021-12-21T15:04:43+08:00" />
-<meta itemprop="wordCount" content="489">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node."><meta itemprop="datePublished" content="2021-12-21T17:02:58+08:00" />
+<meta itemprop="dateModified" content="2021-12-21T17:02:58+08:00" />
+<meta itemprop="wordCount" content="2029">
+<meta itemprop="keywords" content="网站,博客," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客"/>
 <meta name="twitter:description" content="前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node."/>
 
@@ -130,8 +130,8 @@
       <div class="post-meta">
         <span class="post-time"> 2021-12-21 </span>
         
-          <span class="more-meta"> 489 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 2029 words </span>
+          <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -148,10 +148,12 @@
           <ul>
             <li><a href="#hugo">Hugo</a></li>
             <li><a href="#even主题">even主题</a></li>
+            <li><a href="#写文章和发布">写文章和发布</a></li>
             <li><a href="#github-pages">GitHub Pages</a></li>
             <li><a href="#utterances">Utterances</a></li>
           </ul>
         </li>
+        <li><a href="#references">References</a></li>
       </ul>
     </li>
   </ul>
@@ -172,8 +174,15 @@
 <ol>
 <li>
 <p>安装Hugo(以Mac为例)</p>
-<p>$ brew install hugo</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ brew install hugo
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>创建本地文件夹，用于存储博客内容，假设文件夹叫blog</p>
 <div class="highlight"><div class="chroma">
@@ -214,32 +223,187 @@ drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 themes
 </div></li>
 </ol>
 <h3 id="even主题">even主题</h3>
-<p>git clone <a href="https://github.com/olOwOlo/hugo-theme-even">https://github.com/olOwOlo/hugo-theme-even</a> themes/even</p>
-<p>cp themes/even/exampleSite/config.toml ./</p>
-<p>修改config.toml里的配置项</p>
+<p>给Hugo配置even主题：</p>
+<ol>
+<li>
+<p>下载主题到blog下的themes目录，在blog所在目录执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/olOwOlo/hugo-theme-even themes/even
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用even主题自带的全局配置config.toml覆盖Hugo初始安装的config.toml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cp themes/even/exampleSite/config.toml ./
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>根据个人需要，修改blog/config.toml里的配置项，比如网站首页title，右上角菜单名称，底部链接名称等。</p>
+<p><strong>注意</strong>：highlightInClient配置项和pygments开头的配置项不能都启用，都启用会导致markdown里插入代码块的时候样式错误。highlightInClient使用默认的false即可，不用修改。</p>
+</li>
+<li>
+<p>使用even主题自带的博客文章默认配置<code>themes/even/archetypes/default.md</code>覆盖Hugo初始安装的<code>archetypes/default.md</code>，在blog根目录执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cp themes/even/archetypes/default.md ./archetypes/
+</code></pre></td></tr></table>
+</div>
+</div><p>修改<code>archetypes/default.md</code>里的默认配置项，把comment和toc都设置为true，用于开启文章评论功能和文章自动生成目录功能。</p>
+</li>
+<li>
+<p>启动本地Hugo server，查看博客效果，本地地址：http://localhost:1313/</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo server
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="写文章和发布">写文章和发布</h3>
+<ol>
+<li>
+<p>在blog目录，使用<code>hugo new post/some-content.md</code>创建markdown文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo new post/test.md
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>发布：在blog根目录执行<code>hugo</code>命令或者<code>hugo -t even</code>命令，自动根据md文件生成文章的静态页面，静态页面发布在根目录的public文件夹下面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动Hugo server，查看网站最新效果，在blog根目录执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo server
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
 <h3 id="github-pages">GitHub Pages</h3>
-<p>创建</p>
+<p>以上流程走下来，我们就在自己本地电脑搭建好了一个基于Hugo + even主题的博客网站，但是不能被互联网访问。</p>
+<p>我们可以借助GitHub Pages把本地博客的public文件夹内容发布到GitHub上，就可以通过互联网访问博客了。</p>
+<ol>
+<li>
+<p>在自己GitHub上创建一个新的repo，命名为username.github.io，其中username是你的GitHub的用户名。比如我的GitHub个人主页是：https://github.com/jincheng9，那我的username就是jincheng9。</p>
+</li>
+<li>
+<p>把本地博客public目录下的内容push到GitHub的 username.github.io工程里，注意，要把git repo地址替换为你自己的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> public
+$ git init
+$ git remote add origin git@github.com:jincheng9/jincheng9.github.io.git 
+$ git status
+$ git add .
+$ git commit -m <span class="s1">&#39;add blog&#39;</span>
+$ git push origin master
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>步骤2执行完之后，public文件夹下的内容就被推送到了你的GitHub上的username.github.io这个repo里了。</p>
+</li>
+<li>
+<p>等待几分钟，就可以通过https://username.github.io/ 访问你的博客了。</p>
+</li>
+</ol>
 <h3 id="utterances">Utterances</h3>
+<p>我们还希望给自己的博客文章添加评论功能，用来和读者互动，<a href="https://utteranc.es/">utterances</a> 是一款基于 github issues 的评论系统，非常清爽，还可以避免了 disqus 的广告以及加载问题。</p>
+<ol>
+<li>
+<p>安装utterances：点击https://github.com/apps/utterances，按照提示操作，把上面存放博客的repo的权限给utterances。操作完成后，在username.github.io这个repo的Settings-&gt;Integrations里可以看到utterances。</p>
+</li>
+<li>
+<p>修改博客的全局配置config.toml。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-markdown" data-lang="markdown">[params.utterances]       # https://utteranc.es/
+	owner = &#34;jincheng9&#34;              # Your GitHub ID
+	repo = &#34;jincheng9.github.io&#34;     # The repo to store comments
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重新部署博客，就可以在文章下面看到评论区了，正如本篇文章最下面的评论区一样。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo
+$ hugo server
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>注意</strong>：每次自己本地的修改，需要先执行<code>hugo</code>命令来更新public下的内容，再进入public目录把修改push到GitHub上，才能保证互联网访问的内容是更新后的，否则修改只会停留在本地。</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="https://github.com/olOwOlo/hugo-theme-even">https://github.com/olOwOlo/hugo-theme-even</a></p>
+</li>
+<li>
+<p><a href="https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/">https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/</a></p>
+</li>
+</ul>
 
     </div>
 
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">Jincheng9</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2021-12-21
-        
-    </span>
-  </p>
-  
-  
-</div>
+    
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/%E7%BD%91%E7%AB%99/">网站</a>
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          </div>
       <nav class="post-nav">
         
         
@@ -300,10 +464,11 @@ drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 themes
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
 
 
 
