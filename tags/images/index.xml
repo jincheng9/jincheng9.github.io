@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>images on Jincheng9&#39;s blog</title>
+    <link>http://localhost:1313/tags/images/</link>
+    <description>Recent content in images on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Dec 2021 10:42:18 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/images/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo如何在markdown里引用本地图片</title>
+      <link>http://localhost:1313/post/hugo-add-img/</link>
+      <pubDate>Wed, 22 Dec 2021 10:42:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/hugo-add-img/</guid>
+      <description>前言 在Hugo上写文章的时候，肯定会遇到要插入图片的情况。 我们在content/post目录下的markdown文件里应该怎么引用图片，才能</description>
+    </item>
+    
+  </channel>
+</rss>
