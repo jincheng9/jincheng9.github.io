@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构 on Jincheng9&#39;s blog</title>
+    <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Dec 2021 18:08:05 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看slice的底层原理和注意事项</title>
+      <link>http://localhost:1313/post/go-slice-principle/</link>
+      <pubDate>Sun, 26 Dec 2021 18:08:05 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-slice-principle/</guid>
+      <description>面试题 最近Go 101的作者发布了11道Go面试题，非常有趣，打算写一个系列对每道题做详细解析。欢迎大家关注。 大家可以看下面这道关于slice</description>
+    </item>
+    
+  </channel>
+</rss>
