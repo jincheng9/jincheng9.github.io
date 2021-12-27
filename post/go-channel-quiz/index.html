@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go Quiz: 从Go面试题看channel的注意事项 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go Quiz: 从Go面试题看channel的注意事项" /><meta name="keywords" content="go, channel, select, nil" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-channel-quiz/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go Quiz: 从Go面试题看channel的注意事项" />
+<meta property="og:description" content="Go Quiz: 从Go面试题看channel的注意事项" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-channel-quiz/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-27T19:11:12+08:00" />
+<meta property="article:modified_time" content="2021-12-27T19:11:12+08:00" />
+
+<meta itemprop="name" content="Go Quiz: 从Go面试题看channel的注意事项">
+<meta itemprop="description" content="Go Quiz: 从Go面试题看channel的注意事项"><meta itemprop="datePublished" content="2021-12-27T19:11:12+08:00" />
+<meta itemprop="dateModified" content="2021-12-27T19:11:12+08:00" />
+<meta itemprop="wordCount" content="1753">
+<meta itemprop="keywords" content="go,channel,select,nil," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go Quiz: 从Go面试题看channel的注意事项"/>
+<meta name="twitter:description" content="Go Quiz: 从Go面试题看channel的注意事项"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go Quiz: 从Go面试题看channel的注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-27 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+          <span class="more-meta"> 1753 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#面试题">面试题</a></li>
+        <li><a href="#解析">解析</a></li>
+        <li><a href="#加餐channel函数传参是引用传递">加餐：channel函数传参是引用传递？</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#好文推荐">好文推荐</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="面试题">面试题</h2>
+<p>这是Go Quiz系列的第2篇，关于<code>channel</code>和<code>select</code>的特性。</p>
+<p>这道题比较简单，但是通过这道题可以加深我们对<code>channel</code>和<code>select</code>的理解。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">done</span> <span class="o">:=</span> <span class="kc">false</span><span class="p">;</span> <span class="p">!</span><span class="nx">done</span><span class="p">;</span> <span class="p">{</span>
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">default</span><span class="p">:</span>
+			<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+			<span class="nx">done</span> <span class="p">=</span> <span class="kc">true</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">c</span><span class="p">:</span>
+			<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+			<span class="nx">c</span> <span class="p">=</span> <span class="kc">nil</span>
+		<span class="k">case</span> <span class="nx">c</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A: 321</li>
+<li>B: 21</li>
+<li>C: 1</li>
+<li>D: 31</li>
+</ul>
+<p>这道题主要考察以下知识点：</p>
+<ul>
+<li>
+<p><code>channel</code>的数据收发在什么情况会阻塞？</p>
+</li>
+<li>
+<p><code>select</code>的运行机制是怎样的？</p>
+</li>
+<li>
+<p><code>nil channel</code>收发数据是什么结果？</p>
+</li>
+</ul>
+<h2 id="解析">解析</h2>
+<ol>
+<li>
+<p>对于无缓冲区的<code>channel</code>，往<code>channel</code>发送数据和从<code>channel</code>接收数据都会阻塞。</p>
+</li>
+<li>
+<p>对于<code>nil channel</code>和有缓冲区的<code>channel</code>，收发数据的机制如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>channel</th>
+<th>nil</th>
+<th>空的</th>
+<th>非空非满</th>
+<th>满了</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>往channel发送数据</td>
+<td>阻塞</td>
+<td>发送成功</td>
+<td>发送成功</td>
+<td>阻塞</td>
+</tr>
+<tr>
+<td>从channel接收数据</td>
+<td>阻塞</td>
+<td>阻塞</td>
+<td>接收成功</td>
+<td>接收成功</td>
+</tr>
+<tr>
+<td>关闭channel</td>
+<td>panic</td>
+<td>关闭成功</td>
+<td>关闭成功</td>
+<td>关闭成功</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>channel</code>被关闭后：</p>
+<ul>
+<li>往被关闭的<code>channel</code>发送数据会触发panic。</li>
+<li>从被关闭的<code>channel</code>接收数据，会先读完<code>channel</code>里的数据。如果数据读完了，继续从<code>channel</code>读数据会拿到<code>channel</code>里存储的元素类型的零值。</li>
+<li><code>channel</code>被关闭后，如果再次关闭，会引发panic。</li>
+</ul>
+</li>
+<li>
+<p><code>select</code>的运行机制如下：</p>
+<ul>
+<li>选取一个可执行不阻塞的<code>case</code>分支，如果多个<code>case</code>分支都不阻塞，会随机算一个<code>case</code>分支执行，和<code>case</code>分支在代码里写的顺序没关系。</li>
+<li>如果所有<code>case</code>分支都阻塞，会进入<code>default</code>分支执行。</li>
+<li>如果没有<code>default</code>分支，那<code>select</code>会阻塞，直到有一个<code>case</code>分支不阻塞。</li>
+</ul>
+</li>
+</ol>
+<p>根据以上规则，本文最开始的题目，在运行的时候</p>
+<ul>
+<li>第1次for循环，只有<code>c &lt;- 1</code>是不阻塞的，所以最后一个<code>case</code>分支执行，打印3。</li>
+<li>第2次for循环，只有<code>&lt;-c</code>是不阻塞的，所以第1个<code>case</code>分支执行，打印2，同时<code>channel</code>被赋值为<code>nil</code>。</li>
+<li>第3次for循环，因为<code>channel</code>是<code>nil</code>，<code>对nil channel</code>的读和写都阻塞，所以进入<code>default</code>分支，打印1，<code>done</code>设置为<code>true</code>，for循环退出，程序运行结束。</li>
+</ul>
+<p>因此打印结果是<code>321</code>,答案是<code>A</code>。</p>
+<h2 id="加餐channel函数传参是引用传递">加餐：channel函数传参是引用传递？</h2>
+<p>网上有些文章写Go的<code>slice</code>，<code>map</code>，<code>channel</code>作为函数参数是传引用，这是<strong>错误</strong>的，Go语言里只有值传递，没有引用传递。</p>
+<p>既然<code>channel</code>是值传递，那为什么<code>channel</code>作为函数形参时，函数内部对<code>channel</code>的读写对外部的实参<code>channel</code>是可见的呢？</p>
+<p>对于这个问题，看Go的源码就一目了然了。<code>channel</code>定义在<code>src/runtime/chan.go</code>第33行，源码地址：https://github.com/golang/go/blob/master/src/runtime/chan.go#L33</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">makechan</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">chantype</span><span class="p">,</span> <span class="nx">size</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">hchan</span>
+
+<span class="c1">// channel结构体
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">hchan</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">qcount</span>   <span class="kt">uint</span>           <span class="c1">// total data in the queue
+</span><span class="c1"></span>	<span class="nx">dataqsiz</span> <span class="kt">uint</span>           <span class="c1">// size of the circular queue
+</span><span class="c1"></span>	<span class="nx">buf</span>      <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span> <span class="c1">// points to an array of dataqsiz elements
+</span><span class="c1"></span>	<span class="nx">elemsize</span> <span class="kt">uint16</span>
+	<span class="nx">closed</span>   <span class="kt">uint32</span>
+	<span class="nx">elemtype</span> <span class="o">*</span><span class="nx">_type</span> <span class="c1">// element type
+</span><span class="c1"></span>	<span class="nx">sendx</span>    <span class="kt">uint</span>   <span class="c1">// send index
+</span><span class="c1"></span>	<span class="nx">recvx</span>    <span class="kt">uint</span>   <span class="c1">// receive index
+</span><span class="c1"></span>	<span class="nx">recvq</span>    <span class="nx">waitq</span>  <span class="c1">// list of recv waiters
+</span><span class="c1"></span>	<span class="nx">sendq</span>    <span class="nx">waitq</span>  <span class="c1">// list of send waiters
+</span><span class="c1"></span>
+	<span class="c1">// lock protects all fields in hchan, as well as several
+</span><span class="c1"></span>	<span class="c1">// fields in sudogs blocked on this channel.
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Do not change another G&#39;s status while holding this lock
+</span><span class="c1"></span>	<span class="c1">// (in particular, do not ready a G), as this can deadlock
+</span><span class="c1"></span>	<span class="c1">// with stack shrinking.
+</span><span class="c1"></span>	<span class="nx">lock</span> <span class="nx">mutex</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们通过<code>make</code>函数来创建<code>channel</code>时，Go会调用运行时的<code>makechan</code>函数。</p>
+<p>从上面的代码可以看出<code>makechan</code>返回的是指向<code>channel</code>的指针。</p>
+<p>因此<code>channel</code>作为函数参数时，实参<code>channel</code>和形参<code>channel</code>都指向同一个<code>channel</code>结构体的内存空间，所以在函数内部对<code>channel</code>形参的修改对外部<code>channel</code>实参是可见的，反之亦然。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源地址在GitHub: <a href="https://github.com/jincheng9/go-tutorial">https://github.com/jincheng9/go-tutorial</a></p>
+<p>公众号：coding进阶</p>
+<p>个人网站：https://jincheng9.github.io/</p>
+<p>知乎：https://www.zhihu.com/people/thucuhkwuji</p>
+<h2 id="好文推荐">好文推荐</h2>
+<ol>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p2">被defer的函数一定会执行么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p3">Go有引用变量和引用传递么？map,channel和slice作为函数参数是引用传递么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p4">new和make的使用区别是什么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p5">一文读懂Go匿名结构体的使用场景</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p6">官方教程：Go泛型入门</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p7">一文读懂Go泛型设计和使用场景</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p8">Go Quiz: 从Go面试题看slice的底层原理和注意事项</a></li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://go101.org/quizzes/channel-1.html">https://go101.org/quizzes/channel-1.html</a></li>
+<li><a href="https://jincheng9.github.io/">https://jincheng9.github.io/</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson19">https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson19</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson29">https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson29</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/channel/">channel</a>
+          <a href="/tags/select/">select</a>
+          <a href="/tags/nil/">nil</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-slice-principle/">
+            <span class="next-text nav-default">Go Quiz: 从Go面试题看slice的底层原理和注意事项</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

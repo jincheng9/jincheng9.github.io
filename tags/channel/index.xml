@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>channel on Jincheng9&#39;s blog</title>
+    <link>http://localhost:1313/tags/channel/</link>
+    <description>Recent content in channel on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 27 Dec 2021 19:11:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/channel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看channel的注意事项</title>
+      <link>http://localhost:1313/post/go-channel-quiz/</link>
+      <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-channel-quiz/</guid>
+      <description>面试题 这是Go Quiz系列的第2篇，关于channel和select的特性。 这道题比较简单，但是通过这道题可以加深我们对channel和se</description>
+    </item>
+    
+  </channel>
+</rss>

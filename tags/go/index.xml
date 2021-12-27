@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Dec 2021 18:08:05 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Dec 2021 19:11:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看channel的注意事项</title>
+      <link>http://localhost:1313/post/go-channel-quiz/</link>
+      <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-channel-quiz/</guid>
+      <description>面试题 这是Go Quiz系列的第2篇，关于channel和select的特性。 这道题比较简单，但是通过这道题可以加深我们对channel和se</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看slice的底层原理和注意事项</title>
       <link>http://localhost:1313/post/go-slice-principle/</link>
