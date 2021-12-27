@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项">
 <meta itemprop="description" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"><meta itemprop="datePublished" content="2021-12-26T18:08:05+08:00" />
 <meta itemprop="dateModified" content="2021-12-26T18:08:05+08:00" />
-<meta itemprop="wordCount" content="4794">
+<meta itemprop="wordCount" content="4815">
 <meta itemprop="keywords" content="go,slice,数据结构," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"/>
 <meta name="twitter:description" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 4794 words </span>
+          <span class="more-meta"> 4815 words </span>
           <span class="more-meta"> 10 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -260,7 +260,7 @@
 <p><strong>新<code>slice</code>结构体里的<code>array</code>指针指向原数组或者原<code>slice</code>的底层数组，新切片的长度是<code>：</code>右边的数值减去左边的数值，新切片的容量是原切片的容量减去<code>:</code>左边的数值。</strong></p>
 </li>
 <li>
-<p><code>:</code>的左边如果没有写数字，默认是0，右边没有写数字，默认是被分割的数组或被分割的切片的长度。</p>
+<p><code>:</code>的左边如果没有写数字，左边的默认值是0，右边如果没有写数字，右边的默认值是被分割的数组或被分割的切片的长度，<strong>注意</strong>，是长度不是容量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
