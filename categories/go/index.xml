@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Dec 2021 19:11:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Dec 2021 20:21:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看分号规则和switch的注意事项</title>
+      <link>http://localhost:1313/post/go-switch-semicolons-quiz/</link>
+      <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-switch-semicolons-quiz/</guid>
+      <description>面试题 这是Go Quiz系列的第3篇，关于switch的特性。 这道题比较tricky，通过这道题可以加深我们对Go语言里的分号:规则和swit</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看channel的注意事项</title>
       <link>http://localhost:1313/post/go-channel-quiz/</link>
