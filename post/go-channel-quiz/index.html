@@ -276,7 +276,7 @@
 <li>
 <p><code>select</code>的运行机制如下：</p>
 <ul>
-<li>选取一个可执行不阻塞的<code>case</code>分支，如果多个<code>case</code>分支都不阻塞，会随机算一个<code>case</code>分支执行，和<code>case</code>分支在代码里写的顺序没关系。</li>
+<li>选取一个可执行不阻塞的<code>case</code>分支，如果多个<code>case</code>分支都不阻塞，会随机选一个<code>case</code>分支执行，和<code>case</code>分支在代码里写的顺序没关系。</li>
 <li>如果所有<code>case</code>分支都阻塞，会进入<code>default</code>分支执行。</li>
 <li>如果没有<code>default</code>分支，那<code>select</code>会阻塞，直到有一个<code>case</code>分支不阻塞。</li>
 </ul>
