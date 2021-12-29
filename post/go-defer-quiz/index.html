@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项">
 <meta itemprop="description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"><meta itemprop="datePublished" content="2021-12-29T15:12:35+08:00" />
 <meta itemprop="dateModified" content="2021-12-29T15:12:35+08:00" />
-<meta itemprop="wordCount" content="2241">
+<meta itemprop="wordCount" content="2243">
 <meta itemprop="keywords" content="go,quiz,defer,return,panic," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"/>
 <meta name="twitter:description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 2241 words </span>
+          <span class="more-meta"> 2243 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -251,7 +251,7 @@ return statement but before the function returns to its caller.</p>
 invoked, not when the &ldquo;defer&rdquo; statement is executed.</p>
 </blockquote>
 <p>官方文档的前两句话对我们求解本题至关重要，用中文来表述就是：</p>
-<p><strong>假设我们在函数<code>A</code>的函数体内运行了<code>defer B(params)</code>，那被<code>defer</code>的函数<code>B</code>的参数会像普通函数调用一样被计算，但是被<code>defer</code>的函数<code>B</code>的调用会延迟到函数<code>A</code> return或者panic之前执行。</strong></p>
+<p><strong>假设我们在函数<code>A</code>的函数体内运行了<code>defer B(params)</code>，那被<code>defer</code>的函数<code>B</code>的参数会像普通函数调用一样被即时计算，但是被<code>defer</code>的函数<code>B</code>的调用会延迟到函数<code>A</code> return或者panic之前执行。</strong></p>
 <p>如果<code>defer</code>后面跟的是多级函数的调用，只有最后一个函数会被延迟执行。</p>
 <p>比如上例里的<code>defer NewFoo(p).Bar(p)</code>中，<code>NewFoo(p)</code>是会被即时执行的，不会延后，只有最后一个方法<code>Bar</code>的调用会被延后执行。</p>
 <p>同时，函数的传参也是被即时计算的，也就是<code>defer NewFoo(p).Bar(p)</code>里涉及的参数<code>p</code>的值也是被即时计算保存好的，延后执行的时候就用事先计算好的值。</p>
