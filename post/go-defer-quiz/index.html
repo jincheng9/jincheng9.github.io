@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go Quiz: 从Go面试题看defer语义的底层原理和注意事项 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项" /><meta name="keywords" content="go, quiz, defer, return, panic" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-defer-quiz/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项" />
+<meta property="og:description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-defer-quiz/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-29T15:12:35+08:00" />
+<meta property="article:modified_time" content="2021-12-29T15:12:35+08:00" />
+
+<meta itemprop="name" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项">
+<meta itemprop="description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"><meta itemprop="datePublished" content="2021-12-29T15:12:35+08:00" />
+<meta itemprop="dateModified" content="2021-12-29T15:12:35+08:00" />
+<meta itemprop="wordCount" content="2241">
+<meta itemprop="keywords" content="go,quiz,defer,return,panic," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"/>
+<meta name="twitter:description" content="Go Quiz: 从Go面试题看defer语义的底层原理和注意事项"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-29 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+          <span class="more-meta"> 2241 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#面试题">面试题</a></li>
+        <li><a href="#解析">解析</a></li>
+        <li><a href="#defer六大原则">defer六大原则</a></li>
+        <li><a href="#思考题">思考题</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#好文推荐">好文推荐</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="面试题">面试题</h2>
+<p>这是Go Quiz系列的第4篇，关于Go语言的<code>defer</code>语义。</p>
+<p>这道题稍微有点迷惑性，通过这道题可以加深我们对Go语言<code>defer</code>关键字底层运行机制的理解。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">type</span> <span class="nx">Foo</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">v</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewFoo</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="nx">Foo</span> <span class="p">{</span>
+	<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">Foo</span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">Foo</span><span class="p">)</span> <span class="nf">Bar</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="kd">var</span> <span class="nx">p</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">x</span>
+	<span class="k">defer</span> <span class="nf">NewFoo</span><span class="p">(</span><span class="nx">p</span><span class="p">).</span><span class="nf">Bar</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
+	<span class="nx">x</span> <span class="p">=</span> <span class="mi">2</span>
+	<span class="nx">p</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+	<span class="nf">NewFoo</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A: 100</li>
+<li>B: 102</li>
+<li>C: 022</li>
+<li>D: 011</li>
+</ul>
+<p>这道题主要考察以下知识点：</p>
+<ul>
+<li>
+<p>被<code>defer</code>的函数或方法什么时候执行？</p>
+</li>
+<li>
+<p>被<code>defer</code>的函数或方法的参数的值是什么时候确定的？</p>
+</li>
+<li>
+<p>被<code>defer</code>的函数或方法如果存在多级调用是什么机制？比如本题的<code>NewFoo(p).Bar(p)</code>就存在二级调用，先调用了<code>NewFoo</code>函数，再调用了<code>Bar</code>方法。</p>
+</li>
+</ul>
+<h2 id="解析">解析</h2>
+<p>我们再看看官方文档怎么说的：</p>
+<blockquote>
+<p>Each time a &ldquo;defer&rdquo; statement executes, the function value and parameters to
+the call are evaluated as usual and saved anew but the actual function is not
+invoked.</p>
+<p>Instead, deferred functions are invoked immediately before the
+surrounding function returns, in the reverse order they were deferred.</p>
+<p>That is, if the surrounding function returns through an explicit return statement,
+deferred functions are executed after any result parameters are set by that
+return statement but before the function returns to its caller.</p>
+<p>If a deferred function value evaluates to nil, execution panics when the function is
+invoked, not when the &ldquo;defer&rdquo; statement is executed.</p>
+</blockquote>
+<p>官方文档的前两句话对我们求解本题至关重要，用中文来表述就是：</p>
+<p><strong>假设我们在函数<code>A</code>的函数体内运行了<code>defer B(params)</code>，那被<code>defer</code>的函数<code>B</code>的参数会像普通函数调用一样被计算，但是被<code>defer</code>的函数<code>B</code>的调用会延迟到函数<code>A</code> return或者panic之前执行。</strong></p>
+<p>如果<code>defer</code>后面跟的是多级函数的调用，只有最后一个函数会被延迟执行。</p>
+<p>比如上例里的<code>defer NewFoo(p).Bar(p)</code>中，<code>NewFoo(p)</code>是会被即时执行的，不会延后，只有最后一个方法<code>Bar</code>的调用会被延后执行。</p>
+<p>同时，函数的传参也是被即时计算的，也就是<code>defer NewFoo(p).Bar(p)</code>里涉及的参数<code>p</code>的值也是被即时计算保存好的，延后执行的时候就用事先计算好的值。</p>
+<p>这道题求解过程如下：</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>执行结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>var x = 1</td>
+<td>定义一个整型变量x，值为1</td>
+</tr>
+<tr>
+<td>var p = &amp;x</td>
+<td>定义一个指针p，指向变量x</td>
+</tr>
+<tr>
+<td>defer NewFoo(p).Bar(p)</td>
+<td>NewFoo(p)和参数p会被即时计算。NewFoo(p)的执行结果会打印1，指针p的值是变量x的内存地址，*p也就是变量x的值，Bar的调用会延后到main函数return之前执行</td>
+</tr>
+<tr>
+<td>x = 2</td>
+<td>修改x的值为2</td>
+</tr>
+<tr>
+<td>p = new(int)</td>
+<td>修改指针p的值，不再指向x，而是指向新的内存地址，该内存地址存的值是int的零值，也就是0</td>
+</tr>
+<tr>
+<td>NewFoo(p)</td>
+<td>调用函数NewFoo，打印0。<br>main函数return之前，执行Bar方法，Bar的参数p的值在defer语句执行的时候就已经确定下来了，是变量x的内存地址，因此Bar方法打印的是变量x的值，也就是2</td>
+</tr>
+</tbody>
+</table>
+<p>因此本题的运行结果是102，答案是B。</p>
+<h2 id="defer六大原则">defer六大原则</h2>
+<p>最后总结下<code>defer</code>语义要注意的六大关键点：</p>
+<ol>
+<li>
+<p>defer后面跟的必须是函数或者方法调用，defer后面的表达式不能加括号。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="k">defer</span> <span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1">// 编译报错，因为defer后面跟的表达式不能加括号
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>被defer的函数或方法的参数的值在执行到defer语句的时候就被确定下来了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">a</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="c1">// 最终打印0
+</span><span class="c1"></span>    <span class="nx">i</span><span class="o">++</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上例中，被defer的函数fmt.Println的参数<code>i</code>在执行到defer这一行的时候，<code>i</code>的值是0，fmt.Println的参数就被确定下来是0了，因此最终打印的结果是0，而不是1。</p>
+</li>
+<li>
+<p>被<code>defer</code>的函数或者方法如果存在多级调用，只有最后一个函数或方法会被<code>defer</code>到函数return或者panic之前执行，参见上面的说明。</p>
+</li>
+<li>
+<p>被defer的函数执行顺序满足LIFO原则，后defer的先执行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">b</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上例中，输出的结果是3210，后defer的先执行。</p>
+</li>
+<li>
+<p>被defer的函数可以对defer语句所在的函数的命名返回值做读取和修改操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// f returns 42
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="p">(</span><span class="nx">result</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+     <span class="c1">// result is accessed after it was set to 6 by the return statement
+</span><span class="c1"></span>     <span class="nx">result</span> <span class="o">*=</span> <span class="mi">7</span>
+	<span class="p">}()</span>
+	<span class="k">return</span> <span class="mi">6</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上例中，被defer的函数func对defer语句所在的函数<strong>f</strong>的命名返回值result做了修改操作。</p>
+<p>调用函数<code>f</code>，返回的结果是42。</p>
+<p>执行顺序是函数<code>f</code>先把要返回的值6赋值给result，然后执行被defer的函数func，result被修改为42，然后函数<code>f</code>返回result给调用方，也就返回了42。</p>
+</li>
+<li>
+<p>即使<code>defer</code>语句执行了，被<code>defer</code>的函数不一定会执行。对这句话不理解的可以参考下面的思考题。</p>
+</li>
+</ol>
+<h2 id="思考题">思考题</h2>
+<p>思考下面这3道题的运行结果是什么？大家可以在评论区留下你们的答案。</p>
+<p>题目1：程序运行结果是什么？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">type</span> <span class="nx">T</span> <span class="kt">int</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="nx">T</span><span class="p">)</span> <span class="nf">M</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">T</span> <span class="p">{</span>
+	<span class="nb">print</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">t</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">t</span> <span class="nx">T</span>
+	<span class="k">defer</span> <span class="nx">t</span><span class="p">.</span><span class="nf">M</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">M</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">M</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">M</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>题目2：&ldquo;end&quot;会被打印么？<code>f(1, 2)</code>会不会编译报错？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">type</span> <span class="nx">Add</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">f</span> <span class="nx">Add</span>
+	<span class="k">defer</span> <span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;end&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>题目3：“test”会被打印么？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">test1</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="nf">test1</span><span class="p">()</span>
+	<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源地址在GitHub: <a href="https://github.com/jincheng9/go-tutorial">https://github.com/jincheng9/go-tutorial</a></p>
+<p>公众号：coding进阶</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">https://jincheng9.github.io/</a></p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">https://www.zhihu.com/people/thucuhkwuji</a></p>
+<h2 id="好文推荐">好文推荐</h2>
+<ol>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p2">被defer的函数一定会执行么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p3">Go有引用变量和引用传递么？map,channel和slice作为函数参数是引用传递么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p4">new和make的使用区别是什么？</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p5">一文读懂Go匿名结构体的使用场景</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p6">官方教程：Go泛型入门</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p7">一文读懂Go泛型设计和使用场景</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p8">Go Quiz: 从Go面试题看slice的底层原理和注意事项</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p9">Go Quiz: 从Go面试题看channel的注意事项</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p10">Go Quiz: 从Go面试题看分号规则和switch的注意事项</a></li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://go101.org/quizzes/defer-1.html">https://go101.org/quizzes/defer-1.html</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p2">https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p2</a></li>
+<li><a href="https://golang.google.cn/ref/spec#Defer_statements">https://golang.google.cn/ref/spec#Defer_statements</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/quiz/">quiz</a>
+          <a href="/tags/defer/">defer</a>
+          <a href="/tags/return/">return</a>
+          <a href="/tags/panic/">panic</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-switch-semicolons-quiz/">
+            <span class="next-text nav-default">Go Quiz: 从Go面试题看分号规则和switch的注意事项</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

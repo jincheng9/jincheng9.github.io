@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Dec 2021 20:21:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Dec 2021 15:12:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</title>
+      <link>http://localhost:1313/post/go-defer-quiz/</link>
+      <pubDate>Wed, 29 Dec 2021 15:12:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-defer-quiz/</guid>
+      <description>面试题 这是Go Quiz系列的第4篇，关于Go语言的defer语义。 这道题稍微有点迷惑性，通过这道题可以加深我们对Go语言defer关键字底层</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看分号规则和switch的注意事项</title>
       <link>http://localhost:1313/post/go-switch-semicolons-quiz/</link>
