@@ -3,41 +3,76 @@
   
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/defer/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/go/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/categories/go/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-defer-quiz/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
+    <loc>http://localhost:1313/post/go-defer-quiz2/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/quiz/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/recover/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2021-12-30T22:19:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/go-defer-quiz/</loc>
     <lastmod>2021-12-29T15:12:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -51,28 +86,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/quiz/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/tags/return/</loc>
-    <lastmod>2021-12-29T15:12:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2021-12-29T15:12:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

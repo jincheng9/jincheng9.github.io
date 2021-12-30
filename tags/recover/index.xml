@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>recover on Jincheng9&#39;s blog</title>
+    <link>http://localhost:1313/tags/recover/</link>
+    <description>Recent content in recover on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Dec 2021 22:19:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/recover/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
+      <link>http://localhost:1313/post/go-defer-quiz2/</link>
+      <pubDate>Thu, 30 Dec 2021 22:19:11 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-defer-quiz2/</guid>
+      <description>面试题 这是Go Quiz系列的第5篇，是考察Go语言的defer语义，也是defer语义的第2篇。 没有看过defer第1篇的可以先回顾下：Go</description>
+    </item>
+    
+  </channel>
+</rss>

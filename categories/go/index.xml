@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Dec 2021 15:12:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 22:19:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
+      <link>http://localhost:1313/post/go-defer-quiz2/</link>
+      <pubDate>Thu, 30 Dec 2021 22:19:11 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-defer-quiz2/</guid>
+      <description>面试题 这是Go Quiz系列的第5篇，是考察Go语言的defer语义，也是defer语义的第2篇。 没有看过defer第1篇的可以先回顾下：Go</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</title>
       <link>http://localhost:1313/post/go-defer-quiz/</link>
