@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Dec 2021 22:19:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 13:59:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC-Go入门教程</title>
+      <link>http://localhost:1313/post/go-grpc-protobuf/</link>
+      <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-grpc-protobuf/</guid>
+      <description>protobuf简介 Protocol Buffers(protobuf)：与编程语言无关，与程序运行平台无关的数据序列化协议以及接口定义语言(IDL: interface definition l</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
       <link>http://localhost:1313/post/go-defer-quiz2/</link>

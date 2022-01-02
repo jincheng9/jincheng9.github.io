@@ -6,13 +6,22 @@
     <description>Recent content in Categories on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Dec 2021 22:19:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 13:59:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go</title>
       <link>http://localhost:1313/categories/go/</link>
-      <pubDate>Thu, 30 Dec 2021 22:19:11 +0800</pubDate>
+      <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rpc</title>
+      <link>http://localhost:1313/categories/rpc/</link>
+      <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/rpc/</guid>
       <description></description>
     </item>
     
