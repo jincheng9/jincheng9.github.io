@@ -165,11 +165,15 @@
 </div>
     <div class="post-content">
       <h2 id="环境准备">环境准备</h2>
-<ol>
-<li>Docker安装：参考我的上一篇文章<a href="https://github.com/jincheng9/disributed-system-notes/tree/main/docker/01">Docker入门教程101：用途，架构，安装和使用</a>。</li>
-<li>Go项目代码准备</li>
-</ol>
-<p>​	基于golang最流行的Web框架Gin，搭建一个最简单的Web服务，大家可以下载<a href="https://github.com/jincheng9/disributed-system-notes/archive/refs/heads/main.zip">zip包</a>，或者使用git下载源码：</p>
+<ul>
+<li>
+<p>Docker安装：参考我的上一篇文章<a href="https://github.com/jincheng9/disributed-system-notes/tree/main/docker/01">Docker入门教程101：用途，架构，安装和使用</a>。</p>
+</li>
+<li>
+<p>Go项目代码准备：</p>
+<p>基于golang最流行的Web框架Gin，搭建一个最简单的Web服务，大家可以下载<a href="https://github.com/jincheng9/disributed-system-notes/archive/refs/heads/main.zip">zip包</a>，或者使用git下载源码：</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -178,8 +182,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone git@github.com:jincheng9/disributed-system-notes.git
 </code></pre></td></tr></table>
 </div>
-</div><p>​	下载后，用VSCode，Goland或其它IDE打开<code>disributed-system-notes/docker/02/go-docker-demo</code>目录。</p>
-<p>​	在该目录下执行如下2条命令，服务正常启动后，会监听8080端口</p>
+</div><p>​		下载后，用VSCode，Goland或其它IDE打开<code>disributed-system-notes/docker/02/go-docker-demo</code>目		录。在该目录下执行如下2条命令，服务正常启动后，会监听8080端口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -190,7 +193,7 @@
 $ ./main
 </code></pre></td></tr></table>
 </div>
-</div><p>​	在浏览器上输入<a href="http://localhost:8080/hello">http://localhost:8080/hello</a>，如果有输出如下结果，就表示一切准备就绪了。</p>
+</div><p>​		在浏览器上输入<a href="http://localhost:8080/hello">http://localhost:8080/hello</a>，如果有输出如下结果，就表示一切准备就绪了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -198,9 +201,9 @@ $ ./main
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-markdown" data-lang="markdown">{
-	&#34;msg&#34;: &#34;world&#34;
-}
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
+	<span class="s2">&#34;msg&#34;</span>: <span class="s2">&#34;world&#34;</span>
+<span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="创建dockerfile">创建Dockerfile</h2>
@@ -230,7 +233,7 @@ $ ./main
 </span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
-</div><p><code>FROM</code>: 指定基础镜像。我们的项目需要用到Go，所以指定golang的最新版本为基础镜像</p>
+</div><p><code>FROM</code>: 指定基础镜像。我们的项目需要用到Go，所以指定golang的最新版本为基础镜像。</p>
 <p><code>WORKDIR</code>：指定本项目在容器里的工作目录或者说存储位置。设置了<code>WORKDIR</code>后，<code>Dockerfile</code>里后续的指令如果要使用容器里的路径，就可以根据<code>WORKDIR</code>来使用相对路径了。</p>
 <p><code>COPY</code>：把执行<code>docker build</code>指定的目录下的某些文件或目录拷贝到容器的指定路径下。例子里的第一个<code>.</code>表示<code>docker build</code>指定的当前目录，第二个<code>.</code>表示容器的当前工作目录<code>WORKDIR</code>，该指令表示把<code>docker build</code>指定的目录下的所有内容(包括子目录下的文件)全部拷贝到容器的<code>/app/demo</code>目录下。</p>
 <p><code>RUN</code>：在指定的容器工作目录执行命令。例子表示在<code>WORKDIR</code>下执行<code>go build main.go</code>，会生成<code>main</code>二进制文件。</p>
@@ -321,7 +324,7 @@ bin  dev   go	lib   media  opt  root	sbin  sys  usr
       <nav class="post-nav">
         
         <a class="next" href="/post/docker-tutorial/">
-            <span class="next-text nav-default">Docker入门教程101</span>
+            <span class="next-text nav-default">Docker入门教程101: 用途，架构，安装和使用</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
