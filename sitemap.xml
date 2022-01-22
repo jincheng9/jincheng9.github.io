@@ -3,7 +3,77 @@
   
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/go/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/go-quiz-slice2/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/range/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/slice/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2022-01-22T16:16:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,20 +87,6 @@
   
   <url>
     <loc>http://localhost:1313/tags/generics/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/go/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/go/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,27 +108,6 @@
   
   <url>
     <loc>http://localhost:1313/post/go-official-blog-two-tutorial/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2022-01-22T11:05:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -290,13 +325,6 @@
   
   <url>
     <loc>http://localhost:1313/post/go-slice-principle/</loc>
-    <lastmod>2021-12-26T18:08:05+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/slice/</loc>
     <lastmod>2021-12-26T18:08:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Jan 2022 11:05:17 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 16:16:10 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>http://localhost:1313/tags/go/</link>
+      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>range</title>
+      <link>http://localhost:1313/tags/range/</link>
+      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/range/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slice</title>
+      <link>http://localhost:1313/tags/slice/</link>
+      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/slice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>面试题</title>
+      <link>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>fuzzing</title>
       <link>http://localhost:1313/tags/fuzzing/</link>
@@ -22,15 +58,6 @@
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/generics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/go/</guid>
       <description></description>
     </item>
     
@@ -229,15 +256,6 @@
       <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/select/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>slice</title>
-      <link>http://localhost:1313/tags/slice/</link>
-      <pubDate>Sun, 26 Dec 2021 18:08:05 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/slice/</guid>
       <description></description>
     </item>
     
