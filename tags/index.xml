@@ -6,7 +6,79 @@
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Jan 2022 21:11:49 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 11:05:17 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fuzzing</title>
+      <link>http://localhost:1313/tags/fuzzing/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/fuzzing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>generics</title>
+      <link>http://localhost:1313/tags/generics/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/generics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://localhost:1313/tags/go/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go1.18</title>
+      <link>http://localhost:1313/tags/go1.18/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/go1.18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://localhost:1313/tags/golang/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>http://localhost:1313/tags/tutorial/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>泛型</title>
+      <link>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>container</title>
       <link>http://localhost:1313/tags/container/</link>
@@ -22,15 +94,6 @@
       <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/go/</guid>
       <description></description>
     </item>
     
@@ -188,29 +251,11 @@
     </item>
     
     <item>
-      <title>generics</title>
-      <link>http://localhost:1313/tags/generics/</link>
-      <pubDate>Fri, 24 Dec 2021 14:20:40 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/generics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>type paramter</title>
       <link>http://localhost:1313/tags/type-paramter/</link>
       <pubDate>Fri, 24 Dec 2021 14:20:40 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/type-paramter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>泛型</title>
-      <link>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</link>
-      <pubDate>Fri, 24 Dec 2021 14:20:40 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</guid>
       <description></description>
     </item>
     
