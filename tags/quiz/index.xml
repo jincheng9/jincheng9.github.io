@@ -6,7 +6,16 @@
     <description>Recent content in quiz on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Dec 2021 22:19:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 15:50:22 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看channel在select场景下的注意事项</title>
+      <link>http://localhost:1313/post/go-quiz-channel-select/</link>
+      <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-quiz-channel-select/</guid>
+      <description>面试题 这是Go Quiz系列中关于channel的第2篇，涉及channel被close后的特性，以及在select和channel一起使用时</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
       <link>http://localhost:1313/post/go-defer-quiz2/</link>

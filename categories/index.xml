@@ -6,20 +6,29 @@
     <description>Recent content in Categories on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Jan 2022 16:16:10 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 15:50:22 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go</title>
       <link>http://localhost:1313/categories/go/</link>
-      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>quiz</title>
+      <link>http://localhost:1313/categories/quiz/</link>
+      <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/quiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>面试题</title>
       <link>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
-      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description></description>
