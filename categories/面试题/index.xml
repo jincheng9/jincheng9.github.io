@@ -6,7 +6,16 @@
     <description>Recent content in 面试题 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Jan 2022 22:40:17 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 15:49:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: Google工程师的Go语言题目</title>
+      <link>http://localhost:1313/post/go-quiz-cny-google-valentin/</link>
+      <pubDate>Mon, 31 Jan 2022 15:49:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-quiz-cny-google-valentin/</guid>
+      <description>面试题 Google工程师和Go语言布道者Valentin Deleplace会不定期分享一些Go语言的趣味题目。 我选取了几道题目，给大家春节加</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第3篇</title>
       <link>http://localhost:1313/post/go-quiz-defer3/</link>
