@@ -6,20 +6,20 @@
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Feb 2022 12:56:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 14:49:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>beta</title>
-      <link>http://localhost:1313/tags/beta/</link>
-      <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
+      <title>bug</title>
+      <link>http://localhost:1313/tags/bug/</link>
+      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/beta/</guid>
+      <guid>http://localhost:1313/tags/bug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
       <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
+      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/go/</guid>
       <description></description>
@@ -28,9 +28,27 @@
     <item>
       <title>go1.18</title>
       <link>http://localhost:1313/tags/go1.18/</link>
-      <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
+      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/go1.18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>variable declared not used</title>
+      <link>http://localhost:1313/tags/variable-declared-not-used/</link>
+      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/variable-declared-not-used/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>beta</title>
+      <link>http://localhost:1313/tags/beta/</link>
+      <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/beta/</guid>
       <description></description>
     </item>
     
