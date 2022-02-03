@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Feb 2022 14:49:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 22:27:27 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.18将移除用于泛型的constraints包</title>
+      <link>http://localhost:1313/post/go1.18-remove-constraints-package/</link>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go1.18-remove-constraints-package/</guid>
+      <description>背景 Go官方团队在Go 1.18 Beta 1版本的标准库里因为泛型设计而引入了contraints包。 constraints包里定义了Signed，Unsi</description>
+    </item>
+    
     <item>
       <title>轻松一刻：Go 1.18修复了一个经典bug</title>
       <link>http://localhost:1313/post/go-variable-declared-not-used-bug/</link>

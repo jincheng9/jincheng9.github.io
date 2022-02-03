@@ -6,22 +6,58 @@
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Feb 2022 14:49:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 22:27:27 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>bug</title>
-      <link>http://localhost:1313/tags/bug/</link>
-      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
+      <title>1.18</title>
+      <link>http://localhost:1313/tags/1.18/</link>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/bug/</guid>
+      <guid>http://localhost:1313/tags/1.18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>contraints</title>
+      <link>http://localhost:1313/tags/contraints/</link>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/contraints/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>generics</title>
+      <link>http://localhost:1313/tags/generics/</link>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/generics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
       <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>泛型</title>
+      <link>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>http://localhost:1313/tags/bug/</link>
+      <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/bug/</guid>
       <description></description>
     </item>
     
@@ -125,15 +161,6 @@
     </item>
     
     <item>
-      <title>generics</title>
-      <link>http://localhost:1313/tags/generics/</link>
-      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/generics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>golang</title>
       <link>http://localhost:1313/tags/golang/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
@@ -157,15 +184,6 @@
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>泛型</title>
-      <link>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</link>
-      <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</guid>
       <description></description>
     </item>
     
