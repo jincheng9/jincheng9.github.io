@@ -6,7 +6,16 @@
     <description>Recent content in panic on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Dec 2021 15:12:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/panic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Feb 2022 14:48:15 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/panic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看panic注意事项第1篇</title>
+      <link>http://localhost:1313/post/go-quiz-panic-1/</link>
+      <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-quiz-panic-1/</guid>
+      <description>面试题 这是Go Quiz系列里关于panic的第1篇，主要考察同一个goroutine在多次panic场景下recover的机制。 1 2 3 4 5 6</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</title>
       <link>http://localhost:1313/post/go-defer-quiz/</link>
