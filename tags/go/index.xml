@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Feb 2022 14:48:15 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 22:34:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言中fmt.Println(true)的结果一定是true么？</title>
+      <link>http://localhost:1313/post/go-advance-identifier/</link>
+      <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-advance-identifier/</guid>
+      <description>Go语言中fmt.Println(true)的结果一定是true么？ 背景 Honeycomb的首席开发布道者Jessica在Twitter上发</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看panic注意事项第1篇</title>
       <link>http://localhost:1313/post/go-quiz-panic-1/</link>

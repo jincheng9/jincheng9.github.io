@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go Quiz: 从Go面试题看panic注意事项第1篇 - Jincheng9&#39;s blog</title>
+  <title>Go语言中fmt.Println(true)的结果一定是true么？ - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go Quiz: 从Go面试题看panic注意事项第1篇" /><meta name="keywords" content="go, quiz, 面试题, panic, recover" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go语言中fmt.Println(true)的结果一定是true么？" /><meta name="keywords" content="go, keyword, identifier, 关键字, 标识符" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/go-quiz-panic-1/" />
+<link rel="canonical" href="http://localhost:1313/post/go-advance-identifier/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go Quiz: 从Go面试题看panic注意事项第1篇" />
-<meta property="og:description" content="Go Quiz: 从Go面试题看panic注意事项第1篇" />
+<meta property="og:title" content="Go语言中fmt.Println(true)的结果一定是true么？" />
+<meta property="og:description" content="Go语言中fmt.Println(true)的结果一定是true么？" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/go-quiz-panic-1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-07T14:48:15+08:00" />
-<meta property="article:modified_time" content="2022-02-07T14:48:15+08:00" />
+<meta property="og:url" content="http://localhost:1313/post/go-advance-identifier/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-16T22:34:11+08:00" />
+<meta property="article:modified_time" content="2022-02-16T22:34:11+08:00" />
 
-<meta itemprop="name" content="Go Quiz: 从Go面试题看panic注意事项第1篇">
-<meta itemprop="description" content="Go Quiz: 从Go面试题看panic注意事项第1篇"><meta itemprop="datePublished" content="2022-02-07T14:48:15+08:00" />
-<meta itemprop="dateModified" content="2022-02-07T14:48:15+08:00" />
-<meta itemprop="wordCount" content="835">
-<meta itemprop="keywords" content="go,quiz,面试题,panic,recover," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go Quiz: 从Go面试题看panic注意事项第1篇"/>
-<meta name="twitter:description" content="Go Quiz: 从Go面试题看panic注意事项第1篇"/>
+<meta itemprop="name" content="Go语言中fmt.Println(true)的结果一定是true么？">
+<meta itemprop="description" content="Go语言中fmt.Println(true)的结果一定是true么？"><meta itemprop="datePublished" content="2022-02-16T22:34:11+08:00" />
+<meta itemprop="dateModified" content="2022-02-16T22:34:11+08:00" />
+<meta itemprop="wordCount" content="898">
+<meta itemprop="keywords" content="go,keyword,identifier,关键字,标识符," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go语言中fmt.Println(true)的结果一定是true么？"/>
+<meta name="twitter:description" content="Go语言中fmt.Println(true)的结果一定是true么？"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,16 +129,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go Quiz: 从Go面试题看panic注意事项第1篇</h1>
+      <h1 class="post-title">Go语言中fmt.Println(true)的结果一定是true么？</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-02-07 </span>
+        <span class="post-time"> 2022-02-16 </span>
         <div class="post-category">
             <a href="/categories/go/"> go </a>
-            <a href="/categories/quiz/"> quiz </a>
-            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"> 面试题 </a>
             </div>
-          <span class="more-meta"> 835 words </span>
+          <span class="more-meta"> 898 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -149,13 +147,17 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#go语言中fmtprintlntrue的结果一定是true么">Go语言中fmt.Println(true)的结果一定是true么？</a>
       <ul>
-        <li><a href="#面试题">面试题</a></li>
-        <li><a href="#解析">解析</a></li>
-        <li><a href="#思考题">思考题</a></li>
-        <li><a href="#加餐">加餐</a></li>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#解析">解析</a>
+          <ul>
+            <li><a href="#predeclared-identifiers">Predeclared identifiers</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结">总结</a></li>
         <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#references">References</a></li>
       </ul>
     </li>
   </ul>
@@ -163,8 +165,77 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="面试题">面试题</h2>
-<p>这是Go Quiz系列里关于<code>panic</code>的第1篇，主要考察同一个goroutine在多次<code>panic</code>场景下<code>recover</code>的机制。</p>
+      <h1 id="go语言中fmtprintlntrue的结果一定是true么">Go语言中fmt.Println(true)的结果一定是true么？</h1>
+<h2 id="背景">背景</h2>
+<p><a href="https://www.honeycomb.io/">Honeycomb</a>的首席开发布道者<a href="https://twitter.com/jessitron">Jessica</a>在Twitter上发了一条状态：</p>
+<blockquote>
+<p>fmt.Println(&ldquo;What is truth?&rdquo;, true)</p>
+<p>can output:</p>
+<p>What is truth? false</p>
+</blockquote>
+<p>意思是下面代码的执行结果可能是<code>What is truth? false</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;What is truth?&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>大家可以先想想什么情况下会出现这样的结果。</p>
+<h2 id="解析">解析</h2>
+<p>我们来看下面这段代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// identifier.go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kc">true</span> <span class="o">:=</span> <span class="kc">false</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>大家觉得这段代码是会编译报错呢，还是正常执行？</p>
+<p>实际执行结果是打印<code>true</code>，并不会编译报错。</p>
+<p>因此本文开头的代码<code>fmt.Println(&quot;What is truth?&quot;, true)</code>是可能打印<code>What is truth? false</code>的。</p>
+<p><strong>有的同学可能好奇了？为什么会这样呢？<code>true</code>不是Go语言的关键字么，为什么还可以定义标识符为<code>true</code> 的变量？</strong></p>
+<p>答案是：<code>true</code> 并不是Go语言的关键字，Go语言目前只有25个关键字，如下所示：</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="k">break</span>        <span class="k">default</span>      <span class="kd">func</span>         <span class="kd">interface</span>    <span class="k">select</span>
+<span class="k">case</span>         <span class="k">defer</span>        <span class="k">go</span>           <span class="kd">map</span>          <span class="kd">struct</span>
+<span class="kd">chan</span>         <span class="k">else</span>         <span class="k">goto</span>         <span class="kn">package</span>      <span class="k">switch</span>
+<span class="kd">const</span>        <span class="k">fallthrough</span>  <span class="k">if</span>           <span class="k">range</span>        <span class="kd">type</span>
+<span class="k">continue</span>     <span class="k">for</span>          <span class="kn">import</span>       <span class="k">return</span>       <span class="kd">var</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>这些<a href="https://go.dev/ref/spec#Keywords">关键字</a>是不可以用来作为Go语言的标识符的。<code>true</code>是<a href="https://go.dev/ref/spec#Predeclared_identifiers">预声明标识符</a>，是可以作为Go语言的标识符的，官方说明如下：</p>
+<blockquote>
+<h3 id="predeclared-identifiers">Predeclared identifiers</h3>
+<p>The following identifiers are implicitly declared in the <a href="https://go.dev/ref/spec#Blocks">universe block</a>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -178,37 +249,30 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// quiz0.go
-</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Types:
+	bool byte complex64 complex128 error float32 float64
+	int int8 int16 int32 int64 rune string
+	uint uint8 uint16 uint32 uint64 uintptr
 
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+Constants:
+	true false iota
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">recover</span><span class="p">())</span> <span class="p">}()</span>
-	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">recover</span><span class="p">())</span> <span class="p">}()</span>
-	<span class="k">defer</span> <span class="nb">panic</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	<span class="nb">panic</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">}</span>
+Zero value:
+	nil
+
+Functions:
+	append cap close complex copy delete imag len
+	make new panic print println real recover
 </code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>A: 2 <code>&lt;nil&gt;</code></li>
-<li>B: 1 <code>&lt;nil&gt;</code></li>
-<li>C: 2 1</li>
-<li>D: 1 2</li>
-<li>E: 直接panic</li>
-</ul>
-<h2 id="解析">解析</h2>
-<p>被<code>defer</code>的函数调用会被延后到函数<code>return</code>或者<code>panic</code>退出之前执行，因此本题的执行结果如下：</p>
-<p>Step 1: 执行<code>panic(2)</code>，触发被<code>defer</code>的函数的执行</p>
-<p>Step 2: 执行代码里第9行被<code>defer</code>的函数调用<code>panic(1)</code>，<code>panic(1)</code>会覆盖<code>panic(2)</code>，可以当做<code>panic(2)</code>没有了</p>
-<p>Step 3: 执行代码里第8行被<code>defer</code>的函数调用，<code>recover()</code>捕获<code>panic(1)</code>，打印1</p>
-<p>Step 4: 执行代码里第7行被<code>defer</code>的函数调用，<code>recover()</code>返回的是<code>nil</code>，因为<code>panic</code>已经被第8行的<code>recover()</code>捕获，所以打印<code>nil</code></p>
-<p>所以本题的答案是<code>B</code></p>
-<h2 id="思考题">思考题</h2>
-<p>留一道思考题，想知道答案的可以给本人vx公众号发送消息<code>panic</code>获取答案和题目解析。</p>
+</div></blockquote>
+<p>因此<code>true := false</code>这样的代码在Go语言是可以正常编译通过的，并且<code>go vet</code>也不会检测出任何潜在错误。</p>
+<p>不仅仅是<code>true</code>，预声明标识符里的所有标识符都可以用来作为全局变量和局部变量的标识符，比如下面的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -221,67 +285,49 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// quiz1.go
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// identifier2.go
 </span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
+<span class="kd">var</span> <span class="kc">nil</span> <span class="p">=</span> <span class="mi">100</span>
+
+<span class="kd">var</span> <span class="kc">false</span> <span class="p">=</span> <span class="kc">true</span>
+
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">recover</span><span class="p">())</span> <span class="p">}()</span>
-	<span class="k">defer</span> <span class="nb">panic</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	<span class="nb">panic</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+	<span class="kc">true</span> <span class="o">:=</span> <span class="kc">false</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>A: 1</li>
-<li>B: 2</li>
-<li>C: 先打印1，然后panic</li>
-<li>D: 先打印2，然后panic</li>
-</ul>
-<h2 id="加餐">加餐</h2>
+</div><p>大家可以想想输出结果是什么？</p>
 <ul>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483826&amp;idx=1&amp;sn=867f05f3de482259a16369d5e7dff84f&amp;chksm=ce124eddf965c7cb6fee82f567ac86bcf48aaf6bc7c2dc4261c0c9f8f13a2d6f6e060ccb9d16&amp;token=258755563&amp;lang=zh_CN#rd">Go Quiz: Google工程师的Go语言面试题</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483741&amp;idx=1&amp;sn=486066a3a582faf457f91b8397178f64&amp;chksm=ce124e32f965c72411e2f083c22531aa70bb7fa0946c505dc886fb054b2a644abde3ad7ea6a0&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看slice的底层原理和注意事项</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483810&amp;idx=1&amp;sn=1f6ab90f481ef340cf48c2458a2a8682&amp;chksm=ce124ecdf965c7dbbf26b331f3e316b9d376f8cd7d9190bfce0e9695593c8bb8b7e8ed06ed8c&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题搞懂slice range遍历的坑</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483746&amp;idx=1&amp;sn=c3ec0e3f67fa7b1cb82e61450d10c7fd&amp;chksm=ce124e0df965c71b7e148ac3ce05c82ffde4137cb901b16c2c9567f3f6ed03e4ff738866ad53&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看channel的注意事项</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483816&amp;idx=1&amp;sn=44e5cf4900b44f9a0cde491df5dd6e51&amp;chksm=ce124ec7f965c7d1edd9ccffe80520981970ad6000cfea3b1a4099a4627f0f24cc33272ec996&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看channel在select场景下的注意事项</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483756&amp;idx=1&amp;sn=d536fa3340e1d5f91d72eaa8b67c8123&amp;chksm=ce124e03f965c715e26f5943948e17d8e0ebb3c4a3a180a149219a610f83fc6eb77b3b166b6a&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483762&amp;idx=1&amp;sn=ca4235d28d513267aa082dc12cb37fda&amp;chksm=ce124e1df965c70b06be48bc537bd628f3caf81e2837ebc2fbd0edddc6eb4f2b2c52e4d5c5d5&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看defer的注意事项第2篇</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483821&amp;idx=1&amp;sn=2ebfb63b78f5fa3666ca6801985a5462&amp;chksm=ce124ec2f965c7d441efbc0d40d0dd8b4d62c255f8ca0b093d106944adbca9a903e94eb92b19&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看defer的注意事项第3篇</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483750&amp;idx=1&amp;sn=235d959cd0401c2c4299f2ec1bbbfec9&amp;chksm=ce124e09f965c71f1989ac9fe691af6a7697ba12a084d8cbdfe3966da1372f787d8e07c231a7&amp;token=1073108956&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看分号规则和switch的注意事项</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483720&amp;idx=1&amp;sn=57ec4877dfd364a59deacf1e74a4fb66&amp;chksm=ce124e27f965c731432dcc89d1e0563cf84baaef482eaa068a91bee61f10cf85b433923b83b4&amp;token=1073108956&amp;lang=zh_CN#rd">官方教程：Go泛型入门</a></p>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483731&amp;idx=1&amp;sn=b2258b28e2f3c16b065a5a1b22c15b0d&amp;chksm=ce124e3cf965c72a6a22e0ed15deda8238567407bbd7157a79753fc8b605727ab2153009493c&amp;token=1073108956&amp;lang=zh_CN#rd">一文读懂Go泛型设计和使用场景</a></p>
-</li>
+<li>A: <code>true false nil</code></li>
+<li>B: <code>true false 100</code></li>
+<li>C: <code>true true 100</code></li>
+<li>D: <code>false true 100</code></li>
+<li>E: <code>false true nil</code></li>
 </ul>
+<p>想知道答案的可以给公众号发送消息<code>bsf</code>获取答案。</p>
+<h2 id="总结">总结</h2>
+<p>Go语言的这个特性也引起了很多<a href="https://twitter.com/jessitron/status/1492940889043443723">争议</a>，正如Go的错误处理一样。</p>
+<p>我们作为使用者，需要注意：<strong>Go不允许把关键字作为标识符，其它都可以作为标识符</strong>。</p>
 <h2 id="开源地址">开源地址</h2>
 <p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
 <p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
 <p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
 <p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://twitter.com/jessitron/status/1492940889043443723">https://twitter.com/jessitron/status/1492940889043443723</a></li>
+<li><a href="https://go.dev/ref/spec#Keywords">https://go.dev/ref/spec#Keywords</a></li>
+<li><a href="https://go.dev/ref/spec#Predeclared_identifiers">https://go.dev/ref/spec#Predeclared_identifiers</a></li>
+</ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
     </div>
@@ -290,19 +336,15 @@
 <footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/go/">go</a>
-          <a href="/tags/quiz/">quiz</a>
-          <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-          <a href="/tags/panic/">panic</a>
-          <a href="/tags/recover/">recover</a>
+          <a href="/tags/keyword/">keyword</a>
+          <a href="/tags/identifier/">identifier</a>
+          <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/">关键字</a>
+          <a href="/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/">标识符</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-advance-identifier/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go语言中fmt.Println(true)的结果一定是true么？</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go1.18-remove-constraints-package/">
-            <span class="next-text nav-default">Go 1.18将移除用于泛型的constraints包</span>
+        
+        <a class="next" href="/post/go-quiz-panic-1/">
+            <span class="next-text nav-default">Go Quiz: 从Go面试题看panic注意事项第1篇</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
