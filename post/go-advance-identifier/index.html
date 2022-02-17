@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go语言中fmt.Println(true)的结果一定是true么？">
 <meta itemprop="description" content="Go语言中fmt.Println(true)的结果一定是true么？"><meta itemprop="datePublished" content="2022-02-16T22:34:11+08:00" />
 <meta itemprop="dateModified" content="2022-02-16T22:34:11+08:00" />
-<meta itemprop="wordCount" content="864">
+<meta itemprop="wordCount" content="865">
 <meta itemprop="keywords" content="go,keyword,identifier,关键字,标识符," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go语言中fmt.Println(true)的结果一定是true么？"/>
 <meta name="twitter:description" content="Go语言中fmt.Println(true)的结果一定是true么？"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 864 words </span>
+          <span class="more-meta"> 865 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -209,7 +209,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>大家觉得这段代码是会编译报错呢，还是正常执行？</p>
-<p>实际执行结果是打印<code>true</code>，并不会编译报错。</p>
+<p>实际执行结果是打印<code>false</code>，并不会编译报错。</p>
 <p>因此本文开头的代码<code>fmt.Println(&quot;What is truth?&quot;, true)</code>是可能打印<code>What is truth? false</code>的。</p>
 <p><strong>有的同学可能好奇了？为什么会这样呢？<code>true</code>不是Go语言的关键字么，为什么还可以定义标识符为<code>true</code> 的变量？</strong></p>
 <p>答案是：<code>true</code> 并不是Go语言的关键字，Go语言目前只有25个关键字，如下所示：</p>
