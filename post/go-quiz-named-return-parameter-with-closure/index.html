@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go Quiz: 从Go面试题看函数命名返回值的注意事项 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go Quiz: 从Go面试题看函数命名返回值和和闭包一起使用的注意事项" /><meta name="keywords" content="go, quiz, 命名返回值, 闭包, named return parameters, closure" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go Quiz: 从Go面试题看函数命名返回值的注意事项" />
+<meta property="og:description" content="Go Quiz: 从Go面试题看函数命名返回值和和闭包一起使用的注意事项" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-20T12:18:34+08:00" />
+<meta property="article:modified_time" content="2022-02-20T12:18:34+08:00" />
+
+<meta itemprop="name" content="Go Quiz: 从Go面试题看函数命名返回值的注意事项">
+<meta itemprop="description" content="Go Quiz: 从Go面试题看函数命名返回值和和闭包一起使用的注意事项"><meta itemprop="datePublished" content="2022-02-20T12:18:34+08:00" />
+<meta itemprop="dateModified" content="2022-02-20T12:18:34+08:00" />
+<meta itemprop="wordCount" content="1927">
+<meta itemprop="keywords" content="go,quiz,命名返回值,闭包,named return parameters,closure," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go Quiz: 从Go面试题看函数命名返回值的注意事项"/>
+<meta name="twitter:description" content="Go Quiz: 从Go面试题看函数命名返回值和和闭包一起使用的注意事项"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go Quiz: 从Go面试题看函数命名返回值的注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-20 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            <a href="/categories/quiz/"> quiz </a>
+            <a href="/categories/closure/"> closure </a>
+            </div>
+          <span class="more-meta"> 1927 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目">题目</a></li>
+        <li><a href="#解析">解析</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#思考题">思考题</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="题目">题目</h2>
+<p>Redhat的首席工程师、Prometheus开源项目Maintainer <a href="https://twitter.com/bwplotka">Bartłomiej Płotka</a> 在Twitter上出了一道Go编程题，结果超过80%的人都回答错了。</p>
+<p>题目如下所示，回答下面这段程序的输出结果。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// named_return.go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">aaa</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">(),</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;aaa: done&#34;</span><span class="p">)</span> <span class="p">},</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">bbb</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">(),</span> <span class="nx">_</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">done</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">aaa</span><span class="p">()</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;bbb: surprise!&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">},</span> <span class="nx">err</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nf">bbb</span><span class="p">()</span>
+	<span class="nf">done</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A: <code>bbb: surprise!</code></li>
+<li>B: <code>bbb: surprise!aaa: done</code></li>
+<li>C: 编译报错</li>
+<li>D: 递归栈溢出</li>
+</ul>
+<p>大家可以先思考下这段代码的输出结果是什么。</p>
+<h2 id="解析">解析</h2>
+<p>在函数<code>bbb</code>最后执行return语句，会对返回值变量<code>done</code>进行赋值，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">done</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;bbb: surprise!&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>注意</strong>：闭包<code>func() { print(&quot;bbb: surprise!&quot;); done() }</code>里的<code>done</code>并不会被替换成<code>done, err := aaa()</code>里的<code>done</code>的值。</p>
+<p>因此函数<code>bbb</code>执行完之后，返回值之一的<code>done</code>实际上成为了一个递归函数，先是打印<code>&quot;bbb: surprise!&quot;</code>，然后再调用自己，这样就会陷入无限递归，直到栈溢出。因此本题的答案是<code>D</code>。</p>
+<p>那为什么函数<code>bbb</code>最后return的闭包<code>func() { print(&quot;bbb: surprise!&quot;); done() }</code>里的<code>done</code>并不会被替换成<code>done, err := aaa()</code>里的<code>done</code>的值呢？如果替换了，那本题的答案就是<code>B</code>了。</p>
+<p>这个时候就要搬出一句老话了：</p>
+<blockquote>
+<p>This is a feature, not a bug</p>
+</blockquote>
+<p>我们可以看下面这个更为简单的例子，来帮助我们理解：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// named_return1.go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">test</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">())</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span> <span class="o">:=</span> <span class="nf">test</span><span class="p">()</span>
+	<span class="c1">// 下面的函数调用会进入死循环，不断打印test
+</span><span class="c1"></span>	<span class="nf">done</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>正如上面代码里的注释说明，这段程序同样会进入无限递归直到栈溢出。</p>
+<p>如果函数<code>test</code>最后return的闭包<code>func() { fmt.Println(&quot;test&quot;); done() }</code>里的<code>done</code>是被提前解析了的话，因为<code>done</code>是一个函数类型，<code>done</code>的零值是<code>nil</code>，那闭包里的<code>done</code>的值就会是<code>nil</code>，执行<code>nil</code>函数是会引发panic的。</p>
+<p>但实际上Go设计是允许上面的代码正常执行的，因此函数<code>test</code>最后return的闭包里的<code>done</code>的值并不会提前解析，<code>test</code>函数执行完之后，实际上产生了下面的效果，返回的是一个递归函数，和本文开始的题目一样。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">done</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>因此也会进入无限递归，直到栈溢出。</p>
+<h2 id="总结">总结</h2>
+<p>这个题目其实很tricky，在实际编程中，要避免对命名返回值采用这种写法，非常容易出错。</p>
+<p>想了解国外Go开发者对这个题目的讨论详情可以参考<a href="https://twitter.com/bwplotka/status/1494362886738780165">Go Named Return Parameters Discussion</a>。</p>
+<p>另外题目作者也给了如下所示的解释，原文地址可以参考<a href="https://go.dev/play/p/ELPEi2AK0DP">详细解释</a>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">aaa</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">(),</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;aaa: done&#34;</span><span class="p">)</span> <span class="p">},</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">bbb</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">(),</span> <span class="nx">_</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// NOTE(bwplotka): Here is the problem. We already defined special &#34;return argument&#34; variable called &#34;done&#34;.
+</span><span class="c1"></span>	<span class="c1">// By using `:=` and not `=` we define a totally new variable with the same name in
+</span><span class="c1"></span>	<span class="c1">// new, local function scope.
+</span><span class="c1"></span>	<span class="nx">done</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">aaa</span><span class="p">()</span>
+
+	<span class="c1">// NOTE(bwplotka): In this closure (anonymous function), we might think we use `done` from the local scope,
+</span><span class="c1"></span>	<span class="c1">// but we don&#39;t! This is because Go &#34;return&#34; as a side effect ASSIGNS returned values to
+</span><span class="c1"></span>	<span class="c1">// our special &#34;return arguments&#34;. If they are named, this means that after return we can refer
+</span><span class="c1"></span>	<span class="c1">// to those values with those names during any execution after the main body of function finishes
+</span><span class="c1"></span>	<span class="c1">// (e.g in defer or closures we created).
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// What is happening here is that no matter what we do in the local &#34;done&#34; variable, the special &#34;return named&#34;
+</span><span class="c1"></span>	<span class="c1">// variable `done` will get assigned with whatever was returned. Which in bbb case is this closure with
+</span><span class="c1"></span>	<span class="c1">// &#34;bbb:surprise&#34; print. This means that anyone who runs this closure AFTER `return` did the assignment
+</span><span class="c1"></span>	<span class="c1">// will start infinite recursive execution.
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Note that it&#39;s a feature, not a bug. We use this often to capture
+</span><span class="c1"></span>	<span class="c1">// errors (e.g https://github.com/efficientgo/tools/blob/main/core/pkg/errcapture/doc.go)
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Go compiler actually detects that `done` variable defined above is NOT USED. But we also have `err`
+</span><span class="c1"></span>	<span class="c1">// variable which is actually used. This makes compiler to satisfy that unused variable check,
+</span><span class="c1"></span>	<span class="c1">// which is wrong in this context..
+</span><span class="c1"></span>	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;bbb: surprise!&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">},</span> <span class="nx">err</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nf">bbb</span><span class="p">()</span>
+	<span class="nf">done</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不过这个解释是有瑕疵的，主要是这句描述：</p>
+<blockquote>
+<p>By using <code>:=</code> and not <code>=</code> we define a totally new variable with the same name in
+new, local function scope.</p>
+</blockquote>
+<p>对于<code>done, err := aaa()</code>，返回变量<code>done</code>并不是一个新的变量，而是和函数<code>bbb</code>的返回变量<code>done</code>是同一个变量。</p>
+<p>这里有一个小插曲：<strong>本人把这个瑕疵反馈给了原作者，原作者同意了我的意见，删除了这块解释</strong>。</p>
+<p><img src="/img/named_return_paramater.png" alt=""></p>
+<p>最新版的英文解释如下，原文地址可以参考<a href="https://go.dev/play/p/9J5a3ZtIPnL">修正版解释</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">aaa</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">())</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;aaa: done&#34;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">bbb</span><span class="p">()</span> <span class="p">(</span><span class="nx">done</span> <span class="kd">func</span><span class="p">())</span> <span class="p">{</span>
+	<span class="nx">done</span> <span class="p">=</span> <span class="nf">aaa</span><span class="p">()</span>
+
+	<span class="c1">// NOTE(bwplotka): In this closure (anonymous function), we might think we use `done` value assigned to aaa(),
+</span><span class="c1"></span>	<span class="c1">// but we don&#39;t! This is because Go &#34;return&#34; as a side effect ASSIGNS returned values to
+</span><span class="c1"></span>	<span class="c1">// our special &#34;return arguments&#34;. If they are named, this means that after return we can refer
+</span><span class="c1"></span>	<span class="c1">// to those values with those names during any execution after the main body of function finishes
+</span><span class="c1"></span>	<span class="c1">// (e.g in defer or closures we created).
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// What is happening here is that no matter what we do with our &#34;done&#34; variable, the special &#34;return named&#34;
+</span><span class="c1"></span>	<span class="c1">// variable `done` will get assigned with whatever was returned when the function ends.
+</span><span class="c1"></span>	<span class="c1">// Which in bbb case is this closure with &#34;bbb:surprise&#34; print. This means that anyone who runs
+</span><span class="c1"></span>	<span class="c1">// this closure AFTER `return` did the assignment, will start infinite recursive execution.
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Note that it&#39;s a feature, not a bug. We use this often to capture
+</span><span class="c1"></span>	<span class="c1">// errors (e.g https://github.com/efficientgo/tools/blob/main/core/pkg/errcapture/doc.go)
+</span><span class="c1"></span>	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s">&#34;bbb: surprise!&#34;</span><span class="p">);</span> <span class="nf">done</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span> <span class="o">:=</span> <span class="nf">bbb</span><span class="p">()</span>
+	<span class="nf">done</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="思考题">思考题</h2>
+<p>下面这段代码同样使用了命名返回值，大家可以看看这个道题的输出结果是什么。可以发送消息<code>nrv</code>获取答案。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">(</span><span class="nx">r</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">r</span> <span class="o">+=</span> <span class="mi">4</span>
+		<span class="k">if</span> <span class="nb">recover</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">r</span> <span class="o">+=</span> <span class="mi">8</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+	
+	<span class="kd">var</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">()</span>
+	<span class="k">defer</span> <span class="nf">f</span><span class="p">()</span>
+	<span class="nx">f</span> <span class="p">=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">r</span> <span class="o">+=</span> <span class="mi">2</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nf">bar</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://twitter.com/bwplotka/status/1494362886738780165">https://twitter.com/bwplotka/status/1494362886738780165</a></li>
+<li><a href="https://go.dev/play/p/ELPEi2AK0DP">https://go.dev/play/p/ELPEi2AK0DP</a></li>
+<li><a href="https://go.dev/play/p/9J5a3ZtIPnL">https://go.dev/play/p/9J5a3ZtIPnL</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/quiz/">quiz</a>
+          <a href="/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/">命名返回值</a>
+          <a href="/tags/%E9%97%AD%E5%8C%85/">闭包</a>
+          <a href="/tags/named-return-parameters/">named return parameters</a>
+          <a href="/tags/closure/">closure</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-advance-identifier/">
+            <span class="next-text nav-default">Go语言中fmt.Println(true)的结果一定是true么？</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,13 +6,58 @@
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Feb 2022 22:34:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>closure</title>
+      <link>http://localhost:1313/tags/closure/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/closure/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>go</title>
       <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>named return parameters</title>
+      <link>http://localhost:1313/tags/named-return-parameters/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/named-return-parameters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quiz</title>
+      <link>http://localhost:1313/tags/quiz/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/quiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>命名返回值</title>
+      <link>http://localhost:1313/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>闭包</title>
+      <link>http://localhost:1313/tags/%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/%E9%97%AD%E5%8C%85/</guid>
       <description></description>
     </item>
     
@@ -58,15 +103,6 @@
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/panic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>quiz</title>
-      <link>http://localhost:1313/tags/quiz/</link>
-      <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/quiz/</guid>
       <description></description>
     </item>
     
