@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>标识符 on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
+    <link>http://jincheng9.github.io/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
     <description>Recent content in 标识符 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Feb 2022 22:34:11 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 22:34:11 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go语言中fmt.Println(true)的结果一定是true么？</title>
-      <link>http://localhost:1313/post/go-advance-identifier/</link>
+      <link>http://jincheng9.github.io/post/go-advance-identifier/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-advance-identifier/</guid>
+      <guid>http://jincheng9.github.io/post/go-advance-identifier/</guid>
       <description>背景 Honeycomb的首席开发布道者Jessica在Twitter上发了一条状态： fmt.Println(&amp;ldquo;What is truth?&amp;rdquo;, true) can output: What is truth? false 意思是下面代码的执行结果可能是Wha</description>
     </item>
     

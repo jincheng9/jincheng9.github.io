@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>semicolon on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/tags/semicolon/</link>
+    <link>http://jincheng9.github.io/tags/semicolon/</link>
     <description>Recent content in semicolon on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Dec 2021 20:21:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/semicolon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Dec 2021 20:21:42 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/semicolon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Quiz: 从Go面试题看分号规则和switch的注意事项</title>
-      <link>http://localhost:1313/post/go-switch-semicolons-quiz/</link>
+      <link>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</link>
       <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-switch-semicolons-quiz/</guid>
+      <guid>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</guid>
       <description>面试题 这是Go Quiz系列的第3篇，关于Go语言的分号规则和switch的特性。 这道题比较tricky，通过这道题可以加深我们对Go语言里的</description>
     </item>
     

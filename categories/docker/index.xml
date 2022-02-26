@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/categories/docker/</link>
+    <link>http://jincheng9.github.io/categories/docker/</link>
     <description>Recent content in docker on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Jan 2022 21:11:49 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 21:11:49 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker入门教程101: 基于Docker部署Go项目</title>
-      <link>http://localhost:1313/post/go-docker-demo/</link>
+      <link>http://jincheng9.github.io/post/go-docker-demo/</link>
       <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-docker-demo/</guid>
+      <guid>http://jincheng9.github.io/post/go-docker-demo/</guid>
       <description>环境准备 Docker安装：参考我的上一篇文章Docker入门教程101：用途，架构，安装和使用。 Go项目代码准备： 基于golang最流行的W</description>
     </item>
     
     <item>
       <title>Docker入门教程101: 用途，架构，安装和使用</title>
-      <link>http://localhost:1313/post/docker-tutorial/</link>
+      <link>http://jincheng9.github.io/post/docker-tutorial/</link>
       <pubDate>Mon, 03 Jan 2022 19:28:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/docker-tutorial/</guid>
+      <guid>http://jincheng9.github.io/post/docker-tutorial/</guid>
       <description>虚拟化技术 虚拟化技术从1960年代诞生，到2000年左右成为商业产品开始蓬勃发展，比如著名的VMWare, VirutalBox, KVM, Docker等。 目前大家熟知的</description>
     </item>
     

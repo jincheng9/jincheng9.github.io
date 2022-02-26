@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>variable declared not used on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/tags/variable-declared-not-used/</link>
+    <link>http://jincheng9.github.io/tags/variable-declared-not-used/</link>
     <description>Recent content in variable declared not used on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Feb 2022 14:49:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/variable-declared-not-used/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 14:49:38 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/variable-declared-not-used/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>轻松一刻：Go 1.18修复了一个经典bug</title>
-      <link>http://localhost:1313/post/go-variable-declared-not-used-bug/</link>
+      <link>http://jincheng9.github.io/post/go-variable-declared-not-used-bug/</link>
       <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-variable-declared-not-used-bug/</guid>
+      <guid>http://jincheng9.github.io/post/go-variable-declared-not-used-bug/</guid>
       <description>前言 大家在写Go的时候，初期应该都会遇到过下面的编译报错： xx declared but not used 比如下面的代码示例： 1 2 3 4 5 6 7 // example2.go package main func main() { a := 10 a = 1 } 执行go build</description>
     </item>
     

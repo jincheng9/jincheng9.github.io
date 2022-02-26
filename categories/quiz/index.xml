@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>quiz on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/categories/quiz/</link>
+    <link>http://jincheng9.github.io/categories/quiz/</link>
     <description>Recent content in quiz on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quiz/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Quiz: 从Go面试题看函数命名返回值的注意事项</title>
-      <link>http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-named-return-parameter-with-closure/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-named-return-parameter-with-closure/</guid>
       <description>题目 Redhat的首席工程师、Prometheus开源项目Maintainer Bartłomiej Płotka 在Twitter上出了一道Go</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看panic注意事项第1篇</title>
-      <link>http://localhost:1313/post/go-quiz-panic-1/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-panic-1/</link>
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-panic-1/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-panic-1/</guid>
       <description>面试题 这是Go Quiz系列里关于panic的第1篇，主要考察同一个goroutine在多次panic场景下recover的机制。 1 2 3 4 5 6</description>
     </item>
     
     <item>
       <title>Go Quiz: Google工程师的Go语言题目</title>
-      <link>http://localhost:1313/post/go-quiz-cny-google-valentin/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-cny-google-valentin/</link>
       <pubDate>Mon, 31 Jan 2022 15:49:46 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-cny-google-valentin/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-cny-google-valentin/</guid>
       <description>面试题 Google工程师和Go语言布道者Valentin Deleplace会不定期分享一些Go语言的趣味题目。 我选取了最近的几道题目，给大家</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看channel在select场景下的注意事项</title>
-      <link>http://localhost:1313/post/go-quiz-channel-select/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-channel-select/</link>
       <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-channel-select/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-channel-select/</guid>
       <description>面试题 这是Go Quiz系列中关于channel的第2篇，涉及channel被close后的特性，以及在select和channel一起使用时</description>
     </item>
     

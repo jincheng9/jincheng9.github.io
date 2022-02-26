@@ -2,449 +2,449 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://jincheng9.github.io/tags/</link>
     <description>Recent content in Tags on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>closure</title>
-      <link>http://localhost:1313/tags/closure/</link>
+      <link>http://jincheng9.github.io/tags/closure/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/closure/</guid>
+      <guid>http://jincheng9.github.io/tags/closure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>http://localhost:1313/tags/go/</link>
+      <link>http://jincheng9.github.io/tags/go/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/go/</guid>
+      <guid>http://jincheng9.github.io/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>named return parameters</title>
-      <link>http://localhost:1313/tags/named-return-parameters/</link>
+      <link>http://jincheng9.github.io/tags/named-return-parameters/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/named-return-parameters/</guid>
+      <guid>http://jincheng9.github.io/tags/named-return-parameters/</guid>
       <description></description>
     </item>
     
     <item>
       <title>quiz</title>
-      <link>http://localhost:1313/tags/quiz/</link>
+      <link>http://jincheng9.github.io/tags/quiz/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/quiz/</guid>
+      <guid>http://jincheng9.github.io/tags/quiz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>命名返回值</title>
-      <link>http://localhost:1313/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</link>
+      <link>http://jincheng9.github.io/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</guid>
+      <guid>http://jincheng9.github.io/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</guid>
       <description></description>
     </item>
     
     <item>
       <title>闭包</title>
-      <link>http://localhost:1313/tags/%E9%97%AD%E5%8C%85/</link>
+      <link>http://jincheng9.github.io/tags/%E9%97%AD%E5%8C%85/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E9%97%AD%E5%8C%85/</guid>
+      <guid>http://jincheng9.github.io/tags/%E9%97%AD%E5%8C%85/</guid>
       <description></description>
     </item>
     
     <item>
       <title>identifier</title>
-      <link>http://localhost:1313/tags/identifier/</link>
+      <link>http://jincheng9.github.io/tags/identifier/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/identifier/</guid>
+      <guid>http://jincheng9.github.io/tags/identifier/</guid>
       <description></description>
     </item>
     
     <item>
       <title>keyword</title>
-      <link>http://localhost:1313/tags/keyword/</link>
+      <link>http://jincheng9.github.io/tags/keyword/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/keyword/</guid>
+      <guid>http://jincheng9.github.io/tags/keyword/</guid>
       <description></description>
     </item>
     
     <item>
       <title>关键字</title>
-      <link>http://localhost:1313/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <link>http://jincheng9.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <guid>http://jincheng9.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
       <description></description>
     </item>
     
     <item>
       <title>标识符</title>
-      <link>http://localhost:1313/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
+      <link>http://jincheng9.github.io/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</guid>
+      <guid>http://jincheng9.github.io/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>panic</title>
-      <link>http://localhost:1313/tags/panic/</link>
+      <link>http://jincheng9.github.io/tags/panic/</link>
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/panic/</guid>
+      <guid>http://jincheng9.github.io/tags/panic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>recover</title>
-      <link>http://localhost:1313/tags/recover/</link>
+      <link>http://jincheng9.github.io/tags/recover/</link>
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/recover/</guid>
+      <guid>http://jincheng9.github.io/tags/recover/</guid>
       <description></description>
     </item>
     
     <item>
       <title>面试题</title>
-      <link>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <link>http://jincheng9.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <guid>http://jincheng9.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>1.18</title>
-      <link>http://localhost:1313/tags/1.18/</link>
+      <link>http://jincheng9.github.io/tags/1.18/</link>
       <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/1.18/</guid>
+      <guid>http://jincheng9.github.io/tags/1.18/</guid>
       <description></description>
     </item>
     
     <item>
       <title>contraints</title>
-      <link>http://localhost:1313/tags/contraints/</link>
+      <link>http://jincheng9.github.io/tags/contraints/</link>
       <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/contraints/</guid>
+      <guid>http://jincheng9.github.io/tags/contraints/</guid>
       <description></description>
     </item>
     
     <item>
       <title>generics</title>
-      <link>http://localhost:1313/tags/generics/</link>
+      <link>http://jincheng9.github.io/tags/generics/</link>
       <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/generics/</guid>
+      <guid>http://jincheng9.github.io/tags/generics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>泛型</title>
-      <link>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</link>
+      <link>http://jincheng9.github.io/tags/%E6%B3%9B%E5%9E%8B/</link>
       <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</guid>
+      <guid>http://jincheng9.github.io/tags/%E6%B3%9B%E5%9E%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bug</title>
-      <link>http://localhost:1313/tags/bug/</link>
+      <link>http://jincheng9.github.io/tags/bug/</link>
       <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/bug/</guid>
+      <guid>http://jincheng9.github.io/tags/bug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go1.18</title>
-      <link>http://localhost:1313/tags/go1.18/</link>
+      <link>http://jincheng9.github.io/tags/go1.18/</link>
       <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/go1.18/</guid>
+      <guid>http://jincheng9.github.io/tags/go1.18/</guid>
       <description></description>
     </item>
     
     <item>
       <title>variable declared not used</title>
-      <link>http://localhost:1313/tags/variable-declared-not-used/</link>
+      <link>http://jincheng9.github.io/tags/variable-declared-not-used/</link>
       <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/variable-declared-not-used/</guid>
+      <guid>http://jincheng9.github.io/tags/variable-declared-not-used/</guid>
       <description></description>
     </item>
     
     <item>
       <title>beta</title>
-      <link>http://localhost:1313/tags/beta/</link>
+      <link>http://jincheng9.github.io/tags/beta/</link>
       <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/beta/</guid>
+      <guid>http://jincheng9.github.io/tags/beta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>defer</title>
-      <link>http://localhost:1313/tags/defer/</link>
+      <link>http://jincheng9.github.io/tags/defer/</link>
       <pubDate>Thu, 27 Jan 2022 22:40:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/defer/</guid>
+      <guid>http://jincheng9.github.io/tags/defer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>channel</title>
-      <link>http://localhost:1313/tags/channel/</link>
+      <link>http://jincheng9.github.io/tags/channel/</link>
       <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/channel/</guid>
+      <guid>http://jincheng9.github.io/tags/channel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>select</title>
-      <link>http://localhost:1313/tags/select/</link>
+      <link>http://jincheng9.github.io/tags/select/</link>
       <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/select/</guid>
+      <guid>http://jincheng9.github.io/tags/select/</guid>
       <description></description>
     </item>
     
     <item>
       <title>range</title>
-      <link>http://localhost:1313/tags/range/</link>
+      <link>http://jincheng9.github.io/tags/range/</link>
       <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/range/</guid>
+      <guid>http://jincheng9.github.io/tags/range/</guid>
       <description></description>
     </item>
     
     <item>
       <title>slice</title>
-      <link>http://localhost:1313/tags/slice/</link>
+      <link>http://jincheng9.github.io/tags/slice/</link>
       <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/slice/</guid>
+      <guid>http://jincheng9.github.io/tags/slice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fuzzing</title>
-      <link>http://localhost:1313/tags/fuzzing/</link>
+      <link>http://jincheng9.github.io/tags/fuzzing/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/fuzzing/</guid>
+      <guid>http://jincheng9.github.io/tags/fuzzing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://localhost:1313/tags/golang/</link>
+      <link>http://jincheng9.github.io/tags/golang/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/golang/</guid>
+      <guid>http://jincheng9.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tutorial</title>
-      <link>http://localhost:1313/tags/tutorial/</link>
+      <link>http://jincheng9.github.io/tags/tutorial/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <guid>http://jincheng9.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>教程</title>
-      <link>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
+      <link>http://jincheng9.github.io/tags/%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</guid>
+      <guid>http://jincheng9.github.io/tags/%E6%95%99%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>container</title>
-      <link>http://localhost:1313/tags/container/</link>
+      <link>http://jincheng9.github.io/tags/container/</link>
       <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/container/</guid>
+      <guid>http://jincheng9.github.io/tags/container/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>http://jincheng9.github.io/tags/docker/</link>
       <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>http://jincheng9.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtual machine</title>
-      <link>http://localhost:1313/tags/virtual-machine/</link>
+      <link>http://jincheng9.github.io/tags/virtual-machine/</link>
       <pubDate>Mon, 03 Jan 2022 19:28:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/virtual-machine/</guid>
+      <guid>http://jincheng9.github.io/tags/virtual-machine/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grpc</title>
-      <link>http://localhost:1313/tags/grpc/</link>
+      <link>http://jincheng9.github.io/tags/grpc/</link>
       <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/grpc/</guid>
+      <guid>http://jincheng9.github.io/tags/grpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>protobuf</title>
-      <link>http://localhost:1313/tags/protobuf/</link>
+      <link>http://jincheng9.github.io/tags/protobuf/</link>
       <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/protobuf/</guid>
+      <guid>http://jincheng9.github.io/tags/protobuf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rpc</title>
-      <link>http://localhost:1313/tags/rpc/</link>
+      <link>http://jincheng9.github.io/tags/rpc/</link>
       <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/rpc/</guid>
+      <guid>http://jincheng9.github.io/tags/rpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>return</title>
-      <link>http://localhost:1313/tags/return/</link>
+      <link>http://jincheng9.github.io/tags/return/</link>
       <pubDate>Wed, 29 Dec 2021 15:12:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/return/</guid>
+      <guid>http://jincheng9.github.io/tags/return/</guid>
       <description></description>
     </item>
     
     <item>
       <title>semicolon</title>
-      <link>http://localhost:1313/tags/semicolon/</link>
+      <link>http://jincheng9.github.io/tags/semicolon/</link>
       <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/semicolon/</guid>
+      <guid>http://jincheng9.github.io/tags/semicolon/</guid>
       <description></description>
     </item>
     
     <item>
       <title>switch</title>
-      <link>http://localhost:1313/tags/switch/</link>
+      <link>http://jincheng9.github.io/tags/switch/</link>
       <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/switch/</guid>
+      <guid>http://jincheng9.github.io/tags/switch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>分号</title>
-      <link>http://localhost:1313/tags/%E5%88%86%E5%8F%B7/</link>
+      <link>http://jincheng9.github.io/tags/%E5%88%86%E5%8F%B7/</link>
       <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%88%86%E5%8F%B7/</guid>
+      <guid>http://jincheng9.github.io/tags/%E5%88%86%E5%8F%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nil</title>
-      <link>http://localhost:1313/tags/nil/</link>
+      <link>http://jincheng9.github.io/tags/nil/</link>
       <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/nil/</guid>
+      <guid>http://jincheng9.github.io/tags/nil/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>http://jincheng9.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sun, 26 Dec 2021 18:08:05 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>http://jincheng9.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>type paramter</title>
-      <link>http://localhost:1313/tags/type-paramter/</link>
+      <link>http://jincheng9.github.io/tags/type-paramter/</link>
       <pubDate>Fri, 24 Dec 2021 14:20:40 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/type-paramter/</guid>
+      <guid>http://jincheng9.github.io/tags/type-paramter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>http://localhost:1313/tags/hugo/</link>
+      <link>http://jincheng9.github.io/tags/hugo/</link>
       <pubDate>Wed, 22 Dec 2021 20:53:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/hugo/</guid>
+      <guid>http://jincheng9.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>images</title>
-      <link>http://localhost:1313/tags/images/</link>
+      <link>http://jincheng9.github.io/tags/images/</link>
       <pubDate>Wed, 22 Dec 2021 10:42:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/images/</guid>
+      <guid>http://jincheng9.github.io/tags/images/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>http://localhost:1313/tags/markdown/</link>
+      <link>http://jincheng9.github.io/tags/markdown/</link>
       <pubDate>Wed, 22 Dec 2021 10:42:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/markdown/</guid>
+      <guid>http://jincheng9.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>even</title>
-      <link>http://localhost:1313/tags/even/</link>
+      <link>http://jincheng9.github.io/tags/even/</link>
       <pubDate>Tue, 21 Dec 2021 17:02:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/even/</guid>
+      <guid>http://jincheng9.github.io/tags/even/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github pages</title>
-      <link>http://localhost:1313/tags/github-pages/</link>
+      <link>http://jincheng9.github.io/tags/github-pages/</link>
       <pubDate>Tue, 21 Dec 2021 17:02:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/github-pages/</guid>
+      <guid>http://jincheng9.github.io/tags/github-pages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>utterances</title>
-      <link>http://localhost:1313/tags/utterances/</link>
+      <link>http://jincheng9.github.io/tags/utterances/</link>
       <pubDate>Tue, 21 Dec 2021 17:02:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/utterances/</guid>
+      <guid>http://jincheng9.github.io/tags/utterances/</guid>
       <description></description>
     </item>
     

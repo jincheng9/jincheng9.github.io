@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>http://jincheng9.github.io/tags/hugo/</link>
     <description>Recent content in hugo on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Dec 2021 20:53:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Dec 2021 20:53:34 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo如何添加新页面</title>
-      <link>http://localhost:1313/post/hugo-add-new-page/</link>
+      <link>http://jincheng9.github.io/post/hugo-add-new-page/</link>
       <pubDate>Wed, 22 Dec 2021 20:53:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/hugo-add-new-page/</guid>
+      <guid>http://jincheng9.github.io/post/hugo-add-new-page/</guid>
       <description>前言 Hugo默认在博客首页右上角有4个页面，分别是Home, Archives, Tags和Categories。 对这4个页面做增删改操作，可以直接操作conf</description>
     </item>
     
     <item>
       <title>Hugo如何在markdown里引用本地图片</title>
-      <link>http://localhost:1313/post/hugo-add-img/</link>
+      <link>http://jincheng9.github.io/post/hugo-add-img/</link>
       <pubDate>Wed, 22 Dec 2021 10:42:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/hugo-add-img/</guid>
+      <guid>http://jincheng9.github.io/post/hugo-add-img/</guid>
       <description>前言 在Hugo上写文章的时候，肯定会遇到要插入图片的情况。 我们在content/post目录下的markdown文件里应该怎么引用图片，才能</description>
     </item>
     
     <item>
       <title>GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客</title>
-      <link>http://localhost:1313/post/blog-github-pages-hugo-utterances/</link>
+      <link>http://jincheng9.github.io/post/blog-github-pages-hugo-utterances/</link>
       <pubDate>Tue, 21 Dec 2021 17:02:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/blog-github-pages-hugo-utterances/</guid>
+      <guid>http://jincheng9.github.io/post/blog-github-pages-hugo-utterances/</guid>
       <description>前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node.</description>
     </item>
     

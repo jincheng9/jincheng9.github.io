@@ -2,215 +2,215 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jincheng9&#39;s blog</title>
-    <link>http://localhost:1313/</link>
+    <link>http://jincheng9.github.io/</link>
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Quiz: 从Go面试题看函数命名返回值的注意事项</title>
-      <link>http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-named-return-parameter-with-closure/</link>
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-named-return-parameter-with-closure/</guid>
       <description>题目 Redhat的首席工程师、Prometheus开源项目Maintainer Bartłomiej Płotka 在Twitter上出了一道Go</description>
     </item>
     
     <item>
       <title>Go语言中fmt.Println(true)的结果一定是true么？</title>
-      <link>http://localhost:1313/post/go-advance-identifier/</link>
+      <link>http://jincheng9.github.io/post/go-advance-identifier/</link>
       <pubDate>Wed, 16 Feb 2022 22:34:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-advance-identifier/</guid>
+      <guid>http://jincheng9.github.io/post/go-advance-identifier/</guid>
       <description>背景 Honeycomb的首席开发布道者Jessica在Twitter上发了一条状态： fmt.Println(&amp;ldquo;What is truth?&amp;rdquo;, true) can output: What is truth? false 意思是下面代码的执行结果可能是Wha</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看panic注意事项第1篇</title>
-      <link>http://localhost:1313/post/go-quiz-panic-1/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-panic-1/</link>
       <pubDate>Mon, 07 Feb 2022 14:48:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-panic-1/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-panic-1/</guid>
       <description>面试题 这是Go Quiz系列里关于panic的第1篇，主要考察同一个goroutine在多次panic场景下recover的机制。 1 2 3 4 5 6</description>
     </item>
     
     <item>
       <title>Go 1.18将移除用于泛型的constraints包</title>
-      <link>http://localhost:1313/post/go1.18-remove-constraints-package/</link>
+      <link>http://jincheng9.github.io/post/go1.18-remove-constraints-package/</link>
       <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go1.18-remove-constraints-package/</guid>
+      <guid>http://jincheng9.github.io/post/go1.18-remove-constraints-package/</guid>
       <description>背景 Go官方团队在Go 1.18 Beta 1版本的标准库里因为泛型设计而引入了contraints包。 constraints包里定义了Signed，Unsi</description>
     </item>
     
     <item>
       <title>轻松一刻：Go 1.18修复了一个经典bug</title>
-      <link>http://localhost:1313/post/go-variable-declared-not-used-bug/</link>
+      <link>http://jincheng9.github.io/post/go-variable-declared-not-used-bug/</link>
       <pubDate>Wed, 02 Feb 2022 14:49:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-variable-declared-not-used-bug/</guid>
+      <guid>http://jincheng9.github.io/post/go-variable-declared-not-used-bug/</guid>
       <description>前言 大家在写Go的时候，初期应该都会遇到过下面的编译报错： xx declared but not used 比如下面的代码示例： 1 2 3 4 5 6 7 // example2.go package main func main() { a := 10 a = 1 } 执行go build</description>
     </item>
     
     <item>
       <title>官方博文：Go 1.18 Beta 2发布</title>
-      <link>http://localhost:1313/post/go-official-blog-go1.18beta2/</link>
+      <link>http://jincheng9.github.io/post/go-official-blog-go1.18beta2/</link>
       <pubDate>Tue, 01 Feb 2022 12:56:38 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-official-blog-go1.18beta2/</guid>
+      <guid>http://jincheng9.github.io/post/go-official-blog-go1.18beta2/</guid>
       <description>前言 2022年1月31日，Go官方团队的Jeremy Faller和Steve Francia在Go官方博客网站上发表了一篇新文章，宣布Go官方</description>
     </item>
     
     <item>
       <title>Go Quiz: Google工程师的Go语言题目</title>
-      <link>http://localhost:1313/post/go-quiz-cny-google-valentin/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-cny-google-valentin/</link>
       <pubDate>Mon, 31 Jan 2022 15:49:46 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-cny-google-valentin/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-cny-google-valentin/</guid>
       <description>面试题 Google工程师和Go语言布道者Valentin Deleplace会不定期分享一些Go语言的趣味题目。 我选取了最近的几道题目，给大家</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第3篇</title>
-      <link>http://localhost:1313/post/go-quiz-defer3/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-defer3/</link>
       <pubDate>Thu, 27 Jan 2022 22:40:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-defer3/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-defer3/</guid>
       <description>面试题 这是Go Quiz系列中关于defer的第3篇，这道题目来源于真实的互联网项目里，也是Go初学者容易犯的错误之一。 1 2 3 4 5 6 7 8 9 10 11</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看channel在select场景下的注意事项</title>
-      <link>http://localhost:1313/post/go-quiz-channel-select/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-channel-select/</link>
       <pubDate>Sun, 23 Jan 2022 15:50:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-channel-select/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-channel-select/</guid>
       <description>面试题 这是Go Quiz系列中关于channel的第2篇，涉及channel被close后的特性，以及在select和channel一起使用时</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题搞懂slice range遍历的坑</title>
-      <link>http://localhost:1313/post/go-quiz-slice2/</link>
+      <link>http://jincheng9.github.io/post/go-quiz-slice2/</link>
       <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-quiz-slice2/</guid>
+      <guid>http://jincheng9.github.io/post/go-quiz-slice2/</guid>
       <description>面试题 最近Go 101的作者发布了11道Go面试题，非常有趣，打算写一个系列对每道题做详细解析，欢迎大家关注。 本题是Go quiz slice系列的第2</description>
     </item>
     
     <item>
       <title>Go官方推出了Go 1.18的2个新教程</title>
-      <link>http://localhost:1313/post/go-official-blog-two-tutorial/</link>
+      <link>http://jincheng9.github.io/post/go-official-blog-two-tutorial/</link>
       <pubDate>Sat, 22 Jan 2022 11:05:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-official-blog-two-tutorial/</guid>
+      <guid>http://jincheng9.github.io/post/go-official-blog-two-tutorial/</guid>
       <description>前言 2022年1月14日，Go官方团队的Katie Hockman在Go官方博客网站上发表了一篇新文章，主要介绍了Go 1.18的2个新教程，涉</description>
     </item>
     
     <item>
       <title>Docker入门教程101: 基于Docker部署Go项目</title>
-      <link>http://localhost:1313/post/go-docker-demo/</link>
+      <link>http://jincheng9.github.io/post/go-docker-demo/</link>
       <pubDate>Tue, 04 Jan 2022 21:11:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-docker-demo/</guid>
+      <guid>http://jincheng9.github.io/post/go-docker-demo/</guid>
       <description>环境准备 Docker安装：参考我的上一篇文章Docker入门教程101：用途，架构，安装和使用。 Go项目代码准备： 基于golang最流行的W</description>
     </item>
     
     <item>
       <title>Docker入门教程101: 用途，架构，安装和使用</title>
-      <link>http://localhost:1313/post/docker-tutorial/</link>
+      <link>http://jincheng9.github.io/post/docker-tutorial/</link>
       <pubDate>Mon, 03 Jan 2022 19:28:49 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/docker-tutorial/</guid>
+      <guid>http://jincheng9.github.io/post/docker-tutorial/</guid>
       <description>虚拟化技术 虚拟化技术从1960年代诞生，到2000年左右成为商业产品开始蓬勃发展，比如著名的VMWare, VirutalBox, KVM, Docker等。 目前大家熟知的</description>
     </item>
     
     <item>
       <title>gRPC-Go入门教程</title>
-      <link>http://localhost:1313/post/go-grpc-protobuf/</link>
+      <link>http://jincheng9.github.io/post/go-grpc-protobuf/</link>
       <pubDate>Sun, 02 Jan 2022 13:59:45 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-grpc-protobuf/</guid>
+      <guid>http://jincheng9.github.io/post/go-grpc-protobuf/</guid>
       <description>protobuf简介 Protocol Buffers(protobuf)：与编程语言无关，与程序运行平台无关的数据序列化协议以及接口定义语言(IDL: interface definition l</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
-      <link>http://localhost:1313/post/go-defer-quiz2/</link>
+      <link>http://jincheng9.github.io/post/go-defer-quiz2/</link>
       <pubDate>Thu, 30 Dec 2021 22:19:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-defer-quiz2/</guid>
+      <guid>http://jincheng9.github.io/post/go-defer-quiz2/</guid>
       <description>面试题 这是Go Quiz系列的第5篇，是考察Go语言的defer语义，也是defer语义的第2篇。 没有看过defer第1篇的可以先回顾下：Go</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看defer语义的底层原理和注意事项</title>
-      <link>http://localhost:1313/post/go-defer-quiz/</link>
+      <link>http://jincheng9.github.io/post/go-defer-quiz/</link>
       <pubDate>Wed, 29 Dec 2021 15:12:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-defer-quiz/</guid>
+      <guid>http://jincheng9.github.io/post/go-defer-quiz/</guid>
       <description>面试题 这是Go Quiz系列的第4篇，关于Go语言的defer语义。 这道题稍微有点迷惑性，通过这道题可以加深我们对Go语言defer关键字底层</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看分号规则和switch的注意事项</title>
-      <link>http://localhost:1313/post/go-switch-semicolons-quiz/</link>
+      <link>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</link>
       <pubDate>Tue, 28 Dec 2021 20:21:42 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-switch-semicolons-quiz/</guid>
+      <guid>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</guid>
       <description>面试题 这是Go Quiz系列的第3篇，关于Go语言的分号规则和switch的特性。 这道题比较tricky，通过这道题可以加深我们对Go语言里的</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看channel的注意事项</title>
-      <link>http://localhost:1313/post/go-channel-quiz/</link>
+      <link>http://jincheng9.github.io/post/go-channel-quiz/</link>
       <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-channel-quiz/</guid>
+      <guid>http://jincheng9.github.io/post/go-channel-quiz/</guid>
       <description>面试题 这是Go Quiz系列的第2篇，关于channel和select的特性。 这道题比较简单，但是通过这道题可以加深我们对channel和se</description>
     </item>
     
     <item>
       <title>Go Quiz: 从Go面试题看slice的底层原理和注意事项</title>
-      <link>http://localhost:1313/post/go-slice-principle/</link>
+      <link>http://jincheng9.github.io/post/go-slice-principle/</link>
       <pubDate>Sun, 26 Dec 2021 18:08:05 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-slice-principle/</guid>
+      <guid>http://jincheng9.github.io/post/go-slice-principle/</guid>
       <description>面试题 最近Go 101的作者发布了11道Go面试题，非常有趣，打算写一个系列对每道题做详细解析。欢迎大家关注。 大家可以看下面这道关于slice</description>
     </item>
     
     <item>
       <title>一文读懂Go泛型设计和使用场景</title>
-      <link>http://localhost:1313/post/go-generics-best-practice/</link>
+      <link>http://jincheng9.github.io/post/go-generics-best-practice/</link>
       <pubDate>Fri, 24 Dec 2021 14:20:40 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-generics-best-practice/</guid>
+      <guid>http://jincheng9.github.io/post/go-generics-best-practice/</guid>
       <description>前言 2021.12.14日，Go官方正式发布了支持泛型的Go 1.18beta1版本，这是Go语言自2007年诞生以来，最重大的功能变革。 泛型</description>
     </item>
     
     <item>
       <title>Hugo如何添加新页面</title>
-      <link>http://localhost:1313/post/hugo-add-new-page/</link>
+      <link>http://jincheng9.github.io/post/hugo-add-new-page/</link>
       <pubDate>Wed, 22 Dec 2021 20:53:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/hugo-add-new-page/</guid>
+      <guid>http://jincheng9.github.io/post/hugo-add-new-page/</guid>
       <description>前言 Hugo默认在博客首页右上角有4个页面，分别是Home, Archives, Tags和Categories。 对这4个页面做增删改操作，可以直接操作conf</description>
     </item>
     
     <item>
       <title>Hugo如何在markdown里引用本地图片</title>
-      <link>http://localhost:1313/post/hugo-add-img/</link>
+      <link>http://jincheng9.github.io/post/hugo-add-img/</link>
       <pubDate>Wed, 22 Dec 2021 10:42:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/hugo-add-img/</guid>
+      <guid>http://jincheng9.github.io/post/hugo-add-img/</guid>
       <description>前言 在Hugo上写文章的时候，肯定会遇到要插入图片的情况。 我们在content/post目录下的markdown文件里应该怎么引用图片，才能</description>
     </item>
     
     <item>
       <title>GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客</title>
-      <link>http://localhost:1313/post/blog-github-pages-hugo-utterances/</link>
+      <link>http://jincheng9.github.io/post/blog-github-pages-hugo-utterances/</link>
       <pubDate>Tue, 21 Dec 2021 17:02:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/blog-github-pages-hugo-utterances/</guid>
+      <guid>http://jincheng9.github.io/post/blog-github-pages-hugo-utterances/</guid>
       <description>前言 多年前基于Jekyll和GitHub Pages搭建的博客样式总是出问题，调研了下目前最流行的静态博客主要有3个： hexo：基于Node.</description>
     </item>
     

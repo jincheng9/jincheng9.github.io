@@ -1,617 +1,617 @@
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://jincheng9.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://jincheng9.github.io/categories/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/closure/</loc>
+    <loc>http://jincheng9.github.io/tags/closure/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/closure/</loc>
+    <loc>http://jincheng9.github.io/categories/closure/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/go/</loc>
+    <loc>http://jincheng9.github.io/tags/go/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/go/</loc>
+    <loc>http://jincheng9.github.io/categories/go/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-named-return-parameter-with-closure/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-named-return-parameter-with-closure/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://jincheng9.github.io/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/named-return-parameters/</loc>
+    <loc>http://jincheng9.github.io/tags/named-return-parameters/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://jincheng9.github.io/post/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/quiz/</loc>
+    <loc>http://jincheng9.github.io/tags/quiz/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/quiz/</loc>
+    <loc>http://jincheng9.github.io/categories/quiz/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</loc>
+    <loc>http://jincheng9.github.io/tags/%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E9%97%AD%E5%8C%85/</loc>
+    <loc>http://jincheng9.github.io/tags/%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2022-02-20T12:18:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-advance-identifier/</loc>
+    <loc>http://jincheng9.github.io/post/go-advance-identifier/</loc>
     <lastmod>2022-02-16T22:34:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/identifier/</loc>
+    <loc>http://jincheng9.github.io/tags/identifier/</loc>
     <lastmod>2022-02-16T22:34:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/keyword/</loc>
+    <loc>http://jincheng9.github.io/tags/keyword/</loc>
     <lastmod>2022-02-16T22:34:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
+    <loc>http://jincheng9.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
     <lastmod>2022-02-16T22:34:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</loc>
+    <loc>http://jincheng9.github.io/tags/%E6%A0%87%E8%AF%86%E7%AC%A6/</loc>
     <lastmod>2022-02-16T22:34:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-panic-1/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-panic-1/</loc>
     <lastmod>2022-02-07T14:48:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/panic/</loc>
+    <loc>http://jincheng9.github.io/tags/panic/</loc>
     <lastmod>2022-02-07T14:48:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/recover/</loc>
+    <loc>http://jincheng9.github.io/tags/recover/</loc>
     <lastmod>2022-02-07T14:48:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>http://jincheng9.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2022-02-07T14:48:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>http://jincheng9.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2022-02-07T14:48:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/1.18/</loc>
+    <loc>http://jincheng9.github.io/tags/1.18/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/contraints/</loc>
+    <loc>http://jincheng9.github.io/tags/contraints/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/generics/</loc>
+    <loc>http://jincheng9.github.io/tags/generics/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/generics/</loc>
+    <loc>http://jincheng9.github.io/categories/generics/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go1.18-remove-constraints-package/</loc>
+    <loc>http://jincheng9.github.io/post/go1.18-remove-constraints-package/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E6%B3%9B%E5%9E%8B/</loc>
+    <loc>http://jincheng9.github.io/tags/%E6%B3%9B%E5%9E%8B/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/%E6%B3%9B%E5%9E%8B/</loc>
+    <loc>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</loc>
     <lastmod>2022-02-03T22:27:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/bug/</loc>
+    <loc>http://jincheng9.github.io/tags/bug/</loc>
     <lastmod>2022-02-02T14:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/go1.18/</loc>
+    <loc>http://jincheng9.github.io/tags/go1.18/</loc>
     <lastmod>2022-02-02T14:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/variable-declared-not-used/</loc>
+    <loc>http://jincheng9.github.io/tags/variable-declared-not-used/</loc>
     <lastmod>2022-02-02T14:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-variable-declared-not-used-bug/</loc>
+    <loc>http://jincheng9.github.io/post/go-variable-declared-not-used-bug/</loc>
     <lastmod>2022-02-02T14:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/beta/</loc>
+    <loc>http://jincheng9.github.io/tags/beta/</loc>
     <lastmod>2022-02-01T12:56:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/beta/</loc>
+    <loc>http://jincheng9.github.io/categories/beta/</loc>
     <lastmod>2022-02-01T12:56:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/go1.18/</loc>
+    <loc>http://jincheng9.github.io/categories/go1.18/</loc>
     <lastmod>2022-02-01T12:56:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-official-blog-go1.18beta2/</loc>
+    <loc>http://jincheng9.github.io/post/go-official-blog-go1.18beta2/</loc>
     <lastmod>2022-02-01T12:56:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-cny-google-valentin/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-cny-google-valentin/</loc>
     <lastmod>2022-01-31T15:49:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/defer/</loc>
+    <loc>http://jincheng9.github.io/tags/defer/</loc>
     <lastmod>2022-01-27T22:40:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-defer3/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-defer3/</loc>
     <lastmod>2022-01-27T22:40:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/channel/</loc>
+    <loc>http://jincheng9.github.io/tags/channel/</loc>
     <lastmod>2022-01-23T15:50:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-channel-select/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-channel-select/</loc>
     <lastmod>2022-01-23T15:50:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/select/</loc>
+    <loc>http://jincheng9.github.io/tags/select/</loc>
     <lastmod>2022-01-23T15:50:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-quiz-slice2/</loc>
+    <loc>http://jincheng9.github.io/post/go-quiz-slice2/</loc>
     <lastmod>2022-01-22T16:16:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/range/</loc>
+    <loc>http://jincheng9.github.io/tags/range/</loc>
     <lastmod>2022-01-22T16:16:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/slice/</loc>
+    <loc>http://jincheng9.github.io/tags/slice/</loc>
     <lastmod>2022-01-22T16:16:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/fuzzing/</loc>
+    <loc>http://jincheng9.github.io/tags/fuzzing/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/golang/</loc>
+    <loc>http://jincheng9.github.io/tags/golang/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-official-blog-two-tutorial/</loc>
+    <loc>http://jincheng9.github.io/post/go-official-blog-two-tutorial/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/tutorial/</loc>
+    <loc>http://jincheng9.github.io/tags/tutorial/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://jincheng9.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-01-22T11:05:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/container/</loc>
+    <loc>http://jincheng9.github.io/tags/container/</loc>
     <lastmod>2022-01-04T21:11:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>http://jincheng9.github.io/tags/docker/</loc>
     <lastmod>2022-01-04T21:11:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/docker/</loc>
+    <loc>http://jincheng9.github.io/categories/docker/</loc>
     <lastmod>2022-01-04T21:11:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-docker-demo/</loc>
+    <loc>http://jincheng9.github.io/post/go-docker-demo/</loc>
     <lastmod>2022-01-04T21:11:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/cloud-native/</loc>
+    <loc>http://jincheng9.github.io/categories/cloud-native/</loc>
     <lastmod>2022-01-03T19:28:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-tutorial/</loc>
+    <loc>http://jincheng9.github.io/post/docker-tutorial/</loc>
     <lastmod>2022-01-03T19:28:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/virtual-machine/</loc>
+    <loc>http://jincheng9.github.io/tags/virtual-machine/</loc>
     <lastmod>2022-01-03T19:28:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/grpc/</loc>
+    <loc>http://jincheng9.github.io/tags/grpc/</loc>
     <lastmod>2022-01-02T13:59:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-grpc-protobuf/</loc>
+    <loc>http://jincheng9.github.io/post/go-grpc-protobuf/</loc>
     <lastmod>2022-01-02T13:59:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/protobuf/</loc>
+    <loc>http://jincheng9.github.io/tags/protobuf/</loc>
     <lastmod>2022-01-02T13:59:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/rpc/</loc>
+    <loc>http://jincheng9.github.io/tags/rpc/</loc>
     <lastmod>2022-01-02T13:59:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/rpc/</loc>
+    <loc>http://jincheng9.github.io/categories/rpc/</loc>
     <lastmod>2022-01-02T13:59:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-defer-quiz2/</loc>
+    <loc>http://jincheng9.github.io/post/go-defer-quiz2/</loc>
     <lastmod>2021-12-30T22:19:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-defer-quiz/</loc>
+    <loc>http://jincheng9.github.io/post/go-defer-quiz/</loc>
     <lastmod>2021-12-29T15:12:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/return/</loc>
+    <loc>http://jincheng9.github.io/tags/return/</loc>
     <lastmod>2021-12-29T15:12:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-switch-semicolons-quiz/</loc>
+    <loc>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</loc>
     <lastmod>2021-12-28T20:21:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/semicolon/</loc>
+    <loc>http://jincheng9.github.io/tags/semicolon/</loc>
     <lastmod>2021-12-28T20:21:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/switch/</loc>
+    <loc>http://jincheng9.github.io/tags/switch/</loc>
     <lastmod>2021-12-28T20:21:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E5%88%86%E5%8F%B7/</loc>
+    <loc>http://jincheng9.github.io/tags/%E5%88%86%E5%8F%B7/</loc>
     <lastmod>2021-12-28T20:21:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-channel-quiz/</loc>
+    <loc>http://jincheng9.github.io/post/go-channel-quiz/</loc>
     <lastmod>2021-12-27T19:11:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/nil/</loc>
+    <loc>http://jincheng9.github.io/tags/nil/</loc>
     <lastmod>2021-12-27T19:11:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-slice-principle/</loc>
+    <loc>http://jincheng9.github.io/post/go-slice-principle/</loc>
     <lastmod>2021-12-26T18:08:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>http://jincheng9.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2021-12-26T18:08:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/type-paramter/</loc>
+    <loc>http://jincheng9.github.io/tags/type-paramter/</loc>
     <lastmod>2021-12-24T14:20:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-generics-best-practice/</loc>
+    <loc>http://jincheng9.github.io/post/go-generics-best-practice/</loc>
     <lastmod>2021-12-24T14:20:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/hugo/</loc>
+    <loc>http://jincheng9.github.io/tags/hugo/</loc>
     <lastmod>2021-12-22T20:53:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hugo-add-new-page/</loc>
+    <loc>http://jincheng9.github.io/post/hugo-add-new-page/</loc>
     <lastmod>2021-12-22T20:53:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/website/</loc>
+    <loc>http://jincheng9.github.io/categories/website/</loc>
     <lastmod>2021-12-22T20:53:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hugo-add-img/</loc>
+    <loc>http://jincheng9.github.io/post/hugo-add-img/</loc>
     <lastmod>2021-12-22T10:42:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/images/</loc>
+    <loc>http://jincheng9.github.io/tags/images/</loc>
     <lastmod>2021-12-22T10:42:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/markdown/</loc>
+    <loc>http://jincheng9.github.io/tags/markdown/</loc>
     <lastmod>2021-12-22T10:42:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/even/</loc>
+    <loc>http://jincheng9.github.io/tags/even/</loc>
     <lastmod>2021-12-21T17:02:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/github-pages/</loc>
+    <loc>http://jincheng9.github.io/tags/github-pages/</loc>
     <lastmod>2021-12-21T17:02:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/blog-github-pages-hugo-utterances/</loc>
+    <loc>http://jincheng9.github.io/post/blog-github-pages-hugo-utterances/</loc>
     <lastmod>2021-12-21T17:02:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/utterances/</loc>
+    <loc>http://jincheng9.github.io/tags/utterances/</loc>
     <lastmod>2021-12-21T17:02:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
