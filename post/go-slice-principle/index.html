@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项">
 <meta itemprop="description" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"><meta itemprop="datePublished" content="2021-12-26T18:08:05+08:00" />
 <meta itemprop="dateModified" content="2021-12-26T18:08:05+08:00" />
-<meta itemprop="wordCount" content="5135">
+<meta itemprop="wordCount" content="5134">
 <meta itemprop="keywords" content="go,slice,数据结构," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"/>
 <meta name="twitter:description" content="Go Quiz: 从Go面试题看slice的底层原理和注意事项"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 5135 words </span>
+          <span class="more-meta"> 5134 words </span>
           <span class="more-meta"> 11 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -273,7 +273,7 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">// a的长度是0，容量是4
 </span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[:]</span> <span class="c1">// 等价于 b := a[0:0], b的长度是0，容量是4
-</span><span class="c1"></span><span class="nx">c</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 等价于 c := a[0:1], b的长度是1，容量是4
+</span><span class="c1"></span><span class="nx">c</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 等价于 c := a[0:1], c的长度是1，容量是4
 </span><span class="c1"></span><span class="nx">d</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1">// 编译报错 panic: runtime error: slice bounds out of range
 </span><span class="c1"></span><span class="nx">e</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1">// e的长度3，容量3
 </span></code></pre></td></tr></table>
@@ -563,7 +563,7 @@
 </tr>
 <tr>
 <td>fmt.Println(a, x)</td>
-<td>a的值还是[0 2 3 3]没有变化，所以打印结果是[0 2 3 3] [0 2 3 3 3 3 ]，答案是B</td>
+<td>a的值还是[0 2 3 3]没有变化，所以打印结果是[0 2 3 3] [0 2 3 3 3]，答案是B</td>
 </tr>
 </tbody>
 </table>
