@@ -49,7 +49,7 @@
 <meta itemprop="name" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客">
 <meta itemprop="description" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客"><meta itemprop="datePublished" content="2021-12-21T17:02:58+08:00" />
 <meta itemprop="dateModified" content="2021-12-21T17:02:58+08:00" />
-<meta itemprop="wordCount" content="2112">
+<meta itemprop="wordCount" content="2171">
 <meta itemprop="keywords" content="hugo,even,github pages,utterances," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客"/>
 <meta name="twitter:description" content="GitHub Pages&#43; Hugo &#43; even &#43; Utterances搭建个人博客"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/website/"> website </a>
             </div>
-          <span class="more-meta"> 2112 words </span>
+          <span class="more-meta"> 2171 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -229,15 +229,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-markdown" data-lang="markdown">drwxr-xr-x   9 zhangjincheng  staff  288 12 21 14:46 .
-drwxr-xr-x  17 zhangjincheng  staff  544 12 21 14:46 ..
-drwxr-xr-x   3 zhangjincheng  staff   96 12 21 14:46 archetypes
--rw-r--r--   1 zhangjincheng  staff   82 12 21 14:46 config.toml
-drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 content
-drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 data
-drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 layouts
-drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 static
-drwxr-xr-x   2 zhangjincheng  staff   64 12 21 14:46 themes
+<pre class="chroma"><code class="language-markdown" data-lang="markdown">drwxr-xr-x   9 xxx  staff  288 12 21 14:46 .
+drwxr-xr-x  17 xxx  staff  544 12 21 14:46 ..
+drwxr-xr-x   3 xxx  staff   96 12 21 14:46 archetypes
+-rw-r--r--   1 xxx  staff   82 12 21 14:46 config.toml
+drwxr-xr-x   2 xxx  staff   64 12 21 14:46 content
+drwxr-xr-x   2 xxx  staff   64 12 21 14:46 data
+drwxr-xr-x   2 xxx  staff   64 12 21 14:46 layouts
+drwxr-xr-x   2 xxx  staff   64 12 21 14:46 static
+drwxr-xr-x   2 xxx  staff   64 12 21 14:46 themes
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -377,8 +377,17 @@ $ git push origin master
 <p>安装utterances：点击<a href="https://github.com/apps/utterances">https://github.com/apps/utterances</a>，按照提示操作，把上面存放博客的repo的权限给utterances。操作完成后，在username.github.io这个repo的Settings-&gt;Integrations里可以看到utterances。</p>
 </li>
 <li>
-<p>修改博客的全局配置config.toml里已有的<code>params.utterances</code>配置项。</p>
+<p>修改博客的全局配置config.toml里已有的<code>baseURL</code>和<code>params.utterances</code>这2个配置项。</p>
+<p><code>baseURL</code>为博客网站的域名，<code>params.utterances</code> 为GitHub的信息。</p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-markdown" data-lang="markdown">baseURL = &#34;http://jincheng9.github.io/&#34;
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
