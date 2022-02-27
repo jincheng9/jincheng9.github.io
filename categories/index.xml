@@ -6,22 +6,31 @@
     <description>Recent content in Categories on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Feb 2022 12:18:34 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 13:35:46 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>closure</title>
-      <link>http://jincheng9.github.io/categories/closure/</link>
-      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      <title>fuzzing</title>
+      <link>http://jincheng9.github.io/categories/fuzzing/</link>
+      <pubDate>Sun, 27 Feb 2022 13:35:46 +0800</pubDate>
       
-      <guid>http://jincheng9.github.io/categories/closure/</guid>
+      <guid>http://jincheng9.github.io/categories/fuzzing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
       <link>http://jincheng9.github.io/categories/go/</link>
-      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      <pubDate>Sun, 27 Feb 2022 13:35:46 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>closure</title>
+      <link>http://jincheng9.github.io/categories/closure/</link>
+      <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/closure/</guid>
       <description></description>
     </item>
     
