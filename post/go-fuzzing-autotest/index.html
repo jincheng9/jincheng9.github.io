@@ -49,7 +49,7 @@
 <meta itemprop="name" content="官方教程：Go fuzzing模糊测试">
 <meta itemprop="description" content="官方教程：Go fuzzing模糊测试入门"><meta itemprop="datePublished" content="2022-02-27T13:35:46+08:00" />
 <meta itemprop="dateModified" content="2022-02-27T13:35:46+08:00" />
-<meta itemprop="wordCount" content="7510">
+<meta itemprop="wordCount" content="7513">
 <meta itemprop="keywords" content="go,fuzzing,模糊测试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="官方教程：Go fuzzing模糊测试"/>
 <meta name="twitter:description" content="官方教程：Go fuzzing模糊测试入门"/>
@@ -137,7 +137,7 @@
             <a href="/categories/go/"> go </a>
             <a href="/categories/fuzzing/"> fuzzing </a>
             </div>
-          <span class="more-meta"> 7510 words </span>
+          <span class="more-meta"> 7513 words </span>
           <span class="more-meta"> 15 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -204,7 +204,7 @@
 <p>本人对Go官方教程在翻译的基础上做了一些表述上的优化，以飨读者。</p>
 <p><strong>注意</strong>：fuzzing模糊测试和Go已有的单元测试以及性能测试框架是互为补充的，并不是替代关系。</p>
 <h2 id="教程内容">教程内容</h2>
-<p>这篇教程会介绍Go fuzzing的入门基础知识。fuzzing可以构造随机数据来找出代码里的漏洞或者可能导致程序崩溃的输入。通过fuzzing可以找出的漏洞包括SQL注入、缓存溢出、拒绝服务(Denial of Service)攻击和XSS(cross-site scripting)攻击等。</p>
+<p>这篇教程会介绍Go fuzzing的入门基础知识。fuzzing可以构造随机数据来找出代码里的漏洞或者可能导致程序崩溃的输入。通过fuzzing可以找出的漏洞包括SQL注入、缓冲区溢出、拒绝服务(Denial of Service)攻击和XSS(cross-site scripting)攻击等。</p>
 <p>在这个教程里，你会给一个函数写一段fuzz test(模糊测试)程序，然后运行go命令来发现代码里的问题，最后通过调试来修复问题。</p>
 <p>本文里涉及的专业术语，可以参考 <a href="https://go.dev/doc/fuzz/#glossary">Go Fuzzing glossary</a>。</p>
 <p>接下来会按照如下章节介绍：</p>
@@ -224,7 +224,7 @@
 <li>有一个支持fuzzing的环境。目前Go fuzzing只支持AMD64和ARM64架构。</li>
 </ul>
 <h3 id="安装和使用beta版本">安装和使用beta版本</h3>
-<p>这个教程需要使用Go 1.18 Beta 1版本了的泛型功能。使用如下步骤，安装beta版本</p>
+<p>这个教程需要使用Go 1.18 Beta 1或以上版本的泛型功能。使用如下步骤，安装beta版本</p>
 <ol>
 <li>
 <p>使用下面的命令安装beta版本</p>
@@ -648,7 +648,7 @@ FAIL
 FAIL    example/fuzz  0.030s
 </code></pre></td></tr></table>
 </div>
-</div><p>上面的fuzzing测试结果是<code>FAIL</code>，引起<code>FAIL</code>的输入数据被写到了一个语料库文件里。下次运行<code>go test</code>命令的时候，即使没有<code>-fuzz</code>参数，这个种子语料库文件里的输入也会被用到。</p>
+</div><p>上面的fuzzing测试结果是<code>FAIL</code>，引起<code>FAIL</code>的输入数据被写到了一个语料库文件里。下次运行<code>go test</code>命令的时候，即使没有<code>-fuzz</code>参数，这个语料库文件里的测试数据也会被用到。</p>
 <p>可以用文本编辑器打开<code>testdata/fuzz/FuzzReverse</code>目录下的文件，看看引起Fuzzing测试失败的测试数据长什么样。下面是一个示例文件，你那边运行后得到的测试数据可能和这个不一样，但文件里的内容格式会是一样的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
