@@ -62,6 +62,15 @@
     </item>
     
     <item>
+      <title>Go Quiz: 从Go面试题搞懂slice range遍历的坑</title>
+      <link>http://jincheng9.github.io/post/go-quiz-slice2/</link>
+      <pubDate>Sat, 22 Jan 2022 16:16:10 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-quiz-slice2/</guid>
+      <description>面试题 最近Go 101的作者发布了11道Go面试题，非常有趣，打算写一个系列对每道题做详细解析，欢迎大家关注。 本题是Go quiz slice系列的第2</description>
+    </item>
+    
+    <item>
       <title>Go Quiz: 从Go面试题看defer的注意事项第2篇</title>
       <link>http://jincheng9.github.io/post/go-defer-quiz2/</link>
       <pubDate>Thu, 30 Dec 2021 22:19:11 +0800</pubDate>
@@ -86,6 +95,24 @@
       
       <guid>http://jincheng9.github.io/post/go-switch-semicolons-quiz/</guid>
       <description>面试题 这是Go Quiz系列的第3篇，关于Go语言的分号规则和switch的特性。 这道题比较tricky，通过这道题可以加深我们对Go语言里的</description>
+    </item>
+    
+    <item>
+      <title>Go Quiz: 从Go面试题看channel的注意事项</title>
+      <link>http://jincheng9.github.io/post/go-channel-quiz/</link>
+      <pubDate>Mon, 27 Dec 2021 19:11:12 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-channel-quiz/</guid>
+      <description>面试题 这是Go Quiz系列的第2篇，关于channel和select的特性。 这道题比较简单，但是通过这道题可以加深我们对channel和se</description>
+    </item>
+    
+    <item>
+      <title>Go Quiz: 从Go面试题看slice的底层原理和注意事项</title>
+      <link>http://jincheng9.github.io/post/go-slice-principle/</link>
+      <pubDate>Sun, 26 Dec 2021 18:08:05 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-slice-principle/</guid>
+      <description>面试题 最近Go 101的作者发布了11道Go面试题，非常有趣，打算写一个系列对每道题做详细解析。欢迎大家关注。 大家可以看下面这道关于slice</description>
     </item>
     
   </channel>
