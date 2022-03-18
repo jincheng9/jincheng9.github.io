@@ -6,7 +6,16 @@
     <description>Recent content in 泛型 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Feb 2022 22:27:27 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 18:51:04 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>官方博文：Go 1.18发布啦！</title>
+      <link>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</link>
+      <pubDate>Fri, 18 Mar 2022 18:51:04 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</guid>
+      <description>前言 2022年3月15日，Go官方团队在官网上正式宣布了Go 1.18版本的发布。 Go 1.18是Go语言诞生以来变化最大的版本，本人针对官方原文</description>
+    </item>
+    
     <item>
       <title>Go 1.18将移除用于泛型的constraints包</title>
       <link>http://jincheng9.github.io/post/go1.18-remove-constraints-package/</link>

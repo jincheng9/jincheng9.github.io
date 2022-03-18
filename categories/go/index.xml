@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 12 Mar 2022 11:26:07 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 18:51:04 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>官方博文：Go 1.18发布啦！</title>
+      <link>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</link>
+      <pubDate>Fri, 18 Mar 2022 18:51:04 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</guid>
+      <description>前言 2022年3月15日，Go官方团队在官网上正式宣布了Go 1.18版本的发布。 Go 1.18是Go语言诞生以来变化最大的版本，本人针对官方原文</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看锁的注意事项</title>
       <link>http://jincheng9.github.io/post/go-quiz-mutex/</link>

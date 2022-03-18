@@ -3,21 +3,91 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/fuzzing/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/fuzzing/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/go1.18/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/go1.18/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2022-03-18T18:51:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,21 +100,7 @@
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://jincheng9.github.io/tags/mutex/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/post/</loc>
     <lastmod>2022-03-12T11:26:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -72,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://jincheng9.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2022-03-12T11:26:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -88,20 +137,6 @@
   <url>
     <loc>http://jincheng9.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/fuzzing/</loc>
-    <lastmod>2022-02-27T13:35:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/fuzzing/</loc>
-    <lastmod>2022-02-27T13:35:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -254,28 +289,7 @@
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/tags/%E6%B3%9B%E5%9E%8B/</loc>
-    <lastmod>2022-02-03T22:27:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</loc>
-    <lastmod>2022-02-03T22:27:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://jincheng9.github.io/tags/bug/</loc>
-    <lastmod>2022-02-02T14:49:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/go1.18/</loc>
     <lastmod>2022-02-02T14:49:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -304,13 +318,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/beta/</loc>
-    <lastmod>2022-02-01T12:56:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/go1.18/</loc>
     <lastmod>2022-02-01T12:56:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
