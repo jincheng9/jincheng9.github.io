@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Fuzzing: 一文读懂Go Fuzzing使用和原理">
 <meta itemprop="description" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"><meta itemprop="datePublished" content="2022-04-02T23:41:59+08:00" />
 <meta itemprop="dateModified" content="2022-04-02T23:41:59+08:00" />
-<meta itemprop="wordCount" content="6117">
+<meta itemprop="wordCount" content="6104">
 <meta itemprop="keywords" content="go,fuzzing," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"/>
 <meta name="twitter:description" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"/>
@@ -137,7 +137,7 @@
             <a href="/categories/go/"> go </a>
             <a href="/categories/fuzzing/"> fuzzing </a>
             </div>
-          <span class="more-meta"> 6117 words </span>
+          <span class="more-meta"> 6104 words </span>
           <span class="more-meta"> 13 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -336,7 +336,7 @@ FAIL    example/fuzz    0.179s
 <p>这个例子里，随机生成了一个字符串<code>æ</code>，这是由2个字节组成的一个UTF-8字符串，按照<code>Reverse</code>函数进行反转后，得到了一个非UTF-8的字符串<code>��</code>。</p>
 <p>所以我们之前实现的按照字节进行字符串反转的函数<code>Reverse</code>是有bug的，该函数对于ASCII码里的字符组成的字符串是可以正确反转的，但是对于非ASCII码里的字符，如果简单按照字节进行反转，得到的可能是一个非法的字符串。</p>
 <p>感兴趣的朋友，可以看看如果对字符串&quot;吃&quot;，调用<code>Reverse</code> 函数，会得到怎样的结果。</p>
-<p><strong>注意</strong>：如果Go Fuzzing运行过程中发现了你的bug，会把对应的输入数据写到<code>go test</code>所在目录下的<code>testdata/fuzz/FuzzXXX</code>子目录下。比如上面的例子里，<code>go1.18beta1 test -v -fuzz=Fuzz</code>的输出结果里打印了如下内容：<code>Failing input written to testdata/fuzz/FuzzReverse/ce9e8c80e2c2de2c96ab9e63b1a8cf18cea932b7d8c6c9c207d5978e0f19027a</code>，这就表示把这个测试输入写到了<code>testdata/fuzz/FuzzReverse/xxx</code>这个语料文件里。</p>
+<p><strong>注意</strong>：如果Go Fuzzing运行过程中发现了你的bug，会把对应的输入数据写到<code>testdata/fuzz/FuzzXXX</code>目录下。比如上面的例子里，<code>go1.18beta1 test -v -fuzz=Fuzz</code>的输出结果里打印了如下内容：<code>Failing input written to testdata/fuzz/FuzzReverse/ce9e8c80e2c2de2c96ab9e63b1a8cf18cea932b7d8c6c9c207d5978e0f19027a</code>，这就表示把这个测试输入写到了<code>testdata/fuzz/FuzzReverse/xxx</code>这个语料文件里。</p>
 <h2 id="go-fuzzing的底层机制">Go Fuzzing的底层机制</h2>
 <p><code>go test</code> 执行的时候，会为每个被测试的package先编译生成一个可执行文件，然后运行这个可执行文件得到对应package的<code>TestXXX</code>和<code>BenchmarkXXX</code>的测试结果。Go Fuzzing运行的模式和这个类似，但是也有一点区别。</p>
 <p>当<code>go test</code>执行的时候如果有<code>-fuzz</code>标记，<code>go test</code>会结合覆盖率工具来编译生成用于模糊测试的可执行文件。大部分的Fuzzing逻辑都实现在<a href="https://pkg.go.dev/internal/fuzz">internal/fuzz</a>。</p>
