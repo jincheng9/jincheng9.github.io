@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Mar 2022 18:51:04 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 23:41:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fuzzing: 一文读懂Go Fuzzing使用和原理</title>
+      <link>http://jincheng9.github.io/post/go-fuzzing-usage-principle/</link>
+      <pubDate>Sat, 02 Apr 2022 23:41:59 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-fuzzing-usage-principle/</guid>
+      <description>Fuzzing: 一文读懂Go Fuzzing使用和原理 背景 Go 1.18除了引入泛型(generics)这个重大设计之外，Go官方团队在Go 1.18工具链里还引</description>
+    </item>
+    
     <item>
       <title>官方博文：Go 1.18发布啦！</title>
       <link>http://jincheng9.github.io/post/go-official-blog-go1.18-release/</link>
