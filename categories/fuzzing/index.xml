@@ -13,7 +13,7 @@
       <pubDate>Sat, 02 Apr 2022 23:41:59 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/post/go-fuzzing-usage-principle/</guid>
-      <description>Fuzzing: 一文读懂Go Fuzzing使用和原理 背景 Go 1.18除了引入泛型(generics)这个重大设计之外，Go官方团队在Go 1.18工具链里还引</description>
+      <description>背景 Go 1.18除了引入泛型(generics)这个重大设计之外，Go官方团队在Go 1.18工具链里还引入了fuzzing模糊测试。 Go fuzz</description>
     </item>
     
     <item>
