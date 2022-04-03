@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Fuzzing: 一文读懂Go Fuzzing使用和原理">
 <meta itemprop="description" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"><meta itemprop="datePublished" content="2022-04-02T23:41:59+08:00" />
 <meta itemprop="dateModified" content="2022-04-02T23:41:59+08:00" />
-<meta itemprop="wordCount" content="6104">
+<meta itemprop="wordCount" content="6118">
 <meta itemprop="keywords" content="go,fuzzing," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"/>
 <meta name="twitter:description" content="Fuzzing: 一文读懂Go Fuzzing使用和原理"/>
@@ -137,7 +137,7 @@
             <a href="/categories/go/"> go </a>
             <a href="/categories/fuzzing/"> fuzzing </a>
             </div>
-          <span class="more-meta"> 6104 words </span>
+          <span class="more-meta"> 6118 words </span>
           <span class="more-meta"> 13 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -408,9 +408,9 @@ FAIL    example/fuzz    0.752s
 <h3 id="阶段3minimization最小化">阶段3：Minimization最小化</h3>
 <p>如果coordinator进程收到了worker进程发送过来的输入数据是场景1，也就是收到了会产生新覆盖率的输入，coordinator会把这个worker的覆盖率数据和当前组合的覆盖率数组做比较。</p>
 <p>因为有可能其它worker已经发现了会提供相同覆盖率的输入，如果是这样的话，那coordinator会直接ignore这个输入。如果这个新的输入的确提供了新的覆盖率，那coordinator会把这个输入发送给一个worker(很可能是不同的worker)用于最小化(minimization)。</p>
-<p>最小化有点像fuzzing，但是worker会通过随机变异来创建一个仍然会产生新覆盖率的更小输入。更小的输入通常会让fuzzing执行更快，因此值得在前面花时间让fuzzing处理过程更快。worker进程完成最小化后会报告给coordinator，即使它未来找到更小的输入。coordinator进程会把这个最小化的输入添加到缓存语料库(cache corpus)并继续执行Fuzzing。后续，coordinator可能会把这个最小化的输入发送给所有worker用于进一步fuzzing。这就是fuzzing系统如何自动调节找到新的覆盖率。</p>
+<p>最小化有点像fuzzing，但是worker会通过随机变异来创建一个仍然会产生新覆盖率的更小输入。更小的输入通常会让fuzzing执行更快，因此值得在前面花时间让fuzzing处理过程更快。worker进程完成最小化后会报告给coordinator，即使它未能找到更小的输入。coordinator进程会把这个最小化的输入添加到缓存语料库(cache corpus)并继续执行Fuzzing。后续，coordinator可能会把这个最小化的输入发送给所有worker用于进一步fuzzing。这就是fuzzing系统如何自动调节找到新的覆盖率。</p>
 <p>如果coordinator进程收到了worker进程发送过来的输入数据是场景2：也就是<code>引发error的输入</code>，coordinator进程会把这个输入再次发送给worker进行最小化。在这种场景下，worker会试图找到一个会引发error的更小输入，尽管不一定是同一个error。在输入数据被最小化后，coordinator进程会把最小化后的数据存储到<code>testdata/fuzz/$FuzzTarget</code>，优雅关闭所有worker进程，然后以非0状态(non-zero status)退出。</p>
-<p>如果worker进程在fuzzing过程中crash了，那coordinator进程可以使用发送给worker的输入、worker的RNG状态和迭代次数(留在共享内存中)来恢复导致worker进程crash的输入。crash的输入通常没有被最小化，因为最小化是一个高度状态化的过程，而每次crash都会破坏这个状态。这在<a href="https://github.com/golang/go/issues/48163">理论</a>上是可行的，但是目前还没能实现。</p>
+<p>如果worker进程在fuzzing过程中crash了，那coordinator进程可以使用发送给worker的输入、worker的RNG状态和迭代次数(留在共享内存中)来恢复导致worker进程crash的输入。crash的输入通常没有被最小化，因为最小化是一个高度状态化的过程，而每次crash都会破坏这个状态。对导致crash的输入做最小化在<a href="https://github.com/golang/go/issues/48163">理论</a>上是可行的，但是目前还没能实现。</p>
 <p>Fuzzing通常遇到以下场景才会结束运行，否则会一直运行：</p>
 <ul>
 <li>Fuzzing找到了error，也就是触发了你模糊测试函数里的error条件</li>
