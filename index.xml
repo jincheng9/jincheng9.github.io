@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 Apr 2022 23:41:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Apr 2022 11:38:56 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.18：工作区模式workspace mode</title>
+      <link>http://jincheng9.github.io/post/go1.18-workspace-mode/</link>
+      <pubDate>Mon, 04 Apr 2022 11:38:56 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go1.18-workspace-mode/</guid>
+      <description>背景 Go 1.18除了引入泛型(generics)、模糊测试(Fuzzing)之外，另外一个重大功能是引入了工作区模式(workspace mod</description>
+    </item>
+    
     <item>
       <title>Fuzzing: 一文读懂Go Fuzzing使用和原理</title>
       <link>http://jincheng9.github.io/post/go-fuzzing-usage-principle/</link>
