@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go 1.18：工作区模式workspace mode">
 <meta itemprop="description" content="背景 Go 1.18除了引入泛型(generics)、模糊测试(Fuzzing)之外，另外一个重大功能是引入了工作区模式(workspace mod"><meta itemprop="datePublished" content="2022-04-04T11:38:56+08:00" />
 <meta itemprop="dateModified" content="2022-04-04T11:38:56+08:00" />
-<meta itemprop="wordCount" content="2526">
+<meta itemprop="wordCount" content="2680">
 <meta itemprop="keywords" content="go1.18,workspace," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 1.18：工作区模式workspace mode"/>
 <meta name="twitter:description" content="背景 Go 1.18除了引入泛型(generics)、模糊测试(Fuzzing)之外，另外一个重大功能是引入了工作区模式(workspace mod"/>
@@ -137,7 +137,7 @@
             <a href="/categories/go1.18/"> go1.18 </a>
             <a href="/categories/workspace/"> workspace </a>
             </div>
-          <span class="more-meta"> 2526 words </span>
+          <span class="more-meta"> 2680 words </span>
           <span class="more-meta"> 6 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -468,7 +468,9 @@ use (
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ go1.18beta1 work init main util
 </code></pre></td></tr></table>
 </div>
-</div><p>在main目录或者workspace目录，都可以运行<code>main.go</code>，结果如下所示：</p>
+</div><p><code>go1.18beta1 work init</code>后面跟的<code>main</code>和<code>util</code>都是Module对应的目录。</p>
+<p>如果go命令执行的当前目录或者父目录有<code>go.work</code>文件，或者通过<code>GOWORK</code>环境变量指定了<code>go.work</code>的路径，那go命令就会进入工作区模式。在工作区模式下，go就可以通过<code>go.work</code>下的module路径找到并使用本地的module代码。</p>
+<p>在main目录或者workspace目录，都可以运行<code>main.go</code>，结果如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
