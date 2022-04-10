@@ -6,7 +6,25 @@
     <description>Recent content in Categories on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Apr 2022 11:38:56 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 10:21:01 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>http://jincheng9.github.io/categories/go/</link>
+      <pubDate>Sun, 10 Apr 2022 10:21:01 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workspace</title>
+      <link>http://jincheng9.github.io/categories/workspace/</link>
+      <pubDate>Sun, 10 Apr 2022 10:21:01 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/workspace/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>go1.18</title>
       <link>http://jincheng9.github.io/categories/go1.18/</link>
@@ -17,29 +35,11 @@
     </item>
     
     <item>
-      <title>workspace</title>
-      <link>http://jincheng9.github.io/categories/workspace/</link>
-      <pubDate>Mon, 04 Apr 2022 11:38:56 +0800</pubDate>
-      
-      <guid>http://jincheng9.github.io/categories/workspace/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>fuzzing</title>
       <link>http://jincheng9.github.io/categories/fuzzing/</link>
       <pubDate>Sat, 02 Apr 2022 23:41:59 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/categories/fuzzing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://jincheng9.github.io/categories/go/</link>
-      <pubDate>Sat, 02 Apr 2022 23:41:59 +0800</pubDate>
-      
-      <guid>http://jincheng9.github.io/categories/go/</guid>
       <description></description>
     </item>
     
