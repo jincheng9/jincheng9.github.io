@@ -6,7 +6,16 @@
     <description>Recent content in go1.18 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Apr 2022 11:38:56 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go1.18/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Apr 2022 20:54:57 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go1.18/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>泛型最佳实践：Go泛型设计者教你如何用泛型</title>
+      <link>http://jincheng9.github.io/post/go1.18-when-to-use-generics/</link>
+      <pubDate>Fri, 22 Apr 2022 20:54:57 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go1.18-when-to-use-generics/</guid>
+      <description>前言 Go泛型的设计者Ian Lance Taylor在官方博客网站上发表了一篇文章when to use generics，详细说明了在什么场景下应该使用泛型，什么</description>
+    </item>
+    
     <item>
       <title>Go 1.18：工作区模式workspace mode</title>
       <link>http://jincheng9.github.io/post/go1.18-workspace-mode/</link>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>泛型最佳实践：Go泛型设计者教你如何用泛型 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="泛型最佳实践：Go泛型设计者教你如何用泛型" /><meta name="keywords" content="go1.18, generics, 泛型" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go1.18-when-to-use-generics/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="泛型最佳实践：Go泛型设计者教你如何用泛型" />
+<meta property="og:description" content="泛型最佳实践：Go泛型设计者教你如何用泛型" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go1.18-when-to-use-generics/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-22T20:54:57+08:00" />
+<meta property="article:modified_time" content="2022-04-22T20:54:57+08:00" />
+
+<meta itemprop="name" content="泛型最佳实践：Go泛型设计者教你如何用泛型">
+<meta itemprop="description" content="泛型最佳实践：Go泛型设计者教你如何用泛型"><meta itemprop="datePublished" content="2022-04-22T20:54:57+08:00" />
+<meta itemprop="dateModified" content="2022-04-22T20:54:57+08:00" />
+<meta itemprop="wordCount" content="4168">
+<meta itemprop="keywords" content="go1.18,generics,泛型," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="泛型最佳实践：Go泛型设计者教你如何用泛型"/>
+<meta name="twitter:description" content="泛型最佳实践：Go泛型设计者教你如何用泛型"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">泛型最佳实践：Go泛型设计者教你如何用泛型</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-04-22 </span>
+        <div class="post-category">
+            <a href="/categories/go1.18/"> go1.18 </a>
+            <a href="/categories/generics/"> generics </a>
+            <a href="/categories/%E6%B3%9B%E5%9E%8B/"> 泛型 </a>
+            </div>
+          <span class="more-meta"> 4168 words </span>
+          <span class="more-meta"> 9 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#原文翻译">原文翻译</a></li>
+        <li><a href="#写代码">写代码</a></li>
+        <li><a href="#类型参数何时有用">类型参数何时有用？</a>
+          <ul>
+            <li><a href="#使用go内置的容器类型">使用Go内置的容器类型</a></li>
+            <li><a href="#实现通用的数据结构">实现通用的数据结构</a></li>
+            <li><a href="#类型参数优先使用在函数而不是方法上">类型参数优先使用在函数而不是方法上</a></li>
+            <li><a href="#不同类型需要实现公用方法">不同类型需要实现公用方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#类型参数何时不要用">类型参数何时不要用</a>
+          <ul>
+            <li><a href="#不要把interface类型替换为类型参数">不要把interface类型替换为类型参数</a></li>
+            <li><a href="#如果方法的实现不同不要使用类型参数">如果方法的实现不同，不要使用类型参数</a></li>
+            <li><a href="#在适当的时候可以使用反射reflection">在适当的时候可以使用反射(reflection)</a></li>
+          </ul>
+        </li>
+        <li><a href="#一个简单原则">一个简单原则</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>Go泛型的设计者<em>Ian Lance Taylor</em>在官方博客网站上发表了一篇文章<a href="https://go.dev/blog/when-generics">when to use generics</a>，详细说明了在什么场景下应该使用泛型，什么场景下不要使用泛型。这对于我们写出符合最佳实践的Go泛型代码非常有指导意义。</p>
+<p>本人对原文在翻译的基础上做了一些表述上的优化，方便大家理解。</p>
+<h2 id="原文翻译">原文翻译</h2>
+<p><em>Ian Lance Taylor</em></p>
+<p><em>2022.04.14</em></p>
+<p>这篇博客汇总了我在2021年Google开源活动日和GopherCon会议上关于泛型的分享。</p>
+<p>Go 1.18版本新增了一个重大功能：支持泛型编程。本文不会介绍什么是泛型以及如何使用泛型，而是把重点放在讲解Go编程实践中，什么时候应该使用泛型，什么时候不要使用泛型。</p>
+<p>需要明确的是，我将会提供一些通用的指引，这并不是硬性规定，大家可以根据自己的判断来决定，但是如果你不确定如何使用泛型，那建议参考本文介绍的指引。</p>
+<h2 id="写代码">写代码</h2>
+<p>Go编程有一条通用准则：write Go programs by writing code, not by defining types.</p>
+<p>具体到泛型，如果你写代码的时候从定义类型参数约束(type parameter constraints)开始，那你可能搞错了方向。从编写函数开始，如果写的过程中发现使用类型参数更好，那再使用类型参数。</p>
+<h2 id="类型参数何时有用">类型参数何时有用？</h2>
+<p>接下来我们看看在什么情况下，使用类型参数对我们写代码更有用。</p>
+<h3 id="使用go内置的容器类型">使用Go内置的容器类型</h3>
+<p>如果函数使用了语言内置的容器类型(包括slice, map和channel)作为函数参数，并且函数代码对容器的处理逻辑并没有预设容器里的元素类型，那使用类型参数(type parameter)可能就会有用。</p>
+<p>举个例子，我们要实现一个函数，该函数的入参是一个map，要返回该map的所有key组成的slice，key的类型可以是map支持的任意key类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// MapKeys returns a slice of all the keys in m.
+</span><span class="c1">// The keys are not returned in any particular order.
+</span><span class="c1"></span><span class="kd">func</span> <span class="nx">MapKeys</span><span class="p">[</span><span class="nx">Key</span> <span class="nx">comparable</span><span class="p">,</span> <span class="nx">Val</span> <span class="nx">any</span><span class="p">](</span><span class="nx">m</span> <span class="kd">map</span><span class="p">[</span><span class="nx">Key</span><span class="p">]</span><span class="nx">Val</span><span class="p">)</span> <span class="p">[]</span><span class="nx">Key</span> <span class="p">{</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">))</span>
+    <span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">m</span> <span class="p">{</span>
+        <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">s</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码没有对map里key的类型做任何限定，并且没有用map里的value，因此这段代码适用于所有的map类型。这就是使用类型参数的一个很好的示例。</p>
+<p>这种场景下，也可以使用反射(reflection)，但是反射是一种比较别扭的编程模型，在编译期没法做静态类型检查，并且会导致运行期的速度变慢。</p>
+<h3 id="实现通用的数据结构">实现通用的数据结构</h3>
+<p>对于通用的数据结构，类型参数也会有用。通用的数据结构类似于slice和map，但是并不是语言内置的数据结构，比如链表或者二叉树。</p>
+<p>在没有泛型的时候，如果要实现通用的数据结构，有2种方案：</p>
+<ul>
+<li>方案1：针对每个元素类型分别实现一个数据结构</li>
+<li>方案2：使用interface类型</li>
+</ul>
+<p>泛型相对方案1的优点是代码更精简，也更方便给其它模块调用。泛型相对方案2的优点是数据存储更高效，节约内存资源，并且可以在编译期做静态类型检查，避免代码里使用类型断言。</p>
+<p>下面的例子就是使用类型参数实现的通用二叉树数据结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Tree is a binary tree.
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">cmp</span>  <span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span> <span class="nx">T</span><span class="p">)</span> <span class="kt">int</span>
+    <span class="nx">root</span> <span class="o">*</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// A node in a Tree.
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">node</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span>  <span class="o">*</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span>
+    <span class="nx">val</span>          <span class="nx">T</span>
+<span class="p">}</span>
+
+<span class="c1">// find returns a pointer to the node containing val,
+</span><span class="c1">// or, if val is not present, a pointer to where it
+</span><span class="c1">// would be placed if added.
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">bt</span> <span class="o">*</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span> <span class="nf">find</span><span class="p">(</span><span class="nx">val</span> <span class="nx">T</span><span class="p">)</span> <span class="o">**</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nx">pl</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">bt</span><span class="p">.</span><span class="nx">root</span>
+    <span class="k">for</span> <span class="o">*</span><span class="nx">pl</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="nx">cmp</span> <span class="o">:=</span> <span class="nx">bt</span><span class="p">.</span><span class="nf">cmp</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">val</span><span class="p">);</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nx">cmp</span> <span class="p">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nx">pl</span> <span class="p">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">left</span>
+        <span class="k">case</span> <span class="nx">cmp</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nx">pl</span> <span class="p">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="nx">pl</span><span class="p">).</span><span class="nx">right</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nx">pl</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">pl</span>
+<span class="p">}</span>
+
+<span class="c1">// Insert inserts val into bt if not already there,
+</span><span class="c1">// and reports whether it was inserted.
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">bt</span> <span class="o">*</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span> <span class="nf">Insert</span><span class="p">(</span><span class="nx">val</span> <span class="nx">T</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="nx">pl</span> <span class="o">:=</span> <span class="nx">bt</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+    <span class="k">if</span> <span class="o">*</span><span class="nx">pl</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span>
+    <span class="o">*</span><span class="nx">pl</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">[</span><span class="nx">T</span><span class="p">]{</span><span class="nx">val</span><span class="p">:</span> <span class="nx">val</span><span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>二叉树的每个节点包含一个类型为<code>T</code>的变量<code>val</code>。当二叉树实例化的时候，需要传入类型实参，这个时候<code>val</code>的类型已经确定下来了，不会被存为interface类型。</p>
+<p>这种场景使用类型参数是合理的，因为<code>Tree</code>是个通用的数据结构，包括方法里的代码实现都和<code>T</code>的类型无关。</p>
+<p><code>Tree</code>数据结构本身不需要知道如何比较二叉树节点上类型为<code>T</code>的变量<code>val</code>的大小，它有一个成员变量<code>cmp</code>来实现<code>val</code>大小的比较，<code>cmp</code>是一个函数类型变量，在二叉树初始化的时候被指定。因此二叉树上节点值的大小比较是<code>Tree</code>外部的一个函数来实现的，你可以在<code>find</code>方法的第4行看到对<code>cmp</code>的使用。</p>
+<h3 id="类型参数优先使用在函数而不是方法上">类型参数优先使用在函数而不是方法上</h3>
+<p>上面的 <code>Tree</code>数据结构示例阐述了另外一个通用准则：当你需要类似<code>cmp</code>的比较函数时，优先考虑使用函数而不是方法。</p>
+<p>对于上面<code>Tree</code>类型，除了使用函数类型的成员变量<code>cmp</code>来比较<code>val</code>的大小之外，还有另外一种方案是要求类型<code>T</code>必须有一个<code>Compare</code>或者<code>Less</code>方法来做大小比较。要做到这一点，就需要定义一个类型约束(type constraint)用于限定类型<code>T</code>必须实现这个方法。</p>
+<p>这造成的结果是即使<code>T</code>只是一个普通的int类型，那使用者也必须定义一个自己的int类型，实现类型约束里的方法(method)，然后把这个自定义的int类型作为类型实参传参给类型参数<code>T</code>。</p>
+<p>但是如果我们参照上面<code>Tree</code>的代码实现，定义一个函数类型的成员变量<code>cmp</code>用来做<code>T</code>类型的大小比较，代码实现就比较简洁。</p>
+<p>换句话说，把方法转为函数比给一个类型增加方法容易得多。因此对于通用的数据类型，优先考虑使用函数，而不是写一个必须有方法的类型限制。</p>
+<h3 id="不同类型需要实现公用方法">不同类型需要实现公用方法</h3>
+<p>类型参数另一个有用的场景是不同的类型要实现一些公用方法，并且对于这些方法，不同类型的实现逻辑是一样的。</p>
+<p>下面举个例子，Go标准库里有一个<a href="https://pkg.go.dev/sort">sort</a>包，可以对存储不同数据类型的slice做排序，比如<code>Float64s(x)</code>可以对<code>[]float64</code>做排序，<code>Ints(x)</code>可以对<code>[]int</code>做排序。</p>
+<p>同时sort包还可以对用户自定义的数据类型(比如结构体、自定义的int类型等)调用<code>sort.Sort()</code>做排序，只要该类型实现了<code>sort.Interface</code>这个接口类型里<code>Len()</code>、<code>Less()</code>和<code>Swap()</code>这3个方法即可。</p>
+<p>下面我们对sort包可以使用泛型来做一些改造，就可以对存储不同数据类型的slice统一调用<code>sort.Sort()</code>来做排序，而不用专门为<code>[]int</code>调用<code>Ints(x)</code>，为<code>[]float64</code>调用<code>Float64s(x)</code>做差异化处理了，可以简化代码逻辑。</p>
+<p>下面的代码实现了一个泛型的结构体类型<code>SliceFn</code>，这个结构体类型实现了<code>sort.Interface</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// SliceFn implements sort.Interface for a slice of T.
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">s</span>    <span class="p">[]</span><span class="nx">T</span>
+    <span class="nx">less</span> <span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span> <span class="nx">T</span><span class="p">)</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nf">less</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">s</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>对于不同的slice类型， <code>Len</code> 和 <code>Swap</code> 方法的实现是一样的。<code>Less</code> 方法需要对slice里的2个元素做比较，比较逻辑实现在<code>SliceFn</code>里的成员变量<code>less</code>里头，<code>less</code>是一个函数类型的变量，在结构体初始化的时候进行传参赋值。这点和上面<code>Tree</code>这个二叉树通用数据结构的处理类似。</p>
+<p>我们再将<code>sort.Sort</code>按照泛型风格封装为<code>SortFn</code>泛型函数，这样对于所有slice类型，我们都可以统一调用<code>SortFn</code>做排序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// SortFn sorts s in place using a comparison function.
+</span><span class="c1"></span><span class="kd">func</span> <span class="nx">SortFn</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">](</span><span class="nx">s</span> <span class="p">[]</span><span class="nx">T</span><span class="p">,</span> <span class="nx">less</span> <span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">,</span> <span class="nx">T</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sort</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">SliceFn</span><span class="p">[</span><span class="nx">T</span><span class="p">]{</span><span class="nx">s</span><span class="p">,</span> <span class="nx">cmp</span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这和标准库里的<a href="https://pkg.go.dev/sort#Slice">sort.Slice</a>很类似，只不过这里的<code>less</code>比较函数的参数是具体的值，而<code>sort.Slice</code>里比较函数<code>less</code>比较函数的参数是slice的下标索引。</p>
+<p>这种场景使用类型参数比较合适，因为不同类型的<code>SliceFn</code>的方法实现逻辑都是一样的，只是<code>slice</code>里存储的元素的类型不一样而已。</p>
+<h2 id="类型参数何时不要用">类型参数何时不要用</h2>
+<p>现在我们谈谈类型参数不建议使用的场景。</p>
+<h3 id="不要把interface类型替换为类型参数">不要把interface类型替换为类型参数</h3>
+<p>我们大家都知道Go语言有interface类型，interface支持某种意义上的泛型编程。</p>
+<p>举个例子，被广泛使用的<code>io.Reader</code>接口提供了一种泛型机制用于读取数据，比如支持从文件和随机数生成器里读取数据。</p>
+<p>如果你对某些类型的变量的操作只是调用该类型的方法，那就直接使用interface类型，不要使用类型参数。<code>io.Reader</code>从代码角度易于阅读且高效，没必要使用类型参数。</p>
+<p>举个例子，有人可能会把下面第1个基于interface类型的<code>ReadSome</code>版本修改为第2个基于类型参数的版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">func ReadSome(r io.Reader) ([]byte, error)
+
+func ReadSome[T io.Reader](r T) ([]byte, error)
+</code></pre></td></tr></table>
+</div>
+</div><p>不要做这种修改，使用第1个基于interface的版本会让函数更容易编写和阅读，并且函数执行效率也几乎一样。</p>
+<p><strong>注意</strong>：尽管可以使用不同的方式来实现泛型，并且泛型的实现可能会随着时间的推移而发生变化，但是Go 1.18中泛型的实现在很多情况下对于类型为interface的变量和类型为类型参数的变量处理非常相似。这意味着使用类型参数通常并不会比使用interface快，所以不要单纯为了程序运行速度而把interface类型修改为类型参数，因为它可能并不会运行更快。</p>
+<h3 id="如果方法的实现不同不要使用类型参数">如果方法的实现不同，不要使用类型参数</h3>
+<p>当决定要用类型参数还是interface时，要考虑方法的逻辑实现。正如我们前面说的，如果方法的实现对于所有类型都一样，那就是用类型参数。相反，如果每个类型的方法实现是不同的，那就是用interface类型，不要用类型参数。</p>
+<p>举个例子，从文件里<code>Read</code>的实现和从随机数生成器里<code>Read</code>的实现完全不一样，在这种场景下，可以定义一个<code>io.Reader</code>的interface类型，该类型包含有一个<code>Read</code>方法。文件和随机数生成器实现各自的<code>Read</code>方法。</p>
+<h3 id="在适当的时候可以使用反射reflection">在适当的时候可以使用反射(reflection)</h3>
+<p>Go有 <a href="https://pkg.go.dev/reflect">运行期反射</a>。反射机制支持某种意义上的泛型编程，因为它允许你编写适用于任何类型的代码。如果某些操作需要支持以下场景，就可以考虑使用反射。</p>
+<ul>
+<li>操作没有方法的类型，interface类型不适用。</li>
+<li>每个类型的操作逻辑不一样，泛型不适用。</li>
+</ul>
+<p>一个例子是<a href="https://pkg.go.dev/encoding/json">encoding/json</a>包的实现。我们并不希望要求我们编码的每个类型都实现<code>MarshalJson</code>方法，因此我们不能使用interface类型。而且不同类型编码的逻辑不一样，因此我们不应该用泛型。</p>
+<p>因此对于这种情况，<a href="https://pkg.go.dev/encoding/json">encoding/json</a>使用了反射来实现。具体实现细节可以参考<a href="https://go.dev/src/encoding/json/encode.go">源码</a>。</p>
+<h2 id="一个简单原则">一个简单原则</h2>
+<p>总结一下，何时使用泛型可以简化为如下的一个简单原则。</p>
+<p>如果你发现重复在写几乎完全一样的代码，唯一的区别是代码里使用的类型不一样，那就要考虑是否可以使用泛型来实现。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li>Go Blog on When to Use Generics: <a href="https://go.dev/blog/when-generics">https://go.dev/blog/when-generics</a></li>
+<li>Go Day 2021 on Google Open Source : <a href="https://www.youtube.com/watch?v=nr8EpUO9jhw">https://www.youtube.com/watch?v=nr8EpUO9jhw</a></li>
+<li>GopherCon 2021: <a href="https://www.youtube.com/watch?v=Pa_e9EeCdy8">https://www.youtube.com/watch?v=Pa_e9EeCdy8</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go1.18/">go1.18</a>
+          <a href="/tags/generics/">generics</a>
+          <a href="/tags/%E6%B3%9B%E5%9E%8B/">泛型</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go1.18-workspace-mode-best-practice/">
+            <span class="next-text nav-default">官方博文：Go 1.18工作区模式最佳实践</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,7 +6,34 @@
     <description>Recent content in Categories on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Apr 2022 10:21:01 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Apr 2022 20:54:57 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>generics</title>
+      <link>http://jincheng9.github.io/categories/generics/</link>
+      <pubDate>Fri, 22 Apr 2022 20:54:57 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/generics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go1.18</title>
+      <link>http://jincheng9.github.io/categories/go1.18/</link>
+      <pubDate>Fri, 22 Apr 2022 20:54:57 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/go1.18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>泛型</title>
+      <link>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Fri, 22 Apr 2022 20:54:57 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>go</title>
       <link>http://jincheng9.github.io/categories/go/</link>
@@ -26,29 +53,11 @@
     </item>
     
     <item>
-      <title>go1.18</title>
-      <link>http://jincheng9.github.io/categories/go1.18/</link>
-      <pubDate>Mon, 04 Apr 2022 11:38:56 +0800</pubDate>
-      
-      <guid>http://jincheng9.github.io/categories/go1.18/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>fuzzing</title>
       <link>http://jincheng9.github.io/categories/fuzzing/</link>
       <pubDate>Sat, 02 Apr 2022 23:41:59 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/categories/fuzzing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>泛型</title>
-      <link>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</link>
-      <pubDate>Fri, 18 Mar 2022 18:51:04 +0800</pubDate>
-      
-      <guid>http://jincheng9.github.io/categories/%E6%B3%9B%E5%9E%8B/</guid>
       <description></description>
     </item>
     
@@ -76,15 +85,6 @@
       <pubDate>Sun, 20 Feb 2022 12:18:34 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/categories/closure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>generics</title>
-      <link>http://jincheng9.github.io/categories/generics/</link>
-      <pubDate>Thu, 03 Feb 2022 22:27:27 +0800</pubDate>
-      
-      <guid>http://jincheng9.github.io/categories/generics/</guid>
       <description></description>
     </item>
     
