@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go 1.18版本iota的bug">
 <meta itemprop="description" content="Go 1.18版本iota的bug"><meta itemprop="datePublished" content="2022-05-03T11:45:33+08:00" />
 <meta itemprop="dateModified" content="2022-05-03T11:45:33+08:00" />
-<meta itemprop="wordCount" content="1268">
+<meta itemprop="wordCount" content="1289">
 <meta itemprop="keywords" content="go1.18,iota,bug," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 1.18版本iota的bug"/>
 <meta name="twitter:description" content="Go 1.18版本iota的bug"/>
@@ -138,7 +138,7 @@
             <a href="/categories/iota/"> iota </a>
             <a href="/categories/bug/"> bug </a>
             </div>
-          <span class="more-meta"> 1268 words </span>
+          <span class="more-meta"> 1289 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -315,7 +315,7 @@ const (OpAnd Op = 1 + iota&lt;&lt;8)
 </div><p>(put parentheses around the const declarations).</p>
 </blockquote>
 <p>产生这个bug是由于Go引入了全新的类型检查器导致的。</p>
-<p>这个bug只有在<strong>全局</strong>、<strong>未分组</strong>的常量声明才会出现。</p>
+<p>这个bug只有在<strong>全局</strong>、<strong>未分组</strong>的常量声明才会出现，该bug预计会在Go 1.19版本进行修复。</p>
 <p>我们用括号<code>()</code>将声明包起来，也就是使用分组的常量声明，就不会有这个bug了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
