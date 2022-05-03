@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iota on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/iota/</link>
+    <description>Recent content in iota on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 May 2022 11:45:33 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/iota/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.18版本iota的bug</title>
+      <link>http://jincheng9.github.io/post/go1.18-iota-bug/</link>
+      <pubDate>Tue, 03 May 2022 11:45:33 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go1.18-iota-bug/</guid>
+      <description>Iota iota是Go语言的预声明标识符，用于常量的声明。 iota的值是const语句块里的行索引，值从0开始，每次递增加1。通过下面的代码示例我</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,16 @@
     <description>Recent content in go1.18 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Apr 2022 20:54:57 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go1.18/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 May 2022 11:45:33 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go1.18/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.18版本iota的bug</title>
+      <link>http://jincheng9.github.io/post/go1.18-iota-bug/</link>
+      <pubDate>Tue, 03 May 2022 11:45:33 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go1.18-iota-bug/</guid>
+      <description>Iota iota是Go语言的预声明标识符，用于常量的声明。 iota的值是const语句块里的行索引，值从0开始，每次递增加1。通过下面的代码示例我</description>
+    </item>
+    
     <item>
       <title>泛型最佳实践：Go泛型设计者教你如何用泛型</title>
       <link>http://jincheng9.github.io/post/go1.18-when-to-use-generics/</link>
