@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>value on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/categories/value/</link>
+    <description>Recent content in value on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 May 2022 17:10:24 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/value/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go并发编程之原子操作sync/atomic</title>
+      <link>http://jincheng9.github.io/post/go-sync-atomic/</link>
+      <pubDate>Wed, 04 May 2022 17:10:24 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-sync-atomic/</guid>
+      <description>sync/atomic定义 官方文档地址：https://pkg.go.dev/sync/atomic@go1.18.1 Go语言标准库中的sy</description>
+    </item>
+    
+  </channel>
+</rss>
