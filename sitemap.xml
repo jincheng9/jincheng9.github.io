@@ -2,6 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jincheng9.github.io/categories/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/go/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/go/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-quiz-variable-init/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/quiz/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/quiz/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/zero-value/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/zero-value/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/%E9%9B%B6%E5%80%BC/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/%E9%9B%B6%E5%80%BC/</loc>
+    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://jincheng9.github.io/tags/atomic/</loc>
     <lastmod>2022-05-04T17:10:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,42 +107,7 @@
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://jincheng9.github.io/post/go-sync-atomic/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/post/</loc>
     <lastmod>2022-05-04T17:10:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -66,13 +122,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/sync/</loc>
-    <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2022-05-04T17:10:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -241,20 +290,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/tags/mutex/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/quiz/</loc>
-    <lastmod>2022-03-12T11:26:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/quiz/</loc>
     <lastmod>2022-03-12T11:26:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
