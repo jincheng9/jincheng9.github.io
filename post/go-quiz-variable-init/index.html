@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项">
 <meta itemprop="description" content="Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项"><meta itemprop="datePublished" content="2022-05-05T23:31:07+08:00" />
 <meta itemprop="dateModified" content="2022-05-05T23:31:07+08:00" />
-<meta itemprop="wordCount" content="1181">
+<meta itemprop="wordCount" content="1207">
 <meta itemprop="keywords" content="go,quiz,zero-value,零值," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项"/>
 <meta name="twitter:description" content="Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项"/>
@@ -139,7 +139,7 @@
             <a href="/categories/zero-value/"> zero-value </a>
             <a href="/categories/%E9%9B%B6%E5%80%BC/"> 零值 </a>
             </div>
-          <span class="more-meta"> 1181 words </span>
+          <span class="more-meta"> 1207 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -391,27 +391,6 @@
 </div>
 </div></li>
 <li>
-<p>结构体:  var instance Struct，零值是nil</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Circle</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">redius</span> <span class="kt">float64</span>
-<span class="p">}</span>
-
-<span class="kd">var</span> <span class="nx">c1</span> <span class="nx">Circle</span>
-<span class="nx">c1</span><span class="p">.</span><span class="nx">radius</span> <span class="p">=</span> <span class="mf">10.00</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
 <p>channel：var a chan int，通道channel，零值是nil</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -465,6 +444,27 @@
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">a</span> <span class="nx">Animal</span> <span class="p">=</span> <span class="nx">Cat</span><span class="p">{</span><span class="s">&#34;gaffe&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
 <span class="nx">a</span><span class="p">.</span><span class="nf">speak</span><span class="p">()</span> <span class="c1">// miao...
 </span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>结构体:  var instance StructName，结构体里每个field的零值是对应field的类型的零值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Circle</span> <span class="kd">struct</span> <span class="p">{</span>
+  <span class="nx">radius</span> <span class="kt">float64</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">c1</span> <span class="nx">Circle</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">radius</span> <span class="p">=</span> <span class="mf">10.00</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
