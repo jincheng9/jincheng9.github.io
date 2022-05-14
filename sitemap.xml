@@ -2,42 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jincheng9.github.io/tags/bug/</loc>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/bug/</loc>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/post/go-quiz-variable-init/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <loc>http://jincheng9.github.io/post/go-bug-function-call-evaluate-order/</loc>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-05-14T11:12:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-quiz-variable-init/</loc>
     <lastmod>2022-05-05T23:31:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,13 +80,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/quiz/</loc>
-    <lastmod>2022-05-05T23:31:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2022-05-05T23:31:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -137,20 +158,6 @@
   <url>
     <loc>http://jincheng9.github.io/categories/value/</loc>
     <lastmod>2022-05-04T17:10:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/bug/</loc>
-    <lastmod>2022-05-03T11:45:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/bug/</loc>
-    <lastmod>2022-05-03T11:45:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

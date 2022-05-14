@@ -6,7 +6,16 @@
     <description>Recent content in bug on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 May 2022 11:45:33 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/bug/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 May 2022 11:12:51 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/bug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.13版本引入的bug，你遇到过这个坑么？</title>
+      <link>http://jincheng9.github.io/post/go-bug-function-call-evaluate-order/</link>
+      <pubDate>Sat, 14 May 2022 11:12:51 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-bug-function-call-evaluate-order/</guid>
+      <description>Bug 大家看看下面这段程序，思考下输出结果应该是什么？ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 func main() { n := 0 f := func() func(int, int) { n = 1 return func(int, int) {} } g := func() (int, int) { println(n) return 0, 0 }</description>
+    </item>
+    
     <item>
       <title>Go 1.18版本iota的bug</title>
       <link>http://jincheng9.github.io/post/go1.18-iota-bug/</link>

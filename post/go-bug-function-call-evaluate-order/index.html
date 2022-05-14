@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go 1.13版本引入的bug，你遇到过这个坑么？ - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go编译器解析函数调用顺序的bug" /><meta name="keywords" content="go, bug" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go-bug-function-call-evaluate-order/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go 1.13版本引入的bug，你遇到过这个坑么？" />
+<meta property="og:description" content="Go编译器解析函数调用顺序的bug" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-bug-function-call-evaluate-order/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-14T11:12:51+08:00" />
+<meta property="article:modified_time" content="2022-05-14T11:12:51+08:00" />
+
+<meta itemprop="name" content="Go 1.13版本引入的bug，你遇到过这个坑么？">
+<meta itemprop="description" content="Go编译器解析函数调用顺序的bug"><meta itemprop="datePublished" content="2022-05-14T11:12:51+08:00" />
+<meta itemprop="dateModified" content="2022-05-14T11:12:51+08:00" />
+<meta itemprop="wordCount" content="996">
+<meta itemprop="keywords" content="go,bug," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go 1.13版本引入的bug，你遇到过这个坑么？"/>
+<meta name="twitter:description" content="Go编译器解析函数调用顺序的bug"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go 1.13版本引入的bug，你遇到过这个坑么？</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-05-14 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            <a href="/categories/bug/"> bug </a>
+            </div>
+          <span class="more-meta"> 996 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#bug">Bug</a></li>
+        <li><a href="#推荐阅读">推荐阅读</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="bug">Bug</h2>
+<p>大家看看下面这段程序，思考下输出结果应该是什么？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">n</span> <span class="o">:=</span> <span class="mi">0</span>
+
+  <span class="nx">f</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">n</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="p">}</span>
+  <span class="nx">g</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="p">}</span>
+
+  <span class="nf">f</span><span class="p">()(</span><span class="nf">g</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>先思考几秒钟。。。</p>
+<hr>
+<p>在Go 1.13版本之前，上述程序打印的结果是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Go 1.13版本开始，上述程序打印的结果是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从习惯认知来看，编译器应该按照如下顺序执行</p>
+<ul>
+<li>step 1: evaluate <code>f()</code>，此时变量<code>n</code>的值为1</li>
+<li>step 2: evaluate <code>g()</code>，此时打印<code>n</code>时，因为step 1已经把<code>n</code>修改为1了，所以应该打印1</li>
+<li>step3:  根据step 1和step 2的结果，执行最终的函数调用</li>
+</ul>
+<p>Go编译器其实也是遵循这个设计的，官方文档的描述如下：</p>
+<blockquote>
+<p>At package level, <a href="https://go.dev/ref/spec#Package_initialization">initialization dependencies</a> determine the evaluation order of individual initialization expressions in <a href="https://go.dev/ref/spec#Variable_declarations">variable declarations</a>.</p>
+<p>Otherwise, when evaluating the <a href="https://go.dev/ref/spec#Operands">operands</a> of an expression, assignment, or <a href="https://go.dev/ref/spec#Return_statements">return statement</a>, all function calls, method calls, and communication operations are evaluated in lexical left-to-right order.</p>
+</blockquote>
+<p>最后一句的表述可以知道，在执行函数调用时，对于函数的操作数，语法上是按照从左到右的顺序进行解析的。</p>
+<p>这个bug其实是Google Go团队成员<a href="https://github.com/mdempsky">Matthew Dempsky</a>提出来的，Go官方<a href="https://github.com/golang/go/issues/50672">认领了这个bug</a>，这个bug产生的原因也很明显，就是先执行了<code>g()</code>，然后执行的<code>f()</code>。</p>
+<blockquote>
+<p>This is because we rewrite <code>f()(g())</code> into <code>t1, t2 := g(); f()(t1, t2)</code> during type checking.</p>
+<p>gccgo compiles it correctly.</p>
+<p><a href="https://github.com/cuonglm">@cuonglm</a> Yeah, rewriting as <code>t0 := f(); t1, t2 := g(); t0(t1, t2)</code> instead seems like a reasonable quick fix to me. I think direct function calls and method calls are probably the most common case though, so we should make sure those are still handled efficiently.</p>
+<p>Longer term, I think we should probably incorporate order.go directly into unified IR.</p>
+</blockquote>
+<p>目前这个bug的影响范围如下：</p>
+<ul>
+<li>Go 1.13版本开始引入的这个bug，目前已经被修复，预计在1.19版本发布。</li>
+<li>只有官方的编译器<code>gc</code>有这个bug，如果你使用的是<code>gccgo</code>编译器，也不会有这个问题。</li>
+<li>只对多个参数的函数调用才会有这个bug，比如下面这个例子<code>f()</code>的结果是一个函数，该函数只有1个参数，就不会有本文提到的这个bug。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">n</span> <span class="o">:=</span> <span class="mi">0</span>
+
+	<span class="nx">f</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">n</span> <span class="p">=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+	<span class="p">}</span>
+	<span class="nx">g</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+		<span class="nb">println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span>
+	<span class="p">}</span>
+
+	<span class="nf">f</span><span class="p">()(</span><span class="nf">g</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面程序执行结果是<code>1</code>。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<ul>
+<li>泛型
+<ul>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p6">泛型：Go泛型入门官方教程</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p7">泛型：一文读懂Go泛型设计和使用场景</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p17">泛型：Go 1.18正式版本将从标准库中移除constraints包</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/official-blog/when-to-use-generics.md">泛型：什么场景应该使用泛型</a></li>
+</ul>
+</li>
+<li>Fuzzing
+<ul>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p22">Fuzzing: Go Fuzzing入门官方教程</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p23">Fuzzing: 一文读懂Go Fuzzing使用和原理</a></li>
+</ul>
+</li>
+<li>工作区模式
+<ul>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p25">Go 1.18：工作区模式workspace mode简介</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/official-blog/go1.18-workspace-best-practice.md">Go 1.18：工作区模式最佳实践</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng’s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://twitter.com/go100and1/status/1524410425680404485">https://twitter.com/go100and1/status/1524410425680404485</a></li>
+<li><a href="https://github.com/golang/go/issues/50672">https://github.com/golang/go/issues/50672</a></li>
+<li><a href="https://go.dev/ref/spec#Order_of_evaluation">https://go.dev/ref/spec#Order_of_evaluation</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/bug/">bug</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-quiz-variable-init/">
+            <span class="next-text nav-default">Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
