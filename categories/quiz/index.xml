@@ -6,7 +6,16 @@
     <description>Recent content in quiz on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 May 2022 23:31:07 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 15:55:16 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看数值类型的自动推导</title>
+      <link>http://jincheng9.github.io/post/go-quiz-numeric-data-conversion/</link>
+      <pubDate>Sun, 29 May 2022 15:55:16 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-quiz-numeric-data-conversion/</guid>
+      <description>背景 Google工程师Valentin Deleplace出了几道关于Go数值类型的计算题，很有迷惑性，整体正确率不到50%，拿出来和大家分享</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项</title>
       <link>http://jincheng9.github.io/post/go-quiz-variable-init/</link>
