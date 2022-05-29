@@ -293,7 +293,7 @@ ssh: connect to host github.com port 22: Connection refused
 </div>
 </div><p>从上面的信息马上就发现了诡异的地方，连接github.com的地址居然是<code>::1</code>和<code>127.0.0.1</code>。前者是IPV6的localhost地址，后者是IPV4的localhost地址。</p>
 <p>到这里问题就很明确了，是DNS解析出问题了，导致github.com域名被解析成了localhost的ip地址，就自然连不上GitHub了。</p>
-<p>Windows下执行<code>ipconfig /flushdns</code> 清楚DNS缓存后也没用，最后修改hosts文件，增加一条github.com的域名映射搞定。</p>
+<p>Windows下执行<code>ipconfig /flushdns</code> 清除DNS缓存后也没用，最后修改hosts文件，增加一条github.com的域名映射搞定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
