@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 May 2022 15:55:16 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 20:02:35 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go开发者调研方式改变了</title>
+      <link>http://jincheng9.github.io/post/go-survey-change/</link>
+      <pubDate>Fri, 03 Jun 2022 20:02:35 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-survey-change/</guid>
+      <description>前言 过去6年，Go官方团队会在每年的10-11月，面向Go开发者发起一份年度在线调研，在次年的3-4月公布调研结果。调研结果会影响到Go新特</description>
+    </item>
+    
     <item>
       <title>Go Quiz: 从Go面试题看数值类型的自动推导</title>
       <link>http://jincheng9.github.io/post/go-quiz-numeric-data-conversion/</link>

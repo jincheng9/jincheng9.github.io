@@ -3,41 +3,55 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/post/go-quiz-numeric-data-conversion/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
+    <loc>http://jincheng9.github.io/post/go-survey-change/</loc>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-06-03T20:02:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-quiz-numeric-data-conversion/</loc>
     <lastmod>2022-05-29T15:55:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,13 +66,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/quiz/</loc>
-    <lastmod>2022-05-29T15:55:16+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2022-05-29T15:55:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
