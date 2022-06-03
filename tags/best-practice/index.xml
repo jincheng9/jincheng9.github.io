@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>best-practice on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/best-practice/</link>
+    <description>Recent content in best-practice on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Jun 2022 23:06:28 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/best-practice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go十大常见错误第一篇：未知枚举值</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-01-enum-value/</link>
+      <pubDate>Fri, 03 Jun 2022 23:06:28 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-01-enum-value/</guid>
+      <description>前言 这是Go十大常见错误系列的第一篇：未知枚举值。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。 本文涉及的源</description>
+    </item>
+    
+  </channel>
+</rss>
