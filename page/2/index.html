@@ -126,6 +126,30 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-bug-function-call-evaluate-order/">Go 1.13版本引入的bug，你遇到过这个坑么？</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-05-14 </span>
+      <div class="post-category">
+          <a href="/categories/go/"> go </a>
+          <a href="/categories/bug/"> bug </a>
+          </div>
+        <span class="more-meta"> 996 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Bug 大家看看下面这段程序，思考下输出结果应该是什么？ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 func main() { n := 0 f := func() func(int, int) { n = 1 return func(int, int) {} } g := func() (int, int) { println(n) return 0, 0 }
+    </div>
+    <div class="read-more">
+      <a href="/post/go-bug-function-call-evaluate-order/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-quiz-variable-init/">Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-05-05 </span>
@@ -222,30 +246,6 @@
     </div>
     <div class="read-more">
       <a href="/post/go1.18-when-to-use-generics/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go1.18-workspace-mode-best-practice/">官方博文：Go 1.18工作区模式最佳实践</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-04-10 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          <a href="/categories/workspace/"> workspace </a>
-          </div>
-        <span class="more-meta"> 4057 words </span>
-        <span class="more-meta"> 9 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 Go 1.18除了引入泛型(generics)、模糊测试(Fuzzing)之外，另外一个重大功能是引入了工作区模式(workspace mod
-    </div>
-    <div class="read-more">
-      <a href="/post/go1.18-workspace-mode-best-practice/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
