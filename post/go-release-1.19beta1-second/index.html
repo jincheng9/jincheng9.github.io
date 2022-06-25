@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go 1.19要来了，看看都有哪些变化 - Jincheng9&#39;s blog</title>
+  <title>Go 1.19要来了，看看都有哪些变化-第2篇 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.19-beta1/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.19beta1-second/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,19 +39,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go 1.19要来了，看看都有哪些变化" />
+<meta property="og:title" content="Go 1.19要来了，看看都有哪些变化-第2篇" />
 <meta property="og:description" content="Go 1.19要来了，看看都有哪些变化" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.19-beta1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-06-18T14:56:31+08:00" />
-<meta property="article:modified_time" content="2022-06-18T14:56:31+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.19beta1-second/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-06-25T21:41:41+08:00" />
+<meta property="article:modified_time" content="2022-06-25T21:41:41+08:00" />
 
-<meta itemprop="name" content="Go 1.19要来了，看看都有哪些变化">
-<meta itemprop="description" content="Go 1.19要来了，看看都有哪些变化"><meta itemprop="datePublished" content="2022-06-18T14:56:31+08:00" />
-<meta itemprop="dateModified" content="2022-06-18T14:56:31+08:00" />
-<meta itemprop="wordCount" content="1743">
+<meta itemprop="name" content="Go 1.19要来了，看看都有哪些变化-第2篇">
+<meta itemprop="description" content="Go 1.19要来了，看看都有哪些变化"><meta itemprop="datePublished" content="2022-06-25T21:41:41+08:00" />
+<meta itemprop="dateModified" content="2022-06-25T21:41:41+08:00" />
+<meta itemprop="wordCount" content="2060">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go 1.19要来了，看看都有哪些变化"/>
+<meta name="twitter:title" content="Go 1.19要来了，看看都有哪些变化-第2篇"/>
 <meta name="twitter:description" content="Go 1.19要来了，看看都有哪些变化"/>
 
 <!--[if lte IE 9]>
@@ -129,15 +129,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go 1.19要来了，看看都有哪些变化</h1>
+      <h1 class="post-title">Go 1.19要来了，看看都有哪些变化-第2篇</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-06-18 </span>
+        <span class="post-time"> 2022-06-25 </span>
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 1743 words </span>
-          <span class="more-meta"> 4 mins read </span>
+          <span class="more-meta"> 2060 words </span>
+          <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -152,14 +152,16 @@
         <li><a href="#前言">前言</a></li>
         <li><a href="#go-119发布清单">Go 1.19发布清单</a>
           <ul>
-            <li><a href="#语言变化">语言变化</a></li>
-            <li><a href="#内存模型">内存模型</a></li>
-            <li><a href="#可移植性">可移植性</a></li>
+            <li><a href="#文档注释">文档注释</a></li>
+            <li><a href="#新的编译约束-unix">新的编译约束 <code>unix</code></a></li>
+            <li><a href="#go命令">Go命令</a></li>
+            <li><a href="#vet">Vet</a></li>
           </ul>
         </li>
+        <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#总结">总结</a></li>
-        <li><a href="#福利">福利</a></li>
         <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#福利">福利</a></li>
         <li><a href="#references">References</a></li>
       </ul>
     </li>
@@ -171,27 +173,35 @@
       <h2 id="前言">前言</h2>
 <p>Go官方团队在2022.06.11发布了Go 1.19 Beta 1版本，Go 1.19的正式release版本预计会在今年8月份发布。</p>
 <p>让我们先睹为快，看看Go 1.19给我们带来了哪些变化。</p>
-<p>这是Go 1.19版本更新内容详解的第1篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<p>这是Go 1.19版本更新内容详解的第2篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
 <h2 id="go-119发布清单">Go 1.19发布清单</h2>
 <p>和Go 1.18相比，改动相对较小，主要涉及语言(Language)、内存模型(Memory Model)、可移植性(Ports)、Go Tool工具链、运行时(Runtime)、编译器(Compiler)、汇编器(Assembler)、链接器(Linker)和核心库(Core library)等方面的优化。</p>
-<p>我们逐个看看具体都有哪些变化。</p>
-<h3 id="语言变化">语言变化</h3>
-<p>语言层面的变化很小，只有一个和泛型相关的优化，调整了泛型函数和方法声明里的类型参数(type parameter)的作用域，不影响现有代码。</p>
-<p>为什么会有这个调整呢？我们来看看如下的代码</p>
+<p>第1篇详细介绍了Go 1.19在语言、内存模型、可移植性方面的改进。</p>
+<p>本文重点介绍Go 1.19版本在Go Tool工具链方面的变化。</p>
+<h3 id="文档注释">文档注释</h3>
+<p><a href="https://tip.golang.org/doc/comment">文档注释(doc comments)</a> 是Go语言里的对包(package), 常量(const), 函数(func), 类型(type)和变量(var)声明的一种注释规范。按照这个规范来注释，就可以使用<code>go doc</code>命令生成对应的代码说明文档。</p>
+<p>像大家熟知的https://pkg.go.dev/里的说明文档就是通过编写符合doc comments规范的文档注释来生成的。</p>
+<p>Go 1.19 在文档注释里新增了对于链接、列表和更清晰的标题的支持，可以参考“<a href="https://tip.golang.org/doc/comment">Go Doc Comments</a>” 了解语法细节。</p>
+<p>作为这个修改的一部分，<code>gofmt</code>现在会把文档注释重新格式化，让文档样式展示更清晰。</p>
+<p>同时，新增了一个package:  <a href="https://tip.golang.org/pkg/go/doc/comment">go/doc/comment</a>，可以用于解析和重新格式化文档注释，并且支持把文档注释渲染为HTML, Markdown和text格式。</p>
+<h3 id="新的编译约束-unix">新的编译约束 <code>unix</code></h3>
+<p>Go语言支持使用编译约束(build constraint)进行条件编译。Go 1.19版本新增了编译约束 <code>unix</code> ，可以在<code>//go:build</code>后面使用<code>unix</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">T</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">m1</span> <span class="nx">T</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//go:build unix
+</span></code></pre></td></tr></table>
 </div>
-</div><p>这段代码定义了泛型类型<code>T</code> ，类型参数列表(type parameter list)里的类型参数(type parameter)命名也是<code>T</code>，代码可以正常编译通过。</p>
-<p>但是如下代码呢？</p>
+</div><p><code>unix</code>表示编译的目标操作系统是Unix或者类Unix系统。对于Go 1.19版本而言，如果<code>GOOS</code>是 <code>aix</code>, <code>android</code>, <code>darwin</code>, <code>dragonfly</code>, <code>freebsd</code>, <code>hurd</code>, <code>illumos</code>, <code>ios</code>, <code>linux</code>, <code>netbsd</code>, <code>openbsd</code>, 或 <code>solaris</code>中的某一个，那就满足<code>unix</code>这个编译约束。</p>
+<p>未来<code>unix</code>约束还会匹配一些新的类Unix操作系统。</p>
+<h3 id="go命令">Go命令</h3>
+<p><code>go build</code>如果使用<code>-trimpath</code>标记，会在生成的可执行文件里打上<code>trimpath</code>标签，我们可以使用 <a href="https://pkg.go.dev/cmd/go#hdr-Print_Go_version"><code>go</code> <code>version</code> <code>-m</code></a> 或<a href="https://pkg.go.dev/runtime/debug#ReadBuildInfo"><code>debug.ReadBuildInfo</code></a> 检查可执行文件是否是使用<code>-trimpath</code>标记编译生成的。</p>
+<p><strong>备注</strong>：编译的时候带上<code>trimpath</code>标记可以去除Go程序运行时打印的堆栈信息里包含的Go程序的编译路径和编译机用户信息，避免信息泄露。</p>
+<p><code>go</code> <code>generate</code> 现在会在生成器环境里设置 <code>GOROOT</code> 环境变量，所以即使使用了<code>-trimpath</code>进行编译，生成器也可以精准定位到<code>GOROOT</code>的路径。</p>
+<p><code>go</code> <code>test</code> 和 <code>go</code> <code>generate</code> 运行时会把 <code>GOROOT/bin</code> 放在 <code>PATH</code> 环境变量的开头，这样设计后，<code>go test</code>和<code>go generate</code>执行的时候可以解析到同一个<code>GOROOT</code>。解决的是这个<a href="https://github.com/golang/go/issues/23635">GitHub Issue</a>。</p>
+<p><code>go</code> <code>env</code>会把环境变量的值中带有空格的加上双引号括起来，包括<code>CGO_CFLAGS</code>, <code>CGO_CPPFLAGS</code>, <code>CGO_CXXFLAGS</code>, <code>CGO_FFLAGS</code>, <code>CGO_LDFLAGS</code>, and <code>GOGCCFLAGS</code> 这些环境变量。解决的是Windows环境下不带空格会报错的bug，详情可以参考<a href="https://github.com/golang/go/issues/45637">GitHub Issue</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -203,34 +213,26 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">T</span><span class="p">[</span><span class="nx">T</span> <span class="nx">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">m1</span> <span class="nx">T</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="nx">T</span><span class="p">[</span><span class="nx">T</span><span class="p">])</span> <span class="nb">print</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">m1</span><span class="p">)</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">CGO_CFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
+<span class="nv">CGO_CPPFLAGS</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="nv">CGO_CXXFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
+<span class="nv">CGO_FFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
+<span class="nv">CGO_LDFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
+<span class="nv">PKG_CONFIG</span><span class="o">=</span><span class="s2">&#34;pkg-config&#34;</span>
+<span class="nv">GOGCCFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC -arch x86_64 -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/pv/_x849j6n22x37xxd9cstgwkr0000gn/T/go-build4165054210=/tmp/go-build -gno-record-gcc-switches -fno-common&#34;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>我们定义了泛型类型<code>T</code> 的方法<code>print</code>，编译上面的代码，编译器会提示：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./main.go:11:8: T is not a generic <span class="nb">type</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>也就是说编译器认为方法<code>print</code>里的第一个<code>T</code>不是泛型类型，为什么会这样呢？我们来看看<a href="https://go.dev/ref/spec#Declarations_and_scope">官方说明</a>：</p>
-<blockquote>
-<p>The scope of an identifier denoting a type parameter of a function or declared by a method receiver is the function body and all parameter lists of the function.</p>
-</blockquote>
-<p>这段说明对应到上面的代码，编译器会认为<code>print</code>方法里的第2个<code>T</code>(类型参数<code>T</code>)的作用域是函数体以及函数的参数列表(这里的参数列表包括方法receiver parameter list和函数名后面的参数列表)。因此第2个<code>T</code>就覆盖了第1个<code>T</code> ，所以编译器会提示<code>T is not a generic type</code>。</p>
-<p><a href="https://github.com/golang/go/issues/52038">这个问题</a>是由Go101作者提出来的，Go泛型的设计者<a href="https://github.com/griesemer">Robert Griesemer</a>认领了这个问题，把类型参数的作用域按照如下说明进行调整：</p>
-<blockquote>
-<p>The scope of an identifier denoting a type parameter of a function or declared by a method receiver <em>starts after the function name and ends at the end of the function body</em>.</p>
-</blockquote>
-<p>也就是类型参数的作用域是从函数名后面开始一直到函数体，这样上面的代码里的2个<code>T</code> 的就不会覆盖第1个<code>T</code> ，编译器也就不会编译报错了。</p>
+</div><p><code>go</code>命令现在会缓存必要的信息用于加载模块(module)，这会带来<code>go list</code>调用的加速。</p>
+<p>对<code>-trimpath</code>和<code>go generate</code>不了解的，推荐阅读官方文档：</p>
+<ul>
+<li><a href="https://pkg.go.dev/cmd/go#hdr-Print_Go_version">trimpath and go generate</a></li>
+<li><a href="https://mp.weixin.qq.com/s/YBGppDhhBMorqkSzvufHlA">go generate介绍</a></li>
+</ul>
+<h3 id="vet">Vet</h3>
+<p><code>go vet</code>新增了一个<code>errorsas</code>检查规则，可以对<code>errors.As</code>函数调用进行正确性检查。</p>
+<p>如果<code>errors.As</code>的第2个参数是<code>*error</code>类型，<code>go vet</code>会提示错误，这也是大家使用<code>errors.As</code>常犯的一个错误。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<p><a href="https://mp.weixin.qq.com/s/3xfCgtpEGu5Vm3XSSIze5w">Go 1.19版本变更内容第1篇</a>，第1篇主要涉及到Go泛型的细小改动以及Go内存模型和原子操作的优化。</p>
 <p><strong>想了解Go泛型的使用方法、设计思路和最佳实践，推荐大家阅读</strong>：</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483720&amp;idx=1&amp;sn=57ec4877dfd364a59deacf1e74a4fb66&amp;chksm=ce124e27f965c731432dcc89d1e0563cf84baaef482eaa068a91bee61f10cf85b433923b83b4&amp;token=1782465473&amp;lang=zh_CN#rd">官方教程：Go泛型入门</a></li>
@@ -238,40 +240,24 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483855&amp;idx=1&amp;sn=6ab4aeb140a1a08268dc8a0284a6f375&amp;chksm=ce124ea0f965c7b6776061960d71e4ffb30484a82041f5b1d4786c4b49c4ffabc07a28b1cd48&amp;token=1782465473&amp;lang=zh_CN#rd">重磅：Go 1.18将移除用于泛型的constraints包</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484015&amp;idx=1&amp;sn=576b2d8b84b3a8ce5bdd6952c2b84062&amp;chksm=ce124d00f965c416b07dcb81c4dcb9cf75859b2787d4f00ec8c80b37ca42e58cc651420a3b33&amp;token=1782465473&amp;lang=zh_CN#rd">泛型最佳实践：Go泛型设计者教你如何用泛型</a></li>
 </ul>
-<h3 id="内存模型">内存模型</h3>
-<p><a href="https://tip.golang.org/ref/mem">Go内存模型</a> 在Go 1.19版本做了修改，和C, C++, Java, JavaScript, Rust和Swift对齐。Go只提供顺序一致原子操作(sequentially consistent atomics)，不提供其它语言里更宽松的内存模型，比如因果一致性(casual consistency)、最终一致性(eventual consistency)。</p>
-<p>伴随着内存模型的修改，Go 1.19版本在<code>sync/atomic</code>包里引入了新的类型，例如<a href="https://pkg.go.dev/sync/atomic@master#Int64">atomic.Int64</a>和<a href="https://pkg.go.dev/sync/atomic@master#Pointer">atomic.Pointer[T]</a>，这些新的类型可以让开发者使用原子操作时更容易。</p>
 <p><strong>想了解Go原子操作和使用方法，推荐大家阅读</strong>：</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484082&amp;idx=1&amp;sn=934787c9829391ba743bd611818ad0e2&amp;chksm=ce124dddf965c4cb7d0f2d9d001ab4b7d949fbe87c4c8b7ee8d7498946824ec9aa6581cfe986&amp;token=1782465473&amp;lang=zh_CN#rd">Go并发编程之原子操作sync/atomic</a></li>
 </ul>
-<h3 id="可移植性">可移植性</h3>
-<p>Go 1.19版本支持Linux操作系统上的中国龙芯64位CPU架构。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GOOS</span><span class="o">=</span>linux
-<span class="nv">GOARCH</span><span class="o">=</span>loong64
-</code></pre></td></tr></table>
-</div>
-</div><p>此外，Go现在支持在<code>riscv64</code>架构上使用寄存器来传递函数参数和函数执行结果。性能测试表明，<code>riscv64</code>架构上的Go语言性能提升了大概10%。</p>
 <h2 id="总结">总结</h2>
-<p>下一篇会介绍Go 1.19在Go Tool工具链、运行时、编译器、汇编器、链接器和核心库的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
-<h2 id="福利">福利</h2>
-<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
-<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
+<p>下一篇会介绍Go 1.19在运行时、编译器、汇编器、链接器和核心库的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
 <h2 id="开源地址">开源地址</h2>
 <p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
 <p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
 <p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
 <p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="福利">福利</h2>
+<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
+<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://tip.golang.org/doc/go1.19">https://tip.golang.org/doc/go1.19</a></li>
-<li><a href="https://int64.me/2020/%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%AC%94%E8%AE%B0.html">https://int64.me/2020/%E4%B8%80%E8%87%B4%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%AC%94%E8%AE%B0.html</a></li>
+<li><a href="https://tip.golang.org/doc/comment">https://tip.golang.org/doc/comment</a></li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -283,13 +269,9 @@
           <a href="/tags/go/">go</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-release-1.19beta1-second/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go 1.19要来了，看看都有哪些变化-第2篇</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-common-mistakes-02-benchmark-inline/">
-            <span class="next-text nav-default">Go十大常见错误第2篇：benchmark性能测试的坑</span>
+        
+        <a class="next" href="/post/go-release-1.19-beta1/">
+            <span class="next-text nav-default">Go 1.19要来了，看看都有哪些变化</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
