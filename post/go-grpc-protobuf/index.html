@@ -430,7 +430,7 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r2</span><span class="p">,</span> <span class="nx">err2</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SayHelloAgain</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">HelloRequest</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="nx">name</span><span class="p">})</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r2</span><span class="p">,</span> <span class="nx">err2</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SayHelloAgain</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">HelloRequest</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="o">*</span><span class="nx">name</span><span class="p">})</span>
 <span class="k">if</span> <span class="nx">err2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;could not greet: %v&#34;</span><span class="p">,</span> <span class="nx">err2</span><span class="p">)</span>
 <span class="p">}</span>
