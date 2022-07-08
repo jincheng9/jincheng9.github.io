@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jun 2022 21:41:41 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jul 2022 21:02:49 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.19要来了，看看都有哪些变化-第3篇</title>
+      <link>http://jincheng9.github.io/post/go-release-1.19beta1-third/</link>
+      <pubDate>Fri, 08 Jul 2022 21:02:49 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-release-1.19beta1-third/</guid>
+      <description>前言 Go官方团队在2022.06.11发布了Go 1.19 Beta 1版本，Go 1.19的正式release版本预计会在今年8月份发布。 让我们先睹为快，看看</description>
+    </item>
+    
     <item>
       <title>Go 1.19要来了，看看都有哪些变化-第2篇</title>
       <link>http://jincheng9.github.io/post/go-release-1.19beta1-second/</link>

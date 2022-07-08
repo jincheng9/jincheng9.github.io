@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go 1.19要来了，看看都有哪些变化-第2篇 - Jincheng9&#39;s blog</title>
+  <title>Go 1.19要来了，看看都有哪些变化-第3篇 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go 1.19要来了，看看都有哪些变化" /><meta name="keywords" content="go" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go 1.19要来了，看看都有哪些变化-第3篇" /><meta name="keywords" content="go" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.19beta1-second/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.19beta1-third/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go 1.19要来了，看看都有哪些变化-第2篇" />
-<meta property="og:description" content="Go 1.19要来了，看看都有哪些变化" />
+<meta property="og:title" content="Go 1.19要来了，看看都有哪些变化-第3篇" />
+<meta property="og:description" content="Go 1.19要来了，看看都有哪些变化-第3篇" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.19beta1-second/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-06-25T21:41:41+08:00" />
-<meta property="article:modified_time" content="2022-06-25T21:41:41+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.19beta1-third/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-07-08T21:02:49+08:00" />
+<meta property="article:modified_time" content="2022-07-08T21:02:49+08:00" />
 
-<meta itemprop="name" content="Go 1.19要来了，看看都有哪些变化-第2篇">
-<meta itemprop="description" content="Go 1.19要来了，看看都有哪些变化"><meta itemprop="datePublished" content="2022-06-25T21:41:41+08:00" />
-<meta itemprop="dateModified" content="2022-06-25T21:41:41+08:00" />
-<meta itemprop="wordCount" content="2060">
+<meta itemprop="name" content="Go 1.19要来了，看看都有哪些变化-第3篇">
+<meta itemprop="description" content="Go 1.19要来了，看看都有哪些变化-第3篇"><meta itemprop="datePublished" content="2022-07-08T21:02:49+08:00" />
+<meta itemprop="dateModified" content="2022-07-08T21:02:49+08:00" />
+<meta itemprop="wordCount" content="2657">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go 1.19要来了，看看都有哪些变化-第2篇"/>
-<meta name="twitter:description" content="Go 1.19要来了，看看都有哪些变化"/>
+<meta name="twitter:title" content="Go 1.19要来了，看看都有哪些变化-第3篇"/>
+<meta name="twitter:description" content="Go 1.19要来了，看看都有哪些变化-第3篇"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,15 +129,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go 1.19要来了，看看都有哪些变化-第2篇</h1>
+      <h1 class="post-title">Go 1.19要来了，看看都有哪些变化-第3篇</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-06-25 </span>
+        <span class="post-time"> 2022-07-08 </span>
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 2060 words </span>
-          <span class="more-meta"> 5 mins read </span>
+          <span class="more-meta"> 2657 words </span>
+          <span class="more-meta"> 6 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -150,14 +150,18 @@
     <li>
       <ul>
         <li><a href="#前言">前言</a></li>
-        <li><a href="#go-119发布清单">Go 1.19发布清单</a>
+        <li><a href="#go-119发布清单">Go 1.19发布清单</a></li>
+        <li><a href="#运行时">运行时</a>
           <ul>
-            <li><a href="#文档注释">文档注释</a></li>
-            <li><a href="#新的编译约束-unix">新的编译约束 <code>unix</code></a></li>
-            <li><a href="#go命令">Go命令</a></li>
-            <li><a href="#vet">Vet</a></li>
+            <li><a href="#软内存限制soft-memory-limit">软内存限制(soft memory limit)</a></li>
+            <li><a href="#最大文件描述符">最大文件描述符</a></li>
+            <li><a href="#堆栈信息">堆栈信息</a></li>
+            <li><a href="#调试">调试</a></li>
           </ul>
         </li>
+        <li><a href="#编译器">编译器</a></li>
+        <li><a href="#汇编器">汇编器</a></li>
+        <li><a href="#链接器">链接器</a></li>
         <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#总结">总结</a></li>
         <li><a href="#开源地址">开源地址</a></li>
@@ -173,66 +177,44 @@
       <h2 id="前言">前言</h2>
 <p>Go官方团队在2022.06.11发布了Go 1.19 Beta 1版本，Go 1.19的正式release版本预计会在今年8月份发布。</p>
 <p>让我们先睹为快，看看Go 1.19给我们带来了哪些变化。</p>
-<p>这是Go 1.19版本更新内容详解的第2篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<p>这是Go 1.19版本更新内容详解的第3篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<p>第1篇主要涉及Go泛型的改动、Go内存模型和原子操作的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484179&amp;idx=1&amp;sn=215ea3f092460118b2bc975935015874&amp;chksm=ce124c7cf965c56a7c310b1059683d065810bd18368669d3d42a6cbbb0370d1593979a63620c#rd">Go 1.19版本变更内容第1篇</a>。</p>
+<p>第2篇主要涉及Go文档注释(doc comments)、编译约束(build constraint)以及Go命令的修改，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484188&amp;idx=1&amp;sn=c14bafb1f89b3b3f988452c5a5f32884&amp;chksm=ce124c73f965c5651a688c42561b02e38253b60943c77a0a6ad7b45621b4296d9e1acd47de7a#rd">Go 1.19版本变更内容第2篇</a>。</p>
 <h2 id="go-119发布清单">Go 1.19发布清单</h2>
 <p>和Go 1.18相比，改动相对较小，主要涉及语言(Language)、内存模型(Memory Model)、可移植性(Ports)、Go Tool工具链、运行时(Runtime)、编译器(Compiler)、汇编器(Assembler)、链接器(Linker)和核心库(Core library)等方面的优化。</p>
-<p>第1篇详细介绍了Go 1.19在语言、内存模型、可移植性方面的改进。</p>
-<p>本文重点介绍Go 1.19版本在Go Tool工具链方面的变化。</p>
-<h3 id="文档注释">文档注释</h3>
-<p><a href="https://tip.golang.org/doc/comment">文档注释(doc comments)</a> 是Go语言里的对包(package), 常量(const), 函数(func), 类型(type)和变量(var)声明的一种注释规范。按照这个规范来注释，就可以使用<code>go doc</code>命令生成对应的代码说明文档。</p>
-<p>像大家熟知的https://pkg.go.dev/里的说明文档就是通过编写符合doc comments规范的文档注释来生成的。</p>
-<p>Go 1.19 在文档注释里新增了对于链接、列表和更清晰的标题的支持，可以参考“<a href="https://tip.golang.org/doc/comment">Go Doc Comments</a>” 了解语法细节。</p>
-<p>作为这个修改的一部分，<code>gofmt</code>现在会把文档注释重新格式化，让文档样式展示更清晰。</p>
-<p>同时，新增了一个package:  <a href="https://tip.golang.org/pkg/go/doc/comment">go/doc/comment</a>，可以用于解析和重新格式化文档注释，并且支持把文档注释渲染为HTML, Markdown和text格式。</p>
-<h3 id="新的编译约束-unix">新的编译约束 <code>unix</code></h3>
-<p>Go语言支持使用编译约束(build constraint)进行条件编译。Go 1.19版本新增了编译约束 <code>unix</code> ，可以在<code>//go:build</code>后面使用<code>unix</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//go:build unix
-</span></code></pre></td></tr></table>
-</div>
-</div><p><code>unix</code>表示编译的目标操作系统是Unix或者类Unix系统。对于Go 1.19版本而言，如果<code>GOOS</code>是 <code>aix</code>, <code>android</code>, <code>darwin</code>, <code>dragonfly</code>, <code>freebsd</code>, <code>hurd</code>, <code>illumos</code>, <code>ios</code>, <code>linux</code>, <code>netbsd</code>, <code>openbsd</code>, 或 <code>solaris</code>中的某一个，那就满足<code>unix</code>这个编译约束。</p>
-<p>未来<code>unix</code>约束还会匹配一些新的类Unix操作系统。</p>
-<h3 id="go命令">Go命令</h3>
-<p><code>go build</code>如果使用<code>-trimpath</code>标记，会在生成的可执行文件里打上<code>trimpath</code>标签，我们可以使用 <a href="https://pkg.go.dev/cmd/go#hdr-Print_Go_version"><code>go</code> <code>version</code> <code>-m</code></a> 或<a href="https://pkg.go.dev/runtime/debug#ReadBuildInfo"><code>debug.ReadBuildInfo</code></a> 检查可执行文件是否是使用<code>-trimpath</code>标记编译生成的。</p>
-<p><strong>备注</strong>：编译的时候带上<code>trimpath</code>标记可以去除Go程序运行时打印的堆栈信息里包含的Go程序的编译路径和编译机用户信息，避免信息泄露。</p>
-<p><code>go</code> <code>generate</code> 现在会在生成器环境里设置 <code>GOROOT</code> 环境变量，所以即使使用了<code>-trimpath</code>进行编译，生成器也可以精准定位到<code>GOROOT</code>的路径。</p>
-<p><code>go</code> <code>test</code> 和 <code>go</code> <code>generate</code> 运行时会把 <code>GOROOT/bin</code> 放在 <code>PATH</code> 环境变量的开头，这样设计后，<code>go test</code>和<code>go generate</code>执行的时候可以解析到同一个<code>GOROOT</code>。解决的是这个<a href="https://github.com/golang/go/issues/23635">GitHub Issue</a>。</p>
-<p><code>go</code> <code>env</code>会把环境变量的值中带有空格的加上双引号括起来，包括<code>CGO_CFLAGS</code>, <code>CGO_CPPFLAGS</code>, <code>CGO_CXXFLAGS</code>, <code>CGO_FFLAGS</code>, <code>CGO_LDFLAGS</code>, and <code>GOGCCFLAGS</code> 这些环境变量。解决的是Windows环境下不带空格会报错的bug，详情可以参考<a href="https://github.com/golang/go/issues/45637">GitHub Issue</a>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">CGO_CFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
-<span class="nv">CGO_CPPFLAGS</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">CGO_CXXFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
-<span class="nv">CGO_FFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
-<span class="nv">CGO_LDFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
-<span class="nv">PKG_CONFIG</span><span class="o">=</span><span class="s2">&#34;pkg-config&#34;</span>
-<span class="nv">GOGCCFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC -arch x86_64 -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/pv/_x849j6n22x37xxd9cstgwkr0000gn/T/go-build4165054210=/tmp/go-build -gno-record-gcc-switches -fno-common&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>go</code>命令现在会缓存必要的信息用于加载模块(module)，这会带来<code>go list</code>调用的加速。</p>
-<p>对<code>-trimpath</code>和<code>go generate</code>不了解的，推荐阅读官方文档：</p>
-<ul>
-<li><a href="https://pkg.go.dev/cmd/go#hdr-Print_Go_version">trimpath and go generate</a></li>
-<li><a href="https://mp.weixin.qq.com/s/YBGppDhhBMorqkSzvufHlA">go generate介绍</a></li>
-</ul>
-<h3 id="vet">Vet</h3>
-<p><code>go vet</code>新增了一个<code>errorsas</code>检查规则，可以对<code>errors.As</code>函数调用进行正确性检查。</p>
-<p>如果<code>errors.As</code>的第2个参数是<code>*error</code>类型，<code>go vet</code>会提示错误，这也是大家使用<code>errors.As</code>常犯的一个错误。</p>
+<p>本文重点介绍Go 1.19版本在运行时、编译器、汇编器和链接器方面的变化。</p>
+<h2 id="运行时">运行时</h2>
+<h3 id="软内存限制soft-memory-limit">软内存限制(soft memory limit)</h3>
+<p>运行时现在支持软内存限制(soft memory limit)。这个内存限制包括了Go heap里的内存以及所有其它被Go运行时管理的内存。如果不是被Go运行时管理的内存，比如二进制程序本身映射的内存、其它语言管理的内存，是不在这个软内存限制里的。</p>
+<p>这个限制可以通过<a href="https://tip.golang.org/pkg/runtime/debug/#SetMemoryLimit"><code>runtime/debug.SetMemoryLimit</code></a> 函数或者 <a href="https://tip.golang.org/pkg/runtime/#hdr-Environment_Variables"><code>GOMEMLIMIT</code></a> 环境变量进行设置。</p>
+<p>软内存限制和<a href="https://tip.golang.org/pkg/runtime/debug/#SetGCPercent"><code>runtime/debug.SetGCPercent</code></a> 函数以及 <a href="https://tip.golang.org/pkg/runtime/#hdr-Environment_Variables"><code>GOGC</code></a>环境变量是可以结合起来工作的，而且即使在<code>GOGC=off</code>模式下，软内存限制也会生效。设计目的是为了让Go程序可以最大化内存使用，提升某些场景下的内存资源使用效率。</p>
+<p>可以参考<a href="https://tip.golang.org/doc/gc-guide">the GC guide</a>查看更多软内存限制的设计实现细节，以及一些常见使用场景和最佳实践。</p>
+<p>需要注意的是，对于数十MB或者更小的内存限制，由于考虑到一些性能问题，软内存限制是有可能不会生效的，可以参考<a href="https://go.dev/issue/52433">issue 52433</a>查看更多细节。对于数百MB或者更大的内存限制，目前是可以稳定运行在生产环境上的。</p>
+<p>当Go程序堆内存接近软内存限制时，为了减少GC抖动的影响，Go运行时会尝试限制GC CPU利用率不超过50%(不包括CPU空闲时间)。</p>
+<p>在实际使用中，一般只在一些特殊场景才建议使用软内存限制，当Go堆内存占用真的超过软内存限制时，新的运行时度量( <a href="https://tip.golang.org/pkg/runtime/metrics/#hdr-Supported_metrics">runtime metric</a>)工具<code>/gc/limiter/last-enabled:gc-cycle</code>会报告这个事件。</p>
+<p>如果应用程序空闲到足以执行一次GC时，Go运行时(Runtime)现在会在空闲的操作系统线程里调度更少的GC工作协程(goroutine)。</p>
+<p>Go运行时现在会根据goroutine过去栈空间的平均使用大小来分配一个初始的goroutine栈大小，提升栈空间的分配和使用效率。</p>
+<h3 id="最大文件描述符">最大文件描述符</h3>
+<p>在Unix操作系统上，import了 <a href="https://tip.golang.org/pkg/os/">os</a> 包的Go程序现在会自动增加 <strong>可打开的最大文件描述符数量</strong> 到允许的最大值。</p>
+<p>修改这个的原因是有些系统为了兼容很老的使用select系统调用的C语言程序，会把最大文件描述符数量设置一个比较小的值，通常是1024。这个设置对Go程序没有用处，相反，还会带来一些问题。比如<code>gofmt</code>在并行处理很多文件时，很容易遇到文件描述符用尽的问题。另外这个修改需要注意的一个点是，如果Go程序和C语言混合编程，执行了很老的C代码，那在运行这个Go程序时，需要先设置最大文件描述符的hard limit，将其调小。</p>
+<h3 id="堆栈信息">堆栈信息</h3>
+<p>不可恢复的致命错误(例如并发的map写入，解锁一个未加锁的mutex)现在会打印更简单的堆栈信息，不再打印Go runtime的元数据，除非设置了<code>GOTRACEBACK=system</code> or <code>crash</code>。但是对于runtime本身的致命错误，不管<code>GOTRACEBACK</code> 的值是什么，还是会打印包含元数据的所有堆栈信息。</p>
+<h3 id="调试">调试</h3>
+<p>ARM64架构现在支持注入了调试器的函数调用，允许用户在交互式的调试会话里调用函数。</p>
+<p><a href="https://tip.golang.org/doc/go1.18#go-build-asan">Go 1.18新增的address sanitizer</a> 现在可以更精确地处理函数参数和全局变量。</p>
+<h2 id="编译器">编译器</h2>
+<p>针对<code>GOARCH=amd64</code> 和 <code>GOARCH=arm64</code> 架构，编译器现在使用跳表(jump table)来实现大整数和字符串的switch语句。</p>
+<p>带来的优化效果是switch语句的性能提升了大概20%左右。</p>
+<p>Go编译器现在需要 <code>-p=importpath</code> 标记来编译出一个可链接的目标文件。<code>go</code>命令和Bazel现在已经支持<code>-p=importpath</code>标记。</p>
+<p>任何其它直接调用Go编译器的编译系统也需要确保传递了这个标记参数。</p>
+<h2 id="汇编器">汇编器</h2>
+<p>和编译器一样，汇编器现在也需要<code>-p=importpath</code>标记来编译出一个可链接的目标文件。<code>go</code>命令已经支持该标记参数。</p>
+<p>任何其它直接调用Go汇编器的编译系统也需要确保传递了这个标记参数。</p>
+<h2 id="链接器">链接器</h2>
+<p>在ELF(Executable and Linkable Format)平台上，链接器现在会以gABI格式(<code>SHF_COMPRESSED</code>压缩方式)压缩DWARF章节，而不是传统的 <code>.zdebug</code> 格式。</p>
 <h2 id="推荐阅读">推荐阅读</h2>
-<p><a href="https://mp.weixin.qq.com/s/3xfCgtpEGu5Vm3XSSIze5w">Go 1.19版本变更内容第1篇</a>，第1篇主要涉及到Go泛型的细小改动以及Go内存模型和原子操作的优化。</p>
+<p>第1篇主要涉及Go泛型的改动、Go内存模型和原子操作的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484179&amp;idx=1&amp;sn=215ea3f092460118b2bc975935015874&amp;chksm=ce124c7cf965c56a7c310b1059683d065810bd18368669d3d42a6cbbb0370d1593979a63620c#rd">Go 1.19版本变更内容第1篇</a>。</p>
+<p>第2篇主要涉及Go文档注释(doc comments)、编译约束(build constraint)以及Go命令的修改，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484188&amp;idx=1&amp;sn=c14bafb1f89b3b3f988452c5a5f32884&amp;chksm=ce124c73f965c5651a688c42561b02e38253b60943c77a0a6ad7b45621b4296d9e1acd47de7a#rd">Go 1.19版本变更内容第2篇</a>。</p>
 <p><strong>想了解Go泛型的使用方法、设计思路和最佳实践，推荐大家阅读</strong>：</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483720&amp;idx=1&amp;sn=57ec4877dfd364a59deacf1e74a4fb66&amp;chksm=ce124e27f965c731432dcc89d1e0563cf84baaef482eaa068a91bee61f10cf85b433923b83b4&amp;token=1782465473&amp;lang=zh_CN#rd">官方教程：Go泛型入门</a></li>
@@ -245,7 +227,7 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484082&amp;idx=1&amp;sn=934787c9829391ba743bd611818ad0e2&amp;chksm=ce124dddf965c4cb7d0f2d9d001ab4b7d949fbe87c4c8b7ee8d7498946824ec9aa6581cfe986&amp;token=1782465473&amp;lang=zh_CN#rd">Go并发编程之原子操作sync/atomic</a></li>
 </ul>
 <h2 id="总结">总结</h2>
-<p>下一篇会介绍Go 1.19在运行时、编译器、汇编器、链接器和核心库的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
+<p>下一篇会介绍Go 1.19对核心库的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
 <h2 id="开源地址">开源地址</h2>
 <p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
 <p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
@@ -257,7 +239,6 @@
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://tip.golang.org/doc/go1.19">https://tip.golang.org/doc/go1.19</a></li>
-<li><a href="https://tip.golang.org/doc/comment">https://tip.golang.org/doc/comment</a></li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -269,13 +250,9 @@
           <a href="/tags/go/">go</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-release-1.19beta1-third/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go 1.19要来了，看看都有哪些变化-第3篇</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-release-1.19-beta1/">
-            <span class="next-text nav-default">Go 1.19要来了，看看都有哪些变化</span>
+        
+        <a class="next" href="/post/go-release-1.19beta1-second/">
+            <span class="next-text nav-default">Go 1.19要来了，看看都有哪些变化-第2篇</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
