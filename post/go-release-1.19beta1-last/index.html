@@ -307,7 +307,7 @@
 <li>
 <p><a href="https://tip.golang.org/pkg/net/url/">net/url</a></p>
 <p>新增的 <a href="https://tip.golang.org/pkg/net/url/#JoinPath"><code>JoinPath</code></a> 函数 和 <a href="https://tip.golang.org/pkg/net/url/#URL.JoinPath"><code>URL.JoinPath</code></a> 方法可以把一组path元素组合在一起，创建一个新的 <code>URL</code>。</p>
-<p><code>URL</code>类型现在会区分没有host的URL和host为空的URL。举个例子， <code>http:///path</code> 是有host的，host为空，然后 <code>http:/path</code> 就没有host。</p>
+<p><code>URL</code>类型现在会区分没有host的URL和host为空的URL。举个例子， <code>http:///path</code> 是有host的，只是host为空，但是 <code>http:/path</code> 就没有host。</p>
 <p>当URL的host为空时，<a href="https://tip.golang.org/pkg/net/url/#URL"><code>URL</code></a> 类型里的字段 <code>OmitHost</code> 的值会被设置为<code>true</code>。</p>
 </li>
 <li>
@@ -326,7 +326,7 @@
 </li>
 <li>
 <p><a href="https://tip.golang.org/pkg/runtime/">runtime</a></p>
-<p><a href="https://tip.golang.org/pkg/runtime/#GOROOT"><code>GOROOT</code></a> 函数会返回空串，当Go可执行程序使用了<code>-trimpath</code>标记进行编译并且没有在进程运行环境里没有设置<code>GOROOT</code>环境变量。</p>
+<p>当Go可执行程序使用了<code>-trimpath</code>标记进行编译并且在进程运行环境里没有设置<code>GOROOT</code>环境变量， <a href="https://tip.golang.org/pkg/runtime/#GOROOT"><code>GOROOT</code></a> 函数会返回空串。</p>
 </li>
 <li>
 <p><a href="https://tip.golang.org/pkg/runtime/metrics/">runtime/metrics</a></p>
@@ -344,7 +344,7 @@
 <p>race detector在Go 1.19版本做了升级，使用v3版本的 thread sanitizer，支持除了 <code>windows/amd64</code> 和 <code>openbsd/amd64</code> 的所有平台， <code>windows/amd64</code>和 <code>openbsd/amd64</code>平台仍然使用v2版本的thread sanitizer。</p>
 <p>和v2版本相比，v3版本速度提升了1.5-2倍，并且内存开销减半，还不限制goroutine的数量。</p>
 <p>在Linux操作系统上，race detector现在要求glibc的版本最低是2.17。</p>
-<p>race detector现在至此<code>GOARCH=s390x</code>架构。</p>
+<p>race detector现在支持<code>GOARCH=s390x</code>架构。</p>
 <p>新版的thread sanitizer不再支持<code>openbsd/amd64</code>平台，因此<code>openbsd/amd64</code>平台还是会沿用旧的v2版本的thread sanitizer。</p>
 </li>
 <li>
