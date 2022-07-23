@@ -49,7 +49,7 @@
 <meta itemprop="name" content="send-only channel和receive-only channel的争议">
 <meta itemprop="description" content="send-only channel和receive-only channel的争议"><meta itemprop="datePublished" content="2022-07-23T12:07:26+08:00" />
 <meta itemprop="dateModified" content="2022-07-23T12:07:26+08:00" />
-<meta itemprop="wordCount" content="3054">
+<meta itemprop="wordCount" content="3052">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="send-only channel和receive-only channel的争议"/>
 <meta name="twitter:description" content="send-only channel和receive-only channel的争议"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 3054 words </span>
+          <span class="more-meta"> 3052 words </span>
           <span class="more-meta"> 7 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -294,9 +294,11 @@
 <h2 id="解析">解析</h2>
 <h3 id="答案">答案</h3>
 <ul>
-<li>题目1的答案是D，题目1创建了一个receive-only channel，只能从channel里接收值，不能往channel里发送值。</li>
+<li>
+<p>题目1的答案是D，题目1创建了一个receive-only channel，只能从channel里接收值，不能往channel里发送值。</p>
+<p>对于receive-only channel不能close，如果做close操作，会有如下报错：</p>
+</li>
 </ul>
-<p>​	对于receive-only channel不能close，如果做close操作，会有如下报错：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -306,9 +308,11 @@
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>题目2的答案是A，题目2创建了一个send-only channel，只能往channel里发送值，不能从channel里接收值。</li>
+<li>
+<p>题目2的答案是A，题目2创建了一个send-only channel，只能往channel里发送值，不能从channel里接收值。</p>
+<p>对于send-only channel可以正常close。</p>
+</li>
 </ul>
-<p>​	对于send-only channel可以正常close。</p>
 <p>为什么receive-only channel不能close，但是send-only channel可以close呢？</p>
 <p>这是因为receive-only channel表示只能从这个channel里接收数据，使用方对这个channel只有读权限，对channel没有写权限，即不能往channel发送数据或者对channel做close操作。</p>
 <p>所以题目1的答案是D，题目2的答案是A。</p>
