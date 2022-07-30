@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 23 Jul 2022 12:07:26 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 21:09:51 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go指针的性能问题和内存逃逸</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-03-pointer-escape-analysis/</link>
+      <pubDate>Sat, 30 Jul 2022 21:09:51 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-03-pointer-escape-analysis/</guid>
+      <description>前言 这是Go十大常见错误系列的第3篇：Go指针的性能问题和内存逃逸。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsan</description>
+    </item>
+    
     <item>
       <title>send-only channel和receive-only channel的争议</title>
       <link>http://jincheng9.github.io/post/go-quiz-uni-directional-channel/</link>

@@ -3,48 +3,55 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-common-mistakes-03-pointer-escape-analysis/</loc>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/post/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/post/go-quiz-uni-directional-channel/</loc>
-    <lastmod>2022-07-23T12:07:26+08:00</lastmod>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-07-30T21:09:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-quiz-uni-directional-channel/</loc>
     <lastmod>2022-07-23T12:07:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
