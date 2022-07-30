@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go指针的性能问题和内存逃逸">
 <meta itemprop="description" content="Go指针的性能问题和内存逃逸"><meta itemprop="datePublished" content="2022-07-30T21:09:51+08:00" />
 <meta itemprop="dateModified" content="2022-07-30T21:09:51+08:00" />
-<meta itemprop="wordCount" content="2207">
+<meta itemprop="wordCount" content="2228">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go指针的性能问题和内存逃逸"/>
 <meta name="twitter:description" content="Go指针的性能问题和内存逃逸"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 2207 words </span>
+          <span class="more-meta"> 2228 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -222,8 +222,8 @@ ok      pointer 2.894s
 </li>
 </ul>
 <p>什么是逃逸分析呢？</p>
-<p>Go编译器解析源代码，决定哪些变量分配在stack内存空间，哪些变量分配在heap内存空间的过程就叫做逃逸分析，属于Go代码编译的一个分析阶段。</p>
-<p>通过逃逸分析，编译器会尽可能把能分配在栈上的对象分配在栈上，避免堆内存频繁GC垃圾回收带来的系统开销，影响程序性能。</p>
+<p>Go编译器解析源代码，决定哪些变量分配在stack内存空间，哪些变量分配在heap内存空间的过程就叫做逃逸分析，属于Go代码编译过程中的一个分析环节。</p>
+<p>通过逃逸分析，编译器会尽可能把能分配在栈上的对象分配在栈上，避免堆内存频繁GC垃圾回收带来的系统开销，影响程序性能(只有heap内存空间才会发生GC)。</p>
 <h3 id="案例1">案例1</h3>
 <p>我们看下面的代码：其中结构体<code>foo</code>的可以参考 <a href="https://github.com/jincheng9/go-tutorial/blob/main/workspace/senior/p28/pointer/pointer_test.go">this example</a>。</p>
 <div class="highlight"><div class="chroma">
