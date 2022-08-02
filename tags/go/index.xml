@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Sat, 30 Jul 2022 21:09:51 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go指针的性能问题和内存逃逸</title>
+      <title>Go十大常见错误第3篇：Go指针的性能问题和内存逃逸</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-03-pointer-escape-analysis/</link>
       <pubDate>Sat, 30 Jul 2022 21:09:51 +0800</pubDate>
       
@@ -71,7 +71,7 @@
     </item>
     
     <item>
-      <title>Go十大常见错误第一篇：未知枚举值</title>
+      <title>Go十大常见错误第1篇：未知枚举值</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-01-enum-value/</link>
       <pubDate>Fri, 03 Jun 2022 23:06:28 +0800</pubDate>
       
