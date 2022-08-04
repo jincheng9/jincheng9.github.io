@@ -6,7 +6,16 @@
     <description>Recent content in go on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 21:09:51 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Aug 2022 21:27:23 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go十大常见错误第4篇：for/switch和for/select做break操作的注意事项</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-04-break-for-switch-select/</link>
+      <pubDate>Thu, 04 Aug 2022 21:27:23 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-04-break-for-switch-select/</guid>
+      <description>前言 这是Go十大常见错误系列的第4篇：for/switch和for/select做break操作退出的注意事项。素材来源于Go布道者，现Do</description>
+    </item>
+    
     <item>
       <title>Go十大常见错误第3篇：Go指针的性能问题和内存逃逸</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-03-pointer-escape-analysis/</link>
