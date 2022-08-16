@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Aug 2022 16:48:32 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Aug 2022 22:08:06 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go十大常见错误第6篇：slice初始化常犯的错误</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-06-go-slice-init/</link>
+      <pubDate>Tue, 16 Aug 2022 22:08:06 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-06-go-slice-init/</guid>
+      <description>前言 这是Go十大常见错误系列的第6篇：slice初始化常犯的错误。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsany</description>
+    </item>
+    
     <item>
       <title>Go十大常见错误第5篇：go语言Error管理</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-05-go-error-management/</link>
