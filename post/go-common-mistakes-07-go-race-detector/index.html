@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go十大常见错误第6篇：slice初始化常犯的错误 - Jincheng9&#39;s blog</title>
+  <title>Go十大常见错误第7篇：不使用-race选项做并发竞争检测 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第6篇：slice初始化常犯的错误" /><meta name="keywords" content="go" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测" /><meta name="keywords" content="go" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-06-go-slice-init/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-07-go-race-detector/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go十大常见错误第6篇：slice初始化常犯的错误" />
-<meta property="og:description" content="Go十大常见错误第6篇：slice初始化常犯的错误" />
+<meta property="og:title" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测" />
+<meta property="og:description" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-06-go-slice-init/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-08-16T22:08:06+08:00" />
-<meta property="article:modified_time" content="2022-08-16T22:08:06+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-07-go-race-detector/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-26T22:33:34+08:00" />
+<meta property="article:modified_time" content="2022-08-26T22:33:34+08:00" />
 
-<meta itemprop="name" content="Go十大常见错误第6篇：slice初始化常犯的错误">
-<meta itemprop="description" content="Go十大常见错误第6篇：slice初始化常犯的错误"><meta itemprop="datePublished" content="2022-08-16T22:08:06+08:00" />
-<meta itemprop="dateModified" content="2022-08-16T22:08:06+08:00" />
-<meta itemprop="wordCount" content="1437">
+<meta itemprop="name" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测">
+<meta itemprop="description" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测"><meta itemprop="datePublished" content="2022-08-26T22:33:34+08:00" />
+<meta itemprop="dateModified" content="2022-08-26T22:33:34+08:00" />
+<meta itemprop="wordCount" content="1092">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go十大常见错误第6篇：slice初始化常犯的错误"/>
-<meta name="twitter:description" content="Go十大常见错误第6篇：slice初始化常犯的错误"/>
+<meta name="twitter:title" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测"/>
+<meta name="twitter:description" content="Go十大常见错误第7篇：不使用-race选项做并发竞争检测"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,14 +129,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go十大常见错误第6篇：slice初始化常犯的错误</h1>
+      <h1 class="post-title">Go十大常见错误第7篇：不使用-race选项做并发竞争检测</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-08-16 </span>
+        <span class="post-time"> 2022-08-26 </span>
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             </div>
-          <span class="more-meta"> 1437 words </span>
+          <span class="more-meta"> 1092 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -150,13 +150,8 @@
     <li>
       <ul>
         <li><a href="#前言">前言</a></li>
-        <li><a href="#场景">场景</a>
-          <ul>
-            <li><a href="#方法1">方法1</a></li>
-            <li><a href="#方法2">方法2</a></li>
-            <li><a href="#方法3">方法3</a></li>
-          </ul>
-        </li>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#常见问题">常见问题</a></li>
         <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#开源地址">开源地址</a></li>
         <li><a href="#福利">福利</a></li>
@@ -169,115 +164,129 @@
 </div>
     <div class="post-content">
       <h2 id="前言">前言</h2>
-<p>这是Go十大常见错误系列的第6篇：slice初始化常犯的错误。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
+<p>这是Go十大常见错误系列的第7篇：不使用<code>-race</code>选项做并发竞争检测。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
 <p>本文涉及的源代码全部开源在：<a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p28">Go十大常见错误源代码</a>，欢迎大家关注公众号，及时获取本系列最新更新。</p>
-<h2 id="场景">场景</h2>
-<p>假设我们知道要创建的slice的长度，你会怎么创建和初始化这个slice？</p>
-<p>比如我们定义了一个结构体叫<code>Bar</code>，现在要创建一个slice，里面的元素就是<code>Bar</code>类型，而且该slice的长度是已知的。</p>
-<h3 id="方法1">方法1</h3>
-<p>有的人可能这么来做，先定义slice</p>
+<h2 id="背景">背景</h2>
+<p>并发编程里很容易遇到并发访问冲突的问题。</p>
+<p>Go语言里多个goroutine同时操作某个共享变量的时候，如果一个goroutine对该变量做写操作，其它goroutine做读操作，假设没有做好并发访问控制，就容易出现并发访问冲突，导致程序crash。</p>
+<p>大家可以看如下的代码示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">bars</span> <span class="p">[]</span><span class="nx">Bar</span>
-<span class="nx">bars</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Bar</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>每次要往<code>bars</code>这个slice插入元素的时候，通过append来操作</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">bars</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">bars</span><span class="p">,</span> <span class="nx">barElement</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>slice</code>实际上是一个结构体类型，包含3个字段，分别是</p>
-<ul>
-<li>array: 是指针，指向一个数组，切片的数据实际都存储在这个数组里。</li>
-<li>len: 切片的长度。</li>
-<li>cap: 切片的容量，表示切片当前最多可以存储多少个元素，如果超过了现有容量会自动扩容。</li>
-</ul>
-<p>slice底层的数据结构定义如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">slice</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">array</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span>
-	<span class="nx">len</span>   <span class="kt">int</span>
-	<span class="nx">cap</span>   <span class="kt">int</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<span class="kd">type</span> <span class="nx">Pointer</span> <span class="o">*</span><span class="nx">ArbitraryType</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
+	<span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">m</span><span class="p">[</span><span class="s">&#34;1&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;a&#34;</span> <span class="c1">// First conflicting access.
+</span><span class="c1"></span>		<span class="nx">c</span> <span class="o">&lt;-</span> <span class="kc">true</span>
+	<span class="p">}()</span>
+	<span class="nx">m</span><span class="p">[</span><span class="s">&#34;2&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;b&#34;</span> <span class="c1">// Second conflicting access.
+</span><span class="c1"></span>	<span class="o">&lt;-</span><span class="nx">c</span>
+	<span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">m</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>如果按照上面的示例先创建一个长度为0的slice，那在append插入元素的过程中，<code>bars</code>这个slice会做自动扩容。</p>
-<p>如果<code>bars</code>的长度比较大，可能会发生多次扩容。每次扩容都要创建一个新的内存空间，然后把旧内存空间的数据拷贝过来，效率比较低。</p>
-<h3 id="方法2">方法2</h3>
-<p>在定义slice的时候指定长度，代码示例如下：</p>
+</div><p>上面的代码会出现并发访问冲突，2个goroutine同时对共享变量<code>m</code>做写操作。</p>
+<p>通过<code>-race</code>选项，我们就可以利用编译器帮我们快速发现问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go run -race main.go 
+<span class="o">==================</span>
+WARNING: DATA RACE
+Write at 0x00c000074180 by goroutine 7:
+  runtime.mapassign_faststr<span class="o">()</span>
+      /usr/local/opt/go/libexec/src/runtime/map_faststr.go:202 +0x0
+  main.main.func1<span class="o">()</span>
+      /Users/xxx/github/go-tutorial/workspace/senior/p28/data-race/main.go:11 +0x5d
+
+Previous write at 0x00c000074180 by main goroutine:
+  runtime.mapassign_faststr<span class="o">()</span>
+      /usr/local/opt/go/libexec/src/runtime/map_faststr.go:202 +0x0
+  main.main<span class="o">()</span>
+      /Users/xxx/github/go-tutorial/workspace/senior/p28/data-race/main.go:14 +0xcb
+
+Goroutine <span class="m">7</span> <span class="o">(</span>running<span class="o">)</span> created at:
+  main.main<span class="o">()</span>
+      /Users/xxx/github/go-tutorial/workspace/senior/p28/data-race/main.go:10 +0x9c
+<span class="o">==================</span>
+<span class="m">1</span> a
+<span class="m">2</span> b
+Found <span class="m">1</span> data race<span class="o">(</span>s<span class="o">)</span>
+<span class="nb">exit</span> status <span class="m">66</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="常见问题">常见问题</h2>
+<p>一个常见的错误是开发者测试Go程序的时候，不使用<code>-race</code>选项。</p>
+<p>尽管Go语言设计的目的之一是为了让并发编程更简单、更不容易出错，但Go语言开发者还是会遇到并发问题。</p>
+<p>因此，大家在测试Go程序的时候，应该开启<code>-race</code>选项，及时发现代码里的并发访问冲突问题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">convert</span><span class="p">(</span><span class="nx">foos</span> <span class="p">[]</span><span class="nx">Foo</span><span class="p">)</span> <span class="p">[]</span><span class="nx">Bar</span> <span class="p">{</span>
-	<span class="nx">bars</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Bar</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">foos</span><span class="p">))</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">foo</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">foos</span> <span class="p">{</span>
-		<span class="nx">bars</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">fooToBar</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">bars</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go <span class="nb">test</span> -race mypkg    // to <span class="nb">test</span> the package
+$ go run -race mysrc.go  // to run the <span class="nb">source</span> file
+$ go build -race mycmd   // to build the <span class="nb">command</span>
+$ go install -race mypkg // to install the package
 </code></pre></td></tr></table>
 </div>
-</div><p>这行代码<code>	bars := make([]Bar, len(foos))</code>直接指定了slice的长度，无需扩容。</p>
-<h3 id="方法3">方法3</h3>
-<p>在定义slice的时候提前指定容量，长度设置为0，代码示例如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">convert</span><span class="p">(</span><span class="nx">foos</span> <span class="p">[]</span><span class="nx">Foo</span><span class="p">)</span> <span class="p">[]</span><span class="nx">Bar</span> <span class="p">{</span>
-	<span class="nx">bars</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Bar</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">foos</span><span class="p">))</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">foo</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">foos</span> <span class="p">{</span>
-		<span class="nx">bars</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">bars</span><span class="p">,</span> <span class="nf">fooToBar</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">bars</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种方法也可以，也无需扩容。</p>
-<p>那方法2和方法3哪种好一点呢？其实各有优缺点：</p>
-<ul>
-<li>从效率上来说，方法2比方法3要高一点，因为方法3里调用了append函数，再对bars赋值，效率比直接通过<code>		bars[i] = fooToBar(foo)</code>要低一点。</li>
-<li>从代码的可维护性来说，方法2不能通过append函数来插入元素，因为方法2里的slice定义的时候指定了长度，如果调用append，会扩容，往现有元素后面追加元素。方法3不能通过<code>bars[i] = </code>的方式来赋值，因为方法3里的slice定义的时候长度为0，如果使用<code>bars[1]=</code>，会触发<code>panic: runtime error: index out of range [1] with length 0</code>。</li>
-</ul>
-<p>最后强烈推荐大家看看这道关于Go slice的面试题：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247483741&amp;idx=1&amp;sn=486066a3a582faf457f91b8397178f64&amp;chksm=ce124e32f965c72411e2f083c22531aa70bb7fa0946c505dc886fb054b2a644abde3ad7ea6a0&amp;token=1846351524&amp;lang=zh_CN#rd">Go Quiz: 从Go面试题看slice的底层原理和注意事项</a>。</p>
-<p>看完后你会彻底了解Go slice的原理和注意事项。</p>
-<h2 id="推荐阅读">推荐阅读</h2>
+</div><h2 id="推荐阅读">推荐阅读</h2>
 <ul>
 <li>
 <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484146&amp;idx=1&amp;sn=10fb12b643a2e37c090e5aa3bc583152&amp;chksm=ce124d9df965c48bb954aeddabdff3db12738ded3875542250c5d0ef6cfd4417fc56580288b1&amp;token=1912894792&amp;lang=zh_CN#rd">Go十大常见错误第1篇：未知枚举值</a></p>
@@ -295,7 +304,13 @@
 <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484274&amp;idx=1&amp;sn=711abea3c6fd5d15341ee1b34da8a160&amp;chksm=ce124c1df965c50b3af84965f7ed30b574cd0b247ea6f77b944ec858bd43ee37f4c1554a5bce&amp;token=1846351524&amp;lang=zh_CN#rd">Go十大常见错误第5篇：Go语言Error管理</a></p>
 </li>
 <li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484289&amp;idx=1&amp;sn=2b8171458cde4425b28fdf8f51df8d7c&amp;chksm=ce124ceef965c5f8a14f5951457ce2ac0ecc4612cf2013957f1d818b6e74da7c803b9df1d394&amp;token=1477304797&amp;lang=zh_CN#rd">Go十大常见错误第6篇：slice初始化常犯的错误</a></p>
+</li>
+<li>
 <p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go面试题系列，看看你会几题？</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@val_deleplace/does-the-race-detector-catch-all-data-races-1afed51d57fb">Go编译器的race detector可以发现所有的并发冲突么？</a></p>
 </li>
 </ul>
 <h2 id="开源地址">开源地址</h2>
@@ -309,6 +324,8 @@
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65">https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65</a></li>
+<li><a href="https://go.dev/doc/articles/race_detector">https://go.dev/doc/articles/race_detector</a></li>
+<li><a href="https://medium.com/@val_deleplace/does-the-race-detector-catch-all-data-races-1afed51d57fb">https://medium.com/@val_deleplace/does-the-race-detector-catch-all-data-races-1afed51d57fb</a></li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -320,13 +337,9 @@
           <a href="/tags/go/">go</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-common-mistakes-07-go-race-detector/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go十大常见错误第7篇：不使用-race选项做并发竞争检测</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-common-mistakes-05-go-error-management/">
-            <span class="next-text nav-default">Go十大常见错误第5篇：go语言Error管理</span>
+        
+        <a class="next" href="/post/go-common-mistakes-06-go-slice-init/">
+            <span class="next-text nav-default">Go十大常见错误第6篇：slice初始化常犯的错误</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
