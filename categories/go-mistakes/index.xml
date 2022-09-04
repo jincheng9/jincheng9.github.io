@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go mistakes on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/categories/go-mistakes/</link>
+    <description>Recent content in go mistakes on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Sep 2022 12:17:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go十大常见错误第8篇：并发编程中Context使用常见错误</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-08-go-context-management/</link>
+      <pubDate>Sun, 04 Sep 2022 12:17:59 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-08-go-context-management/</guid>
+      <description>前言 这是Go十大常见错误系列的第8篇：并发编程中Context使用常见错误。素材来源于Go布道者，现Docker公司资深工程师Teiva Ha</description>
+    </item>
+    
+  </channel>
+</rss>
