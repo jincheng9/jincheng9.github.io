@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Sep 2022 12:17:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Sep 2022 19:38:57 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go十大常见错误第9篇：使用文件名称作为函数输入</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/</link>
+      <pubDate>Sun, 04 Sep 2022 19:38:57 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/</guid>
+      <description>前言 这是Go十大常见错误系列的第9篇：使用文件名称作为函数输入。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi</description>
+    </item>
+    
     <item>
       <title>Go十大常见错误第8篇：并发编程中Context使用常见错误</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-08-go-context-management/</link>

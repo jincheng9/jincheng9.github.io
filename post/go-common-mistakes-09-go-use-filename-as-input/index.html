@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go十大常见错误第8篇：并发编程中Context使用常见错误 - Jincheng9&#39;s blog</title>
+  <title>Go十大常见错误第9篇：使用文件名称作为函数输入 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第8篇：并发编程中Context使用常见错误" /><meta name="keywords" content="go, go mistakes" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第9篇：使用文件名称作为函数输入" /><meta name="keywords" content="go, go mistakes" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-08-go-context-management/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go十大常见错误第8篇：并发编程中Context使用常见错误" />
-<meta property="og:description" content="Go十大常见错误第8篇：并发编程中Context使用常见错误" />
+<meta property="og:title" content="Go十大常见错误第9篇：使用文件名称作为函数输入" />
+<meta property="og:description" content="Go十大常见错误第9篇：使用文件名称作为函数输入" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-08-go-context-management/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-09-04T12:17:59+08:00" />
-<meta property="article:modified_time" content="2022-09-04T12:17:59+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-04T19:38:57+08:00" />
+<meta property="article:modified_time" content="2022-09-04T19:38:57+08:00" />
 
-<meta itemprop="name" content="Go十大常见错误第8篇：并发编程中Context使用常见错误">
-<meta itemprop="description" content="Go十大常见错误第8篇：并发编程中Context使用常见错误"><meta itemprop="datePublished" content="2022-09-04T12:17:59+08:00" />
-<meta itemprop="dateModified" content="2022-09-04T12:17:59+08:00" />
-<meta itemprop="wordCount" content="2311">
+<meta itemprop="name" content="Go十大常见错误第9篇：使用文件名称作为函数输入">
+<meta itemprop="description" content="Go十大常见错误第9篇：使用文件名称作为函数输入"><meta itemprop="datePublished" content="2022-09-04T19:38:57+08:00" />
+<meta itemprop="dateModified" content="2022-09-04T19:38:57+08:00" />
+<meta itemprop="wordCount" content="1452">
 <meta itemprop="keywords" content="go,go mistakes," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go十大常见错误第8篇：并发编程中Context使用常见错误"/>
-<meta name="twitter:description" content="Go十大常见错误第8篇：并发编程中Context使用常见错误"/>
+<meta name="twitter:title" content="Go十大常见错误第9篇：使用文件名称作为函数输入"/>
+<meta name="twitter:description" content="Go十大常见错误第9篇：使用文件名称作为函数输入"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,7 +129,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go十大常见错误第8篇：并发编程中Context使用常见错误</h1>
+      <h1 class="post-title">Go十大常见错误第9篇：使用文件名称作为函数输入</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-09-04 </span>
@@ -137,8 +137,8 @@
             <a href="/categories/go/"> go </a>
             <a href="/categories/go-mistakes/"> go mistakes </a>
             </div>
-          <span class="more-meta"> 2311 words </span>
-          <span class="more-meta"> 5 mins read </span>
+          <span class="more-meta"> 1452 words </span>
+          <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -151,8 +151,8 @@
     <li>
       <ul>
         <li><a href="#前言">前言</a></li>
-        <li><a href="#context是什么">Context是什么</a></li>
-        <li><a href="#常见错误">常见错误</a></li>
+        <li><a href="#问题场景">问题场景</a></li>
+        <li><a href="#解决方案">解决方案</a></li>
         <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#开源地址">开源地址</a></li>
         <li><a href="#福利">福利</a></li>
@@ -165,16 +165,65 @@
 </div>
     <div class="post-content">
       <h2 id="前言">前言</h2>
-<p>这是Go十大常见错误系列的第8篇：并发编程中Context使用常见错误。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
+<p>这是Go十大常见错误系列的第9篇：使用文件名称作为函数输入。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
 <p>本文涉及的源代码全部开源在：<a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p28">Go十大常见错误源代码</a>，欢迎大家关注公众号，及时获取本系列最新更新。</p>
-<h2 id="context是什么">Context是什么</h2>
-<p>Go语言标准库里有一个package叫<code>context</code>，该package里定义了<a href="https://pkg.go.dev/context">context.Context</a>类型，在并发编程里非常有用，但是也经常被开发者误解。</p>
-<p>官方对Context的表述是：</p>
-<blockquote>
-<p>Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes.</p>
-</blockquote>
-<p>光看这段描述，还是很容易让人迷糊的，我们接下来具体看看Context到底是什么以及可以帮助我们做什么事情。</p>
-<p>Context顾名思义，表示的是goroutine的上下文，Context定义如下所示：</p>
+<h2 id="问题场景">问题场景</h2>
+<p>一个常见错误是把文件名作为函数参数，在函数里读取文件内容。</p>
+<p>比如，我们要实现一个函数，用来统计指定文件里有多少空行，很多人最容易联想到的实现方式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">count</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to open %s&#34;</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+	<span class="nx">scanner</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+	<span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Text</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+			<span class="nx">count</span><span class="o">++</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">count</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码逻辑很简单：</p>
+<ul>
+<li>文件名作为函数入参</li>
+<li>函数里读取文件每一行数据，判断是否为空行，如果是空行就计数+1</li>
+</ul>
+<p>这种方式其实也没大问题，比较好理解。只是可扩展性不强，没有充分利用到Go语言里关于数据读写的接口(interface)类型的优势。</p>
+<p>试想下，如果你想对一个HTTP body里的内容实现相同的逻辑，那上面的代码无法支持，要另外实现一个新的函数。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>Go语言里有2个很好的抽象接口(interface)，分别是<code>io.Reader</code>和<code>io.Writer</code>。</p>
+<p>和上面函数传参使用文件名不一样，我们可以使用<code>io.Reader</code>作为函数的参数类型。</p>
+<p>因为文件、HTTP body、<a href="https://pkg.go.dev/bytes#Buffer">bytes.Buffer</a>都实现了<code>io.Reader</code>，所以</p>
+<ul>
+<li>使用<code>io.Reader</code>作为函数参数可以兼容不同类型的数据源。</li>
+<li>不同的数据源，可以统一使用<code>io.Reader</code>类型里的<code>Read</code>方法来读取数据。</li>
+</ul>
+<p>具体到这个例子里，我们可以使用<code>bufio.Reader</code>和其<code>ReadLine</code>方法，代码如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -194,95 +243,32 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// A Context carries a deadline, cancellation signal, and request-scoped values
-</span><span class="c1">// across API boundaries. Its methods are safe for simultaneous use by multiple
-</span><span class="c1">// goroutines.
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Context</span> <span class="kd">interface</span> <span class="p">{</span>
-    <span class="c1">// Done returns a channel that is closed when this Context is canceled
-</span><span class="c1"></span>    <span class="c1">// or times out.
-</span><span class="c1"></span>    <span class="nf">Done</span><span class="p">()</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kd">struct</span><span class="p">{}</span>
-
-    <span class="c1">// Err indicates why this context was canceled, after the Done channel
-</span><span class="c1"></span>    <span class="c1">// is closed.
-</span><span class="c1"></span>    <span class="nf">Err</span><span class="p">()</span> <span class="kt">error</span>
-
-    <span class="c1">// Deadline returns the time when this Context will be canceled, if any.
-</span><span class="c1"></span>    <span class="nf">Deadline</span><span class="p">()</span> <span class="p">(</span><span class="nx">deadline</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">,</span> <span class="nx">ok</span> <span class="kt">bool</span><span class="p">)</span>
-
-    <span class="c1">// Value returns the value associated with key or nil if none.
-</span><span class="c1"></span>    <span class="nf">Value</span><span class="p">(</span><span class="nx">key</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kd">interface</span><span class="p">{}</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">count</span><span class="p">(</span><span class="nx">reader</span> <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">line</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">reader</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">()</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="k">switch</span> <span class="nx">err</span> <span class="p">{</span>
+			<span class="k">default</span><span class="p">:</span>
+				<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to read&#34;</span><span class="p">)</span>
+			<span class="k">case</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span><span class="p">:</span>
+				<span class="k">return</span> <span class="nx">count</span><span class="p">,</span> <span class="kc">nil</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="nx">count</span><span class="o">++</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Context可以通过超时设置、携带取消信号、附加参数信息来方便goroutine里做相应的逻辑控制。</p>
-<ul>
-<li>
-<p>超时控制。 通过<code>context.WithTimeout</code>函数和<code>context.WithDeadline</code>函数可以创建一个有超时时间的Context。通过Context的<code>Done</code>函数可以判断是否超时了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">timeout</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="p">(</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">CancelFunc</span><span class="p">)</span>
-<span class="kd">func</span> <span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">d</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="p">(</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">CancelFunc</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>取消信号。通过<code>context.WithCancel</code>函数可以创建一个接收cancel信号的Context。通过Context的<code>Done</code>函数可以判断是否发出了cancel信号。父Context发出的cancel信号，子Context也可以接收到。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithCancel</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">)</span> <span class="p">(</span><span class="nx">ctx</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">cancel</span> <span class="nx">CancelFunc</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>附加参数信息。通过<code>context.WithValue</code>函数可以给Context添加参数。其中key和value都是空接口类型(<code>interface{}</code>)。通过Context的<code>Value</code>函数可以获取附加参数信息。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithValue</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">any</span><span class="p">)</span> <span class="nx">Context</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<p>在实际开发过程中，Context的使用流程一般是：</p>
-<ul>
-<li>Step 1: 创建Context，给Context指定超时时间，设置取消信号，或者附加参数(链路跟踪里经常使用Context里的附加参数，传递IP等链路跟踪信息)。</li>
-<li>Step 2: goroutine使用Step 1里的Context作为第一个参数，在该goroutine里就可以做如下事情：
-<ul>
-<li>使用Context里的<code>Done</code>函数判断是否达到了Context设置的超时时间或者Context是否被主动取消了。</li>
-<li>使用Context里的<code>Value</code>函数获取该Context里的附加参数信息。</li>
-<li>使用Context里的<code>Err</code>函数获取错误原因，目前原因就2个，要么是超时，要么是主动取消。</li>
-</ul>
-</li>
-</ul>
-<p>有2点要补充：</p>
-<ul>
-<li>第一，Context是可以组合的。比如，我们可以通过<code>context.WithTimeout</code>创建一个有超时时间的Context，再调用<code>context.WithValue</code>添加一些附加参数信息。</li>
-<li>第二，多个goroutine可以共享同一个Context，可以通过该Context的超时设置、携带取消信号以及附加参数来控制多个goroutine的行为。</li>
-</ul>
-<h2 id="常见错误">常见错误</h2>
-<p>在Context使用过程中有以下几个常见错误：</p>
-<ul>
-<li>
-<p>第一，不执行<code>cancel</code>函数去释放Context资源。</p>
-<ul>
-<li>
-<p>对于<code>context.WithTimeout</code>、<code>context.WithDeadline</code>、<code>context.WithCancel</code>函数返回的cancel函数，需要做执行。官方说明如下：</p>
+</div><p>err为<code>io.EOF</code>，就表示读到了空行。</p>
 <blockquote>
-<p>Canceling this context releases resources associated with it, so code should call cancel as soon as the operations running in this Context complete:</p>
+<p>EOF is the error returned by Read when no more input is available. (Read must return EOF itself, not an error wrapping EOF, because callers will test for EOF using ==.) Functions should return EOF only to signal a graceful end of input. If the EOF occurs unexpectedly in a structured data stream, the appropriate error is either ErrUnexpectedEOF or some other error giving more detail.</p>
 </blockquote>
-<p>参考代码示例：</p>
+<p>有了上面的<code>count</code>函数，我们就可以使用如下的方式打开文件，计算文件里空行的数量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -290,33 +276,28 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">slowOperationWithTimeout</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">(</span><span class="nx">Result</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nf">cancel</span><span class="p">()</span>  <span class="c1">// releases resources if slowOperation completes before timeout elapses
-</span><span class="c1"></span>	<span class="k">return</span> <span class="nf">slowOperation</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to open %s&#34;</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
 <span class="p">}</span>
+<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+<span class="nx">count</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">count</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">file</span><span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-</li>
-<li>
-<p>第二，不加超时控制，如果执行了非常耗时的rpc操作或者数据库操作，就会阻塞程序。如果rpc调用接口或者数据库操作接口支持传递Context参数，建议加上超时设置。代码示例参考如下：</p>
+</div><p>这种实现方式，我们就可以在计算逻辑里不需要关心真实的数据来源。同时，也可以方便我们做单元测试。</p>
+<p>比如我们可以直接把字符串作为输入，来测试上面实现的<code>count</code>函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
-<span class="nx">response</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">grpcClient</span><span class="p">.</span><span class="nf">Send</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">count</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">count</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="s">&#34;input&#34;</span><span class="p">)))</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-<h2 id="推荐阅读">推荐阅读</h2>
+</div><h2 id="推荐阅读">推荐阅读</h2>
 <ul>
 <li>
 <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484146&amp;idx=1&amp;sn=10fb12b643a2e37c090e5aa3bc583152&amp;chksm=ce124d9df965c48bb954aeddabdff3db12738ded3875542250c5d0ef6cfd4417fc56580288b1&amp;token=1912894792&amp;lang=zh_CN#rd">Go十大常见错误第1篇：未知枚举值</a></p>
@@ -340,6 +321,9 @@
 <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484299&amp;idx=1&amp;sn=583c3470a76e93b0af0d5fc04fe29b55&amp;chksm=ce124ce4f965c5f20de5887b113eab91f7c2654a941491a789e4ac53c298fbadb4367acee9bb&amp;token=1918756920&amp;lang=zh_CN#rd">Go十大常见错误第7篇：不使用-race选项做并发竞争检测</a></p>
 </li>
 <li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484317&amp;idx=1&amp;sn=474dad373684979fc96ba59182f08cf5&amp;chksm=ce124cf2f965c5e4a29e313b4654faacef03e78da7aaf2ba6912d7b490a1df851a1bcbfec1c9&amp;token=1918756920&amp;lang=zh_CN#rd">Go十大常见错误第8篇：并发编程中Context使用常见错误</a></p>
+</li>
+<li>
 <p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go面试题系列，看看你会几题？</a></p>
 </li>
 </ul>
@@ -353,11 +337,7 @@
 <p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
 <h2 id="references">References</h2>
 <ul>
-<li>参考文章：https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65</li>
-<li>官方文档：https://pkg.go.dev/context</li>
-<li>官方Context入门介绍：https://go.dev/blog/context</li>
-<li>Context使用介绍：https://mp.weixin.qq.com/s/PoXSEDHRyKCyjibFGS0wHw</li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go">https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go</a></li>
+<li><a href="https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65">https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65</a></li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -370,13 +350,9 @@
           <a href="/tags/go-mistakes/">go mistakes</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-common-mistakes-09-go-use-filename-as-input/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go十大常见错误第9篇：使用文件名称作为函数输入</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-common-mistakes-07-go-race-detector/">
-            <span class="next-text nav-default">Go十大常见错误第7篇：不使用-race选项做并发竞争检测</span>
+        
+        <a class="next" href="/post/go-common-mistakes-08-go-context-management/">
+            <span class="next-text nav-default">Go十大常见错误第8篇：并发编程中Context使用常见错误</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
