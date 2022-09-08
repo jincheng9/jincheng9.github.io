@@ -3,62 +3,69 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/go-mistakes/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/categories/go-mistakes/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <loc>http://jincheng9.github.io/post/go-common-mistakes-10-go-goroutine-loop-var/</loc>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/post/</loc>
-    <lastmod>2022-09-04T19:38:57+08:00</lastmod>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-09-04T19:40:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/</loc>
     <lastmod>2022-09-04T19:38:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

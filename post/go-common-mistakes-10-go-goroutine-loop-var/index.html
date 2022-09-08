@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go十大常见错误第9篇：使用文件名称作为函数输入 - Jincheng9&#39;s blog</title>
+  <title>Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第9篇：使用文件名称作为函数输入" /><meta name="keywords" content="go, go mistakes" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑" /><meta name="keywords" content="go, go mistakes" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-10-go-goroutine-loop-var/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go十大常见错误第9篇：使用文件名称作为函数输入" />
-<meta property="og:description" content="Go十大常见错误第9篇：使用文件名称作为函数输入" />
+<meta property="og:title" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑" />
+<meta property="og:description" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-09-go-use-filename-as-input/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-09-04T19:38:57+08:00" />
-<meta property="article:modified_time" content="2022-09-04T19:38:57+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-10-go-goroutine-loop-var/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-04T19:40:40+08:00" />
+<meta property="article:modified_time" content="2022-09-04T19:40:40+08:00" />
 
-<meta itemprop="name" content="Go十大常见错误第9篇：使用文件名称作为函数输入">
-<meta itemprop="description" content="Go十大常见错误第9篇：使用文件名称作为函数输入"><meta itemprop="datePublished" content="2022-09-04T19:38:57+08:00" />
-<meta itemprop="dateModified" content="2022-09-04T19:38:57+08:00" />
-<meta itemprop="wordCount" content="1455">
+<meta itemprop="name" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑">
+<meta itemprop="description" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑"><meta itemprop="datePublished" content="2022-09-04T19:40:40+08:00" />
+<meta itemprop="dateModified" content="2022-09-04T19:40:40+08:00" />
+<meta itemprop="wordCount" content="949">
 <meta itemprop="keywords" content="go,go mistakes," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go十大常见错误第9篇：使用文件名称作为函数输入"/>
-<meta name="twitter:description" content="Go十大常见错误第9篇：使用文件名称作为函数输入"/>
+<meta name="twitter:title" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑"/>
+<meta name="twitter:description" content="Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,7 +129,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go十大常见错误第9篇：使用文件名称作为函数输入</h1>
+      <h1 class="post-title">Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-09-04 </span>
@@ -137,8 +137,8 @@
             <a href="/categories/go/"> go </a>
             <a href="/categories/go-mistakes/"> go mistakes </a>
             </div>
-          <span class="more-meta"> 1455 words </span>
-          <span class="more-meta"> 3 mins read </span>
+          <span class="more-meta"> 949 words </span>
+          <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -151,8 +151,12 @@
     <li>
       <ul>
         <li><a href="#前言">前言</a></li>
-        <li><a href="#问题场景">问题场景</a></li>
-        <li><a href="#解决方案">解决方案</a></li>
+        <li><a href="#常见错误">常见错误</a>
+          <ul>
+            <li><a href="#解决方案1">解决方案1</a></li>
+            <li><a href="#解决方案2">解决方案2</a></li>
+          </ul>
+        </li>
         <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#开源地址">开源地址</a></li>
         <li><a href="#福利">福利</a></li>
@@ -165,110 +169,11 @@
 </div>
     <div class="post-content">
       <h2 id="前言">前言</h2>
-<p>这是Go十大常见错误系列的第9篇：使用文件名称作为函数输入。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
+<p>这是Go十大常见错误系列的第10篇：Goroutine和循环变量一起使用的坑。素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.medium.com/">Teiva Harsanyi</a>。</p>
 <p>本文涉及的源代码全部开源在：<a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p28">Go十大常见错误源代码</a>，欢迎大家关注公众号，及时获取本系列最新更新。</p>
-<h2 id="问题场景">问题场景</h2>
-<p>一个常见错误是把文件名作为函数参数，在函数里读取文件内容。</p>
-<p>比如，我们要实现一个函数，用来统计指定文件里有多少空行，很多人最容易联想到的实现方式如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">count</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to open %s&#34;</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-	<span class="nx">scanner</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
-	<span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Text</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
-			<span class="nx">count</span><span class="o">++</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">count</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这段代码逻辑很简单：</p>
-<ul>
-<li>文件名作为函数入参</li>
-<li>函数里读取文件每一行数据，判断是否为空行，如果是空行就计数+1</li>
-</ul>
-<p>这种方式其实也没大问题，比较好理解。只是可扩展性不强，没有充分利用到Go语言里关于数据读写的接口(interface)类型的优势。</p>
-<p>试想下，如果你想对一个HTTP body里的内容实现相同的逻辑，那上面的代码无法支持，要另外实现一个新的函数。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>Go语言里有2个很好的抽象接口(interface)，分别是<code>io.Reader</code>和<code>io.Writer</code>。</p>
-<p>和上面函数传参使用文件名不一样，我们可以使用<code>io.Reader</code>作为函数的参数类型。</p>
-<p>因为文件、HTTP body、<a href="https://pkg.go.dev/bytes#Buffer">bytes.Buffer</a>都实现了<code>io.Reader</code>，所以</p>
-<ul>
-<li>使用<code>io.Reader</code>作为函数参数可以兼容不同类型的数据源。</li>
-<li>不同的数据源，可以统一使用<code>io.Reader</code>类型里的<code>Read</code>方法来读取数据。</li>
-</ul>
-<p>具体到这个例子里，我们可以使用<code>bufio.Reader</code>和其<code>ReadLine</code>方法，代码如下所示：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">count</span><span class="p">(</span><span class="nx">reader</span> <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="p">{</span>
-		<span class="nx">line</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">reader</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">()</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">switch</span> <span class="nx">err</span> <span class="p">{</span>
-			<span class="k">default</span><span class="p">:</span>
-				<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to read&#34;</span><span class="p">)</span>
-			<span class="k">case</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span><span class="p">:</span>
-				<span class="k">return</span> <span class="nx">count</span><span class="p">,</span> <span class="kc">nil</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-			<span class="nx">count</span><span class="o">++</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>err为<code>io.EOF</code>，就表示读到了空行。</p>
-<blockquote>
-<p>EOF is the error returned by Read when no more input is available. (Read must return EOF itself, not an error wrapping EOF, because callers will test for EOF using ==.) Functions should return EOF only to signal a graceful end of input. If the EOF occurs unexpectedly in a structured data stream, the appropriate error is either ErrUnexpectedEOF or some other error giving more detail.</p>
-</blockquote>
-<p>有了上面的<code>count</code>函数，我们就可以使用如下的方式打开文件，计算文件里空行的数量。</p>
+<h2 id="常见错误">常见错误</h2>
+<p>对于Go初学者，很容易犯的一个错误就是goroutine和循环变量结合在一起使用时，错误地使用了循环变量。</p>
+<p>比如下面这个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -279,22 +184,58 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
-<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Wrapf</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;unable to open %s&#34;</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ints</span> <span class="p">{</span>
+  <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+  <span class="p">}()</span>
 <span class="p">}</span>
-<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-<span class="nx">count</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">count</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">file</span><span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>这种实现方式可以让我们在计算逻辑里不需要关心真正的数据来源。同时，也可以方便我们做单元测试。</p>
-<p>比如下面的例子，我们直接把字符串作为输入，来测试上面实现的<code>count</code>函数。</p>
+</div><p>这段程序的输出结果应该是什么？</p>
+<p>Go初学者可能认为输出结果应该是<code>1 2 3</code>，但实际情况并不是。</p>
+<p>这个例子里，3个goroutine共享同一个变量<code>i</code>，最后输出的结果大概率是输出<code>3 3 3</code>。</p>
+<p>要解决这个问题，主要有2个解决方案。</p>
+<h3 id="解决方案1">解决方案1</h3>
+<p>把循环变量<code>i</code>作为goroutine函数的一个参数，编译器在执行<code>go func(i int)</code>时，就会解析到<code>i</code>的值，确保每个goroutine可以拿到自己想要的值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">count</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">count</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="s">&#34;input&#34;</span><span class="p">)))</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ints</span> <span class="p">{</span>
+  <span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+  <span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解决方案2">解决方案2</h3>
+<p>创建一个新的变量，用于goroutine。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ints</span> <span class="p">{</span>
+  <span class="nx">i</span> <span class="o">:=</span> <span class="nx">i</span>
+  <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+  <span class="p">}()</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="推荐阅读">推荐阅读</h2>
@@ -350,13 +291,9 @@
           <a href="/tags/go-mistakes/">go mistakes</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-common-mistakes-10-go-goroutine-loop-var/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-common-mistakes-08-go-context-management/">
-            <span class="next-text nav-default">Go十大常见错误第8篇：并发编程中Context使用常见错误</span>
+        
+        <a class="next" href="/post/go-common-mistakes-09-go-use-filename-as-input/">
+            <span class="next-text nav-default">Go十大常见错误第9篇：使用文件名称作为函数输入</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
