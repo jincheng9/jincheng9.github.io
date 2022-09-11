@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go security on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/categories/go-security/</link>
+    <description>Recent content in go security on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Sep 2022 14:43:29 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go的全新漏洞检测工具govulncheck来了</title>
+      <link>http://jincheng9.github.io/post/go-vulnerability-management/</link>
+      <pubDate>Sun, 11 Sep 2022 14:43:29 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-vulnerability-management/</guid>
+      <description>前言 Go安全团队在2022.09.06发布了全新的漏洞检测工具govulncheck，可以帮助我们发现Go程序里的安全漏洞。 本文详细介绍该工</description>
+    </item>
+    
+  </channel>
+</rss>

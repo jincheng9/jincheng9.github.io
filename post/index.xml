@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Sep 2022 19:40:40 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Sep 2022 14:43:29 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go的全新漏洞检测工具govulncheck来了</title>
+      <link>http://jincheng9.github.io/post/go-vulnerability-management/</link>
+      <pubDate>Sun, 11 Sep 2022 14:43:29 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-vulnerability-management/</guid>
+      <description>前言 Go安全团队在2022.09.06发布了全新的漏洞检测工具govulncheck，可以帮助我们发现Go程序里的安全漏洞。 本文详细介绍该工</description>
+    </item>
+    
     <item>
       <title>Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-10-go-goroutine-loop-var/</link>
