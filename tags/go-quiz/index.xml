@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go quiz on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/go-quiz/</link>
+    <description>Recent content in go quiz on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Sep 2022 09:34:26 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go-quiz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Quiz: 从Go面试题看recover注意事项第1篇</title>
+      <link>http://jincheng9.github.io/post/go-quiz-recover-0/</link>
+      <pubDate>Sat, 17 Sep 2022 09:34:26 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-quiz-recover-0/</guid>
+      <description>面试题 这是Go Quiz系列里关于recover的第1篇，主要考察recover函数在什么情况下可以捕获到panic。 1 2 3 4 5 6 7 8 func main() { fmt.Print(&amp;#34;1</description>
+    </item>
+    
+  </channel>
+</rss>
