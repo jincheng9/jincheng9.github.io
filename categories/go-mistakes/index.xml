@@ -8,12 +8,12 @@
     <language>en</language>
     <lastBuildDate>Sat, 08 Oct 2022 23:18:03 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go常见错误第11篇：意外的变量隐藏(variable shadowing)</title>
+      <title>Go常见错误第11篇：意外的变量遮蔽(variable shadowing)</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</link>
       <pubDate>Sat, 08 Oct 2022 23:18:03 +0800</pubDate>
       
       <guid>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</guid>
-      <description>前言 这是Go常见错误系列的第11篇：Go语言中意外的变量隐藏。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。</description>
+      <description>前言 这是Go常见错误系列的第11篇：Go语言中意外的变量遮蔽。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。</description>
     </item>
     
     <item>
