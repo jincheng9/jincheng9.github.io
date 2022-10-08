@@ -6,7 +6,16 @@
     <description>Recent content in go mistakes on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Sep 2022 19:40:40 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2022 23:18:03 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第11篇：意外的变量隐藏(variable shadowing)</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</link>
+      <pubDate>Sat, 08 Oct 2022 23:18:03 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</guid>
+      <description>前言 这是Go常见错误系列的第11篇：Go语言中意外的变量隐藏。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。</description>
+    </item>
+    
     <item>
       <title>Go十大常见错误第10篇：Goroutine和循环变量一起使用的坑</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-10-go-goroutine-loop-var/</link>

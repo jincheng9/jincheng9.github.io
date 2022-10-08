@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Oct 2022 10:19:36 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2022 23:18:03 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第11篇：意外的变量隐藏(variable shadowing)</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</link>
+      <pubDate>Sat, 08 Oct 2022 23:18:03 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-11-variable-shadowing/</guid>
+      <description>前言 这是Go常见错误系列的第11篇：Go语言中意外的变量隐藏。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。</description>
+    </item>
+    
     <item>
       <title>Docker技术PPT分享给大家</title>
       <link>http://jincheng9.github.io/post/docker-ppt-tech-share/</link>
