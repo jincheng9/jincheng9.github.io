@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Oct 2022 22:56:11 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 00:14:47 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第13篇：init函数的常见错误和最佳实践</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-13-go-package-init-func/</link>
+      <pubDate>Sun, 23 Oct 2022 00:14:47 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-13-go-package-init-func/</guid>
+      <description>前言 这是Go常见错误系列的第13篇：init函数的常见错误和最佳实践。 素材来源于Go布道者，现Docker公司资深工程师Teiva Harsa</description>
+    </item>
+    
     <item>
       <title>Go常见错误第12篇：冗余的嵌套代码</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-12-arrow-code/</link>
