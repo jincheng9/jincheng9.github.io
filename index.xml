@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Oct 2022 00:14:47 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Nov 2022 21:43:06 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装或卸载Anaconda后Windows自带的cmd窗口会闪退</title>
+      <link>http://jincheng9.github.io/post/python-anaconda-windows-cmd/</link>
+      <pubDate>Thu, 03 Nov 2022 21:43:06 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/python-anaconda-windows-cmd/</guid>
+      <description>问题现象 Anaconda初次安装或者重装后，如果打开Windows系统自带的cmd命令窗口，会马上闪退。 Win + R，输入cmd就闪退。 Win + R，输</description>
+    </item>
+    
     <item>
       <title>Go常见错误第13篇：init函数的常见错误和最佳实践</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-13-go-package-init-func/</link>
