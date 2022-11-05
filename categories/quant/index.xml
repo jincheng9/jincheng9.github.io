@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quant on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/categories/quant/</link>
+    <description>Recent content in quant on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Nov 2022 14:12:29 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>百亿华尔街投资总监推荐的量化投资经典书籍</title>
+      <link>http://jincheng9.github.io/post/quant-00-books/</link>
+      <pubDate>Sat, 05 Nov 2022 14:12:29 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/quant-00-books/</guid>
+      <description>前言 一直有人找我推荐量化投资的经典书籍，刚好我合作的管理过百亿规模的华尔街资深投资总监最近推荐了一些量化投资的经典书籍。 这些书我之前刚好都看</description>
+    </item>
+    
+  </channel>
+</rss>
