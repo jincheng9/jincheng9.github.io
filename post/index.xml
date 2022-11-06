@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Nov 2022 20:56:46 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 13:35:10 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第14篇：过度使用getter和setter方法</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-14-overuse-getter-setter/</link>
+      <pubDate>Sun, 06 Nov 2022 13:35:10 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-14-overuse-getter-setter/</guid>
+      <description>前言 这是Go常见错误系列的第14篇：过度使用getter和setter方法。 素材来源于Go布道者，现Docker公司资深工程师Teiva Ha</description>
+    </item>
+    
     <item>
       <title>Mac如何升级操作系统</title>
       <link>http://jincheng9.github.io/post/sre-mac-os-update/</link>
