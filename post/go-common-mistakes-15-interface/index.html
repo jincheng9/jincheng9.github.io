@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go常见错误第15篇：interface使用的常见错误和最佳实践 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" /><meta name="keywords" content="go mistakes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-15-interface/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" />
+<meta property="og:description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-15-interface/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-19T23:30:45+08:00" />
+<meta property="article:modified_time" content="2022-11-19T23:30:45+08:00" />
+
+<meta itemprop="name" content="Go常见错误第15篇：interface使用的常见错误和最佳实践">
+<meta itemprop="description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"><meta itemprop="datePublished" content="2022-11-19T23:30:45+08:00" />
+<meta itemprop="dateModified" content="2022-11-19T23:30:45+08:00" />
+<meta itemprop="wordCount" content="3382">
+<meta itemprop="keywords" content="go mistakes," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"/>
+<meta name="twitter:description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go常见错误第15篇：interface使用的常见错误和最佳实践</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-11-19 </span>
+        <div class="post-category">
+            <a href="/categories/go-mistakes/"> go mistakes </a>
+            </div>
+          <span class="more-meta"> 3382 words </span>
+          <span class="more-meta"> 7 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#常见错误和最佳实践">常见错误和最佳实践</a>
+          <ul>
+            <li><a href="#interface重要概念回顾">interface重要概念回顾</a></li>
+            <li><a href="#何时使用interface">何时使用interface</a></li>
+            <li><a href="#乱用interface的场景">乱用Interface的场景</a></li>
+            <li><a href="#注意事项">注意事项</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#推荐阅读">推荐阅读</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#福利">福利</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>这是Go常见错误系列的第15篇：interface使用的常见错误和最佳实践。</p>
+<p>素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.github.io/">Teiva Harsanyi</a>。</p>
+<p>本文涉及的源代码全部开源在：<a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p28">Go常见错误源代码</a>，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<h2 id="常见错误和最佳实践">常见错误和最佳实践</h2>
+<p>interface是Go语言里的核心功能，但是在日常开发中，经常会出现interface被乱用的情况，代码过度抽象，或者抽象不合理，导致代码晦涩难懂。</p>
+<p>本文先带大家回顾下interface的重要概念，然后讲解使用interface的常见错误和最佳实践。</p>
+<h3 id="interface重要概念回顾">interface重要概念回顾</h3>
+<p>interface里面包含了若干个方法，大家可以理解为一个interface代表了一类群体的共同行为。</p>
+<p>结构体要实现interface不需要类似implement的关键字，只要该结构体实现了interface里的所有方法即可。</p>
+<p>我们拿Go语言里的io标准库来说明interface的强大之处。io标准库包含了2个interface：</p>
+<ul>
+<li>io.Reader：表示从某个数据源读数据</li>
+<li>io.Writer：表示写数据到目标位置，比如写到指定文件或者数据库</li>
+</ul>
+<h5 id="figure-23-ioreader-reads-from-a-data-source-and-fills-a-byte-slice-whereas-iowriter-writes-to-a-target-from-a-byte-slice">Figure 2.3 io.Reader reads from a data source and fills a byte slice, whereas io.Writer writes to a target from a byte slice.</h5>
+<p><img src="https://drek4537l1klr.cloudfront.net/harsanyi/Figures/CH02_F03_Harsanyi.png" alt="img"></p>
+<p>io.Reader这个interface里只有一个Read方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Read reads up to len(p) bytes into p. It returns the number of bytes read (0 &lt;= n &lt;= len(p)) and any error encountered. Even if Read returns n &lt; len(p), it may use all of p as scratch space during the call. If some data is available but not len(p) bytes, Read conventionally returns what is available instead of waiting for more.</p>
+</blockquote>
+<p>如果某个结构体要实现io.Reader，需要实现Read方法。这个方法要包含以下逻辑：</p>
+<ul>
+<li>入参：接受元素类型为byte的slice作为方法的入参。</li>
+<li>方法逻辑：把Reader对象里的数据读出来赋值给p。比如Reader对象可能是一个strings.Reader，那调用Read方法就是把string的值赋值给p。</li>
+<li>返回值：要么返回读到的字节数，要么返回error。</li>
+</ul>
+<p>io.Writer这个interface里只有一个Write方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Write writes len(p) bytes from p to the underlying data stream. It returns the number of bytes written from p (0 &lt;= n &lt;= len(p)) and any error encountered that caused the write to stop early. Write must return a non-nil error if it returns n &lt; len(p). Write must not modify the slice data, even temporarily.</p>
+</blockquote>
+<p>如果某个结构体要实现io.Writer，需要实现Write方法。这个方法要包含以下逻辑：</p>
+<ul>
+<li>入参：接受元素类型为byte的slice作为方法的入参。</li>
+<li>方法逻辑：把p的值写入到Writer对象。比如Writer对象可能是一个os.File类型，那调用Write方法就是把p的值写入到文件里。</li>
+<li>返回值：要么返回写入的字节数，要么返回error。</li>
+</ul>
+<p>这2个函数看起来非常抽象，很多Go初级开发者都不太理解，为啥要设计这样2个interface？</p>
+<p>试想这样一个场景，假设我们要实现一个函数，功能是拷贝一个文件的内容到另一个文件。</p>
+<ul>
+<li>
+<p>方式1：这个函数用2个*os.Files作为参数，来从一个文件读内容，写入到另一个文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">copySourceToDest</span><span class="p">(</span><span class="nx">source</span> <span class="o">*</span><span class="nx">io</span><span class="p">.</span><span class="nx">File</span><span class="p">,</span> <span class="nx">dest</span> <span class="o">*</span><span class="nx">io</span><span class="p">.</span><span class="nx">File</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>方式2：使用io.Reader和io.Writer作为参数。由于os.File实现了io.Reader和io.Writer，所以os.File也可以作为下面函数的参数，传参给source和dest。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">copySourceToDest</span><span class="p">(</span><span class="nx">source</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">dest</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>方法2的实现会更通用一些，source既可以是文件，也可以是字符串对象(strings.Reader)，dest既可以是文件，也可以是其它数据库对象(比如我们自己实现一个io.Writer，Write方法是把数据写入到数据库)。</p>
+</li>
+</ul>
+<p>在设计interface的时候要考虑到简洁性，如果interface里定义的方法很多，那这个interface的抽象就会不太好。</p>
+<p>引用Go语言设计者Rob Pike在Gopherfest 2015上的技术分享<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=318s">Go Proverbs with Rob Pike</a>中关于interface的说明：</p>
+<blockquote>
+<p>The bigger the interface, the weaker the abstraction.</p>
+</blockquote>
+<p>当然，我们也可以把多个interface结合为一个interface，在有些场景下是可以方便代码编写的。</p>
+<p>比如io.ReaderWriter就结合了io.Reader和io.Writer的方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">type ReadWriter interface {
+    Reader
+    Writer
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="何时使用interface">何时使用interface</h3>
+<p>下面介绍2个常见的使用interface的场景。</p>
+<h4 id="公共行为可以抽象为interface">公共行为可以抽象为interface</h4>
+<p>比如上面介绍过的io.Reader和io.Writer就是很好的例子。Go标准库里大量使用interface，感兴趣的可以去查阅源代码。</p>
+<h4 id="使用interface让struct成员变量变为private">使用interface让Struct成员变量变为private</h4>
+<p>比如下面这段代码示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="kd">type</span> <span class="nx">Halloween</span> <span class="kd">struct</span> <span class="p">{</span>
+   <span class="nx">Day</span><span class="p">,</span> <span class="nx">Month</span> <span class="kt">string</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">NewHalloween</span><span class="p">()</span> <span class="nx">Halloween</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="nx">Halloween</span> <span class="p">{</span> <span class="nx">Month</span><span class="p">:</span> <span class="s">&#34;October&#34;</span><span class="p">,</span> <span class="nx">Day</span><span class="p">:</span> <span class="s">&#34;31&#34;</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">Halloween</span><span class="p">)</span> <span class="nf">UK</span><span class="p">(</span><span class="nx">Year</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Day</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Month</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">Year</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">Halloween</span><span class="p">)</span> <span class="nf">US</span><span class="p">(</span><span class="nx">Year</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Month</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Day</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">Year</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">o</span> <span class="o">:=</span> <span class="nf">NewHalloween</span><span class="p">()</span>
+   <span class="nx">s_uk</span> <span class="o">:=</span> <span class="nx">o</span><span class="p">.</span><span class="nf">UK</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">)</span>
+   <span class="nx">s_us</span> <span class="o">:=</span> <span class="nx">o</span><span class="p">.</span><span class="nf">US</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">)</span>
+   <span class="nb">println</span><span class="p">(</span><span class="nx">s_uk</span><span class="p">,</span> <span class="nx">s_us</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>变量o可以直接访问Halloween结构体里的所有成员变量。</p>
+<p>有时候我们可能想做一些限制，不希望结构体里的成员变量被随意访问和修改，那就可以借助interface。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Country</span> <span class="kd">interface</span> <span class="p">{</span>
+   <span class="nf">UK</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
+   <span class="nf">US</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">NewHalloween</span><span class="p">()</span> <span class="nx">Country</span> <span class="p">{</span>
+   <span class="nx">o</span> <span class="o">:=</span> <span class="nx">Halloween</span> <span class="p">{</span> <span class="nx">Month</span><span class="p">:</span> <span class="s">&#34;October&#34;</span><span class="p">,</span> <span class="nx">Day</span><span class="p">:</span> <span class="s">&#34;31&#34;</span> <span class="p">}</span>
+   <span class="k">return</span> <span class="nf">Country</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们定义一个新的interface去实现Halloween的所有方法，然后NewHalloween返回这个interface类型。</p>
+<p>那外部调用NewHalloween得到的对象就只能使用Halloween结构体里定义的方法，而不能访问结构体的成员变量。</p>
+<h3 id="乱用interface的场景">乱用Interface的场景</h3>
+<p>interface在Go代码里经常被乱用，不少C#或者Java开发背景的人在转Go的时候，通常会先把接口类型抽象好，再去定义具体的类型。</p>
+<p>然后，这并不是Go里推荐的。</p>
+<blockquote>
+<p>Don’t design with interfaces, discover them.</p>
+<p>—Rob Pike</p>
+</blockquote>
+<p>正如Rob Pike所说，不要一上来做代码设计的时候就先把interface给定义了。</p>
+<p>除非真的有需要，否则是不推荐一开始就在代码里使用interface的。</p>
+<p>最佳实践应该是先不要想着interface，因为过度使用interface会让代码晦涩难懂。</p>
+<p>我们应该先按照没有interface的场景去写代码，如果最后发现使用interface能带来额外的好处，再去使用interface。</p>
+<h3 id="注意事项">注意事项</h3>
+<p>使用interface进行方法调用的时候，有些开发者可能遇到过一些性能问题。</p>
+<p>因为程序运行的时候，需要去哈希表数据结构里找到interface的具体实现类型，然后调用该类型的方法。</p>
+<p>但是这个开销是很小的，通常不需要关注。</p>
+<h2 id="总结">总结</h2>
+<p>interface是Go语言里一个核心功能，但是使用不当也会导致代码晦涩难懂。</p>
+<p>因此，不要在写代码的时候一上来就先写interface。</p>
+<p>要先按照没有interface的场景去写代码，如果最后发现使用interface真的可以带来好处再去使用interface。</p>
+<p>如果使用interface没有让代码更好，那就不要使用interface，这样会让代码更简洁易懂。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<ul>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go面试题系列，看看你会几题？</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484146&amp;idx=1&amp;sn=10fb12b643a2e37c090e5aa3bc583152&amp;chksm=ce124d9df965c48bb954aeddabdff3db12738ded3875542250c5d0ef6cfd4417fc56580288b1&amp;token=1912894792&amp;lang=zh_CN#rd">Go常见错误第1篇：未知枚举值</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484163&amp;idx=1&amp;sn=b28d61c1f3ec9d914e698dce105ba5d1&amp;chksm=ce124c6cf965c57a90bc85a5295ed9375103de20607b509f845583ff6686385df0ed96653d00&amp;token=1912894792&amp;lang=zh_CN#rd">Go常见错误第2篇：benchmark性能测试的坑</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484247&amp;idx=1&amp;sn=faf716627afb00df646cecff023fb63c&amp;chksm=ce124c38f965c52efd009a4c98691d56b5765dc7dce98aa49b226ad9274bd062d8d01e702e91&amp;token=1899277735&amp;lang=zh_CN#rd">Go常见错误第3篇：go指针的性能问题和内存逃逸</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484262&amp;idx=1&amp;sn=c1bea8af60444a4ef73c4d4d7a09d16d&amp;chksm=ce124c09f965c51f3663ac9089a792d36c3685850e12695dd26d15a1a50f393b2d7c92b9983a&amp;token=461369035&amp;lang=zh_CN#rd">Go常见错误第4篇：break操作的注意事项</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484274&amp;idx=1&amp;sn=711abea3c6fd5d15341ee1b34da8a160&amp;chksm=ce124c1df965c50b3af84965f7ed30b574cd0b247ea6f77b944ec858bd43ee37f4c1554a5bce&amp;token=1846351524&amp;lang=zh_CN#rd">Go常见错误第5篇：Go语言Error管理</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484289&amp;idx=1&amp;sn=2b8171458cde4425b28fdf8f51df8d7c&amp;chksm=ce124ceef965c5f8a14f5951457ce2ac0ecc4612cf2013957f1d818b6e74da7c803b9df1d394&amp;token=1477304797&amp;lang=zh_CN#rd">Go常见错误第6篇：slice初始化常犯的错误</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484299&amp;idx=1&amp;sn=583c3470a76e93b0af0d5fc04fe29b55&amp;chksm=ce124ce4f965c5f20de5887b113eab91f7c2654a941491a789e4ac53c298fbadb4367acee9bb&amp;token=1918756920&amp;lang=zh_CN#rd">Go常见错误第7篇：不使用-race选项做并发竞争检测</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484317&amp;idx=1&amp;sn=474dad373684979fc96ba59182f08cf5&amp;chksm=ce124cf2f965c5e4a29e313b4654faacef03e78da7aaf2ba6912d7b490a1df851a1bcbfec1c9&amp;token=1918756920&amp;lang=zh_CN#rd">Go常见错误第8篇：并发编程中Context使用常见错误</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484325&amp;idx=1&amp;sn=689c1b3823697cc583e1e818c4c76ee5&amp;chksm=ce124ccaf965c5dce4e497f6251c5f0a8473b8e2ae3824bd72fe8c532d6dd84e6375c3990b3e&amp;token=1266762504&amp;lang=zh_CN#rd">Go常见错误第9篇：使用文件名称作为函数输入</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484335&amp;idx=1&amp;sn=cc8c6ceae72b30ec6f4d4e7b4367baca&amp;chksm=ce124cc0f965c5d60410f977cdf31f127694fd0d49c35e2061ce8fb5fb9387bfa321196db438&amp;token=1656737387&amp;lang=zh_CN#rd">Go常见错误第10篇：Goroutine和循环变量一起使用的坑</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484519&amp;idx=1&amp;sn=00f13bdb95bd8f7c4eb1582a4c981991&amp;chksm=ce124b08f965c21e28ea3a1c67b3b501fe45ba1a2c4af5048cad3a2d5d8303b6fc0192235b6d&amp;token=1762934632&amp;lang=zh_CN#rd">Go常见错误第11篇：意外的变量遮蔽(variable shadowing)</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484539&amp;idx=1&amp;sn=189ff2e8fdb4a7d18620f9367128d6c4&amp;chksm=ce124b14f965c20269c766a0f18f98cc8b9e340317669034a074d39843f2f9a94f3c9caf18da&amp;token=329552886&amp;lang=zh_CN#rd">Go常见错误第12篇：如何破解箭头型代码</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484553&amp;idx=1&amp;sn=a4de11c452157193ae4381ab3555c42c&amp;chksm=ce124be6f965c2f0885b8acf21c867e82d09807eba7be7890c54c01acf2b6fc413267e90d371&amp;token=2029492652&amp;lang=zh_CN#rd">Go常见错误第13篇：init函数的常见错误和最佳实践</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484568&amp;idx=1&amp;sn=2f078aa6561093691b4aeae58de44830&amp;chksm=ce124bf7f965c2e17b99896393dfb684d5868156ea4e0b324bc86e2dcc596ea55d5e6c562c29&amp;token=1629431500&amp;lang=zh_CN#rd">Go常见错误第14篇：过度使用getter和setter方法 </a></p>
+</li>
+</ul>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="福利">福利</h2>
+<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
+<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。</p>
+<p>发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://livebook.manning.com/book/100-go-mistakes-how-to-avoid-them/chapter-2/">https://livebook.manning.com/book/100-go-mistakes-how-to-avoid-them/chapter-2/</a></li>
+<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson18">https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson18</a></li>
+<li><a href="https://bbs.huaweicloud.com/blogs/348512">https://bbs.huaweicloud.com/blogs/348512</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go-mistakes/">go mistakes</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-official-blog-go-13-years/">
+            <span class="next-text nav-default">Go语言开源13周年啦，看看负责人说了啥</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
