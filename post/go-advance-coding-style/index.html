@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Google重磅发布Go语言编码规范 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Google重磅发布Go语言编码规范" /><meta name="keywords" content="Google重磅发布Go语言编码规范" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go-advance-coding-style/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Google重磅发布Go语言编码规范" />
+<meta property="og:description" content="Google重磅发布Go语言编码规范" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-advance-coding-style/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-27T11:42:02+08:00" />
+<meta property="article:modified_time" content="2022-11-27T11:42:02+08:00" />
+
+<meta itemprop="name" content="Google重磅发布Go语言编码规范">
+<meta itemprop="description" content="Google重磅发布Go语言编码规范"><meta itemprop="datePublished" content="2022-11-27T11:42:02+08:00" />
+<meta itemprop="dateModified" content="2022-11-27T11:42:02+08:00" />
+<meta itemprop="wordCount" content="1828">
+<meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Google重磅发布Go语言编码规范"/>
+<meta name="twitter:description" content="Google重磅发布Go语言编码规范"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Google重磅发布Go语言编码规范</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-11-27 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+          <span class="more-meta"> 1828 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#社区的go语言编码规范">社区的Go语言编码规范</a></li>
+        <li><a href="#google的go语言编码规范">Google的Go语言编码规范</a></li>
+        <li><a href="#编码规范举例">编码规范举例</a>
+          <ul>
+            <li><a href="#package命名">package命名</a></li>
+            <li><a href="#receiver命名">Receiver命名</a></li>
+          </ul>
+        </li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#福利">福利</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>Google官方在2022.11.23重磅发布了Go语言编码规范。</p>
+<p>这个编码规范源自于Google内部的Go项目，是Google的开发人员要遵守的代码规范。</p>
+<p>在Go语言诞生后，全世界的Go开发者其实一直期盼着能有官方的编码规范，但迟迟未能如愿。</p>
+<p>有些技术团队根据自己原来的编程语言背景，直接照搬过来，用于公司内部的Go语言编码规范。</p>
+<p>尤其是写Java的，把Java的编程语言规范用于Go语言是非常不合适的。</p>
+<p>为了让Go开发者可以知道如何写出更简洁、更地道的Go代码，官方也做出了一些努力，推出了Effective Go和Go Code Review Comments。</p>
+<ul>
+<li>
+<p>Go官方的Effective Go: <a href="https://go.dev/doc/effective_go">https://go.dev/doc/effective_go</a>。</p>
+<blockquote>
+<p>Note added January, 2022: This document was written for Go&rsquo;s release in 2009, and has not been updated significantly since. Although it is a good guide to understand how to use the language itself, thanks to the stability of the language, it says little about the libraries and nothing about significant changes to the Go ecosystem since it was written, such as the build system, testing, modules, and polymorphism. There are no plans to update it, as so much has happened and a large and growing set of documents, blogs, and books do a fine job of describing modern Go usage. Effective Go continues to be useful, but the reader should understand it is far from a complete guide. See <a href="https://github.com/golang/go/issues/28782">issue 28782</a> for context.</p>
+</blockquote>
+</li>
+<li>
+<p>Go官方的Code Review Comments: <a href="https://github.com/golang/go/wiki/CodeReviewComments">https://github.com/golang/go/wiki/CodeReviewComments</a></p>
+</li>
+</ul>
+<p>Effective Go主要讲解的是Go语言的语法细节以及一些最佳实践。Code Review Comments包含了一些Code Review过程中经常出现的问题。这2个指引可以拿来作为参考，但不足以成为一个非常完善齐全的Go语言编码规范。</p>
+<h2 id="社区的go语言编码规范">社区的Go语言编码规范</h2>
+<p>这些年整个Go社区陆续诞生了一些有影响力的Go语言编码规范，主要有以下这些：</p>
+<ul>
+<li>Uber的编码规范：https://github.com/uber-go/guide</li>
+<li>CockroachDB的编码规范：https://wiki.crdb.io/wiki/spaces/CRDB/pages/181371303/Go+style+guide</li>
+</ul>
+<p>Uber的编码规范开源在GitHub，业界认可度最高。</p>
+<p>接下来我们看看这次Google推出的Go语言编码规范包含哪些内容。</p>
+<h2 id="google的go语言编码规范">Google的Go语言编码规范</h2>
+<p>需要申明的是，这是Google推出的Go语言编码规范，并不是Go团队自己单独推出的Go语言编码规范。</p>
+<p>这次发布的Go语言编码规范主要包含Style Guide，Style Decisions和Best Practices这三部分内容。</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Link</th>
+<th>Primary Audience</th>
+<th><a href="https://google.github.io/styleguide/go/index#normative">Normative</a></th>
+<th><a href="https://google.github.io/styleguide/go/index#canonical">Canonical</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Style Guide</strong></td>
+<td><a href="https://google.github.io/styleguide/go/guide">https://google.github.io/styleguide/go/guide</a></td>
+<td>Everyone</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Style Decisions</strong></td>
+<td><a href="https://google.github.io/styleguide/go/decisions">https://google.github.io/styleguide/go/decisions</a></td>
+<td>Readability Mentors</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Best Practices</strong></td>
+<td><a href="https://google.github.io/styleguide/go/best-practices">https://google.github.io/styleguide/go/best-practices</a></td>
+<td>Anyone interested</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Style Guide是Go编码规范的基础，这里描述的规则是通用的，所有Go开发者都必须遵守。Style Decisions和Best Practices都遵循了Style Guide里的规则。</li>
+<li>Style Decisions讲述了部分具体的编码规范以及背后的原因。这里的内容会随着新的语言特性、新的库或者新的编程模式而发生变化。</li>
+<li>Best Practices讲述了具体写代码过程中的最佳实践。参考这个最佳实践，可以让代码的可读性更好、代码更健壮，有利于代码的可持续维护。</li>
+</ol>
+<h2 id="编码规范举例">编码规范举例</h2>
+<h3 id="package命名">package命名</h3>
+<p>比如在style decisions里，对于package的命名规范，Google给出的建议是：</p>
+<p>Go package的命名要短小，且只有小写字母。如果package的名字由多个单词组成，需要全部小写，且中间不要用任何符号做分隔。</p>
+<p>例如，推荐用<code>tabwriter</code>，不推荐用<code>tabWriter</code>，<code>TabWriter</code>，<code>tab_writer</code>。</p>
+<h3 id="receiver命名">Receiver命名</h3>
+<p>又比如对于Receiver的变量命名，Google的编码风格是：</p>
+<ul>
+<li>短，通常只有1个或者2个字母。</li>
+<li>是Receiver变量的类型名称的缩写。</li>
+<li>对于该类型的所有Receiver变量命名都保持一致。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>坏的命名风格</th>
+<th>好的命名风格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>func (tray Tray)</code></td>
+<td><code>func (t Tray)</code></td>
+</tr>
+<tr>
+<td><code>func (info *ResearchInfo)</code></td>
+<td><code>func (ri *ResearchInfo)</code></td>
+</tr>
+<tr>
+<td><code>func (this *ReportWriter)</code></td>
+<td><code>func (w *ReportWriter)</code></td>
+</tr>
+<tr>
+<td><code>func (self *Scanner)</code></td>
+<td><code>func (s *Scanner)</code></td>
+</tr>
+</tbody>
+</table>
+<p>还有更多非常好的编码风格就不在本文里全部列出了。</p>
+<p>本人正在对该编码风格做翻译，开源在GitHub：https://github.com/jincheng9/google-go-style-guide，欢迎大家关注。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="福利">福利</h2>
+<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
+<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。</p>
+<p>发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://google.github.io/styleguide/go/index">https://google.github.io/styleguide/go/index</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-common-mistakes-15-interface/">
+            <span class="next-text nav-default">Go常见错误第15篇：interface使用的常见错误和最佳实践</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
