@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Nov 2022 11:42:02 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Dec 2022 14:48:01 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xshell连接如何记住用户秘钥文件</title>
+      <link>http://jincheng9.github.io/post/sre-xshell-public-key/</link>
+      <pubDate>Sun, 04 Dec 2022 14:48:01 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/sre-xshell-public-key/</guid>
+      <description>场景描述 服务器ssh登录有2种常用的方式： 方式1：用户密码认证，登录时输入用户名和密码。 方式2：公钥认证(Public Key User Authentic</description>
+    </item>
+    
     <item>
       <title>Google重磅发布Go语言编码规范</title>
       <link>http://jincheng9.github.io/post/go-advance-coding-style/</link>

@@ -3,7 +3,77 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2022-11-27T11:42:02+08:00</lastmod>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/public-key/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/public-key/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/ssh/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/ssh/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/xshell/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/xshell/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/sre-xshell-public-key/</loc>
+    <lastmod>2022-12-04T14:48:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,27 +94,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/post/go-advance-coding-style/</loc>
-    <lastmod>2022-11-27T11:42:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2022-11-27T11:42:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/post/</loc>
-    <lastmod>2022-11-27T11:42:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2022-11-27T11:42:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -430,20 +479,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/github/</loc>
-    <lastmod>2022-05-28T10:47:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/ssh/</loc>
-    <lastmod>2022-05-28T10:47:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/ssh/</loc>
     <lastmod>2022-05-28T10:47:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
