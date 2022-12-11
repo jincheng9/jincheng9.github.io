@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go 1.20要来了，看看都有哪些变化-第1篇 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go 1.20要来了，看看都有哪些变化-第1篇" /><meta name="keywords" content="go1.20" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.20rc1-0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go 1.20要来了，看看都有哪些变化-第1篇" />
+<meta property="og:description" content="Go 1.20要来了，看看都有哪些变化-第1篇" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.20rc1-0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-11T22:01:02+08:00" />
+<meta property="article:modified_time" content="2022-12-11T22:01:02+08:00" />
+
+<meta itemprop="name" content="Go 1.20要来了，看看都有哪些变化-第1篇">
+<meta itemprop="description" content="Go 1.20要来了，看看都有哪些变化-第1篇"><meta itemprop="datePublished" content="2022-12-11T22:01:02+08:00" />
+<meta itemprop="dateModified" content="2022-12-11T22:01:02+08:00" />
+<meta itemprop="wordCount" content="2666">
+<meta itemprop="keywords" content="go1.20," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go 1.20要来了，看看都有哪些变化-第1篇"/>
+<meta name="twitter:description" content="Go 1.20要来了，看看都有哪些变化-第1篇"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go 1.20要来了，看看都有哪些变化-第1篇</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-12-11 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+          <span class="more-meta"> 2666 words </span>
+          <span class="more-meta"> 6 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#go-120发布清单">Go 1.20发布清单</a>
+          <ul>
+            <li><a href="#语言变化">语言变化</a></li>
+            <li><a href="#可移植性">可移植性</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#福利">福利</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>Go官方团队在2022.12.08发布了Go 1.20 rc1版本，Go 1.20的正式release版本预计会在2023年2月份发布。</p>
+<p>让我们先睹为快，看看Go 1.20给我们带来了哪些变化。(文末有彩蛋！)</p>
+<p>安装方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go install golang.org/dl/go1.20rc1@latest
+$ go1.20rc1 download
+</code></pre></td></tr></table>
+</div>
+</div><p>这是Go 1.20版本更新内容详解的第1篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<h2 id="go-120发布清单">Go 1.20发布清单</h2>
+<p>和Go 1.19相比，改动内容适中，主要涉及语言(Language)、可移植性(Ports)、工具链(Go Tools)、运行时(Runtime)、编译器(Compiler)、汇编器(Assembler)、链接器(Linker)和核心库(Core library)等方面的优化。</p>
+<p>我们逐个看看具体都有哪些变化。</p>
+<h3 id="语言变化">语言变化</h3>
+<p>Go 1.20在语言层面带来了4个变化。</p>
+<h4 id="slice转数组">slice转数组</h4>
+<p>Go1.17在语言层面开始支持将slice转为指向数组的指针。</p>
+<p>示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1">// 将s这个slice转为指向byte数组的指针s0
+</span><span class="c1">// 其中[0]byte里的0表示数组的长度，虽然长度为0，但值不等于nil
+</span><span class="c1"></span><span class="nx">s0</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">)</span>      <span class="c1">// s0 != nil
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T&#34;</span><span class="p">)</span>
+<span class="c1">// 将s[1:]这个slice转为指向byte数组的指针s1
+</span><span class="c1">// s1指向的数组的长度为1
+</span><span class="c1"></span><span class="nx">s1</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  <span class="c1">// &amp;s1[0] == &amp;s[1]
+</span><span class="c1">// 将s这个slice转为指向byte数组的指针s2
+</span><span class="c1">// s2指向的数组的长度为2 
+</span><span class="c1"></span><span class="nx">s2</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">)</span>      <span class="c1">// &amp;s2[0] == &amp;s[0]
+</span><span class="c1">// 将s这个slice转为指向byte数组的指针s4
+</span><span class="c1">// s4指向的数组的长度为4 
+</span><span class="c1"></span><span class="nx">s4</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">)</span>      <span class="c1">// panics: len([4]byte) &gt; len(s)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>注意：slice转为指向数组的指针时，如果数组定义的长度超过了slice的长度，会抛panic。</p>
+<p>所以上面<code>s4 := (*[4]byte)(s)</code>这行代码虽然可以编译通过，但是会出现runtime panic。</p>
+<p>Go 1.20之前不支持将slice直接转为数组，如果要转，得先转为指向数组的指针，再转为数组，如下面代码所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">100</span>
+
+<span class="nx">s1</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="c1">// &amp;s1[0] == &amp;s[1]
+</span><span class="c1"></span><span class="nx">s2</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">s</span><span class="p">)</span>     <span class="c1">// &amp;s2[0] == &amp;s[0]
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %p, %p\n&#34;</span><span class="p">,</span> <span class="nx">s1</span><span class="p">,</span> <span class="nx">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %v, %p\n&#34;</span><span class="p">,</span> <span class="nx">s2</span><span class="p">,</span> <span class="nx">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">s</span><span class="p">)</span>
+<span class="c1">// a1数组里元素的地址和s1指向的数组的元素地址不一样，a2同理
+</span><span class="c1"></span><span class="nx">a1</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">s1</span>
+<span class="nx">a2</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">s2</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %p, %p\n&#34;</span><span class="p">,</span> <span class="nx">a1</span><span class="p">,</span> <span class="nx">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %p, %p\n&#34;</span><span class="p">,</span> <span class="nx">a2</span><span class="p">,</span> <span class="nx">a2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">a2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从Go 1.20开始，支持将slice直接转为数组，如下面代码所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="nx">s1</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="nx">s2</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="c1">// s1数组里元素的地址和s指向的数组的元素地址不一样，s2同理
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %p, %p\n&#34;</span><span class="p">,</span> <span class="nx">s1</span><span class="p">,</span> <span class="nx">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T, %v, %v, %p\n&#34;</span><span class="p">,</span> <span class="nx">s2</span><span class="p">,</span> <span class="nx">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">s</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>总结：</p>
+<ul>
+<li>slice转为指向数组的指针后，这个指针会指向和slice相同的地址空间</li>
+<li>slice转为数组时，会把slice底层数组的值拷贝一份出来。转换后得到的数组的地址空间和slice底层数组空间不一样。</li>
+</ul>
+<p>还有几个语法细节可以参考如下代码示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">t</span> <span class="p">[]</span><span class="kt">string</span>
+<span class="nx">t0</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="nb">string</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>       <span class="c1">// ok for nil slice t
+</span><span class="c1"></span><span class="nx">t1</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="kt">string</span><span class="p">)(</span><span class="nx">t</span><span class="p">)</span>    <span class="c1">// t1 == nil
+</span><span class="c1"></span><span class="nx">t2</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="kt">string</span><span class="p">)(</span><span class="nx">t</span><span class="p">)</span>    <span class="c1">// panics: len([1]string) &gt; len(t)
+</span><span class="c1"></span>
+<span class="nx">u</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">u0</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">u</span><span class="p">)</span>      <span class="c1">// u0 != nil
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="comparable类型">Comparable类型</h4>
+<p>Go泛型里comparable这个类型约束(type constraint)有个坑，就是和Go语言里定义的可比较类型(<a href="https://tip.golang.org/ref/spec#Comparison_operators">Comparable types</a>)并不一致。</p>
+<p>什么是comparable types，简单来说就是可以用<code>==</code>和<code>!=</code>来进行比较的类型就是comparable types。</p>
+<blockquote>
+<p>The equality operators <code>==</code> and <code>!=</code> apply to operands that are <em>comparable</em>.</p>
+<p>The ordering operators <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code> apply to operands that are <em>ordered</em>.</p>
+</blockquote>
+<p>有些可比较类型的变量不能作为类型实参(type argument)赋值给声明了comparable类型约束的类型参数(type parameter)。</p>
+<p>例如Go语言说明里有如下这段内容：</p>
+<blockquote>
+<p>Interface values are comparable. Two interface values are equal if they have <a href="https://tip.golang.org/ref/spec#Type_identity">identical</a> dynamic types and equal dynamic values or if both have value <code>nil</code>.</p>
+</blockquote>
+<p>这里明确指出，接口类型的值是可比较的，但是我们不能把2个interface作为类型实参给到类型参数。</p>
+<p>参考如下代码示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// example4.g0
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nx">IsEqual</span><span class="p">[</span><span class="nx">T</span> <span class="nx">comparable</span><span class="p">](</span><span class="nx">a</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">b</span> <span class="nx">T</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">a</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="kd">var</span> <span class="nx">b</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// false
+</span><span class="c1"></span>  <span class="c1">// go1.20之前的版本编译报错，go1.20开始支持
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IsEqual</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">))</span> 
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>对于上面最后一行代码，Go 1.20之前的版本编译报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go1.18 run example4.go
+./example4.go:13:21: interface<span class="o">{}</span> does not implement comparable
+</code></pre></td></tr></table>
+</div>
+</div><p>因为Go 1.20之前的版本认为空接口类型interface{}并没有实现comparable类型约束，不能作为类型实参传给类型参数。</p>
+<p>从Go 1.20版本开始，不会编译报错，因为interface类型是comparable type，程序执行结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go1.20rc1 run example4.go
+<span class="nb">false</span>
+<span class="nb">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>具体哪些类型是comparable type可以参考：<a href="https://tip.golang.org/ref/spec#Comparison_operators">Comparable types</a> 里的说明。</p>
+<h4 id="unsafe包">unsafe包</h4>
+<p>Go 1.17版本在unsafe package里引入了Slice函数，如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Slice</span><span class="p">(</span><span class="nx">ptr</span> <span class="o">*</span><span class="nx">ArbitraryType</span><span class="p">,</span> <span class="nx">len</span> <span class="nx">IntegerType</span><span class="p">)</span> <span class="p">[]</span><span class="nx">ArbitraryType</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Go 1.20版本里，标准库unsafe package定义了3个新的函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">SliceData</span><span class="p">(</span><span class="nx">slice</span> <span class="p">[]</span><span class="nx">ArbitraryType</span><span class="p">)</span> <span class="o">*</span><span class="nx">ArbitraryType</span>
+<span class="kd">func</span> <span class="nf">String</span><span class="p">(</span><span class="nx">ptr</span> <span class="o">*</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">len</span> <span class="nx">IntegerType</span><span class="p">)</span> <span class="kt">string</span>
+<span class="kd">func</span> <span class="nf">StringData</span><span class="p">(</span><span class="nx">str</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="kt">byte</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>有了这4个函数，可以构造和解构slice和string。</p>
+<p>具体细节可以参考：https://tip.golang.org/ref/spec#Package_unsafe。</p>
+<h4 id="值比较">值比较</h4>
+<p>Go语言说明现在明确指出结构体变量的值每次只比较一个字段，字段比较的顺序和字段在结构体里定义的顺序保持一致。</p>
+<p>一旦某个字段的值比较出现不一致，就会马上停止比较。</p>
+<p>以前的说明可能会让Go开发者有误解，以为结构体变量的比较需要比较所有字段，实际并不是。</p>
+<p>类似的，数组的比较也是每次只比较一个元素，按照数组的下标索引由小到大逐个比较数组里每个元素的值。</p>
+<p>这块只是改了说明而已，对大家的代码没有任何影响。</p>
+<h3 id="可移植性">可移植性</h3>
+<h4 id="darwin-and-ios">Darwin and iOS</h4>
+<p>Go 1.20将会成为支持macOS 10.13 High Sierra和10.14 Mojave的最后一个版本。</p>
+<p>如果未来想在mac电脑上使用Go 1.21或者更新的Go版本，只能用macOS 10.15 Catalina和更新的macOS版本。</p>
+<h4 id="freebsdrisc-v">FreeBSD/RISC-V</h4>
+<p>Go 1.20增加了对于RISC-V架构在FreeBSD操作系统的实验性支持。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GOOS</span><span class="o">=</span>freebsd
+<span class="nv">GOARCH</span><span class="o">=</span>riscv64
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>下一篇会介绍Go 1.20在Go Tool工具链、运行时、编译器、汇编器、链接器和核心库的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="福利">福利</h2>
+<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
+<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
+<p>最后送上一个彩蛋，Go标准库的脑图，想学习Go标准库的可以参考这个来。</p>
+<p><img src="/img/go-std-lib-mindmap.png" alt=""></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tip.golang.org/doc/go1.20">https://tip.golang.org/doc/go1.20</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go1.20/">go1.20</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/sre-xshell-public-key/">
+            <span class="next-text nav-default">Xshell连接如何记住用户秘钥文件</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
