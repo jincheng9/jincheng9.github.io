@@ -6,7 +6,16 @@
     <description>Recent content in go1.20 on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Dec 2022 13:55:46 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go1.20/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 18:08:41 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/go1.20/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.20要来了，看看都有哪些变化-第3篇</title>
+      <link>http://jincheng9.github.io/post/go-release-1.20rc1-2/</link>
+      <pubDate>Sat, 24 Dec 2022 18:08:41 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-release-1.20rc1-2/</guid>
+      <description>前言 Go官方团队在2022.12.08发布了Go 1.20 rc1(release candidate)版本，Go 1.20的正式release版本预计会在2023年2月份发</description>
+    </item>
+    
     <item>
       <title>Go 1.20要来了，看看都有哪些变化-第2篇</title>
       <link>http://jincheng9.github.io/post/go-release-1.20rc1-1/</link>

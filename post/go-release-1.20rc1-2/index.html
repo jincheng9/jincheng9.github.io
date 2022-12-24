@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go 1.20要来了，看看都有哪些变化-第3篇 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="Go 1.20要来了，看看都有哪些变化-第3篇" /><meta name="keywords" content="go1.20" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.20rc1-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go 1.20要来了，看看都有哪些变化-第3篇" />
+<meta property="og:description" content="Go 1.20要来了，看看都有哪些变化-第3篇" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.20rc1-2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-24T18:08:41+08:00" />
+<meta property="article:modified_time" content="2022-12-24T18:08:41+08:00" />
+
+<meta itemprop="name" content="Go 1.20要来了，看看都有哪些变化-第3篇">
+<meta itemprop="description" content="Go 1.20要来了，看看都有哪些变化-第3篇"><meta itemprop="datePublished" content="2022-12-24T18:08:41+08:00" />
+<meta itemprop="dateModified" content="2022-12-24T18:08:41+08:00" />
+<meta itemprop="wordCount" content="2188">
+<meta itemprop="keywords" content="go1.20," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go 1.20要来了，看看都有哪些变化-第3篇"/>
+<meta name="twitter:description" content="Go 1.20要来了，看看都有哪些变化-第3篇"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go 1.20要来了，看看都有哪些变化-第3篇</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-12-24 </span>
+        <div class="post-category">
+            <a href="/categories/go1.20/"> go1.20 </a>
+            </div>
+          <span class="more-meta"> 2188 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#go-120发布清单">Go 1.20发布清单</a></li>
+        <li><a href="#runtime">Runtime</a></li>
+        <li><a href="#compiler">Compiler</a></li>
+        <li><a href="#linker">Linker</a></li>
+        <li><a href="#bootstrap自举">Bootstrap(自举)</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#推荐阅读">推荐阅读</a></li>
+        <li><a href="#开源地址">开源地址</a></li>
+        <li><a href="#福利">福利</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>Go官方团队在2022.12.08发布了Go 1.20 rc1(release candidate)版本，Go 1.20的正式release版本预计会在2023年2月份发布。</p>
+<p>让我们先睹为快，看看Go 1.20给我们带来了哪些变化。</p>
+<p>安装方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go install golang.org/dl/go1.20rc1@latest
+$ go1.20rc1 download
+</code></pre></td></tr></table>
+</div>
+</div><p>这是Go 1.20版本更新内容详解的第3篇，欢迎大家关注公众号，及时获取本系列最新更新。</p>
+<h2 id="go-120发布清单">Go 1.20发布清单</h2>
+<p>和Go 1.19相比，改动内容适中，主要涉及语言(Language)、可移植性(Ports)、工具链(Go Tools)、运行时(Runtime)、编译器(Compiler)、汇编器(Assembler)、链接器(Linker)和核心库(Core library)等方面的优化。</p>
+<p>第1篇主要涉及Go 1.20在语言、可移植性方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484629&amp;idx=1&amp;sn=60a01d3cc85ef2462156f0565c30738d&amp;chksm=ce124bbaf965c2ac351cd9c602e8b67d5119b2a89a7f2de0289bdeb7608ae589c329eb8f7275&amp;token=1619842941&amp;lang=zh_CN#rd">Go 1.20版本升级内容第1篇</a>。</p>
+<p>第2篇主要涉及Go命令和工具链方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484638&amp;idx=1&amp;sn=459a22d4a9bf5d9715e70d3c25b05b93&amp;chksm=ce124bb1f965c2a76bacc1135799ab268be66a861e99391b354a9f2dfd8c22a60853cc1d689d&amp;token=1342188569&amp;lang=zh_CN#rd">Go 1.20版本升级内容第2篇</a>。</p>
+<p>本文重点介绍Go 1.20在运行时、编译器、汇编器和链接器等方面的优化。</p>
+<h2 id="runtime">Runtime</h2>
+<p>Go 1.20版本的运行时新增了arena内存分配这个新功能的实验性支持，可以让Go程序释放更多内存空间，节省内存占用。</p>
+<p>想了解什么是arena内存分配的，可以参考:https://github.com/golang/go/issues/51317。</p>
+<p>如果area内存分配使用恰当，对于需要频繁内存分配的应用，可以提升多达15%的CPU性能。</p>
+<p>使用方式为编译Go程序时，添加 <code>GOEXPERIMENT=arenas</code>参数。代码里如果有<code>import arena</code>，也需要添加这个编译参数。</p>
+<p>此外，垃圾回收器的一些内部数据结构的设计做了优化，在时间和空间上更高效，可以节省内存开销，提升2%左右的CPU总体性能。</p>
+<p>Go 1.20还新增了一个<code>runtime/coverage</code>包，调用这个包的API可以把程序运行的代码覆盖率数据输出到指定文件。</p>
+<h2 id="compiler">Compiler</h2>
+<p>Go 1.20新增了PGO(profile-guided optimization)特性，可以帮助开发者做程序性能优化。</p>
+<p>目前，编译器支持pprof CPU profile，这种类型的profile可以通过例如<code>runtime/pprof</code>或<code>net/http/pprof</code>收集得到。</p>
+<p>如果要开启PGO，在使用<code>go build</code>编译程序的时候，要增加<code>-pgo</code>参数。<code>-pgo</code>指定的是profile文件的路径。如果<code>-pgo=auto</code>，那go命令会在main这个包的路径下去找名为<code>default.pgo</code>的文件。<code>-pgo=off</code>可以关闭优化。详情可以参考：<a href="https://github.com/golang/go/issues/55022">PGO Proposal</a>。</p>
+<p>如果使用了PGO，编译器会对被调用比较多的函数，更多地使用inline function的方式去做性能优化。</p>
+<p>性能测试表明，如果开启了profile-guided inlining optimization，可以提升3%-4%的性能，后期Go会加入更多的PGO优化支持。</p>
+<p>注意，由于PGO并不是稳定版本，生产环境使用需要小心。</p>
+<p>此外，从Go 1.20开始，编译器禁止匿名interface嵌套，如下代码会编译失败。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">I</span> <span class="kd">interface</span> <span class="p">{</span>
+  <span class="nf">m</span><span class="p">()</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">I</span> 
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="linker">Linker</h2>
+<p>在Linux环境，链接器会在进行link操作的时候，为<code>glibc</code>或者<code>musl</code>选择动态解释器。</p>
+<p>在Windows环境，链接器现在支持基于LLVM的C语言工具链。</p>
+<p>Go 1.20版本开始，使用<code>go:</code>和<code>type:</code>作为前缀，用于编译器生成的符号，而抛弃使用<code>go.</code>和<code>type.</code>作为前缀。</p>
+<p>这可以避免歧义，因为有的go package的命名是以<code>go.</code>开始的。</p>
+<h2 id="bootstrap自举">Bootstrap(自举)</h2>
+<p>如果要编译Go语言本身的源代码，必须要设置<code>GOROOT_BOOTSTRAP</code>环境变量。</p>
+<p>在 1.4 版本开始，Go语言实现了自举，即可以通过1.4版本来编译安装之后版本的编译器。</p>
+<p>假设<code>GOROOT_BOOTSTRAP</code>环境变量没有设置，那Go 1.17版本及之前的版本，会尝试在 <code>$HOME/go1.4</code> (<code>%HOMEDRIVE%%HOMEPATH%\go1.4</code> on Windows)寻找Go 1.4或者更新的bootstrap工具链。</p>
+<p>Go 1.18和Go 1.19首先会找 <code>$HOME/go1.17</code> 或 <code>$HOME/sdk/go1.17</code>，找不到的话，就回退去找 <code>$HOME/go1.4</code>。</p>
+<p>Go 1.20要实现自举，需要依赖Go 1.17的最新子版本，即Go 1.17.13版本。</p>
+<p>Go 1.20会先找 <code>$HOME/go1.17.13</code> 或 <code>$HOME/sdk/go1.17.13</code>，如果找不到，就回退找<code>$HOME/go1.4</code> 。</p>
+<p>在接下来，Go官方会把自举的工具链每年向前推进一步。预期是Go 1.22会要求依赖Go 1.20的最新子版本用于Go 1.22的自举。</p>
+<h2 id="总结">总结</h2>
+<p>下一篇会介绍Go 1.20在核心库方面的优化工作，有一些内容值得学习，欢迎大家保持关注。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<ul>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484629&amp;idx=1&amp;sn=60a01d3cc85ef2462156f0565c30738d&amp;chksm=ce124bbaf965c2ac351cd9c602e8b67d5119b2a89a7f2de0289bdeb7608ae589c329eb8f7275&amp;token=1342188569&amp;lang=zh_CN#rd">Go 1.20要来了，看看都有哪些变化-第1篇</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484638&amp;idx=1&amp;sn=459a22d4a9bf5d9715e70d3c25b05b93&amp;chksm=ce124bb1f965c2a76bacc1135799ab268be66a861e99391b354a9f2dfd8c22a60853cc1d689d&amp;token=1342188569&amp;lang=zh_CN#rd">Go 1.20要来了，看看都有哪些变化-第2篇</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go面试题系列，看看你会几题</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2549657749539028992#wechat_redirect">Go常见错误和最佳实践系列</a></p>
+</li>
+</ul>
+<h2 id="开源地址">开源地址</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新Go面试题和技术栈。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="福利">福利</h2>
+<p>我为大家整理了一份后端开发学习资料礼包，包含编程语言入门到进阶知识(Go、C++、Python)、后端开发技术栈、面试题等。</p>
+<p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tip.golang.org/doc/go1.20">https://tip.golang.org/doc/go1.20</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go1.20/">go1.20</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-release-1.20rc1-1/">
+            <span class="next-text nav-default">Go 1.20要来了，看看都有哪些变化-第2篇</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
