@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Go常见错误第16篇：any的常见错误和最佳实践">
 <meta itemprop="description" content="Go常见错误第16篇：any的常见错误和最佳实践"><meta itemprop="datePublished" content="2023-01-07T23:07:52+08:00" />
 <meta itemprop="dateModified" content="2023-01-07T23:07:52+08:00" />
-<meta itemprop="wordCount" content="2141">
+<meta itemprop="wordCount" content="2169">
 <meta itemprop="keywords" content="go mistakes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go常见错误第16篇：any的常见错误和最佳实践"/>
 <meta name="twitter:description" content="Go常见错误第16篇：any的常见错误和最佳实践"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/go-mistakes/"> go mistakes </a>
             </div>
-          <span class="more-meta"> 2141 words </span>
+          <span class="more-meta"> 2169 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -215,7 +215,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>很多场景里，如果直接用any，会带来代码的过度抽象。</p>
-<p>Rob Pike在<a href="(https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=7m36s)">Gopherfest 2015</a>上，曾经分享过他的观点：</p>
+<p>Rob Pike在<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=7m36s">Gopherfest 2015</a>上，曾经分享过他的观点：</p>
 <blockquote>
 <p>interface{} says nothing.</p>
 </blockquote>
@@ -309,11 +309,11 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>这段代码里，我们定义了一个Store结构体，这个结构体有2个方法Get和Set，可以用来设置和获取任意类型的结构体变量。</p>
+</div><p>这段代码里，我们定义了一个Store结构体，这个结构体有2个方法Get和Set，可以用来设置和获取Customer和Contract这2个结构体类型的变量。</p>
 <p>示例代码计划用Get和Set方法来设置和查询Customer结构体和Contract结构体。</p>
-<p>Get和Set由于要存储任意类型的结构体变量，所以Set方法的第2个参数是any，Get方法返回的第一个返回值为any类型。</p>
-<p>如果一个开发者只是看到函数签名里参数和返回值为any，可能以为可以存储任何类型，比如int。</p>
-<p>但实际上Get和Set方法的实现只是为了服务于Customer和Contrat结构体。</p>
+<p>Get和Set方法虽然只存储Customer和Contrac这2个结构体类型，但是使用了any作为方法参数和方法返回值类型。</p>
+<p>如果一个开发者只是看到函数签名里参数和返回值为any，会很容易误以为可以存储和查询任何类型的变量，比如int。</p>
+<p>但实际上Get和Set方法的实现只是为了服务于Customer和Contract结构体。</p>
 <p>这就是any类型带来的问题，因为隐藏了类型信息，开发者看到any要特别留意，仔细阅读代码和文档，才能避免出错。</p>
 <p>比如有的开发者可能出现以下误用的情况：</p>
 <div class="highlight"><div class="chroma">
@@ -472,7 +472,6 @@
 <li><a href="https://go.dev/ref/spec#Predeclared_identifiers">https://go.dev/ref/spec#Predeclared_identifiers</a></li>
 <li><a href="https://go101.org/article/keywords-and-identifiers.html#:~:text=Keywords%20are%20the%20special%20words,understand%20and%20parse%20user%20code.&amp;text=They%20can%20be%20categorized%20as,code%20elements%20in%20Go%20programs">https://go101.org/article/keywords-and-identifiers.html#:~:text=Keywords%20are%20the%20special%20words,understand%20and%20parse%20user%20code.&amp;text=They%20can%20be%20categorized%20as,code%20elements%20in%20Go%20programs</a>.</li>
 </ul>
-<p><img src="/img/wechat.png" alt=""></p>
 
     </div>
 
