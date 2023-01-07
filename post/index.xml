@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2022 15:36:45 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 23:07:52 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第16篇：any的常见错误和最佳实践</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/</link>
+      <pubDate>Sat, 07 Jan 2023 23:07:52 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/</guid>
+      <description>前言 这是Go常见错误系列的第16篇：any的常见错误和最佳实践。 素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi</description>
+    </item>
+    
     <item>
       <title>Go 1.20要来了，看看都有哪些变化-第4篇</title>
       <link>http://jincheng9.github.io/post/go-release-1.20rc1-3/</link>

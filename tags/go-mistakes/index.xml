@@ -6,7 +6,16 @@
     <description>Recent content in go mistakes on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Nov 2022 23:30:45 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 23:07:52 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/go-mistakes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见错误第16篇：any的常见错误和最佳实践</title>
+      <link>http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/</link>
+      <pubDate>Sat, 07 Jan 2023 23:07:52 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/</guid>
+      <description>前言 这是Go常见错误系列的第16篇：any的常见错误和最佳实践。 素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi</description>
+    </item>
+    
     <item>
       <title>Go常见错误第15篇：interface使用的常见错误和最佳实践</title>
       <link>http://jincheng9.github.io/post/go-common-mistakes-15-interface/</link>

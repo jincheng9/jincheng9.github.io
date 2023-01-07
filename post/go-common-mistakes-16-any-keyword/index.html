@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go常见错误第15篇：interface使用的常见错误和最佳实践 - Jincheng9&#39;s blog</title>
+  <title>Go常见错误第16篇：any的常见错误和最佳实践 - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" /><meta name="keywords" content="go mistakes" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go常见错误第16篇：any的常见错误和最佳实践" /><meta name="keywords" content="go mistakes" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-15-interface/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" />
-<meta property="og:description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践" />
+<meta property="og:title" content="Go常见错误第16篇：any的常见错误和最佳实践" />
+<meta property="og:description" content="Go常见错误第16篇：any的常见错误和最佳实践" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-15-interface/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-11-19T23:30:45+08:00" />
-<meta property="article:modified_time" content="2022-11-19T23:30:45+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-common-mistakes-16-any-keyword/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-07T23:07:52+08:00" />
+<meta property="article:modified_time" content="2023-01-07T23:07:52+08:00" />
 
-<meta itemprop="name" content="Go常见错误第15篇：interface使用的常见错误和最佳实践">
-<meta itemprop="description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"><meta itemprop="datePublished" content="2022-11-19T23:30:45+08:00" />
-<meta itemprop="dateModified" content="2022-11-19T23:30:45+08:00" />
-<meta itemprop="wordCount" content="3382">
+<meta itemprop="name" content="Go常见错误第16篇：any的常见错误和最佳实践">
+<meta itemprop="description" content="Go常见错误第16篇：any的常见错误和最佳实践"><meta itemprop="datePublished" content="2023-01-07T23:07:52+08:00" />
+<meta itemprop="dateModified" content="2023-01-07T23:07:52+08:00" />
+<meta itemprop="wordCount" content="2141">
 <meta itemprop="keywords" content="go mistakes," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"/>
-<meta name="twitter:description" content="Go常见错误第15篇：interface使用的常见错误和最佳实践"/>
+<meta name="twitter:title" content="Go常见错误第16篇：any的常见错误和最佳实践"/>
+<meta name="twitter:description" content="Go常见错误第16篇：any的常见错误和最佳实践"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,15 +129,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go常见错误第15篇：interface使用的常见错误和最佳实践</h1>
+      <h1 class="post-title">Go常见错误第16篇：any的常见错误和最佳实践</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-11-19 </span>
+        <span class="post-time"> 2023-01-07 </span>
         <div class="post-category">
             <a href="/categories/go-mistakes/"> go mistakes </a>
             </div>
-          <span class="more-meta"> 3382 words </span>
-          <span class="more-meta"> 7 mins read </span>
+          <span class="more-meta"> 2141 words </span>
+          <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -152,10 +152,8 @@
         <li><a href="#前言">前言</a></li>
         <li><a href="#常见错误和最佳实践">常见错误和最佳实践</a>
           <ul>
-            <li><a href="#interface重要概念回顾">interface重要概念回顾</a></li>
-            <li><a href="#何时使用interface">何时使用interface</a></li>
-            <li><a href="#乱用interface的场景">乱用Interface的场景</a></li>
-            <li><a href="#注意事项">注意事项</a></li>
+            <li><a href="#常见错误">常见错误</a></li>
+            <li><a href="#最佳实践">最佳实践</a></li>
           </ul>
         </li>
         <li><a href="#总结">总结</a></li>
@@ -171,128 +169,59 @@
 </div>
     <div class="post-content">
       <h2 id="前言">前言</h2>
-<p>这是Go常见错误系列的第15篇：interface使用的常见错误和最佳实践。</p>
+<p>这是Go常见错误系列的第16篇：any的常见错误和最佳实践。</p>
 <p>素材来源于Go布道者，现Docker公司资深工程师<a href="https://teivah.github.io/">Teiva Harsanyi</a>。</p>
 <p>本文涉及的源代码全部开源在：<a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/senior/p28">Go常见错误源代码</a>，欢迎大家关注公众号，及时获取本系列最新更新。</p>
 <h2 id="常见错误和最佳实践">常见错误和最佳实践</h2>
-<p>interface是Go语言里的核心功能，但是在日常开发中，经常会出现interface被乱用的情况，代码过度抽象，或者抽象不合理，导致代码晦涩难懂。</p>
-<p>本文先带大家回顾下interface的重要概念，然后讲解使用interface的常见错误和最佳实践。</p>
-<h3 id="interface重要概念回顾">interface重要概念回顾</h3>
-<p>interface里面包含了若干个方法，大家可以理解为一个interface代表了一类群体的共同行为。</p>
-<p>结构体要实现interface不需要类似implement的关键字，只要该结构体实现了interface里的所有方法即可。</p>
-<p>我们拿Go语言里的io标准库来说明interface的强大之处。io标准库包含了2个interface：</p>
-<ul>
-<li>io.Reader：表示从某个数据源读数据</li>
-<li>io.Writer：表示写数据到目标位置，比如写到指定文件或者数据库</li>
-</ul>
-<h5 id="figure-23-ioreader-reads-from-a-data-source-and-fills-a-byte-slice-whereas-iowriter-writes-to-a-target-from-a-byte-slice">Figure 2.3 io.Reader reads from a data source and fills a byte slice, whereas io.Writer writes to a target from a byte slice.</h5>
-<p><img src="https://drek4537l1klr.cloudfront.net/harsanyi/Figures/CH02_F03_Harsanyi.png" alt="img"></p>
-<p>io.Reader这个interface里只有一个Read方法：</p>
+<p>Go语言中，没有方法的接口类型是空接口，也就是大家熟知的<code>interface{}</code>。</p>
+<p>从Go 1.18开始，定义了一个预声明标识符(Predeclared identifiers)：any。</p>
+<p>any实际上是空接口的别名，所以任何用了<code>interface{}</code>的地方都可以把<code>interface{}</code> 替换为any。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">type Reader interface {
-    Read(p []byte) (n int, err error)
-}
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="nx">any</span>
+ 
+    <span class="nx">i</span> <span class="p">=</span> <span class="mi">42</span>
+    <span class="nx">i</span> <span class="p">=</span> <span class="s">&#34;foo&#34;</span>
+    <span class="nx">i</span> <span class="p">=</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">s</span> <span class="kt">string</span>
+    <span class="p">}{</span>
+        <span class="nx">s</span><span class="p">:</span> <span class="s">&#34;bar&#34;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="nx">i</span> <span class="p">=</span> <span class="nx">f</span>
+ 
+    <span class="nx">_</span> <span class="p">=</span> <span class="nx">i</span>
+<span class="p">}</span>
+ 
+<span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>Read reads up to len(p) bytes into p. It returns the number of bytes read (0 &lt;= n &lt;= len(p)) and any error encountered. Even if Read returns n &lt; len(p), it may use all of p as scratch space during the call. If some data is available but not len(p) bytes, Read conventionally returns what is available instead of waiting for more.</p>
-</blockquote>
-<p>如果某个结构体要实现io.Reader，需要实现Read方法。这个方法要包含以下逻辑：</p>
-<ul>
-<li>入参：接受元素类型为byte的slice作为方法的入参。</li>
-<li>方法逻辑：把Reader对象里的数据读出来赋值给p。比如Reader对象可能是一个strings.Reader，那调用Read方法就是把string的值赋值给p。</li>
-<li>返回值：要么返回读到的字节数，要么返回error。</li>
-</ul>
-<p>io.Writer这个interface里只有一个Write方法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">type Writer interface {
-    Write(p []byte) (n int, err error)
-}
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>Write writes len(p) bytes from p to the underlying data stream. It returns the number of bytes written from p (0 &lt;= n &lt;= len(p)) and any error encountered that caused the write to stop early. Write must return a non-nil error if it returns n &lt; len(p). Write must not modify the slice data, even temporarily.</p>
-</blockquote>
-<p>如果某个结构体要实现io.Writer，需要实现Write方法。这个方法要包含以下逻辑：</p>
-<ul>
-<li>入参：接受元素类型为byte的slice作为方法的入参。</li>
-<li>方法逻辑：把p的值写入到Writer对象。比如Writer对象可能是一个os.File类型，那调用Write方法就是把p的值写入到文件里。</li>
-<li>返回值：要么返回写入的字节数，要么返回error。</li>
-</ul>
-<p>这2个函数看起来非常抽象，很多Go初级开发者都不太理解，为啥要设计这样2个interface？</p>
-<p>试想这样一个场景，假设我们要实现一个函数，功能是拷贝一个文件的内容到另一个文件。</p>
-<ul>
-<li>
-<p>方式1：这个函数用2个*os.Files作为参数，来从一个文件读内容，写入到另一个文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">copySourceToDest</span><span class="p">(</span><span class="nx">source</span> <span class="o">*</span><span class="nx">io</span><span class="p">.</span><span class="nx">File</span><span class="p">,</span> <span class="nx">dest</span> <span class="o">*</span><span class="nx">io</span><span class="p">.</span><span class="nx">File</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-    <span class="c1">// ...
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>方式2：使用io.Reader和io.Writer作为参数。由于os.File实现了io.Reader和io.Writer，所以os.File也可以作为下面函数的参数，传参给source和dest。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">copySourceToDest</span><span class="p">(</span><span class="nx">source</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">dest</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-    <span class="c1">// ...
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>方法2的实现会更通用一些，source既可以是文件，也可以是字符串对象(strings.Reader)，dest既可以是文件，也可以是其它数据库对象(比如我们自己实现一个io.Writer，Write方法是把数据写入到数据库)。</p>
-</li>
-</ul>
-<p>在设计interface的时候要考虑到简洁性，如果interface里定义的方法很多，那这个interface的抽象就会不太好。</p>
-<p>引用Go语言设计者Rob Pike在Gopherfest 2015上的技术分享<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=318s">Go Proverbs with Rob Pike</a>中关于interface的说明：</p>
+</div><p>很多场景里，如果直接用any，会带来代码的过度抽象。</p>
+<p>Rob Pike在<a href="(https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=7m36s)">Gopherfest 2015</a>上，曾经分享过他的观点：</p>
 <blockquote>
-<p>The bigger the interface, the weaker the abstraction.</p>
+<p>interface{} says nothing.</p>
 </blockquote>
-<p>当然，我们也可以把多个interface结合为一个interface，在有些场景下是可以方便代码编写的。</p>
-<p>比如io.ReaderWriter就结合了io.Reader和io.Writer的方法。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">type ReadWriter interface {
-    Reader
-    Writer
-}
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="何时使用interface">何时使用interface</h3>
-<p>下面介绍2个常见的使用interface的场景。</p>
-<h4 id="公共行为可以抽象为interface">公共行为可以抽象为interface</h4>
-<p>比如上面介绍过的io.Reader和io.Writer就是很好的例子。Go标准库里大量使用interface，感兴趣的可以去查阅源代码。</p>
-<h4 id="使用interface让struct成员变量变为private">使用interface让Struct成员变量变为private</h4>
-<p>比如下面这段代码示例：</p>
+<h3 id="常见错误">常见错误</h3>
+<p>给any类型的变量赋值的时候，我们其实失去了所有类型信息，需要依赖类型断言(type assertion)来获取类型信息。</p>
+<p><a href="https://go.dev/tour/methods/15">类型断言</a>即<code>t, ok := i.(T)</code>，代码示例如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -317,72 +246,166 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-<span class="kd">type</span> <span class="nx">Halloween</span> <span class="kd">struct</span> <span class="p">{</span>
-   <span class="nx">Day</span><span class="p">,</span> <span class="nx">Month</span> <span class="kt">string</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">NewHalloween</span><span class="p">()</span> <span class="nx">Halloween</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="nx">Halloween</span> <span class="p">{</span> <span class="nx">Month</span><span class="p">:</span> <span class="s">&#34;October&#34;</span><span class="p">,</span> <span class="nx">Day</span><span class="p">:</span> <span class="s">&#34;31&#34;</span> <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">Halloween</span><span class="p">)</span> <span class="nf">UK</span><span class="p">(</span><span class="nx">Year</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Day</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Month</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">Year</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">Halloween</span><span class="p">)</span> <span class="nf">US</span><span class="p">(</span><span class="nx">Year</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Month</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">o</span><span class="p">.</span><span class="nx">Day</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">Year</span>
-<span class="p">}</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="nx">o</span> <span class="o">:=</span> <span class="nf">NewHalloween</span><span class="p">()</span>
-   <span class="nx">s_uk</span> <span class="o">:=</span> <span class="nx">o</span><span class="p">.</span><span class="nf">UK</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">)</span>
-   <span class="nx">s_us</span> <span class="o">:=</span> <span class="nx">o</span><span class="p">.</span><span class="nf">US</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">)</span>
-   <span class="nb">println</span><span class="p">(</span><span class="nx">s_uk</span><span class="p">,</span> <span class="nx">s_us</span><span class="p">)</span>
+	<span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span>
+
+	<span class="nx">s</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+
+	<span class="nx">s</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+
+	<span class="nx">f</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">float64</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+
+	<span class="nx">f</span> <span class="p">=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">float64</span><span class="p">)</span> <span class="c1">// panic
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>变量o可以直接访问Halloween结构体里的所有成员变量。</p>
-<p>有时候我们可能想做一些限制，不希望结构体里的成员变量被随意访问和修改，那就可以借助interface。</p>
+</div><p>我们看看下面这个例子，体会下使用any带来的问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">store</span>
+ 
+<span class="kd">type</span> <span class="nx">Customer</span> <span class="kd">struct</span><span class="p">{</span>
+    <span class="c1">// Some fields
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kd">type</span> <span class="nx">Contract</span> <span class="kd">struct</span><span class="p">{</span>
+    <span class="c1">// Some fields
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kd">type</span> <span class="nx">Store</span> <span class="kd">struct</span><span class="p">{}</span>
+ 
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">Get</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">any</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">Set</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">v</span> <span class="nx">any</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码里，我们定义了一个Store结构体，这个结构体有2个方法Get和Set，可以用来设置和获取任意类型的结构体变量。</p>
+<p>示例代码计划用Get和Set方法来设置和查询Customer结构体和Contract结构体。</p>
+<p>Get和Set由于要存储任意类型的结构体变量，所以Set方法的第2个参数是any，Get方法返回的第一个返回值为any类型。</p>
+<p>如果一个开发者只是看到函数签名里参数和返回值为any，可能以为可以存储任何类型，比如int。</p>
+<p>但实际上Get和Set方法的实现只是为了服务于Customer和Contrat结构体。</p>
+<p>这就是any类型带来的问题，因为隐藏了类型信息，开发者看到any要特别留意，仔细阅读代码和文档，才能避免出错。</p>
+<p>比如有的开发者可能出现以下误用的情况：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">Store</span><span class="p">{}</span>
+<span class="nx">s</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Set的第2个参数虽然是any，但实际是要存储Customer和Contract类型的结构体，但由于参数为any，有的开发者可能就会直接存一个int类型，那就和代码设计的预期不符。</p>
+<p>使用any会丢失类型信息，Go作为静态类型语言的优势就被影响了。</p>
+<p>如下代码，其实是更好的设计。看代码一目了然，很方便知道每个方法存储和查询的是什么类型的结构体。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">GetContract</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">Contract</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">SetContract</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">contract</span> <span class="nx">Contract</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">GetCustomer</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">Customer</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Store</span><span class="p">)</span> <span class="nf">SetCustomer</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">customer</span> <span class="nx">Customer</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="最佳实践">最佳实践</h3>
+<p>any当然也不是一无是处，我们来看看Go标准库里的以下几个关于any的使用场景。</p>
+<ul>
+<li>
+<p>第一个例子是encoding/json这个package里的Marshal函数。</p>
+<p>因为Marshal函数可以操作任何类型，所以参数类型为any。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Marshal</span><span class="p">(</span><span class="nx">v</span> <span class="nx">any</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>第二个例子是database/sql包里的QueryContext方法。</p>
+<p>如果这个方法的第2个query参数是格式化字符串，比如<code>SELECT * FROM FOO WHERE id = ?</code>，由于查询语句里<code>?</code>的值其实可以是任何类型，所以后面的args参数是any类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Country</span> <span class="kd">interface</span> <span class="p">{</span>
-   <span class="nf">UK</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
-   <span class="nf">US</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">NewHalloween</span><span class="p">()</span> <span class="nx">Country</span> <span class="p">{</span>
-   <span class="nx">o</span> <span class="o">:=</span> <span class="nx">Halloween</span> <span class="p">{</span> <span class="nx">Month</span><span class="p">:</span> <span class="s">&#34;October&#34;</span><span class="p">,</span> <span class="nx">Day</span><span class="p">:</span> <span class="s">&#34;31&#34;</span> <span class="p">}</span>
-   <span class="k">return</span> <span class="nf">Country</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Conn</span><span class="p">)</span> <span class="nf">QueryContext</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">query</span> <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">args</span> <span class="o">...</span><span class="nx">any</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Rows</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>我们定义一个新的interface去实现Halloween的所有方法，然后NewHalloween返回这个interface类型。</p>
-<p>那外部调用NewHalloween得到的对象就只能使用Halloween结构体里定义的方法，而不能访问结构体的成员变量。</p>
-<h3 id="乱用interface的场景">乱用Interface的场景</h3>
-<p>interface在Go代码里经常被乱用，不少C#或者Java开发背景的人在转Go的时候，通常会先把接口类型抽象好，再去定义具体的类型。</p>
-<p>然而，这并不是Go里推荐的。</p>
-<blockquote>
-<p>Don’t design with interfaces, discover them.</p>
-<p>—Rob Pike</p>
-</blockquote>
-<p>正如Rob Pike所说，不要一上来做代码设计的时候就先把interface给定义了。</p>
-<p>除非真的有需要，否则是不推荐一开始就在代码里使用interface的。</p>
-<p>最佳实践应该是先不要想着interface，因为过度使用interface会让代码晦涩难懂。</p>
-<p>我们应该先按照没有interface的场景去写代码，如果最后发现使用interface能带来额外的好处，再去使用interface。</p>
-<h3 id="注意事项">注意事项</h3>
-<p>使用interface进行方法调用的时候，有些开发者可能遇到过一些性能问题。</p>
-<p>因为程序运行的时候，需要去哈希表数据结构里找到interface的具体实现类型，然后调用该类型的方法。</p>
-<p>但是这个开销是很小的，通常不需要关注。</p>
+</div></li>
+</ul>
 <h2 id="总结">总结</h2>
-<p>interface是Go语言里一个核心功能，但是使用不当也会导致代码晦涩难懂。</p>
-<p>因此，不要在写代码的时候一上来就先写interface。</p>
-<p>要先按照没有interface的场景去写代码，如果最后发现使用interface真的可以带来好处再去使用interface。</p>
-<p>如果使用interface没有让代码更好，那就不要使用interface，这样会让代码更简洁易懂。</p>
+<p>如果具体的使用场景的确是适合任意类型，那可以使用any。</p>
+<p>但通常而言，为了代码的易读性和可维护性，我们应该避免过度抽象我们的代码</p>
 <h2 id="推荐阅读">推荐阅读</h2>
 <ul>
 <li>
@@ -430,6 +453,9 @@
 <li>
 <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484568&amp;idx=1&amp;sn=2f078aa6561093691b4aeae58de44830&amp;chksm=ce124bf7f965c2e17b99896393dfb684d5868156ea4e0b324bc86e2dcc596ea55d5e6c562c29&amp;token=1629431500&amp;lang=zh_CN#rd">Go常见错误第14篇：过度使用getter和setter方法 </a></p>
 </li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484589&amp;idx=1&amp;sn=0e0e71b71e6f236349aff55fe3b32b9e&amp;chksm=ce124bc2f965c2d44b6f5bf74fd704db1417f8af2a584ce009a683f7ddae5678a95b09c8388f&amp;token=1258925621&amp;lang=zh_CN#rd">Go常见错误第15篇：interface使用的常见错误和最佳实践</a></p>
+</li>
 </ul>
 <h2 id="开源地址">开源地址</h2>
 <p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
@@ -443,8 +469,8 @@
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://livebook.manning.com/book/100-go-mistakes-how-to-avoid-them/chapter-2/">https://livebook.manning.com/book/100-go-mistakes-how-to-avoid-them/chapter-2/</a></li>
-<li><a href="https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson18">https://github.com/jincheng9/go-tutorial/tree/main/workspace/lesson18</a></li>
-<li><a href="https://bbs.huaweicloud.com/blogs/348512">https://bbs.huaweicloud.com/blogs/348512</a></li>
+<li><a href="https://go.dev/ref/spec#Predeclared_identifiers">https://go.dev/ref/spec#Predeclared_identifiers</a></li>
+<li><a href="https://go101.org/article/keywords-and-identifiers.html#:~:text=Keywords%20are%20the%20special%20words,understand%20and%20parse%20user%20code.&amp;text=They%20can%20be%20categorized%20as,code%20elements%20in%20Go%20programs">https://go101.org/article/keywords-and-identifiers.html#:~:text=Keywords%20are%20the%20special%20words,understand%20and%20parse%20user%20code.&amp;text=They%20can%20be%20categorized%20as,code%20elements%20in%20Go%20programs</a>.</li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -456,13 +482,9 @@
           <a href="/tags/go-mistakes/">go mistakes</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-advance-coding-style/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Google重磅发布Go语言编码规范</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-official-blog-go-13-years/">
-            <span class="next-text nav-default">Go语言开源13周年啦，看看负责人说了啥</span>
+        
+        <a class="next" href="/post/go-release-1.20rc1-3/">
+            <span class="next-text nav-default">Go 1.20要来了，看看都有哪些变化-第4篇</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
