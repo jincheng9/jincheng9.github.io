@@ -3,7 +3,49 @@
   
   <url>
     <loc>http://jincheng9.github.io/categories/</loc>
-    <lastmod>2023-01-22T11:43:34+08:00</lastmod>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/go-release-1.20-notice/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/go1.20/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/categories/go1.20/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/post/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jincheng9.github.io/tags/</loc>
+    <lastmod>2023-02-04T12:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,27 +66,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/post/go-summary-2022/</loc>
-    <lastmod>2023-01-22T11:43:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/</loc>
-    <lastmod>2023-01-22T11:43:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/post/</loc>
-    <lastmod>2023-01-22T11:43:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/</loc>
     <lastmod>2023-01-22T11:43:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -73,20 +94,6 @@
   
   <url>
     <loc>http://jincheng9.github.io/post/go-release-1.20rc1-3/</loc>
-    <lastmod>2022-12-31T15:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/tags/go1.20/</loc>
-    <lastmod>2022-12-31T15:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jincheng9.github.io/categories/go1.20/</loc>
     <lastmod>2022-12-31T15:36:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

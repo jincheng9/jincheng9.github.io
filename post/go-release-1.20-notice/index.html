@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go语言2023年开发者调研来了！文末附上2022年精彩文章合集 - Jincheng9&#39;s blog</title>
+  <title>Go 1.20正式发布！ - Jincheng9&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jincheng9" /><meta name="description" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集" /><meta name="keywords" content="go" />
+<meta name="author" content="jincheng9" /><meta name="description" content="Go 1.20正式发布！" /><meta name="keywords" content="go1.20" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
-<link rel="canonical" href="http://jincheng9.github.io/post/go-summary-2022/" />
+<link rel="canonical" href="http://jincheng9.github.io/post/go-release-1.20-notice/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集" />
-<meta property="og:description" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集" />
+<meta property="og:title" content="Go 1.20正式发布！" />
+<meta property="og:description" content="Go 1.20正式发布！" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jincheng9.github.io/post/go-summary-2022/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-01-22T11:43:34+08:00" />
-<meta property="article:modified_time" content="2023-01-22T11:43:34+08:00" />
+<meta property="og:url" content="http://jincheng9.github.io/post/go-release-1.20-notice/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-04T12:03:15+08:00" />
+<meta property="article:modified_time" content="2023-02-04T12:03:15+08:00" />
 
-<meta itemprop="name" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集">
-<meta itemprop="description" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集"><meta itemprop="datePublished" content="2023-01-22T11:43:34+08:00" />
-<meta itemprop="dateModified" content="2023-01-22T11:43:34+08:00" />
-<meta itemprop="wordCount" content="626">
-<meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集"/>
-<meta name="twitter:description" content="Go语言2023年开发者调研来了！文末附上2022年精彩文章合集"/>
+<meta itemprop="name" content="Go 1.20正式发布！">
+<meta itemprop="description" content="Go 1.20正式发布！"><meta itemprop="datePublished" content="2023-02-04T12:03:15+08:00" />
+<meta itemprop="dateModified" content="2023-02-04T12:03:15+08:00" />
+<meta itemprop="wordCount" content="998">
+<meta itemprop="keywords" content="go1.20," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go 1.20正式发布！"/>
+<meta name="twitter:description" content="Go 1.20正式发布！"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,14 +129,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go语言2023年开发者调研来了！文末附上2022年精彩文章合集</h1>
+      <h1 class="post-title">Go 1.20正式发布！</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2023-01-22 </span>
+        <span class="post-time"> 2023-02-04 </span>
         <div class="post-category">
-            <a href="/categories/go/"> go </a>
+            <a href="/categories/go1.20/"> go1.20 </a>
             </div>
-          <span class="more-meta"> 626 words </span>
+          <span class="more-meta"> 998 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -149,8 +149,10 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#2023年go语言调研">2023年Go语言调研</a></li>
-        <li><a href="#2022年精彩文章合集">2022年精彩文章合集</a></li>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#go-120发布清单">Go 1.20发布清单</a></li>
+        <li><a href="#注意事项">注意事项</a></li>
+        <li><a href="#推荐阅读">推荐阅读</a></li>
         <li><a href="#开源地址">开源地址</a></li>
         <li><a href="#福利">福利</a></li>
         <li><a href="#references">References</a></li>
@@ -161,21 +163,43 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="2023年go语言调研">2023年Go语言调研</h2>
-<p>Go团队的Alice Merrick在2023.01.18发布了2023年一月份开发者调研的线上链接地址。</p>
-<p>过去7年，Go团队每年都会对Go开发者做调研。</p>
-<p>从2022年开始，为了减轻大家填写问卷调查的负担以及更好地提升调研效果，调研频率从一年一次变为一年两次。</p>
-<p>开发者的调研反馈改变了Go语言的生态。</p>
-<p>例如，Go语言的依赖管理(dependency management)、漏洞扫描(vulnerability scanning)和泛型(generics)等重要设计都来源于调研反馈。</p>
-<p>本次线上调研地址为： <a href="https://google.qualtrics.com/jfe/form/SV_bNnbAtFZ0vfRTH8?s=b">the January 2023 edition of the Go Developer Survey</a>。</p>
-<p>调研时间从2023.01.18持续到2023.02.08。</p>
-<h2 id="2022年精彩文章合集">2022年精彩文章合集</h2>
+      <h2 id="前言">前言</h2>
+<p>Go官方团队在2023.02.01发布了Go 1.20的正式release版本。</p>
+<p>安装方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ go install golang.org/dl/go1.20@latest
+$ go1.20 download
+</code></pre></td></tr></table>
+</div>
+</div><p>去年2022.12.08 Go官方团队就已经发布了Go 1.20 rc1(release candidate)版本，本人对Go 1.20的版本升级内容作了详细的讲解。</p>
+<h2 id="go-120发布清单">Go 1.20发布清单</h2>
+<p>和Go 1.19相比，改动内容适中，主要涉及语言(Language)、可移植性(Ports)、工具链(Go Tools)、运行时(Runtime)、编译器(Compiler)、汇编器(Assembler)、链接器(Linker)和核心库(Core library)等方面的优化。</p>
+<p>第1篇主要涉及Go 1.20在语言、可移植性方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484629&amp;idx=1&amp;sn=60a01d3cc85ef2462156f0565c30738d&amp;chksm=ce124bbaf965c2ac351cd9c602e8b67d5119b2a89a7f2de0289bdeb7608ae589c329eb8f7275&amp;token=1619842941&amp;lang=zh_CN#rd">Go 1.20版本升级内容第1篇</a>。</p>
+<p>第2篇主要涉及Go命令和工具链方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484638&amp;idx=1&amp;sn=459a22d4a9bf5d9715e70d3c25b05b93&amp;chksm=ce124bb1f965c2a76bacc1135799ab268be66a861e99391b354a9f2dfd8c22a60853cc1d689d&amp;token=1342188569&amp;lang=zh_CN#rd">Go 1.20版本升级内容第2篇</a>。</p>
+<p>第3篇主要涉及Go在运行时、编译器、汇编器、链接器等方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484644&amp;idx=1&amp;sn=3c1c4d852b220595ef633f30084f3a11&amp;chksm=ce124b8bf965c29d38c8f17702003c3531b58be15470f7b5c13f67784806a532850b79f464cc&amp;token=1794942092&amp;lang=zh_CN#rd">Go 1.20版本升级内容第3篇</a>。</p>
+<p>第4篇主要涉及Go 1.20在核心库方面的优化，原文链接：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTcwNjc1Mg==&amp;mid=2247484653&amp;idx=1&amp;sn=b776c4213a7bbf03400a1abe8ccca43e&amp;chksm=ce124b82f965c29468536acda4334a8b14ede16840c2593e8a29f9b984ce2a1bd9fb026bc317&amp;token=1226295991&amp;lang=zh_CN#rd">Go 1.20版本升级内容终结篇</a>。</p>
+<h2 id="注意事项">注意事项</h2>
+<p>如果打算对Go 1.20的源码做编译，要求编译环境之前已经安装过Go 1.17.13或更高的版本才可以。</p>
+<p>Go官方计划后续每年新的Go版本，如果想从源码开始编译，那编译环境会要求更高的Go版本才行。</p>
+<p>比如Go 1.20源码编译需要依赖的最低Go版本是Go 1.17.13，到了Go 1.22，可能依赖的最低Go版本是Go 1.18。</p>
+<p>Go 1.20增加了对RISC-V架构上FreeBSD的实验性支持。</p>
+<p>此外，从Go 1.21开始，一些旧操作系统会不再被支持，这包括Windows 7, 8, Server 2008 和 Server 2012, macOS 10.13 High Sierra和10.14 Mojave。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
 <ul>
-<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go语言面试题系列</a></li>
-<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2549657749539028992#wechat_redirect">Go开发常见错误和最佳实践系列</a></li>
-<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2184751156453834753#wechat_redirect">Go泛型设计原理以及最佳实践系列</a></li>
-<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2339933847347544066#wechat_redirect">Go工作区模式</a></li>
-<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2549661543605764097#wechat_redirect">Go语言版本演进系列，读懂各个版本的演进历史</a></li>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2199553588283179010#wechat_redirect">Go面试题系列，看看你会几题</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2549657749539028992#wechat_redirect">Go常见错误和最佳实践系列</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2MTcwNjc1Mg==&amp;action=getalbum&amp;album_id=2549661543605764097#wechat_redirect">Go语言进阶知识</a></p>
+</li>
 </ul>
 <h2 id="开源地址">开源地址</h2>
 <p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/go-tutorial">Go语言初级、中级和高级教程</a>。</p>
@@ -187,7 +211,8 @@
 <p>关注公众号「coding进阶」，发送消息 <strong>backend</strong> 领取资料礼包，这份资料会不定期更新，加入我觉得有价值的资料。还可以发送消息「<strong>进群</strong>」，和同行一起交流学习，答疑解惑。</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://go.dev/blog/survey2023-q1">https://go.dev/blog/survey2023-q1</a></li>
+<li><a href="https://tip.golang.org/doc/go1.20">https://tip.golang.org/doc/go1.20</a></li>
+<li><a href="https://go.dev/blog/go1.20">https://go.dev/blog/go1.20</a></li>
 </ul>
 <p><img src="/img/wechat.png" alt=""></p>
 
@@ -196,16 +221,12 @@
     
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/go/">go</a>
+          <a href="/tags/go1.20/">go1.20</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/go-release-1.20-notice/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go 1.20正式发布！</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/go-common-mistakes-16-any-keyword/">
-            <span class="next-text nav-default">Go常见错误第16篇：any的常见错误和最佳实践</span>
+        
+        <a class="next" href="/post/go-summary-2022/">
+            <span class="next-text nav-default">Go语言2023年开发者调研来了！文末附上2022年精彩文章合集</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
