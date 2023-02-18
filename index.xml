@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Feb 2023 12:03:15 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Feb 2023 13:59:20 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 1.21的2个语言变化</title>
+      <link>http://jincheng9.github.io/post/go-release-1.21-two-changes/</link>
+      <pubDate>Sat, 18 Feb 2023 13:59:20 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-release-1.21-two-changes/</guid>
+      <description>语言行为变化 Go 1.20已经于今年2月份发布，Go 1.21也不远了，我们来先堵为快，看看Go 1.21版本里几个有趣的变化。 文末附送2道面试题。</description>
+    </item>
+    
     <item>
       <title>Go 1.20正式发布！</title>
       <link>http://jincheng9.github.io/post/go-release-1.20-notice/</link>
