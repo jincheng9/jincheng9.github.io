@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pgo on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/categories/pgo/</link>
+    <description>Recent content in pgo on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Feb 2023 10:41:38 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/pgo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一文读懂Go 1.20引入的PGO性能优化</title>
+      <link>http://jincheng9.github.io/post/go-release-1.20-pgo/</link>
+      <pubDate>Sun, 26 Feb 2023 10:41:38 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/go-release-1.20-pgo/</guid>
+      <description>背景 Go 1.20版本于2023年2月份正式发布，在这个版本里引入了PGO性能优化机制。 PGO的英文全称是Profile Guided Optimizatio</description>
+    </item>
+    
+  </channel>
+</rss>
