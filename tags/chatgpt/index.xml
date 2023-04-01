@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chatgpt on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/chatgpt/</link>
+    <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 13:44:54 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>手把手教会你如何通过ChatGPT API实现上下文对话</title>
+      <link>http://jincheng9.github.io/post/chatgpt-01/</link>
+      <pubDate>Sat, 01 Apr 2023 13:44:54 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-01/</guid>
+      <description>前言 ChatGPT最近热度持续高涨，已经成为互联网和金融投资领域最热门的话题。 有的小伙伴可能需要在公司搭建一套ChatGPT系统，那使用Ch</description>
+    </item>
+    
+  </channel>
+</rss>
