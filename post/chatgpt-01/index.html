@@ -49,7 +49,7 @@
 <meta itemprop="name" content="手把手教会你如何通过ChatGPT API实现上下文对话">
 <meta itemprop="description" content="如何通过ChatGPT API实现上下文对话"><meta itemprop="datePublished" content="2023-04-01T13:44:54+08:00" />
 <meta itemprop="dateModified" content="2023-04-01T13:44:54+08:00" />
-<meta itemprop="wordCount" content="594">
+<meta itemprop="wordCount" content="736">
 <meta itemprop="keywords" content="chatgpt,api," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="手把手教会你如何通过ChatGPT API实现上下文对话"/>
 <meta name="twitter:description" content="如何通过ChatGPT API实现上下文对话"/>
@@ -136,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/chatgpt/"> chatgpt </a>
             </div>
-          <span class="more-meta"> 594 words </span>
+          <span class="more-meta"> 736 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -150,12 +150,7 @@
     <li>
       <ul>
         <li><a href="#前言">前言</a></li>
-        <li><a href="#chatgpt-api">ChatGPT API</a>
-          <ul>
-            <li><a href="#创建api-key">创建API Key</a></li>
-          </ul>
-        </li>
-        <li><a href="#heading"></a></li>
+        <li><a href="#chatgpt-api">ChatGPT API</a></li>
         <li><a href="#潜在问题">潜在问题</a></li>
         <li><a href="#总结">总结</a></li>
         <li><a href="#开源地址">开源地址</a></li>
@@ -217,9 +212,42 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="创建api-key">创建API Key</h3>
+</div><p>这段代码很简单，但是有3个注意事项：</p>
+<ul>
+<li>
+<p>用到了官方的openai库，需要安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install openai
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>需要创建API key</p>
+<p>在下面这个链接创建你的API key</p>
+<blockquote>
 <p><a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
-<h2 id="heading"></h2>
+</blockquote>
+</li>
+<li>
+<p>要使用<code>openai.ChatCompletion</code></p>
+<p>openai这个库里封装了很多类，如下所示：</p>
+<blockquote>
+<p><a href="https://platform.openai.com/docs/api-reference/completions">openai.Completion</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/chat">openai.ChatCompletion</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/edits">openai.Edit</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/images">openai.Image</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/embeddings">openai.Embedding</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/audio">openai.Audio</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/fine-tunes">openai.FineTune</a></p>
+<p><a href="https://platform.openai.com/docs/api-reference/moderations">openai.Moderation</a></p>
+</blockquote>
+</li>
+</ul>
+<p>​	其中，<code>openai.ChatCompletion</code>用于对话。</p>
 <h2 id="潜在问题">潜在问题</h2>
 <h2 id="总结">总结</h2>
 <h2 id="开源地址">开源地址</h2>
