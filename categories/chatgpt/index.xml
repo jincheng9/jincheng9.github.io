@@ -6,7 +6,16 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Apr 2023 13:44:54 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Apr 2023 14:58:42 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一文汇总开源大语言模型，人人都可以拥有自己的ChatGPT</title>
+      <link>http://jincheng9.github.io/post/chatgpt-02/</link>
+      <pubDate>Sun, 16 Apr 2023 14:58:42 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-02/</guid>
+      <description>前言 OpenAI发布的ChatGPT火爆全球以来，全球互联网大厂陆续跟进，纷纷宣布了自家的Chat产品，如Google的Bard，百度的文心</description>
+    </item>
+    
     <item>
       <title>手把手教会你如何通过ChatGPT API实现上下文对话</title>
       <link>http://jincheng9.github.io/post/chatgpt-01/</link>
