@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Apr 2023 14:58:42 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 May 2023 23:23:52 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BLOOMChat: 开源可商用支持多语言的大语言模型</title>
+      <link>http://jincheng9.github.io/post/chatgpt-03/</link>
+      <pubDate>Sat, 20 May 2023 23:23:52 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-03/</guid>
+      <description>背景 SambaNova和Together这2家公司于2023.05.19开源了可商用的支持多语言的微调模型BLOOMChat。 SambaNo</description>
+    </item>
+    
     <item>
       <title>一文汇总开源大语言模型，人人都可以拥有自己的ChatGPT</title>
       <link>http://jincheng9.github.io/post/chatgpt-02/</link>
