@@ -6,7 +6,16 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 May 2023 15:53:32 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jun 2023 17:14:26 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPT重要概念介绍</title>
+      <link>http://jincheng9.github.io/post/chatgpt-05/</link>
+      <pubDate>Sun, 11 Jun 2023 17:14:26 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-05/</guid>
+      <description>Prompt和Completion prompt可以理解为GPT模型的输入 completion可以理解为GPT模型的输出结果 Model OpenAI支持</description>
+    </item>
+    
     <item>
       <title>轩辕：首个千亿级中文金融对话模型</title>
       <link>http://jincheng9.github.io/post/chatgpt-04/</link>
