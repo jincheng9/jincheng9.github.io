@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>baichuan-7B: 开源可商用支持中英文的最好大模型 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="baichuan-7B: 开源可商用支持中英文的最好大模型" /><meta name="keywords" content="chatgpt, baichuan-7b" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/chatgpt-06/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="baichuan-7B: 开源可商用支持中英文的最好大模型" />
+<meta property="og:description" content="baichuan-7B: 开源可商用支持中英文的最好大模型" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/chatgpt-06/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-17T12:24:09+08:00" />
+<meta property="article:modified_time" content="2023-06-17T12:24:09+08:00" />
+
+<meta itemprop="name" content="baichuan-7B: 开源可商用支持中英文的最好大模型">
+<meta itemprop="description" content="baichuan-7B: 开源可商用支持中英文的最好大模型"><meta itemprop="datePublished" content="2023-06-17T12:24:09+08:00" />
+<meta itemprop="dateModified" content="2023-06-17T12:24:09+08:00" />
+<meta itemprop="wordCount" content="1981">
+<meta itemprop="keywords" content="chatgpt," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="baichuan-7B: 开源可商用支持中英文的最好大模型"/>
+<meta name="twitter:description" content="baichuan-7B: 开源可商用支持中英文的最好大模型"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">baichuan-7B: 开源可商用支持中英文的最好大模型</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-06-17 </span>
+        <div class="post-category">
+            <a href="/categories/chatgpt/"> chatgpt </a>
+            </div>
+          <span class="more-meta"> 1981 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#baichuan-7b的优点">baichuan-7B的优点</a></li>
+        <li><a href="#数据收集">数据收集</a></li>
+        <li><a href="#模型结构">模型结构</a></li>
+        <li><a href="#预训练">预训练</a></li>
+        <li><a href="#实验效果">实验效果</a>
+          <ul>
+            <li><a href="#c-eval">C-Eval</a></li>
+            <li><a href="#结果">结果</a></li>
+            <li><a href="#gaokao">Gaokao</a></li>
+            <li><a href="#结果-1">结果</a></li>
+            <li><a href="#agieval">AGIEval</a></li>
+            <li><a href="#结果-2">结果</a></li>
+          </ul>
+        </li>
+        <li><a href="#英文榜单">英文榜单</a>
+          <ul>
+            <li><a href="#结果-3">结果</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="背景">背景</h2>
+<p>baichuan-7B 是由百川智能开发的一个开源可商用的大规模预训练语言模型。</p>
+<p>基于 Transformer 结构，在大约1.2万亿 tokens 上训练的70亿参数模型，支持中英双语，上下文窗口长度为4096。</p>
+<p>在标准的中文和英文权威 benchmark（C-EVAL/MMLU）上均取得了同参数规模下的最好效果。</p>
+<h2 id="baichuan-7b的优点">baichuan-7B的优点</h2>
+<ul>
+<li>在同尺寸模型中baichuan-7B达到了目前SOTA的水平。</li>
+<li>baichuan-7B使用自有的中英文双语语料进行训练，在中文上进行优化，在C-Eval达到SOTA水平。</li>
+<li>不同于LLaMA完全禁止商业使用，baichuan-7B使用更宽松的开源协议，允许用于商业目的。</li>
+</ul>
+<h2 id="数据收集">数据收集</h2>
+<ul>
+<li>原始数据包括开源的中英文数据和自行抓取的中文互联网数据，以及部分高质量知识性数据。</li>
+<li>参考相关数据工作，频率和质量是数据处理环节重点考虑的两个维度。 我们基于启发式规则和质量模型打分，对原始数据集进行篇章和句子粒度的过滤。在全量数据上，利用局部敏感哈希方法，对篇章和句子粒度做滤重。</li>
+</ul>
+<p><img src="https://github.com/baichuan-inc/baichuan-7B/raw/main/media/data_process.png" alt="img"></p>
+<h2 id="模型结构">模型结构</h2>
+<p>整体模型基于标准的 Transformer 结构，采用了和 LLaMA 一样的模型设计。</p>
+<ul>
+<li>
+<p>位置编码：rotary-embedding</p>
+<p>是现阶段被大多模型采用的位置编码方案，具有更好的外延效果。虽然训练过程中最大长度为4096，但是实际测试中模型可以很好的扩展到 5000 tokens 上，如下图：</p>
+<p><a href="https://github.com/baichuan-inc/baichuan-7B/blob/main/media/long-context-ppl.png"><img src="https://github.com/baichuan-inc/baichuan-7B/raw/main/media/long-context-ppl.png" alt="img"></a></p>
+</li>
+<li>
+<p>激活层：SwiGLU, Feedforward 变化为(8/3)倍的隐含层大小，即11008。</p>
+</li>
+<li>
+<p>Layer-Normalization: 基于 <a href="https://arxiv.org/abs/1910.07467">RMSNorm</a> 的 Pre-Normalization。</p>
+</li>
+</ul>
+<h2 id="预训练">预训练</h2>
+<p>采用 DeepSpeed 框架进行训练，在原本的LLaMA框架上进行诸多修改以提升训练时的吞吐，具体包括：</p>
+<ol>
+<li>算子优化技术：采用更高效算子，如 Flash-attention，NVIDIA apex 的 RMSNorm 等。</li>
+<li>算子切分技术：将部分计算算子进行切分，减小内存峰值。</li>
+<li>混合精度技术：降低在不损失模型精度的情况下加速计算过程。</li>
+<li>训练容灾技术：训练平台和训练框架联合优化，IaaS + PaaS 实现分钟级的故障定位和任务恢复。</li>
+<li>通信优化技术，具体包括：
+<ol>
+<li>采用拓扑感知的集合通信算法，避免网络拥塞问题，提高通信效率。</li>
+<li>根据卡数自适应设置 bucket size，提高带宽利用率。</li>
+<li>根据模型和集群环境，调优通信原语的触发时机，从而将计算和通信重叠。</li>
+</ol>
+</li>
+</ol>
+<p>基于上述的几个优化技术，在千卡A800机器上达到了7B模型182Tflops的吞吐，GPU峰值算力利用率高达58.3% 。</p>
+<p>最终的loss如下图：</p>
+<p><a href="https://github.com/baichuan-inc/baichuan-7B/blob/main/media/7b.loss.png"><img src="https://github.com/baichuan-inc/baichuan-7B/raw/main/media/7b.loss.png" alt="img"></a></p>
+<h2 id="实验效果">实验效果</h2>
+<h3 id="c-eval">C-Eval</h3>
+<p><a href="https://cevalbenchmark.com/index.html">C-Eval 数据集</a>是一个全面的中文基础模型评测数据集，涵盖了52个学科和四个难度的级别。</p>
+<p>使用该数据集的dev集作为 few-shot 的来源，在 test 集上进行了 5-shot 测试。</p>
+<p>先修改 <code>evaluate_zh.py</code> 中的 OPENMODEL_PATH 和 CEVAL_DATA_PATH 两个值，分别是模型（文件夹）存放的路径和 C-Eval 数据集的路径。再执行下面的脚本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">shot=5  # few-shot
+gpu=0  # 显卡id
+split=test  # 评估测试集
+model_id=baichuan-7b   # 待评估的模型
+task=ceval  # 任务名称：ceval
+echo gpu_idx-${gpu}-${model_id}_${task}_${split}_${shot}-shot
+nohup python  evaluate_zh.py --gpu_idx ${gpu} --model_id ${model_id} --task ${task} --shot ${shot} --split ${split} --show_detail  &gt; ${model_id}_${task}_${split}_${shot}-shot_record.txt 2&gt;&amp;1 &amp;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="结果">结果</h3>
+<table>
+<thead>
+<tr>
+<th>Model 5-shot</th>
+<th>Average</th>
+<th>Avg(Hard)</th>
+<th>STEM</th>
+<th>Social Sciences</th>
+<th>Humanities</th>
+<th>Others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4</td>
+<td>68.7</td>
+<td>54.9</td>
+<td>67.1</td>
+<td>77.6</td>
+<td>64.5</td>
+<td>67.8</td>
+</tr>
+<tr>
+<td>ChatGPT</td>
+<td>54.4</td>
+<td>41.4</td>
+<td>52.9</td>
+<td>61.8</td>
+<td>50.9</td>
+<td>53.6</td>
+</tr>
+<tr>
+<td>Claude-v1.3</td>
+<td>54.2</td>
+<td>39.0</td>
+<td>51.9</td>
+<td>61.7</td>
+<td>52.1</td>
+<td>53.7</td>
+</tr>
+<tr>
+<td>Claude-instant-v1.0</td>
+<td>45.9</td>
+<td>35.5</td>
+<td>43.1</td>
+<td>53.8</td>
+<td>44.2</td>
+<td>45.4</td>
+</tr>
+<tr>
+<td>moss-moon-003-base (16B)</td>
+<td>27.4</td>
+<td>24.5</td>
+<td>27.0</td>
+<td>29.1</td>
+<td>27.2</td>
+<td>26.9</td>
+</tr>
+<tr>
+<td>Ziya-LLaMA-13B-pretrain</td>
+<td>30.2</td>
+<td>22.7</td>
+<td>27.7</td>
+<td>34.4</td>
+<td>32.0</td>
+<td>28.9</td>
+</tr>
+<tr>
+<td>LLaMA-7B-hf</td>
+<td>27.1</td>
+<td>25.9</td>
+<td>27.1</td>
+<td>26.8</td>
+<td>27.9</td>
+<td>26.3</td>
+</tr>
+<tr>
+<td>ChatGLM-6B</td>
+<td>34.5</td>
+<td>23.1</td>
+<td>30.4</td>
+<td>39.6</td>
+<td>37.4</td>
+<td>34.5</td>
+</tr>
+<tr>
+<td>Falcon-7B</td>
+<td>25.8</td>
+<td>24.3</td>
+<td>25.8</td>
+<td>26.0</td>
+<td>25.8</td>
+<td>25.6</td>
+</tr>
+<tr>
+<td>Open-LLaMA-v2-pretrain (7B)</td>
+<td>24.0</td>
+<td>22.5</td>
+<td>23.1</td>
+<td>25.3</td>
+<td>25.2</td>
+<td>23.2</td>
+</tr>
+<tr>
+<td>TigerBot-7B-base</td>
+<td>25.7</td>
+<td>27.0</td>
+<td>27.3</td>
+<td>24.7</td>
+<td>23.4</td>
+<td>26.1</td>
+</tr>
+<tr>
+<td>Aquila-7B*</td>
+<td>25.5</td>
+<td>25.2</td>
+<td>25.6</td>
+<td>24.6</td>
+<td>25.2</td>
+<td>26.6</td>
+</tr>
+<tr>
+<td>BLOOM-7B</td>
+<td>22.8</td>
+<td>20.2</td>
+<td>21.8</td>
+<td>23.3</td>
+<td>23.9</td>
+<td>23.3</td>
+</tr>
+<tr>
+<td>BLOOMZ-7B</td>
+<td>35.7</td>
+<td>25.8</td>
+<td>31.3</td>
+<td>43.5</td>
+<td>36.6</td>
+<td>35.6</td>
+</tr>
+<tr>
+<td><strong>baichuan-7B</strong></td>
+<td>42.8</td>
+<td>31.5</td>
+<td>38.2</td>
+<td>52.0</td>
+<td>46.2</td>
+<td>39.3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gaokao">Gaokao</h3>
+<p><a href="https://github.com/ExpressAI/AI-Gaokao">Gaokao</a> 是一个以中国高考题作为评测大语言模型能力的数据集，用以评估模型的语言能力和逻辑推理能力。</p>
+<p>只保留了其中的单项选择题，随机划分后对所有模型进行统一 5-shot 测试。</p>
+<h3 id="结果-1">结果</h3>
+<p>以下是测试的结果。</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open-LLaMA-v2-pretrain</td>
+<td>21.41</td>
+</tr>
+<tr>
+<td>Ziya-LLaMA-13B-pretrain</td>
+<td>23.17</td>
+</tr>
+<tr>
+<td>Falcon-7B</td>
+<td>23.98</td>
+</tr>
+<tr>
+<td>TigerBot-7B-base</td>
+<td>25.94</td>
+</tr>
+<tr>
+<td>LLaMA-7B</td>
+<td>27.81</td>
+</tr>
+<tr>
+<td>ChatGLM-6B</td>
+<td>21.41</td>
+</tr>
+<tr>
+<td>BLOOM-7B</td>
+<td>26.96</td>
+</tr>
+<tr>
+<td>BLOOMZ-7B</td>
+<td>28.72</td>
+</tr>
+<tr>
+<td>Aquila-7B*</td>
+<td>24.39</td>
+</tr>
+<tr>
+<td><strong>baichuan-7B</strong></td>
+<td><strong>36.24</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="agieval">AGIEval</h3>
+<p><a href="https://github.com/microsoft/AGIEval">AGIEval</a> 旨在评估模型的认知和解决问题相关的任务中的一般能力。</p>
+<p>只保留了其中的四选一单项选择题，随机划分后对所有模型进行了统一5-shot测试。</p>
+<h3 id="结果-2">结果</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open-LLaMA-v2-pretrain</td>
+<td>23.49</td>
+</tr>
+<tr>
+<td>Ziya-LLaMA-13B-pretrain</td>
+<td>27.64</td>
+</tr>
+<tr>
+<td>Falcon-7B</td>
+<td>27.18</td>
+</tr>
+<tr>
+<td>TigerBot-7B-base</td>
+<td>25.19</td>
+</tr>
+<tr>
+<td>LLaMA-7B</td>
+<td>28.17</td>
+</tr>
+<tr>
+<td>ChatGLM-6B</td>
+<td>23.49</td>
+</tr>
+<tr>
+<td>BLOOM-7B</td>
+<td>26.55</td>
+</tr>
+<tr>
+<td>BLOOMZ-7B</td>
+<td>30.27</td>
+</tr>
+<tr>
+<td>Aquila-7B*</td>
+<td>25.58</td>
+</tr>
+<tr>
+<td><strong>baichuan-7B</strong></td>
+<td><strong>34.44</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>其中 Aquila 模型来源于智源官方网站(<a href="https://model.baai.ac.cn/model-detail/100098">https://model.baai.ac.cn/model-detail/100098</a>) 仅做参考</li>
+</ul>
+<h2 id="英文榜单">英文榜单</h2>
+<p>除了中文之外，也测试了模型在英文上的效果。</p>
+<p><a href="https://arxiv.org/abs/2009.03300">MMLU</a> 是包含57个多选任务的英文评测数据集，涵盖了初等数学、美国历史、计算机科学、法律等，难度覆盖高中水平到专家水平，是目前主流的LLM评测数据集。</p>
+<p>采用了<a href="https://github.com/hendrycks/test">开源</a> 的评测方案，最终 5-shot 结果如下所示：</p>
+<h3 id="结果-3">结果</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Humanities</th>
+<th>Social Sciences</th>
+<th>STEM</th>
+<th>Other</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLaMA-7B2</td>
+<td>34.0</td>
+<td>38.3</td>
+<td>30.5</td>
+<td>38.1</td>
+<td>35.1</td>
+</tr>
+<tr>
+<td>Falcon-7B1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>35.0</td>
+</tr>
+<tr>
+<td>mpt-7B1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>35.6</td>
+</tr>
+<tr>
+<td>ChatGLM-6B0</td>
+<td>35.4</td>
+<td>41.0</td>
+<td>31.3</td>
+<td>40.5</td>
+<td>36.9</td>
+</tr>
+<tr>
+<td>BLOOM-7B0</td>
+<td>25.0</td>
+<td>24.4</td>
+<td>26.5</td>
+<td>26.4</td>
+<td>25.5</td>
+</tr>
+<tr>
+<td>BLOOMZ-7B0</td>
+<td>31.3</td>
+<td>42.1</td>
+<td>34.4</td>
+<td>39.0</td>
+<td>36.1</td>
+</tr>
+<tr>
+<td>moss-moon-003-base (16B)0</td>
+<td>24.2</td>
+<td>22.8</td>
+<td>22.4</td>
+<td>24.4</td>
+<td>23.6</td>
+</tr>
+<tr>
+<td>moss-moon-003-sft (16B)0</td>
+<td>30.5</td>
+<td>33.8</td>
+<td>29.3</td>
+<td>34.4</td>
+<td>31.9</td>
+</tr>
+<tr>
+<td><strong>baichuan-7B0</strong></td>
+<td><strong>38.4</strong></td>
+<td><strong>48.9</strong></td>
+<td><strong>35.6</strong></td>
+<td><strong>48.1</strong></td>
+<td><strong>42.3</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>baichuan-7B模型基于标准的 Transformer 结构，采用了和 LLaMA 一样的模型设计，核心优势如下：</p>
+<ul>
+<li>在同尺寸模型中baichuan-7B达到了目前SOTA的水平。</li>
+<li>baichuan-7B使用自有的中英文双语语料进行训练，在中文上进行优化，在C-Eval达到SOTA水平。</li>
+<li>不同于LLaMA完全禁止商业使用，baichuan-7B使用更宽松的开源协议，允许用于商业目的。</li>
+</ul>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/gpt-tutorial">GPT实战教程</a>，了解所有主流的开源LLM。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新GPT实战内容。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/baichuan-inc/baichuan-7B">https://github.com/baichuan-inc/baichuan-7B</a></li>
+<li><a href="https://huggingface.co/baichuan-inc/baichuan-7B">https://huggingface.co/baichuan-inc/baichuan-7B</a></li>
+</ul>
+<p><img src="/img/wechat.png" alt=""></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/chatgpt/">chatgpt</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/chatgpt-05/">
+            <span class="next-text nav-default">GPT重要概念介绍</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

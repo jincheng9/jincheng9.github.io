@@ -6,7 +6,16 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Jun 2023 17:14:26 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 12:24:09 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>baichuan-7B: 开源可商用支持中英文的最好大模型</title>
+      <link>http://jincheng9.github.io/post/chatgpt-06/</link>
+      <pubDate>Sat, 17 Jun 2023 12:24:09 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-06/</guid>
+      <description>背景 baichuan-7B 是由百川智能开发的一个开源可商用的大规模预训练语言模型。 基于 Transformer 结构，在大约1.2万亿 tokens 上训练的70亿参数模型，支持中英双语，上下文窗口</description>
+    </item>
+    
     <item>
       <title>GPT重要概念介绍</title>
       <link>http://jincheng9.github.io/post/chatgpt-05/</link>
