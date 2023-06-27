@@ -6,7 +6,16 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Jun 2023 12:24:09 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 20:47:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT API重大升级</title>
+      <link>http://jincheng9.github.io/post/chatgpt-07/</link>
+      <pubDate>Tue, 27 Jun 2023 20:47:59 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-07/</guid>
+      <description>背景 OpenAI官方在2023.06.13发布了API层面的重磅升级，主要变化如下： 在Chat Completions这个API里支持了开发者</description>
+    </item>
+    
     <item>
       <title>baichuan-7B: 开源可商用支持中英文的最好大模型</title>
       <link>http://jincheng9.github.io/post/chatgpt-06/</link>
