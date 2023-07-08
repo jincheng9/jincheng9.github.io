@@ -6,7 +6,16 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Jun 2023 20:47:59 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jul 2023 14:52:38 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重磅：GPT-4 API全面开放使用</title>
+      <link>http://jincheng9.github.io/post/chatgpt-08/</link>
+      <pubDate>Sat, 08 Jul 2023 14:52:38 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-08/</guid>
+      <description>背景 相信很多申请GPT-4 API的开发者都收到OpenAI的邮件通知了，从2023.07.06开始，所有OpenAI的API付费用户都可以使</description>
+    </item>
+    
     <item>
       <title>ChatGPT API重大升级</title>
       <link>http://jincheng9.github.io/post/chatgpt-07/</link>
