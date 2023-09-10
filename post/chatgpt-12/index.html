@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ChatGPT最佳实践系列第4篇-给GPT思考的时间 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间" /><meta name="keywords" content="chatgpt" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/chatgpt-12/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间" />
+<meta property="og:description" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/chatgpt-12/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-09-10T18:09:09+08:00" />
+<meta property="article:modified_time" content="2023-09-10T18:09:09+08:00" />
+
+<meta itemprop="name" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间">
+<meta itemprop="description" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间"><meta itemprop="datePublished" content="2023-09-10T18:09:09+08:00" />
+<meta itemprop="dateModified" content="2023-09-10T18:09:09+08:00" />
+<meta itemprop="wordCount" content="2174">
+<meta itemprop="keywords" content="chatgpt," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间"/>
+<meta name="twitter:description" content="ChatGPT最佳实践系列第4篇-给GPT思考的时间"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ChatGPT最佳实践系列第4篇-给GPT思考的时间</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-09-10 </span>
+        <div class="post-category">
+            <a href="/categories/chatgpt/"> chatgpt </a>
+            </div>
+          <span class="more-meta"> 2174 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#策略1引导大模型给出自己的解">策略1：引导大模型给出自己的解</a></li>
+        <li><a href="#策略2隐藏模型推理过程">策略2：隐藏模型推理过程</a></li>
+        <li><a href="#策略3询问模型在之前的回答中是否遗漏了内容">策略3：询问模型在之前的回答中是否遗漏了内容</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="/img/wechat.png" alt=""></p>
+<h2 id="背景">背景</h2>
+<p>OpenAI官方详细介绍了ChatGPT使用的最佳实践，不仅适用于使用ChatGPT网站进行直接对话的用户，还适用于通过OpenAI API接入的开发者。</p>
+<p>掌握了这些最佳实践，就能更好地利用GPT大模型。</p>
+<p>本文是ChatGPT使用最佳实践系列第4篇 - 给GPT思考的时间。</p>
+<p>假设你被问到 17乘以28 是多少，大概率没办法立马给出回答。但是经过几秒的心算你就可以得到正确的结果。</p>
+<p>GPT在做推理的时候也是同理，如果能给大模型思考的时间，让大模型分步推理，往往回答效果会更好。</p>
+<h2 id="策略1引导大模型给出自己的解">策略1：引导大模型给出自己的解</h2>
+<p>直接让大模型立马给出结论往往不能达到最佳效果，比如下面的例子：</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>Determine if the student&rsquo;s solution is correct or not.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>Problem Statement: I&rsquo;m building a solar power installation and I need help working out the financials. <br>- Land costs $100 / square foot <br>- I can buy solar panels for $250 / square foot <br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot <br>What is the total cost for the first year of operations as a function of the number of square feet. <br>Student&rsquo;s Solution: Let x be the size of the installation in square feet. 1. Land cost: 100x 2. Solar panel cost: 250x 3. Maintenance cost: 100,000 + 100x Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>assistant</td>
+<td>The student&rsquo;s solution is correct.</td>
+</tr>
+</tbody>
+</table>
+<p>显然上面GPT给出的回答是错误的。</p>
+<p>但是我们如果从第一性原理(第一性原理指的是，回归事物最基本的条件，将其拆分成各要素进行解构分析，从而找到实现目标最优路径的方法)出发，重新设计system消息，那大模型的回答效果可以更好，参考下面的例子：</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>First work out your own solution to the problem. Then compare your solution to the student&rsquo;s solution and evaluate if the student&rsquo;s solution is correct or not. Don&rsquo;t decide if the student&rsquo;s solution is correct until you have done the problem yourself.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>Problem Statement: I&rsquo;m building a solar power installation and I need help working out the financials. <br/>- Land costs $100 / square foot <br/>- I can buy solar panels for $250 / square foot <br/>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot <br/>What is the total cost for the first year of operations as a function of the number of square feet. <br/>Student&rsquo;s Solution: Let x be the size of the installation in square feet. 1. Land cost: 100x 2. Solar panel cost: 250x 3. Maintenance cost: 100,000 + 100x Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>assistant</td>
+<td>Let x be the size of the installation in square feet. <br>1. Land cost: 100x <br>2. Solar panel cost: 250x <br>3. Maintenance cost: 100,000 + 10x <br>Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000 <br><br>The student&rsquo;s solution is incorrect. They made an error in the maintenance cost calculation, using 100x instead of 10x. The correct total cost for the first year of operations is 360x + 100,000.</td>
+</tr>
+</tbody>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-avoid-rushing-to-a-conclusion">Open in Playground</a>。</p>
+<h2 id="策略2隐藏模型推理过程">策略2：隐藏模型推理过程</h2>
+<p>在有些场景里我们其实并不希望暴露模型的推理过程。</p>
+<p>比如上面的数学问题求解，如果直接暴露了模型推理过程，等于直接让学生知道了具体解题步骤。这种情况下，我们其实是希望大模型可以给出一些提示，引导解题错误的学生去思考，根据提示自己找到正确答案。</p>
+<p>对于这种场景，就可以使用内心独白(inner monologue)或一系列的查询来隐藏模型的推理过程。</p>
+<p>内心独白的具体思路就是把希望隐藏的内容让大模型以特定的格式返回，这样开发人员可以方便解析到，把这部分内容不返回前端，学生就只能看到我们希望他看到的内容了。</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>Follow these steps to answer the user queries. <br><br>Step 1 - First work out your own solution to the problem. Don&rsquo;t rely on the student&rsquo;s solution since it may be incorrect. Enclose all your work for this step within triple quotes (&quot;&quot;&quot;). <br/><br/>Step 2 - Compare your solution to the student&rsquo;s solution and evaluate if the student&rsquo;s solution is correct or not. Enclose all your work for this step within triple quotes (&quot;&quot;&quot;). <br/><br/>Step 3 - If the student made a mistake, determine what hint you could give the student without giving away the answer. Enclose all your work for this step within triple quotes (&quot;&quot;&quot;). <br/><br/>Step 4 - If the student made a mistake, provide the hint from the previous step to the student (outside of triple quotes). Instead of writing &ldquo;Step 4 - &hellip;&rdquo; write &ldquo;Hint:&rdquo;.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>Problem Statement: &lt;insert problem statement&gt; <br><br>Student Solution: &lt;insert student solution&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-inner-monologue">Open in Playground</a>。</p>
+<p>上面的方式我们叫内心独白(inner monologue)，除了这种方式，我们还可以通过一系列查询来隐藏模型推理过程，只把最后我们想要的结果返回给前端。</p>
+<p>比如对于上面的数学问题，我们按照如下步骤做一系列查询：</p>
+<p>第一步：先让大模型对问题进行求解：</p>
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th>&lt;insert problem statement&gt;</th>
+</tr>
+</thead>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-query-sequence-1">Open in Playground</a>。</p>
+<p>第二步：让大模型根据学生的回答以及自己的回答来分析学生回答是否正确。</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>Compare your solution to the student&rsquo;s solution and evaluate if the student&rsquo;s solution is correct or not.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>Problem statement: &ldquo;&quot;&quot;&lt;insert problem statement&gt;&rdquo;&quot;&quot; <br><br>Your solution: &ldquo;&quot;&quot;&lt;insert model generated solution&gt;&rdquo;&quot;&quot; <br><br>Student’s solution: &ldquo;&quot;&quot;&lt;insert student&rsquo;s solution&gt;&rdquo;&quot;&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-query-sequence-2">Open in Playground</a>。</p>
+<p>第三步：根据前2步的回答来构造system消息，让大模型在学生回答出错的情况下给出提示。</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>You are a math tutor. If the student made an error, offer a hint to the student in a way that does not reveal the answer. If the student did not make an error, simply offer them an encouraging comment.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>Problem statement: &ldquo;&quot;&quot;&lt;insert problem statement&gt;&rdquo;&quot;&quot; <br><br>Your solution: &ldquo;&quot;&quot;&lt;insert model generated solution&gt;&rdquo;&quot;&quot; <br/><br/>Student’s solution: &ldquo;&quot;&quot;&lt;insert student&rsquo;s solution&gt;&rdquo;&quot;&quot; <br/><br/>Analysis: &ldquo;&quot;&quot;&lt;insert model generated analysis from previous step&gt;&rdquo;&quot;&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-query-sequence-3">Open in Playground</a>。</p>
+<h2 id="策略3询问模型在之前的回答中是否遗漏了内容">策略3：询问模型在之前的回答中是否遗漏了内容</h2>
+<p>假设这样一个场景：我们需要GPT模型给出指定文档中，和某个问题相关的摘录。</p>
+<p>在列出每一个摘录后，该模型需要确定是否应该开始写另一个摘录，还是回答结束应该停下来了。</p>
+<p>如果源文档很大，模型常常过早停止，不能列出所有相关的摘录。</p>
+<p>在这种情况下，我们可以向模型提问是否有缺失的摘录没有列出来，那GPT大模型会尝试找出遗漏的摘录内容，从而获得更好的回答效果。</p>
+<table>
+<thead>
+<tr>
+<th>system</th>
+<th>You will be provided with a document delimited by triple quotes. Your task is to select excerpts which pertain to the following question: &ldquo;What significant paradigm shifts have occurred in the history of artificial intelligence.&rdquo; <br><br>Ensure that excerpts contain all relevant context needed to interpret them - in other words don&rsquo;t extract small snippets that are missing important context. Provide output in JSON format as follows:<br><br> [{&ldquo;excerpt&rdquo;: &ldquo;&hellip;&quot;}, <br>&hellip; <br>{&ldquo;excerpt&rdquo;: &ldquo;&hellip;&quot;}]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>&ldquo;&quot;&quot;<insert document here>&rdquo;&rdquo;&rdquo;</td>
+</tr>
+<tr>
+<td>assistant</td>
+<td>[{&ldquo;excerpt&rdquo;: &ldquo;the model writes an excerpt here&rdquo;}, <br>&hellip; <br>{&ldquo;excerpt&rdquo;: &ldquo;the model writes another excerpt here&rdquo;}]</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Are there more relevant excerpts? Take care not to repeat excerpts. Also ensure that excerpts contain all relevant context needed to interpret them - in other words don&rsquo;t extract small snippets that are missing important context.</td>
+</tr>
+</tbody>
+</table>
+<p>可以通过这个链接地址进行体验：<a href="https://platform.openai.com/playground/p/default-2nd-pass">Open in Playground</a>。</p>
+<h2 id="总结">总结</h2>
+<p>本文是ChatGPT使用最佳实践系列第4篇 - 给GPT思考的时间。</p>
+<p>详细讲述了3个策略，以上策略不仅适用于GPT模型，还适用于其它大语言模型。</p>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/gpt-tutorial">GPT实战教程</a>，可以看到所有主流的开源LLM。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新GPT实战内容。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://platform.openai.com/docs/guides/gpt-best-practices">https://platform.openai.com/docs/guides/gpt-best-practices</a></li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/chatgpt/">chatgpt</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/chatgpt-11/">
+            <span class="next-text nav-default">ChatGPT最佳实践系列-第3篇</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
