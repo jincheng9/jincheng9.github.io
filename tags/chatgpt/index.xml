@@ -6,7 +6,25 @@
     <description>Recent content in chatgpt on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Sep 2023 18:09:09 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 21:34:54 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT最佳实践系列第6篇-系统化测试</title>
+      <link>http://jincheng9.github.io/post/chatgpt-14/</link>
+      <pubDate>Fri, 29 Sep 2023 21:34:54 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-14/</guid>
+      <description>背景 OpenAI官方详细介绍了ChatGPT使用的最佳实践，不仅适用于使用ChatGPT网站进行直接对话的用户，还适用于通过OpenAI AP</description>
+    </item>
+    
+    <item>
+      <title>ChatGPT最佳实践系列第5篇-使用外部工具</title>
+      <link>http://jincheng9.github.io/post/chatgpt-13/</link>
+      <pubDate>Fri, 29 Sep 2023 21:34:50 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-13/</guid>
+      <description>背景 OpenAI官方详细介绍了ChatGPT使用的最佳实践，不仅适用于使用ChatGPT网站进行直接对话的用户，还适用于通过OpenAI AP</description>
+    </item>
+    
     <item>
       <title>ChatGPT最佳实践系列第4篇-给GPT思考的时间</title>
       <link>http://jincheng9.github.io/post/chatgpt-12/</link>
