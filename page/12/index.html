@@ -126,6 +126,75 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-common-mistakes-02-benchmark-inline/">Go十大常见错误第2篇：benchmark性能测试的坑</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-06-18 </span>
+      <div class="post-category">
+          <a href="/categories/go/"> go </a>
+          </div>
+        <span class="more-meta"> 1663 words </span>
+        <span class="more-meta"> 4 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      前言 这是Go十大常见错误系列的第二篇：benchmark性能测试的坑。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsa
+    </div>
+    <div class="read-more">
+      <a href="/post/go-common-mistakes-02-benchmark-inline/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-common-mistakes-01-enum-value/">Go十大常见错误第1篇：未知枚举值</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-06-03 </span>
+      <div class="post-category">
+          <a href="/categories/go/"> go </a>
+          </div>
+        <span class="more-meta"> 755 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      前言 这是Go十大常见错误系列的第一篇：未知枚举值。素材来源于Go布道者，现Docker公司资深工程师Teiva Harsanyi。 本文涉及的源
+    </div>
+    <div class="read-more">
+      <a href="/post/go-common-mistakes-01-enum-value/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-survey-change/">Go开发者调研方式改变了</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-06-03 </span>
+      <div class="post-category">
+          <a href="/categories/go/"> go </a>
+          </div>
+        <span class="more-meta"> 683 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      前言 过去6年，Go官方团队会在每年的10-11月，面向Go开发者发起一份年度在线调研，在次年的3-4月公布调研结果。调研结果会影响到Go新特
+    </div>
+    <div class="read-more">
+      <a href="/post/go-survey-change/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-quiz-numeric-data-conversion/">Go Quiz: 从Go面试题看数值类型的自动推导</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-05-29 </span>
@@ -169,82 +238,6 @@
     </div>
     <div class="read-more">
       <a href="/post/git-github-ssh-refused/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-bug-function-call-evaluate-order/">Go 1.13版本引入的bug，你遇到过这个坑么？</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-05-14 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          <a href="/categories/bug/"> bug </a>
-          </div>
-        <span class="more-meta"> 996 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Bug 大家看看下面这段程序，思考下输出结果应该是什么？ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 func main() { n := 0 f := func() func(int, int) { n = 1 return func(int, int) {} } g := func() (int, int) { println(n) return 0, 0 }
-    </div>
-    <div class="read-more">
-      <a href="/post/go-bug-function-call-evaluate-order/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-quiz-variable-init/">Go Quiz: 从Go面试题看变量的零值和初始化赋值的注意事项</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-05-05 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          <a href="/categories/quiz/"> quiz </a>
-          <a href="/categories/zero-value/"> zero-value </a>
-          <a href="/categories/%E9%9B%B6%E5%80%BC/"> 零值 </a>
-          </div>
-        <span class="more-meta"> 1207 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      背景 Google工程师Valentin Deleplace出了1道关于变量初始化的题目，本来以为很简单，没想到回答正确率不到30%，拿出来和大
-    </div>
-    <div class="read-more">
-      <a href="/post/go-quiz-variable-init/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-sync-atomic/">Go并发编程之原子操作sync/atomic</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-05-04 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          <a href="/categories/sync/"> sync </a>
-          <a href="/categories/atomic/"> atomic </a>
-          <a href="/categories/value/"> value </a>
-          </div>
-        <span class="more-meta"> 3630 words </span>
-        <span class="more-meta"> 8 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      sync/atomic定义 官方文档地址：https://pkg.go.dev/sync/atomic@go1.18.1 Go语言标准库中的sy
-    </div>
-    <div class="read-more">
-      <a href="/post/go-sync-atomic/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -293,7 +286,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
   </span>
 </div>
 

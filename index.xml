@@ -6,7 +6,34 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Nov 2023 13:05:48 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jan 2024 11:33:20 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI升级GPT模型和API</title>
+      <link>http://jincheng9.github.io/post/chatgpt-19/</link>
+      <pubDate>Sun, 28 Jan 2024 11:33:20 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-19/</guid>
+      <description>背景 OpenAI在2024年1月25日发布了重要更新，主要更新内容如下： 更新了GPT-4 Turbo模型 更新了GPT-3.5 Turbo模型 更新</description>
+    </item>
+    
+    <item>
+      <title>一文读懂GPT Store</title>
+      <link>http://jincheng9.github.io/post/chatgpt-18/</link>
+      <pubDate>Sun, 28 Jan 2024 11:33:18 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-18/</guid>
+      <description>背景 2023年11月6日举行的OpenAI第一届开发者大会上，OpenAI官宣了GPTs，大家无需写代码就可以实现满足特定需求场景的自定义C</description>
+    </item>
+    
+    <item>
+      <title>OpenAI发布ChatGPT Team</title>
+      <link>http://jincheng9.github.io/post/chatgpt-17/</link>
+      <pubDate>Sun, 28 Jan 2024 11:33:16 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-17/</guid>
+      <description>背景 OpenAI在2023年已经发布了ChatGPT Enterprise来服务企业客户，非常多的大企业已经在使用了。 在2024年1月10日，</description>
+    </item>
+    
     <item>
       <title>OpenAI在寻找数据合作伙伴啦</title>
       <link>http://jincheng9.github.io/post/chatgpt-16/</link>
