@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sora on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/sora/</link>
+    <description>Recent content in sora on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Feb 2024 18:06:29 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/sora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI发布重磅新模型再次遥遥领先</title>
+      <link>http://jincheng9.github.io/post/chatgpt-20/</link>
+      <pubDate>Sat, 17 Feb 2024 18:06:29 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-20/</guid>
+      <description>背景 OpenAI在2024年2月16日发布了史上最强大的文生视频模型Sora。 这是继文生文模型(ChatGPT)、文生图模型(DALL·E 3</description>
+    </item>
+    
+  </channel>
+</rss>
