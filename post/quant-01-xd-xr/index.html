@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>一文读懂分红、除权除息和复权 - Jincheng9&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jincheng9" /><meta name="description" content="一文读懂分红、除权除息和复权" /><meta name="keywords" content="分红, 除息, 除权, 除权除息, 复权, 前复权, 后复权" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://jincheng9.github.io/post/quant-01-xd-xr/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="一文读懂分红、除权除息和复权" />
+<meta property="og:description" content="一文读懂分红、除权除息和复权" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jincheng9.github.io/post/quant-01-xd-xr/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-05-25T12:12:13+08:00" />
+<meta property="article:modified_time" content="2024-05-25T12:12:13+08:00" />
+
+<meta itemprop="name" content="一文读懂分红、除权除息和复权">
+<meta itemprop="description" content="一文读懂分红、除权除息和复权"><meta itemprop="datePublished" content="2024-05-25T12:12:13+08:00" />
+<meta itemprop="dateModified" content="2024-05-25T12:12:13+08:00" />
+<meta itemprop="wordCount" content="2626">
+<meta itemprop="keywords" content="quant," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一文读懂分红、除权除息和复权"/>
+<meta name="twitter:description" content="一文读懂分红、除权除息和复权"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">无忌</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">全部文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">无忌</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">全部文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">一文读懂分红、除权除息和复权</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-05-25 </span>
+        <div class="post-category">
+            <a href="/categories/quant/"> quant </a>
+            </div>
+          <span class="more-meta"> 2626 words </span>
+          <span class="more-meta"> 6 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#分红dividend">分红(dividend)</a></li>
+        <li><a href="#股权登记日和除权除息日">股权登记日和除权除息日</a></li>
+        <li><a href="#除权除息和股价变化">除权除息和股价变化</a></li>
+        <li><a href="#前一交易日的收盘价-vs-今日的昨收盘价">前一交易日的收盘价 vs 今日的昨收盘价</a></li>
+        <li><a href="#配股情况下">配股情况下</a></li>
+        <li><a href="#复权">复权</a>
+          <ul>
+            <li><a href="#后复权因子和后复权价格计算">后复权因子和后复权价格计算</a></li>
+            <li><a href="#前复权因子和前复权价格计算">前复权因子和前复权价格计算</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#reference">Reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="/img/wechat.png" alt=""></p>
+<h2 id="分红dividend">分红(dividend)</h2>
+<p>2种分红形式：</p>
+<ul>
+<li>现金分红(cash dividend)：拿公司的净利润来分现金到投资者，投资者拿到的现金分红也叫红利。</li>
+<li>送股分红(stock dividend)：对于持股的投资者，按比例送股份给投资者，投资者拿到的送股分红也叫红股。</li>
+</ul>
+<h2 id="股权登记日和除权除息日">股权登记日和除权除息日</h2>
+<p>股权登记日收盘后还持有该上市公司股票的投资者才能参与分红。</p>
+<p>除权除息日是股权登记日的下一个交易日，假设股权登记日是T日，那除权除息日是T+1日。</p>
+<p>股权登记日通常称为R日，R表示Register/Rights</p>
+<blockquote>
+<p>问：投资者何时能查到其所获得的红股或转增股到其证 券账户？其所获得的红股或转增股何时可上市交易？</p>
+</blockquote>
+<p>答:</p>
+<ul>
+<li>在上海市场，投资者一般可在R＋2日查询所获得的红股是否到账，红股上市日一般为R＋2日。</li>
+<li>在深圳市场， 投资者一般可在R＋1日查询所获得的红股是否到账，红股 上市日一般为R＋1日。http://www.chinaclear.cn/zdjs/pxzlxcpx/200901/a11ddc1bf8cd48468390b10e1cdad789.shtml</li>
+</ul>
+<p>详细说明可以参考文末的GitHub开源教程。</p>
+<h2 id="除权除息和股价变化">除权除息和股价变化</h2>
+<ul>
+<li>现金分红后，需要对股票价格进行除息(XD: Ex-Dividend)
+<ul>
+<li>如果只有现金分红，<code>除息后的价格 = 上一个交易日的收盘价 - 每股现金红利</code></li>
+<li>公式是：<code> Close(T-1) * Volume(T-1) - 每股现金红利 * Volume(T-1) = 除息后价格 * Volume(T-1)</code> ，从而推导出<code>除息后的价格 = 上一个交易日的收盘价 - 每股现金红利</code>。</li>
+<li>这个公式的依据是现金分红后，公司的市值应该相应减少</li>
+</ul>
+</li>
+<li>送股分红后，需要对股票价格进行除权(XR: Ex-Rights)
+<ul>
+<li>如果只有送股分红，<code>除权后的价格=上一个交易日的收盘价/(1+每股送股率)</code></li>
+<li>公式是：<code>Close(T-1)*Volume(T-1)=除权后价格*最新股份数量=除权后价格*Volume(T-1)*(1+每股送股率)</code>，从而推导出<code>除权后的价格=上一个交易日的收盘价/(1+每股送股率)</code></li>
+<li>这个公司的依据是送股分红后，公司的市值应该保持不变</li>
+</ul>
+</li>
+<li>同时有现金分红和送股分红，需要对股票价格进行除权除息(DR: EX-Dividend and Rights)
+<ul>
+<li>公式是：<code>Close(T-1)*Volume(T-1)-每股现金红利*Volume(T-1) = 除权除息后价格*Volume(T-1)*(1+每股送股率)</code></li>
+<li>所以<code>除权除息后价格=(Close(T-1) - 每股现金红利)/(1+每股送股率)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>注</strong>： Close(T-1)表示T-1日的收盘价，Volume(T-1)表示T-1日的总股本数量。</p>
+<p>这里说的T-1日实际上就是股权登记日</p>
+<p>每股现金红利：每10股派息4元，那每股现金红利为4/10=0.4元</p>
+<p>每股送股率：每10股送3股，那每股送股率为3/10=0.3</p>
+<h2 id="前一交易日的收盘价-vs-今日的昨收盘价">前一交易日的收盘价 vs 今日的昨收盘价</h2>
+<p>这2个的数值在除权除息日是不相等的。</p>
+<p>在除权除息日的<strong>开盘前</strong>，交易所会根据上面的公式算出来今天的除权除息价格作为除权除息日的开盘参考价，这个价格也是该股票在除权除息日当日的昨收盘价。</p>
+<p>所以：T-1日的收盘价close和T日的昨收盘价pre_close在除权除息日当天是不相等的。</p>
+<ul>
+<li>除权除息日即时行情中显示的该证券的昨收盘价为除权除息参考价，就是根据上面公式算出来的。</li>
+</ul>
+<h2 id="配股情况下">配股情况下</h2>
+<p><a href="https://xueqiu.com/edu/invest-edu/education/begin/1894299685/83688711">https://xueqiu.com/edu/invest-edu/education/begin/1894299685/83688711</a></p>
+<p><a href="https://www.investor.org.cn/learning_center/investors_classroom/investment_guide/securities/online/tzjjtzrqyxz_661/201606/t20160618_67490.shtml">https://www.investor.org.cn/learning_center/investors_classroom/investment_guide/securities/online/tzjjtzrqyxz_661/201606/t20160618_67490.shtml</a></p>
+<p>除权除息报价=（股权登记的收盘价-每股现金股利+配股价*配股率）/（1+送股率+配股率）</p>
+<p>公式依据：配股是增加了股票的总资产</p>
+<p><code>Close(T-1)*Volume(T-1)-每股现金红利*Volume(T-1) + 配股价格*配股股数 = Close(T-1)*Volume(T-1)-每股现金红利*Volume(T-1) + 配股价格*Volume(T-1)*配股率 = 除权除息后价格*最新股份数量 = 除权除息后价格*Volume(T-1)*(1+每股送股率+每股配股率)</code></p>
+<h2 id="复权">复权</h2>
+<ul>
+<li>
+<p><strong>前复权</strong>：当前股价不变，以当前股价为基准向前复权计算股价。 行情软件的行情展示默认是前复权，这样可以保证行情软件看到的最近价格和最近实际价格是一致的。</p>
+</li>
+<li>
+<p><strong>后复权</strong>：以上市首日股价作为基准向后复权计算股价。 做历史数据回测一般用后复权。</p>
+<blockquote>
+<p>前复权由于以下2个缺点，使得其不适合用来回测：（1）历史数值是时变的。每次发生派息等除权事件时，历史数值都会根据当前的股价而调整。换句话说，每次发生除权事件后，历史数值都是不一样的。（2）股价可能为负。对于持续分红的公司，其前复权价格可能为负。(3)另外就是前复权是以最新股价为基准修正以前的股价，这样就导致历史数据带有了未来信息</p>
+</blockquote>
+</li>
+<li>
+<p><strong>复权因子</strong>：复权因子就是权息修复比例。</p>
+</li>
+</ul>
+<h3 id="后复权因子和后复权价格计算">后复权因子和后复权价格计算</h3>
+<ul>
+<li>每日 <strong>后复权因子</strong> = 前一交易日收盘价/当日昨收盘价*前一交易日的<strong>后复权因子</strong>，股票上市首日的<strong>后复权因子</strong>初始值为1。
+<ul>
+<li>比如某只股票2024.05.17是除权除息日，2024.05.16是股权登记日，那2024.05.17这个交易日的<strong>后复权因子</strong> = 2024.05.16交易日的收盘价/2024.05.17交易日的昨收盘价* 2024.05.16交易日的**后复权因子**</li>
+</ul>
+</li>
+<li>当日<strong>后复权价格</strong>=当日原始价格*当日<strong>后复权因子</strong>。比如当日<strong>后复权收盘价</strong> = 当日原始收盘价 * 当日<strong>后复权因子</strong>，当日<strong>后复权前收盘价</strong> = 当日原始前收盘价 * 当日<strong>后复权因子</strong></li>
+</ul>
+<h3 id="前复权因子和前复权价格计算">前复权因子和前复权价格计算</h3>
+<ul>
+<li>每日<strong>前复权因子</strong>=下一个交易日的昨收盘价/当日收盘价*下一交易日的<strong>前复权因子</strong>，最新的除权除息日以及之后的交易日的<strong>前复权因子</strong>为1，股权登记日的<strong>前复权因子</strong>&lt;1
+<ul>
+<li>比如某只股票2024.05.17是除权除息日，2024.05.16是股权登记日，那2024.05.17这个交易日的<strong>前复权因子</strong>=1，2024.05.16交易日的<strong>前复权因子</strong> = 2024.05.17交易日的昨收盘价/2024.05.16交易日的收盘价* 2024.05.17交易日的**前复权因子**=2024.05.17交易日的昨收盘价/2024.05.16交易日的收盘价=2024.05.17交易日的昨收盘价/2024.05.16交易日的收盘价*1==2024.05.17交易日的昨收盘价/2024.05.16交易日的收盘价</li>
+</ul>
+</li>
+<li>当日<strong>前复权价格</strong>=当日原始价格*当日<strong>前复权因子</strong>。比如当日<strong>前复权收盘价</strong> = 当日原始收盘价 * 当日<strong>前复权因子</strong>，当日<strong>前复权前收盘价</strong> = 当日原始前收盘价 * 当日<strong>前复权因子</strong></li>
+</ul>
+<p>以上所说的原始价格是指未复权价格。</p>
+<h2 id="总结">总结</h2>
+<p>文章和示例代码开源在GitHub: <a href="https://github.com/jincheng9/finance_tutorial">量化投资业务知识</a>，可以学习最实用的量化投资知识。</p>
+<p>公众号：coding进阶。关注公众号可以获取最新量化投资相关知识。</p>
+<p>个人网站：<a href="https://jincheng9.github.io/">Jincheng&rsquo;s Blog</a>。</p>
+<p>知乎：<a href="https://www.zhihu.com/people/thucuhkwuji">无忌</a>。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://www.morganstanleyhuaxin.com/investor/education-dividendpolicy.html">https://www.morganstanleyhuaxin.com/investor/education-dividendpolicy.html</a></li>
+<li><a href="https://www.investor.org.cn/learning_center/investors_classroom/investment_guide/securities/online/tzjjtzrqyxz_661/201606/t20160618_67490.shtml">https://www.investor.org.cn/learning_center/investors_classroom/investment_guide/securities/online/tzjjtzrqyxz_661/201606/t20160618_67490.shtml</a></li>
+<li><a href="https://xueqiu.com/edu/invest-edu/education/begin/1894299685/83688711">https://xueqiu.com/edu/invest-edu/education/begin/1894299685/83688711</a></li>
+<li><a href="http://sd.citics.com/tzzjy/tzzbh/tzzjy/202105/P020210520492580006308.pdf">http://sd.citics.com/tzzjy/tzzbh/tzzjy/202105/P020210520492580006308.pdf</a></li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/quant/">quant</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/chatgpt-20/">
+            <span class="next-text nav-default">OpenAI发布重磅新模型再次遥遥领先</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="jincheng9/jincheng9.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/jincheng9/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/thucuhkwuji" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://jincheng9.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Jincheng9</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

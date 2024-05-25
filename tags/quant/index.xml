@@ -6,7 +6,16 @@
     <description>Recent content in quant on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Nov 2022 14:12:29 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/quant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 May 2024 12:12:13 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/quant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一文读懂分红、除权除息和复权</title>
+      <link>http://jincheng9.github.io/post/quant-01-xd-xr/</link>
+      <pubDate>Sat, 25 May 2024 12:12:13 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/quant-01-xd-xr/</guid>
+      <description>分红(dividend) 2种分红形式： 现金分红(cash dividend)：拿公司的净利润来分现金到投资者，投资者拿到的现金分红也叫红利。 送</description>
+    </item>
+    
     <item>
       <title>百亿华尔街投资总监推荐的量化投资经典书籍</title>
       <link>http://jincheng9.github.io/post/quant-00-books/</link>
