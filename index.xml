@@ -6,7 +6,16 @@
     <description>Recent content on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 May 2024 12:12:13 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Sep 2024 18:15:21 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI发布重磅新模型o1</title>
+      <link>http://jincheng9.github.io/post/chatgpt-21/</link>
+      <pubDate>Sat, 14 Sep 2024 18:15:21 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-21/</guid>
+      <description>背景 OpenAI在2024.09.12发布了全新系列的大模型o1。 o1通过强化学习来进行训练，最大亮点是可以处理复杂的逻辑推理任务，在科学、</description>
+    </item>
+    
     <item>
       <title>一文读懂分红、除权除息和复权</title>
       <link>http://jincheng9.github.io/post/quant-01-xd-xr/</link>

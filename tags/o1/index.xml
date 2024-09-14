@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>o1 on Jincheng9&#39;s blog</title>
+    <link>http://jincheng9.github.io/tags/o1/</link>
+    <description>Recent content in o1 on Jincheng9&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Sep 2024 18:15:21 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/tags/o1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI发布重磅新模型o1</title>
+      <link>http://jincheng9.github.io/post/chatgpt-21/</link>
+      <pubDate>Sat, 14 Sep 2024 18:15:21 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/chatgpt-21/</guid>
+      <description>背景 OpenAI在2024.09.12发布了全新系列的大模型o1。 o1通过强化学习来进行训练，最大亮点是可以处理复杂的逻辑推理任务，在科学、</description>
+    </item>
+    
+  </channel>
+</rss>
