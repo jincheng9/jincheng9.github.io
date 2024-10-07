@@ -6,7 +6,16 @@
     <description>Recent content in quant on Jincheng9&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 May 2024 12:12:13 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Oct 2024 10:24:07 +0800</lastBuildDate><atom:link href="http://jincheng9.github.io/categories/quant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>聊聊上交所20240927交易事故里的技术细节</title>
+      <link>http://jincheng9.github.io/post/quant-02-20240927-sse-trade-disaster/</link>
+      <pubDate>Thu, 03 Oct 2024 10:24:07 +0800</pubDate>
+      
+      <guid>http://jincheng9.github.io/post/quant-02-20240927-sse-trade-disaster/</guid>
+      <description>前言 国庆假期前的周五(2024年9月27日)上交所出现了史无前例的交易大故障。 事故从早上09:40左右开始，一直持续到下午收盘还未彻底修复。</description>
+    </item>
+    
     <item>
       <title>一文读懂分红、除权除息和复权</title>
       <link>http://jincheng9.github.io/post/quant-01-xd-xr/</link>
